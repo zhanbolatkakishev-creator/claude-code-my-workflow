@@ -14,6 +14,7 @@ run <- function(f, env = character()) {
 ## classification + I-O (once)
 run("03_classify_hs_chpl.R")
 run("08a_get_io.R")
+run("08b_kz_bns_io.R")   # sec 5.2 robustness: KZ BNS 68-product I-O vs OECD ICIO
 
 ## ---- ANNUAL branch (headline magnitudes, DiD, $ totals) ----
 run("02b_assemble_json.R", "KZ_FREQ=A")

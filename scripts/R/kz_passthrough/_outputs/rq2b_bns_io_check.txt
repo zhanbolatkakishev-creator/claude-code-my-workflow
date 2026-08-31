@@ -1,0 +1,50 @@
+===== RQ2(b) ROBUSTNESS: KZ BNS 68-product I-O vs OECD ICIO =====
+
+BNS I-O: 57 industries matched; total output = 163745 bn tenge
+
+Domestic value-added multiplier (v_d' L_d), output-weighted within group:
+  trade + transport + warehousing : BNS = 0.885   (OECD ICIO used in paper: 0.79)
+  manufacturing                   : BNS = 0.742   (OECD ICIO used in paper: 0.76)
+
+  [unweighted means: trade+transport 0.835, manufacturing 0.706]
+
+Implication for the headline (m = 6-14%, midpoint 10%):
+  VA per rerouted $ = m * v_TT : ICIO 0.079  |  BNS 0.089
+  ratio to a produced $ (/v_M) : ICIO 0.10   |  BNS 0.119
+
+per-sector multipliers used:
+     code           group  mult
+   <char>          <char> <num>
+1:     45 trade+transport 0.816
+2:     46 trade+transport 0.916
+3:     47 trade+transport 0.906
+4:     49 trade+transport 0.819
+5:     50 trade+transport 0.778
+6:     51 trade+transport 0.752
+7:     52 trade+transport 0.855
+8:     53 trade+transport 0.837
+      code         group  mult
+    <char>        <char> <num>
+ 1:  10-11 manufacturing 0.824
+ 2:     12 manufacturing 0.823
+ 3:     13 manufacturing 0.888
+ 4:     14 manufacturing 0.616
+ 5:     15 manufacturing 0.723
+ 6:     16 manufacturing 0.772
+ 7:     17 manufacturing 0.700
+ 8:     18 manufacturing 0.694
+ 9:     20 manufacturing 0.821
+10:     21 manufacturing 0.814
+11:     22 manufacturing 0.611
+12:     23 manufacturing 0.757
+13:     25 manufacturing 0.641
+14:     26 manufacturing 0.667
+15:     27 manufacturing 0.622
+16:     28 manufacturing 0.634
+17:     29 manufacturing 0.603
+18:     30 manufacturing 0.653
+19:     31 manufacturing 0.623
+20:     32 manufacturing 0.650
+21:     33 manufacturing 0.700
+      code         group  mult
+    <char>        <char> <num>

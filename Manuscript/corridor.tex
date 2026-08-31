@@ -328,7 +328,9 @@ benchmark the difference-in-differences against a selection-rule-matched permuta
 block, 45 ISIC rev.~4 industries, 2019. We form the domestic technical-coefficient matrix
 $A_d$ from the Kazakhstan-on-Kazakhstan intermediate block, the domestic Leontief inverse
 $L_d = (I-A_d)^{-1}$, and the direct domestic value-added coefficients $v_d$; the domestic
-value-added multiplier for sector $j$ is $(v_d' L_d)_j$.
+value-added multiplier for sector $j$ is $(v_d' L_d)_j$. As a robustness check we repeat the
+calculation on the Kazakhstan Bureau of National Statistics symmetric input--output table (up
+to 68 products, 2023 reference year).
 
 \paragraph{Deal data.} Deal-level records of mergers, acquisitions, private-equity buyouts and
 growth transactions, and venture rounds involving Kazakhstan-domiciled targets, 2015--2025.
@@ -561,16 +563,18 @@ Domestic value added per dollar rerouted is then $m\,\bar v^{TT} \approx$ \textb
 midpoint about \textbf{8\%}, against \textbf{76\%} per dollar of domestic manufacturing
 output---so a rerouted dollar creates on the order of a tenth as much domestic value as a
 produced one. Of the \$479m in incremental exports to Russia after 2022, Kazakhstan retains
-roughly \textbf{\$23--53m} as domestic value added. The conclusion is not sensitive to the
-manufacturing multiplier: even at $\bar v^{M} = 0.40$ the ratio is about one to five. Nor does
+roughly \textbf{\$23--53m} as domestic value added.
+
+The conclusion is not sensitive to the multipliers. Even at $\bar v^{M} = 0.40$ the ratio is
+about one to five. Recomputing $\bar v^{TT}$ and $\bar v^{M}$ from the Kazakhstan Bureau of
+National Statistics symmetric input--output table (68 products, 2023) rather than the OECD
+ICIO gives $\bar v^{TT} = 0.89$ and $\bar v^{M} = 0.74$; the rerouted-vs-produced ratio moves
+from about one-in-ten to about one-in-eight---still an order of magnitude. Nor does
 under-invoicing rescue it: for domestic value added to reach one-fifth of the gross flow the
 retained margin would have to be about 25\%, nearly double the national-accounts convention,
 which would require exports to Russia to be under-recorded by roughly 40\%---an order of
 magnitude larger than the mirror-gap discrepancies typical in this literature
-\citep{fisman2004missing}. A single input--output vintage (2019) and the ICIO's relatively
-high Kazakhstan domestic-content shares mean $\bar v^{TT}$ and $\bar v^{M}$ are likely upper
-bounds; an ADB MRIO / Kazakhstan national-accounts cross-check is a robustness step for the
-revision.
+\citep{fisman2004missing}.
 
 \subsection{Fiscal and macro}
 
@@ -934,10 +938,9 @@ cross-sectional difference-in-differences should be read alongside the structura
 the neighbour comparison rather than on its own, and a placebo on the largest civilian lines
 is significant with the opposite sign, indicating the control pool is not homogeneous in
 trend. The retained margin is taken from the national-accounts convention (6--14\%), not
-estimated line by line, and the value-added multipliers come from a single input--output
-vintage (2019) whose Kazakhstan domestic-content shares are relatively high. The FactSet and
-Dealroom deal extracts, and an ADB MRIO / national-accounts cross-check of the multipliers,
-are pending for the revision.
+estimated line by line, and the value-added multipliers come from the OECD ICIO (2019),
+cross-checked against the Kazakhstan national input--output table (2023) with the same
+qualitative result. The FactSet and Dealroom deal extracts are pending for the revision.
 
 \appendix
 \section{Deal-database query specification}\label{app:deals}

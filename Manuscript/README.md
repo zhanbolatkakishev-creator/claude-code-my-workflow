@@ -77,7 +77,9 @@ Figures/tables referenced by `corridor.tex` are written to
   package pins the release date and the extracted fields. §3 wording already points to the
   published register; the §7 "captive capital abstained" identification claim depends on it.
 - `/audit-reproducibility` on every headline number.
-- KZ national I-O table (68 products) as a robustness check on the ICIO multipliers.
+- ~~KZ national I-O table (68 products) as a robustness check on the ICIO multipliers.~~
+  Done: `scripts/R/kz_passthrough/08b_kz_bns_io.R` (BNS 2023, `_data/kz_bns_io/io_2023_ru.xlsx`)
+  → v_TT 0.89 / v_M 0.74 vs ICIO 0.79 / 0.76; qualitative result unchanged.
 - Widen the conflict-of-interest footnote if the paper leans further into policy prescription.
 - `/capture-environment` (renv) + assemble the replication package.
 
