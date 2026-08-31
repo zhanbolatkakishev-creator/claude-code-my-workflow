@@ -1,6 +1,6 @@
 ===== C3: how precise is the "no investment response" null? =====
 
-pre  2016-2021 : n years = 7, counts = 0,6,15,10,8,6,6, mean = 7.29/yr, sd = 4.57
+pre  2015-2021 : n years = 7, counts = 0,6,15,10,8,6,6 (2015 = observed zero), mean = 7.29/yr, sd = 4.57
 post 2022-2025 : n years = 4, counts = 3,12,9,6, mean = 7.50/yr, sd = 3.87
 post 2023-2025 : n years = 3, counts = 12,9,6, mean = 9.00/yr (drops shock year 2022)
 
