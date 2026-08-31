@@ -1,0 +1,9 @@
+===== RQ1 monthly profile — frozen surge basket ( 29 HS6) =====
+months: 2019-01-01 2025-12-01  (2024 dropped: KZ stopped monthly reporting)
+inbound = mirWC (West EU-27/UK/US/JP/KR/CH/NO + China mirrored exports to KZ)
+
+  mirWC  : supF = 24.1  p = 3.24e-05   Bai-Perron breaks = 2022-05 [2022-04,2022-06]; 2023-12 [2023-11,2025-01]
+  mirW   : supF = 240.8  p = 0   Bai-Perron breaks = 2022-05 [2022-04,2022-06]
+  expRU  : supF = 561.1  p = 0   Bai-Perron breaks = 2022-05 [2022-04,2022-06]
+
+aggregate monthly level: West+China->KZ x2.54 (38.2 -> 96.8 $m/mo);  KZ->Russia x16.27 (0.8 -> 12.3)

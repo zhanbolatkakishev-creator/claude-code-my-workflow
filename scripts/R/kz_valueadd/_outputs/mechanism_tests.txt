@@ -1,0 +1,64 @@
+================================================================
+ Mechanism horse race: real options (irreversibility) vs institutional voids
+================================================================
+
+===== TEST D — did captive state capital (QIC) respond to the reorientation? =====
+
+QIC projects financed 2022-2025, by relation to the reorientation:
+                                     relation     n kkm_usd_m proj_cost_kzt_bn
+                                       <char> <int>     <num>            <num>
+1: unrelated (agri, steel, chem, energy, ...)    34       453              411
+2:          vehicles/machinery (domestic mkt)    13      1170             3599
+3:              corridor logistics/processing     2       117               82
+4:                        surge-basket sector     1         4                2
+
+Private PE/M&A deals 2022-2025, by relation to the reorientation:
+                            relation     n val_musd
+                              <char> <int>    <num>
+1:                         unrelated   192    10373
+2: vehicles/machinery (domestic mkt)     6      138
+3:     corridor logistics/processing     2      767
+4:               surge-basket sector     1       10
+
+INTERPRETATION: if BOTH state and private ~ 0 in 'surge-basket sector' and 
+'corridor logistics/processing built FOR the flow', the binding constraint is not 
+financing (state capital is unconstrained) -> real options / irreversibility.
+
+
+===== TEST F — same country/institutions/period: durable vs transitory demand shock =====
+
+AUTOMOTIVE (durable domestic+EAEU consumer-demand shock post-2022):
+      yr          company           deal_type  val_m
+   <int>           <char>              <char>  <num>
+1:  2017       AllurGroup  Merger/Acquisition     NA
+2:  2019       AllurGroup  Merger/Acquisition     NA
+3:  2019   KMG-Retail LLP  Merger/Acquisition 159.46
+4:  2021 UVU (Automotive)               Grant   0.02
+5:  2021 UVU (Automotive)          Seed Round   0.35
+6:  2021          CTOgram                Seed   0.70
+7:  2022          Leopart PE Growth/Expansion   0.80
+8:  2023 UVU (Automotive)      Early Stage VC   0.45
+9:  2023          CTOgram            Series A   1.50
+
+  auto deals 2015-21: 6   |   2022-25: 3
+
+ELECTRONICS / PRECISION (the transitory re-export shock):
+      yr                           company          deal_type val_m
+   <int>                            <char>             <char> <num>
+1:  2020 China Brilliant Financial Limited Merger/Acquisition    NA
+2:  2023             Tokyo Rope Almaty LLP Merger/Acquisition 10.47
+                           industry_raw
+                                 <char>
+1:    Electronic Manufacturing Services
+2: Electronic Equipment and Instruments
+
+  electronics/precision deals 2015-21: 1   |   2022-25: 1
+
+Public record (triangulation): post-2022 KZ launched/announced Chinese-brand SKD plants 
+(Changan/Haval/Chery ~90k units), a KIA plant ($200m), Skoda assembly, a car-multimedia 
+plant (Almaty, 2024) — i.e. real capacity for the DURABLE auto shock, under the SAME weak 
+financial market. The TRANSITORY component shock got zero plants.
+
+INTERPRETATION: durable shock -> investment, transitory shock -> none, holding institutions 
+fixed => persistence/irreversibility is the binding moderator (real options), with 
+institutional voids as a LEVEL effect (baseline manufacturing investment is chronically thin).

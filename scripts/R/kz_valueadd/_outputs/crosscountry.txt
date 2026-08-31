@@ -1,0 +1,59 @@
+=====================================================================
+ Cross-country: investment response vs shock persistence vs financial depth
+=====================================================================
+
+Per country (pre = 2017-21 mean, post = 2022-25 mean):
+     iso3c        group findev fdi_pre fdi_post d_fdi gfcf_pre d_gfcf
+    <char>       <char>  <num>   <num>    <num> <num>    <num>  <num>
+ 1:    VNM      durable    164     4.7      4.3  -0.5     30.5   -0.8
+ 2:    MAR      durable    136     1.8      1.3  -0.5     27.1   -0.9
+ 3:    TUR      durable     93     1.3      1.1  -0.2     28.7    2.7
+ 4:    IDN      durable     86     1.9      1.7  -0.3     31.9   -2.8
+ 5:    POL      durable     80     3.5      3.6   0.1     18.1   -1.0
+ 6:    MEX      durable     70     2.7      2.3  -0.4     21.9    1.1
+ 7:    SRB      durable     41     7.0      5.8  -1.2     20.9    2.6
+ 8:    GEO intermediary     66     7.5      6.2  -1.2     23.4   -3.0
+ 9:    ARM intermediary     61     1.6      2.5   0.9     17.8    3.3
+10:    KAZ intermediary     51     2.3      1.2  -1.1     22.8    1.0
+11:    UZB intermediary     31     2.4      2.6   0.2     29.9    2.2
+12:    KGZ intermediary     24     0.5      1.0   0.5     28.6   -5.5
+    mva_grw_pre mva_grw_post
+          <num>        <num>
+ 1:         8.7          8.0
+ 2:         2.3          3.3
+ 3:         6.2          2.1
+ 4:         2.6          4.8
+ 5:         1.5          5.4
+ 6:         0.9          1.6
+ 7:         1.1          2.2
+ 8:         4.1          6.1
+ 9:         6.2          4.1
+10:         5.0          5.2
+11:       106.3          6.8
+12:         3.9          9.9
+
+--- 2x2: mean change in investment rate (d_gfcf, pp of GDP) ---
+Key: <group>
+          group FALSE  TRUE
+         <char> <num> <num>
+1:      durable   2.6  -0.3
+2: intermediary  -0.4   NaN
+
+--- 2x2: mean change in manufacturing VA growth (d_mva, pp) ---
+Key: <group>
+          group FALSE  TRUE
+         <char> <num> <num>
+1:      durable   1.1   0.5
+2: intermediary -18.7   NaN
+
+--- 2x2: mean change in FDI/GDP (d_fdi, pp) ---
+Key: <group>
+          group FALSE  TRUE
+         <char> <num> <num>
+1:      durable  -1.2  -0.3
+2: intermediary  -0.2   NaN
+
+READ: if the weak response is confined to the 'intermediary' ROW regardless of the 
+findev column -> shock persistence (real options) is the discriminator. If it is 
+confined to the low-findev COLUMN regardless of row -> financial development 
+(institutional voids) is the discriminator.

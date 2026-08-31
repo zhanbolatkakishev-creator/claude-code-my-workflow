@@ -1,0 +1,29 @@
+===== RQ2(d): macro context (descriptive) =====
+
+    year GDP_bn growth_pct reserves_bn CAB_bn services_VA_bn
+   <num>  <num>      <num>       <num>  <num>          <num>
+1:  2019    182        4.5          29   -7.0            101
+2:  2020    171       -2.5          36  -11.1             96
+3:  2021    197        4.3          34   -2.7            106
+4:  2022    225        3.2          35    6.4            119
+5:  2023    262        5.1          36   -8.3            148
+6:  2024    291        5.0          46   -6.8            169
+7:  2025    306        6.5          66  -12.5            177
+   reorient_flow_pct_GDP
+                   <num>
+1:                  0.33
+2:                  0.35
+3:                  0.30
+4:                  0.27
+5:                  0.23
+6:                  0.21
+7:                  0.20
+
+Notes:
+ - 2022 current-account SURPLUS (+$6.4bn) vs deficits before/after — high oil prices +
+   strong exports; not the rerouting (which is ~0.2% of GDP).
+ - Reserves +$31bn over 2023-25; services VA +$63bn over 2022-24 — broad, not attributable
+   to a $0.6bn/yr goods-rerouting channel.
+ - REER: pull from BIS (`https://www.bis.org/statistics/eer.htm`) — WDI series discontinued.
+ - CONCLUSION: the reorientation is macro-immaterial; it registers in the trade statistics,
+   not the national accounts. Consistent with 'corridor, not factory'.

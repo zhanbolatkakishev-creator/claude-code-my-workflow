@@ -1,0 +1,104 @@
+=========================================================
+ Sector-priority matrix — PE deployment for DOMESTIC value capture
+ score = 0.40*VA-multiplier + 0.30*import-substitution-gap + 0.15*import-growth + 0.15*dealflow
+ (ranks within KZ; AVOID = surge basket / low-VA kit assembly)
+=========================================================
+
+    sector                                 name                     category
+    <char>                               <char>                       <char>
+ 1:    C27                 Electrical equipment       SUBSTITUTION candidate
+ 2:    C28         Machinery & equipment n.e.c.       SUBSTITUTION candidate
+ 3: C10T12             Food, beverages, tobacco       SUBSTITUTION candidate
+ 4:    C25            Fabricated metal products       SUBSTITUTION candidate
+ 5:    C20                            Chemicals       SUBSTITUTION candidate
+ 6:    C16                        Wood products       SUBSTITUTION candidate
+ 7:    C19             Coke & refined petroleum       SUBSTITUTION candidate
+ 8:    C24                         Basic metals       SUBSTITUTION candidate
+ 9:    C30            Other transport equipment       SUBSTITUTION candidate
+10: C13T15 Textiles, apparel, leather, footwear       SUBSTITUTION candidate
+11:    C23        Non-metallic mineral products       SUBSTITUTION candidate
+12:    C22                    Rubber & plastics       SUBSTITUTION candidate
+13: C17_18                     Paper & printing       SUBSTITUTION candidate
+14: B07_08                     Metal-ore mining                      context
+15: C31T33        Furniture, other mfg & repair       SUBSTITUTION candidate
+16: A01_02                          Agriculture                      context
+17:    A03                              Fishing                      context
+18: B05_06              Coal & crude extraction                      context
+19:    B09                       Mining support                      context
+20:    C21                      Pharmaceuticals                      context
+21:    C26       Computer, electronic & optical         AVOID (surge basket)
+22:    C29               Motor vehicles & parts AVOID (kit assembly, low VA)
+23:      D                    Electricity & gas                      context
+24:      E                        Water & waste                      context
+25:      F                         Construction                      context
+26:      G             Wholesale & retail trade   PLATFORM (logistics/trade)
+27:    H49                       Land transport   PLATFORM (logistics/trade)
+28:    H50                      Water transport                      context
+29:    H51                        Air transport   PLATFORM (logistics/trade)
+30:    H52      Warehousing & transport support   PLATFORM (logistics/trade)
+31:    H53                     Postal & courier   PLATFORM (logistics/trade)
+32:      I                 Accommodation & food                      context
+33: J58T60            Publishing & broadcasting                      context
+34:    J61                             Telecoms                      context
+35: J62_63                          IT services                      context
+36:      K                  Finance & insurance                      context
+37:      L                          Real estate                      context
+38:      M Professional, scientific & technical                      context
+39:      N             Administrative & support                      context
+40:      O                         Public admin                      context
+41:      P                            Education                      context
+42:      Q                 Health & social work                      context
+43:      R                    Arts & recreation                      context
+44:      S                       Other services                      context
+45:      T              Households as employers                      context
+    sector                                 name                     category
+    <char>                               <char>                       <char>
+    va_mult base_musd imp23 imp_intens imp_grw deals dl_post priority
+      <num>     <num> <num>      <num>   <num> <int>   <int>    <num>
+ 1:   0.813      1148  6435       5.60    1.43     5       0    0.823
+ 2:   0.796      1162  9169       7.89    1.27     7       3    0.717
+ 3:   0.810     18958  6355       0.34    1.48    26       4    0.645
+ 4:   0.807      1845  3282       1.78    1.22     7       2    0.604
+ 5:   0.789      3484  5897       1.69    1.52     4       1    0.559
+ 6:   0.789       167   598       3.58    1.40     0       0    0.541
+ 7:   0.840     10145  1817       0.18    1.24     0       0    0.497
+ 8:   0.800     42832  2761       0.06    1.28    20      12    0.478
+ 9:   0.733       732  2031       2.78    1.65     2       2    0.476
+10:   0.743       963 11176      11.61    1.33     0       0    0.460
+11:   0.773      4657   999       0.21    1.15     4       2    0.336
+12:   0.689      1581  3117       1.97    1.39     0       0    0.312
+13:   0.754       911   696       0.76    1.22     0       0    0.309
+14:   0.764     15745  1331       0.08    1.20     0       0    0.214
+15:   0.736      3946  2643       0.67    1.07     0       0    0.189
+16:   0.808     32326    NA         NA      NA     0       0       NA
+17:   0.795       938    NA         NA      NA     0       0       NA
+18:   0.829     57237    NA         NA      NA     0       0       NA
+19:   0.750      3122    NA         NA      NA     0       0       NA
+20:   0.738      1495    NA         NA      NA     0       0       NA
+21:   0.694       234   591       2.53    1.85     0       0       NA
+22:   0.688      1530  9252       6.05    2.55     9       3       NA
+23:   0.790      9468    NA         NA      NA     0       0       NA
+24:   0.828      1397    NA         NA      NA     0       0       NA
+25:   0.792     53538    NA         NA      NA     0       0       NA
+26:   0.822     81176    NA         NA      NA    10       3       NA
+27:   0.790     36792    NA         NA      NA     3       1       NA
+28:   0.747       311    NA         NA      NA     3       1       NA
+29:   0.795      2777    NA         NA      NA     3       1       NA
+30:   0.824      6766    NA         NA      NA     3       1       NA
+31:   0.746       478    NA         NA      NA     3       1       NA
+32:   0.802      6796    NA         NA      NA     0       0       NA
+33:   0.761      2307    NA         NA      NA     0       0       NA
+34:   0.787      6199    NA         NA      NA     0       0       NA
+35:   0.794      2190    NA         NA      NA     0       0       NA
+36:   0.866     16466    NA         NA      NA     0       0       NA
+37:   0.852     32021    NA         NA      NA     0       0       NA
+38:   0.786     25946    NA         NA      NA     0       0       NA
+39:   0.795     12700    NA         NA      NA     0       0       NA
+40:   0.769     14120    NA         NA      NA     0       0       NA
+41:   0.803     16619    NA         NA      NA     0       0       NA
+42:   0.717     29517    NA         NA      NA     0       0       NA
+43:   0.751      6007    NA         NA      NA     0       0       NA
+44:   0.852     14666    NA         NA      NA     0       0       NA
+45:   1.000       123    NA         NA      NA     0       0       NA
+    va_mult base_musd imp23 imp_intens imp_grw deals dl_post priority
+      <num>     <num> <num>      <num>   <num> <int>   <int>    <num>

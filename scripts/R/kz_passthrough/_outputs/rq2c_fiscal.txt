@@ -1,0 +1,34 @@
+===== RQ2(c): fiscal take from the reorientation =====
+
+pre-2022 baseline KZ->Russia (surge basket)     : $11 m/yr
+incremental KZ->Russia (surge basket), reorientation-attributable:
+    year incremental_musd
+   <int>            <num>
+1:  2022              117
+2:  2023              134
+3:  2024              107
+4:  2025              122
+cumulative 2022-25 incremental                  : $479 m
+
+Key: <CET, cleared_share>
+     CET cleared_share customs_duty_musd
+   <num>         <num>             <num>
+1:  0.04          0.50               9.6
+2:  0.04          0.75              14.4
+3:  0.04          1.00              19.2
+4:  0.06          0.50              14.4
+5:  0.06          0.75              21.6
+6:  0.06          1.00              28.8
+7:  0.08          0.50              19.2
+8:  0.08          0.75              28.8
+9:  0.08          1.00              38.3
+
+HEADLINE (mid): customs duty on the rerouted flow ~ $22 m over 2022-25 (~$5 m/yr); net
+import VAT ~ 0 (goods leave to Russia intra-EAEU, onward supply zero-rated). Kazakhstan's
+annual customs revenue is ~ $4-5 bn -> the reorientation adds well under 1%. The fiscal
+channel is negligible; whatever Kazakhstan gains from the reorientation is the trade margin
+(RQ2a-b), not tax.
+
+Caveat: if a larger share transits under bonded procedure, duty is lower still. Import
+ VAT on the domestically-absorbed (non-rerouted) inflow is ordinary revenue, not a
+ reorientation gain, and is excluded here.

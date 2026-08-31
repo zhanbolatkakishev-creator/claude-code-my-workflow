@@ -1,0 +1,119 @@
+===== RQ1: trade reorientation through Kazakhstan (freq = A ) =====
+ panel: 600 rows | 75 HS6 | 2018-01-01 2025-01-01 
+ inbound measure: mirWC_usd = West (EU-27/UK/US/JP/KR/CH/NO) + China mirrored exports to KZ
+
+######## surge (data-driven surge basket, West+China rule) ########
+
+---- expRU_usd (asinh) : DiD  TR:post ----
+        Estimate Std. Error  t value   Pr(>|t|)
+TR:post   2.4408  0.9594184 2.544041 0.01304412
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+---- mirWC_usd (asinh) : DiD  TR:post ----
+        Estimate Std. Error  t value   Pr(>|t|)
+TR:post 2.098619   1.057615 1.984294 0.05093147
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+---- mirW_usd (asinh) : DiD  TR:post ----
+        Estimate Std. Error  t value   Pr(>|t|)
+TR:post  1.72991   0.979224 1.766614 0.08141669
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+---- impW_usd (asinh) : DiD  TR:post ----
+        Estimate Std. Error  t value    Pr(>|t|)
+TR:post 1.883891    0.63426 2.970218 0.004010403
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+---- mirror_gap_wc (asinh) : DiD  TR:post ----
+         Estimate Std. Error   t value  Pr(>|t|)
+TR:post 0.5411353   2.270847 0.2382967 0.8123096
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+-- event study: KZ imports from West+China (mirWC_usd) --
+                Estimate Std. Error     t value   Pr(>|t|)
+t_rel::-4:TR  0.02130922  0.2910011  0.07322727 0.94182284
+t_rel::-3:TR -0.09810578  0.1469206 -0.66774675 0.50637250
+t_rel::-2:TR  0.33360404  0.2402679  1.38846679 0.16916042
+t_rel::0:TR   1.78150383  1.0966851  1.62444420 0.10853323
+t_rel::1:TR   2.05566601  1.0739022  1.91420222 0.05946098
+t_rel::2:TR   2.36882063  1.1098625  2.13433701 0.03612779
+t_rel::3:TR   2.44529353  1.1037415  2.21545863 0.02980493
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+######## exposed (dual-use CHPL list — pre-specified robustness) ########
+
+---- expRU_usd (asinh) : DiD  TR:post ----
+        Estimate Std. Error  t value     Pr(>|t|)
+TR:post 2.875112  0.7428223 3.870524 0.0002320452
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+---- mirWC_usd (asinh) : DiD  TR:post ----
+        Estimate Std. Error  t value    Pr(>|t|)
+TR:post 2.122504  0.7112716 2.984098 0.003851748
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+---- mirW_usd (asinh) : DiD  TR:post ----
+        Estimate Std. Error  t value    Pr(>|t|)
+TR:post 1.927167  0.6659135 2.894021 0.004994521
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+---- impW_usd (asinh) : DiD  TR:post ----
+        Estimate Std. Error  t value     Pr(>|t|)
+TR:post 2.939762  0.5314378 5.531713 4.558285e-07
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+---- mirror_gap_wc (asinh) : DiD  TR:post ----
+        Estimate Std. Error  t value  Pr(>|t|)
+TR:post 3.391608   2.113368 1.604835 0.1127896
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+-- event study: KZ imports from West+China (mirWC_usd) --
+              Estimate Std. Error   t value     Pr(>|t|)
+t_rel::-4:TR 0.2278755  0.2927144 0.7784910 0.4387618452
+t_rel::-3:TR 0.1445762  0.1611820 0.8969753 0.3726410127
+t_rel::-2:TR 0.1306936  0.1914782 0.6825509 0.4970217997
+t_rel::0:TR  2.3715391  0.7183256 3.3014819 0.0014823768
+t_rel::1:TR  2.4851994  0.7013095 3.5436559 0.0006877886
+t_rel::2:TR  2.0414562  0.7549245 2.7041858 0.0084909351
+t_rel::3:TR  2.0949680  0.8375957 2.5011685 0.0145903888
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+-- pre-trend joint Wald test (surge basket) --
+Wald test, H0: joint nullity of t_rel::-4:TR, t_rel::-3:TR and t_rel::-2:TR
+ stat = 0.962715, p-value = 0.414982, on 3 and 74 DoF, VCOV: Clustered (hs6).  mirWC_usd   : F = 0.963  p = 0.415
+Wald test, H0: joint nullity of t_rel::-4:TR, t_rel::-3:TR and t_rel::-2:TR
+ stat = 0.36687, p-value = 0.777113, on 3 and 74 DoF, VCOV: Clustered (hs6).  expRU_usd   : F = 0.367  p = 0.777
+
+-- wild cluster bootstrap p (Rademacher, restricted resid, cluster=HS6, B=1999) --
+  surge expRU_usd   : p_wcb = 0.010
+  surge mirWC_usd   : p_wcb = 0.051
+  surge mirW_usd    : p_wcb = 0.090
+  surge impW_usd    : p_wcb = 0.002
+
+-- randomisation inference: surge-basket gamma vs a random basket of the same size --
+  expRU_usd   : gamma=2.441  p2=0.009  p_upper=0.005
+  mirWC_usd   : gamma=2.099  p2=0.025  p_upper=0.019
+  mirW_usd    : gamma=1.730  p2=0.058  p_upper=0.034
+  impW_usd    : gamma=1.884  p2=0.004  p_upper=0.002
+
+-- PPML (fepois) DiD in levels, surge basket --
+  expRU_usd   : b=1.262 se=0.523 p=0.01581  exp(b)=3.53x
+  mirWC_usd   : b=0.854 se=0.210 p=4.538e-05  exp(b)=2.35x
+
+-- structural breaks (supF + Bai-Perron) on the surge-basket aggregate --
+  mirWC  : supF = 4.12  p = 0.2669  
+  mirW   : supF = 141.66  p = 0  
+  expRU  : supF = 150.68  p = 0  
+  gap    : supF = 3.83  p = 0.303  

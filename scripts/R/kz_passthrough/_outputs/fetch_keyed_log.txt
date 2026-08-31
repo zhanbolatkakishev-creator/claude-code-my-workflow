@@ -1,0 +1,53 @@
+year 2019
+  ok kzimp 2019 A
+  ok kzexp 2019 A
+  ok mirror 2019 A
+  ok kzimp 2019 B
+  ok kzexp 2019 B
+  ok mirror 2019 B
+year 2020
+  ok kzimp 2020 A
+  ok kzexp 2020 A
+  ok mirror 2020 A
+  ok kzimp 2020 B
+  ok kzexp 2020 B
+  ok mirror 2020 B
+year 2021
+  ok kzimp 2021 A
+curl: (35) schannel: failed to receive handshake, SSL/TLS connection failed
+  retry kzexp 2021 A code=000000
+  ok kzexp 2021 A
+  ok mirror 2021 A
+  ok kzimp 2021 B
+  ok kzexp 2021 B
+  ok mirror 2021 B
+year 2022
+  ok kzimp 2022 A
+  ok kzexp 2022 A
+  ok mirror 2022 A
+  ok kzimp 2022 B
+  ok kzexp 2022 B
+  ok mirror 2022 B
+year 2023
+  ok kzimp 2023 A
+  ok kzexp 2023 A
+  ok mirror 2023 A
+  ok kzimp 2023 B
+  ok kzexp 2023 B
+  ok mirror 2023 B
+year 2024
+  ok kzimp 2024 A
+  ok kzexp 2024 A
+  ok mirror 2024 A
+  ok kzimp 2024 B
+  ok kzexp 2024 B
+  ok mirror 2024 B
+year 2025
+  ok kzimp 2025 A
+  ok kzexp 2025 A
+  ok mirror 2025 A
+  ok kzimp 2025 B
+  ok kzexp 2025 B
+  ok mirror 2025 B
+have 42 / 42
+KEYED DONE

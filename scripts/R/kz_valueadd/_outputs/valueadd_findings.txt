@@ -1,0 +1,361 @@
+================================================================
+ Does the post-2022 trade reorientation create value-add operations in Kazakhstan?
+ Deal data: CapIQ/PitchBook/Preqin, non-duplicate, n = 501  (2015-2025)
+================================================================
+
+--- (1) ALL deals by year: count, value $M ---
+       yr     n val_m
+    <int> <int> <num>
+ 1:  2015    31  6751
+ 2:  2016    38  1047
+ 3:  2017    53   179
+ 4:  2018    45  1058
+ 5:  2019    38  2207
+ 6:  2020    41  1921
+ 7:  2021    54   346
+ 8:  2022    37   119
+ 9:  2023    66  3496
+10:  2024    57  4256
+11:  2025    41  3417
+
+--- (2) deals by value-chain bucket ---
+                bucket     n val_m
+                <char> <int> <num>
+1:               other   146  4104
+2:             digital   111  4809
+3:          extractive    85  8403
+4:             finance    78  4174
+5:      mfg_tradeables    47  1658
+6:  trade_distribution    17   145
+7: transport_logistics    17  1504
+
+--- (3) VALUE-ADD-RELEVANT deals (mfg tradeables + transport/logistics + trade/distribution) by year ---
+       yr     n val_m newcap_n MnA_n
+    <int> <int> <num>    <int> <int>
+ 1:  2016     6   201        2     4
+ 2:  2017    15    74        2    13
+ 3:  2018    10   185        1     9
+ 4:  2019     8   160        1     7
+ 5:  2020     6   370        3     3
+ 6:  2021     6    22        3     3
+ 7:  2022     3    18        1     2
+ 8:  2023    12  1029        2    10
+ 9:  2024     9   384        2     7
+10:  2025     6   864        1     5
+
+  pre-2022 (2015-2021): 51 deals, ~$1012m, 7.3/yr avg
+  2022-2025           : 30 deals, ~$2295m, 7.5/yr avg
+
+--- (4) mfg-of-tradeables deals, ALL years (the sectors the trade surge flows through) ---
+       yr                                                              company
+    <int>                                                               <char>
+ 1:  2016                      Locomotive Kurastyru Zauyty Joint Stock Company
+ 2:  2016                                          KazaX Minerals Incorporated
+ 3:  2016                                              Silicium Kazakhstan LLP
+ 4:  2016                                                           Tutto Bene
+ 5:  2016                                                             Cafflano
+ 6:  2017                                                           KAZAKH EKZ
+ 7:  2017                                                       Orda Glass Ltd
+ 8:  2017                                                    Karagandy Kus LLP
+ 9:  2017                                                           AllurGroup
+10:  2017                                                                Aiyat
+11:  2017                                                               Uniday
+12:  2017                                                             Cafflano
+13:  2017                                                           Besmart.kz
+14:  2017                                                        Hamle Company
+15:  2018                                    Manufacturing Plant in Kazakhstan
+16:  2018                                          LOTTE Rakhat JSC (KAS:RAHT)
+17:  2018 Local Instant Noodles Production Plant Lotus in the Turkestan Region
+18:  2018                                                     Tulpar-Talgo LLP
+19:  2018                     An Active Meat Processing Plant In Akmola Region
+20:  2019                                                          LLP KAZMEAL
+21:  2019                                                           AllurGroup
+22:  2019                                                LLP Almaty Snack Food
+23:  2019                                 Tau-Ken Temir LLP/Silicon Mining LLP
+24:  2019                                                       KMG-Retail LLP
+25:  2019                                                             Cafflano
+26:  2020                                    China Brilliant Financial Limited
+27:  2020                                                             Cafflano
+28:  2021                                  Cement-Related Assets In Kazakhstan
+29:  2021                                                 Prommashkomplekt LLP
+30:  2021                                                     UVU (Automotive)
+31:  2021                                                     UVU (Automotive)
+32:  2021                                                              CTOgram
+33:  2022                                                          Sharcem LLP
+34:  2022                                                              Leopart
+35:  2023                                                      Alina Group LLP
+36:  2023  JSC ArcelorMittal Temirtau/Arcelormittal Tubular Products Aktau, Ao
+37:  2023                                              Torgai Invest Group LLP
+38:  2023                                                          Caustic JSC
+39:  2023                                                Tokyo Rope Almaty LLP
+40:  2023                                                         KamLitKZ LLP
+41:  2023                                                     UVU (Automotive)
+42:  2023                                                              CTOgram
+43:  2024                                Eurocopter Kazakhstan Engineering LLP
+44:  2024                                       JSC Lokomotiv Kurastyru Zauyty
+45:  2024                                                                Citix
+46:  2025                                                      Anisimov Klyuch
+47:  2025                                                             SpaceLab
+       yr                                                              company
+    <int>                                                               <char>
+                deal_type  val_m
+                   <char>  <num>
+ 1:    Merger/Acquisition     NA
+ 2:    Merger/Acquisition  62.42
+ 3:    Merger/Acquisition  37.31
+ 4:        Later Stage VC   0.60
+ 5:  Product Crowdfunding   0.04
+ 6:    Merger/Acquisition     NA
+ 7:    Merger/Acquisition  34.00
+ 8:    Merger/Acquisition     NA
+ 9:    Merger/Acquisition     NA
+10:    Merger/Acquisition     NA
+11:            Seed Round   0.06
+12:  Product Crowdfunding   0.09
+13:    Merger/Acquisition   0.01
+14:    Merger/Acquisition   3.00
+15:    Merger/Acquisition     NA
+16:    Merger/Acquisition 181.77
+17:    Merger/Acquisition     NA
+18:    Merger/Acquisition     NA
+19:    Merger/Acquisition   1.59
+20:    Merger/Acquisition     NA
+21:    Merger/Acquisition     NA
+22:    Merger/Acquisition     NA
+23:    Merger/Acquisition     NA
+24:    Merger/Acquisition 159.46
+25:  Product Crowdfunding   0.01
+26:    Merger/Acquisition     NA
+27:  Product Crowdfunding   0.10
+28:    Merger/Acquisition  16.48
+29:    Merger/Acquisition   4.90
+30:                 Grant   0.02
+31:            Seed Round   0.35
+32:                  Seed   0.70
+33:    Merger/Acquisition  17.00
+34:   PE Growth/Expansion   0.80
+35:    Merger/Acquisition     NA
+36:    Merger/Acquisition 986.00
+37:    Merger/Acquisition     NA
+38:    Merger/Acquisition   3.06
+39:    Merger/Acquisition  10.47
+40:    Merger/Acquisition     NA
+41:        Early Stage VC   0.45
+42:              Series A   1.50
+43:    Merger/Acquisition     NA
+44:    Merger/Acquisition 135.00
+45:        Later Stage VC   1.00
+46:    Merger/Acquisition     NA
+47: Accelerator/Incubator   0.01
+                deal_type  val_m
+                   <char>  <num>
+                                                 industry_raw
+                                                       <char>
+ 1: Construction Machinery and Heavy Transportation Equipment
+ 2:                                                     Steel
+ 3:                                       Commodity Chemicals
+ 4:                                             Food Products
+ 5:                                      Household Appliances
+ 6: Construction Machinery and Heavy Transportation Equipment
+ 7:                                    Construction Materials
+ 8:                                  Packaged Foods and Meats
+ 9:                                  Automobile Manufacturers
+10:                                                     Steel
+11:                                            Other Hardware
+12:                                      Household Appliances
+13:                                             Food Products
+14:                                             Food Products
+15:                                  Packaged Foods and Meats
+16:                                  Packaged Foods and Meats
+17:                                  Packaged Foods and Meats
+18: Construction Machinery and Heavy Transportation Equipment
+19:                                  Packaged Foods and Meats
+20:                                  Packaged Foods and Meats
+21:                                  Automobile Manufacturers
+22:                                  Packaged Foods and Meats
+23:                                       Commodity Chemicals
+24:                                         Automotive Retail
+25:                                      Household Appliances
+26:                         Electronic Manufacturing Services
+27:                                      Household Appliances
+28:                                    Construction Materials
+29: Construction Machinery and Heavy Transportation Equipment
+30:                                                Automotive
+31:                                                Automotive
+32:                       Automobiles, Other Vehicles & Parts
+33:                                    Construction Materials
+34:                                                Automotive
+35:                                    Construction Materials
+36:                                                     Steel
+37:          Industrial Machinery and Supplies and Components
+38:                                       Commodity Chemicals
+39:                      Electronic Equipment and Instruments
+40: Construction Machinery and Heavy Transportation Equipment
+41:                                                Automotive
+42:                       Automobiles, Other Vehicles & Parts
+43:                                     Aerospace and Defense
+44: Construction Machinery and Heavy Transportation Equipment
+45:                                            Other Hardware
+46:                                     Iron and Steel Mining
+47:                                     Aerospace and Defense
+                                                 industry_raw
+                                                       <char>
+
+--- (5) transport / logistics deals, ALL years ---
+       yr
+    <int>
+ 1:  2016
+ 2:  2017
+ 3:  2017
+ 4:  2017
+ 5:  2018
+ 6:  2018
+ 7:  2019
+ 8:  2019
+ 9:  2020
+10:  2022
+11:  2023
+12:  2024
+13:  2024
+14:  2024
+15:  2025
+16:  2025
+17:  2025
+                                                                                                company
+                                                                                                 <char>
+ 1:                                                                                       Petroleum LLP
+ 2:                                                                                   Euro-Asia Air JSC
+ 3: Aktobe TETS, East Kazakhstan Regional Energy Company, and Mangistau Distribution Power Grid Company
+ 4:                                                                   JEL Distribution (Kazakhstan) LLP
+ 5:                                                         Kazakhstan Temir Zholy National Company JSC
+ 6:                                                                                         Atasu Group
+ 7:                                                                                JSC Kedentransservis
+ 8:                                                                                    Bayanaul Airport
+ 9:                                                    Joint-Stock Company Almaty International Airport
+10:                                                                                        Petrosun LLP
+11:                                                                      Oral International Airport LLP
+12:                                                                                     Sky Service LLP
+13:                                                                                TNS Plus Corporation
+14:                                                                                       Qazaq Air JSC
+15:                                                                          Freedom Cloud Holding Ltd.
+16:                     BaltTransServis/GTI Management/New forwarding/Ural Wagonrepair/Adaptive Capital
+17:                                                                                 Universal Logistics
+             deal_type  val_m                           industry_raw
+                <char>  <num>                                 <char>
+ 1: Merger/Acquisition 100.30 Oil and Gas Storage and Transportation
+ 2: Merger/Acquisition  35.66                     Passenger Airlines
+ 3: Merger/Acquisition     NA                     Electric Utilities
+ 4: Merger/Acquisition   0.45                      Food Distributors
+ 5: Merger/Acquisition     NA                    Rail Transportation
+ 6:             Growth     NA               Logistics & Distribution
+ 7: Merger/Acquisition     NA                    Rail Transportation
+ 8: Merger/Acquisition   0.62                       Airport Services
+ 9: Merger/Acquisition 365.00                       Airport Services
+10: Merger/Acquisition   0.00 Oil and Gas Storage and Transportation
+11: Merger/Acquisition     NA                       Airport Services
+12: Merger/Acquisition     NA                     Passenger Airlines
+13: Merger/Acquisition 137.50                   Alternative Carriers
+14: Merger/Acquisition  75.45                     Passenger Airlines
+15: Merger/Acquisition  22.34                   Alternative Carriers
+16: Merger/Acquisition 766.77                    Rail Transportation
+17:         Trade Sale     NA               Logistics & Distribution
+
+--- (6) QIC (state fund) projects 2022+ in industry/manufacturing/logistics ---
+       yr                               industry_comb
+    <int>                                      <char>
+ 1:  2022                АПК и пищевая промышленность
+ 2:  2022                АПК и пищевая промышленность
+ 3:  2023                АПК и пищевая промышленность
+ 4:  2023 Целлюлозно-бумажная и легкая промышленность
+ 5:  2023                АПК и пищевая промышленность
+ 6:  2023                          Химия и нефтехимия
+ 7:  2023                Металлургия и машиностроение
+ 8:  2023                Металлургия и машиностроение
+ 9:  2023                Металлургия и машиностроение
+10:  2023                Металлургия и машиностроение
+11:  2023                АПК и пищевая промышленность
+12:  2024                АПК и пищевая промышленность
+13:  2024                Металлургия и машиностроение
+14:  2024                АПК и пищевая промышленность
+15:  2024                АПК и пищевая промышленность
+16:  2024                Металлургия и машиностроение
+17:  2024                Металлургия и машиностроение
+18:  2024                АПК и пищевая промышленность
+19:  2025                          Химия и нефтехимия
+20:  2025                Металлургия и машиностроение
+21:  2025                АПК и пищевая промышленность
+22:  2025                АПК и пищевая промышленность
+23:  2025                АПК и пищевая промышленность
+24:  2025                Металлургия и машиностроение
+25:  2025                Металлургия и машиностроение
+26:  2025                Металлургия и машиностроение
+27:  2025                          Химия и нефтехимия
+28:  2025                Металлургия и машиностроение
+       yr                               industry_comb
+    <int>                                      <char>
+                        region_kz kkm_usd_m    cost
+                           <char>     <num>   <num>
+ 1:  Северо-Казахстанская область         2    1100
+ 2:           Акмолинская область         5    2201
+ 3:                   Алматинская         7    3000
+ 4:                           ВКО         6    2700
+ 5:  Северо-Казахстанская область         2    1100
+ 6:               Жамбылская обл.        11    4800
+ 7: Западно-Казахстанская область         2    1000
+ 8:        Карагандинская область        11    4990
+ 9:           Алматинская область         3    1450
+10:                      г.Алматы         4    1800
+11:                           ВКО         9    4000
+12:                      г.Актобе        14    6316
+13:              Усть-Каменогорск        10    5000
+14:            Жетысуская область         2    1019
+15:           Акмолинская область        54   28000
+16:                     г. Алматы        14    7350
+17:          Павлодарская область         4    1985
+18:            Жетысуская область         1     411
+19:                     г. Алматы         2    1200
+20:                     г. Алматы         4    2000
+21:      Акмолинская область, СКО        41   28606
+22:           Алматинская область       111   75004
+23:        Карагандинская область         6    6862
+24:           Акмолинская область       479 1753570
+25:          Павлодарская область        91   58800
+26:          Павлодарская область        18    9100
+27: Западно-Казахстанская область        18   78644
+28:        Карагандинская область       532 1753570
+                        region_kz kkm_usd_m    cost
+                           <char>     <num>   <num>
+                                                                   project
+                                                                    <char>
+ 1:                                                         ТОО "EMC Agro"
+ 2:                                                           ТОО "IL TOV"
+ 3:                                                              Прима Кус
+ 4:                                                      ТОО "Казполиграф"
+ 5:                                                         ТОО "EMC Agro"
+ 6:                                         ТОО «Talas Investment Company»
+ 7:                                                ТОО "КаспиМунайКапитал"
+ 8:                          ТОО «Казахстанский завод горячего цинкования»
+ 9:                             ТОО «Казахстанские трубопроводные системы»
+10:                                                  ТОО «Vehicles Almaty»
+11:                                                        ТОО «Altai Mai»
+12:                                         ТОО "Green Capital Kazakhstan"
+13:                                    Модернизация литейного производства
+14:                                                        Выращивание сои
+15:                                 Развитие агропромышленного предприятия
+16: «Строительство промышленного комплекса по производству лакокрасочных м
+17: Расширение и модернизация производства с выходом на серийный выпуск ме
+18:                                                        Выращивание сои
+19: Строительство промышленного комплекса по производству лакокрасочных ма
+20: Расширение действующего производства приборов учета электро- и теплоэн
+21:                                     Развитие агропромышленного проекта
+22: Модернизация и развитие торгово-логистического комплекса в Алматинской
+23: Развитие экспортоориентированной торгово-закупочной деятельности в агр
+24:                                   Комплексная модернизация АО «Qarmet»
+25: Развитие промышленного предприятия по выпуску стальной металлургическо
+26: Модернизация производственных мощностей завода по выпуску стальной мет
+27: Строительство газохимического комплекса по производству химического си
+28:                                   Комплексная модернизация АО «Qarmet»
+                                                                   project
+                                                                    <char>
+
+  QIC 2022+ industry/logistics: 28 projects, KKM $1463m, total project cost $3845578m

@@ -85,3 +85,29 @@ scripts/R/_outputs/
 # Output artifacts — uncomment lines below based on your preference
 # *.rds
 # output/**/*.rds
+
+# --- "Corridor, Not Factory" (Kazakhstan trade-reorientation paper) ---
+# Secrets (Comtrade API keys etc.)
+.env
+.env.*
+# Raw data: large, and regenerable via fetch_*.sh + 02b_assemble_json.R (needs COMTRADE_PRIMARY)
+scripts/R/kz_passthrough/_data/
+scripts/R/kz_valueadd/_data/
+# Binary intermediates: regenerable from the scripts in one 00_run_all.R pass.
+# Text / CSV / MD results and the PNG figures the manuscript \includegraphics are kept.
+scripts/R/kz_passthrough/_outputs/*.rds
+scripts/R/kz_valueadd/_outputs/*.rds
+scripts/R/kz_passthrough/_outputs/*.runlog
+scripts/R/kz_passthrough/_outputs/_run*.log
+# LaTeX build artifacts
+Manuscript/*.aux
+Manuscript/*.log
+Manuscript/*.out
+Manuscript/*.blg
+Manuscript/*.bbl
+Manuscript/*.synctex.gz
+Manuscript/*.fls
+Manuscript/*.fdb_latexmk
+# large data dumps (regenerable via 02b + 05); keep the analysis-result CSVs
+scripts/R/kz_passthrough/_outputs/comtrade_raw.csv
+scripts/R/kz_passthrough/_outputs/panel_hs_period.csv

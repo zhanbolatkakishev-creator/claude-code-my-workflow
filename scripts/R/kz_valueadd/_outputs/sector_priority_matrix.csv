@@ -1,0 +1,46 @@
+sector,name,category,va_mult,v_direct,base_musd,imp_2023,imp_intensity,imp_growth,deals,deals_post,priority
+C27,Electrical equipment,SUBSTITUTION candidate,0.813,0.213,1148,6435,5.6,1.43,5,0,0.823
+C28,Machinery & equipment n.e.c.,SUBSTITUTION candidate,0.796,0.203,1162,9169,7.89,1.27,7,3,0.717
+C10T12,"Food, beverages, tobacco",SUBSTITUTION candidate,0.81,0.24,18958,6355,0.34,1.48,26,4,0.645
+C25,Fabricated metal products,SUBSTITUTION candidate,0.807,0.228,1845,3282,1.78,1.22,7,2,0.604
+C20,Chemicals,SUBSTITUTION candidate,0.789,0.198,3484,5897,1.69,1.52,4,1,0.559
+C16,Wood products,SUBSTITUTION candidate,0.789,0.255,167,598,3.58,1.4,0,0,0.541
+C19,Coke & refined petroleum,SUBSTITUTION candidate,0.84,0.165,10145,1817,0.18,1.24,0,0,0.497
+C24,Basic metals,SUBSTITUTION candidate,0.8,0.213,42832,2761,0.06,1.28,20,12,0.478
+C30,Other transport equipment,SUBSTITUTION candidate,0.733,0.203,732,2031,2.78,1.65,2,2,0.476
+C13T15,"Textiles, apparel, leather, footwear",SUBSTITUTION candidate,0.743,0.223,963,11176,11.61,1.33,0,0,0.46
+C23,Non-metallic mineral products,SUBSTITUTION candidate,0.773,0.219,4657,999,0.21,1.15,4,2,0.336
+C22,Rubber & plastics,SUBSTITUTION candidate,0.689,0.198,1581,3117,1.97,1.39,0,0,0.312
+C17_18,Paper & printing,SUBSTITUTION candidate,0.754,0.233,911,696,0.76,1.22,0,0,0.309
+B07_08,Metal-ore mining,context,0.764,0.307,15745,1331,0.08,1.2,0,0,0.214
+C31T33,"Furniture, other mfg & repair",SUBSTITUTION candidate,0.736,0.239,3946,2643,0.67,1.07,0,0,0.189
+A01_02,Agriculture,context,0.808,0.24,32326,,,,0,0,
+A03,Fishing,context,0.795,0.351,938,,,,0,0,
+B05_06,Coal & crude extraction,context,0.829,0.357,57237,,,,0,0,
+B09,Mining support,context,0.75,0.354,3122,,,,0,0,
+C21,Pharmaceuticals,context,0.738,0.325,1495,,,,0,0,
+C26,"Computer, electronic & optical",AVOID (surge basket),0.694,0.174,234,591,2.53,1.85,0,0,
+C29,Motor vehicles & parts,"AVOID (kit assembly, low VA)",0.688,0.203,1530,9252,6.05,2.55,9,3,
+D,Electricity & gas,context,0.79,0.275,9468,,,,0,0,
+E,Water & waste,context,0.828,0.316,1397,,,,0,0,
+F,Construction,context,0.792,0.186,53538,,,,0,0,
+G,Wholesale & retail trade,PLATFORM (logistics/trade),0.822,0.381,81176,,,,10,3,
+H49,Land transport,PLATFORM (logistics/trade),0.79,0.307,36792,,,,3,1,
+H50,Water transport,context,0.747,0.22,311,,,,3,1,
+H51,Air transport,PLATFORM (logistics/trade),0.795,0.252,2777,,,,3,1,
+H52,Warehousing & transport support,PLATFORM (logistics/trade),0.824,0.347,6766,,,,3,1,
+H53,Postal & courier,PLATFORM (logistics/trade),0.746,0.342,478,,,,3,1,
+I,Accommodation & food,context,0.802,0.302,6796,,,,0,0,
+J58T60,Publishing & broadcasting,context,0.761,0.235,2307,,,,0,0,
+J61,Telecoms,context,0.787,0.347,6199,,,,0,0,
+J62_63,IT services,context,0.794,0.295,2190,,,,0,0,
+K,Finance & insurance,context,0.866,0.364,16466,,,,0,0,
+L,Real estate,context,0.852,0.428,32021,,,,0,0,
+M,"Professional, scientific & technical",context,0.786,0.305,25946,,,,0,0,
+N,Administrative & support,context,0.795,0.332,12700,,,,0,0,
+O,Public admin,context,0.769,0.219,14120,,,,0,0,
+P,Education,context,0.803,0.283,16619,,,,0,0,
+Q,Health & social work,context,0.717,0.117,29517,,,,0,0,
+R,Arts & recreation,context,0.751,0.218,6007,,,,0,0,
+S,Other services,context,0.852,0.366,14666,,,,0,0,
+T,Households as employers,context,1,1,123,,,,0,0,

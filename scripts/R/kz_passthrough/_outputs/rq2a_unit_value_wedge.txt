@@ -1,0 +1,35 @@
+===== RQ2(a): unit-value wedge & retained margin (surge basket, post-2022) =====
+primary wedge = uv_expRU / uv_mirWC  (both FOB) ; _cif variant uses KZ-reported imports
+
+   n_cells med_uv_wedge p25_uv_wedge p75_uv_wedge med_wedge_cif med_passthru
+     <int>        <num>        <num>        <num>         <num>        <num>
+1:     112     1.593126    0.6307204     4.399071     0.7303747    0.1459552
+   tot_inflow_musd tot_expRU_musd tot_retained_musd retained_share_of_gross
+             <num>          <num>             <num>                   <num>
+1:        4925.226       524.2824          180.0678               0.3434556
+
+control (civilian) basket, same construction: n=94, median wedge = 0.938 (cif 0.592)
+=> a sub-1 wedge is a general feature of this trade, not specific to the reorientation.
+
+-- wedge by CHPL tier (surge basket) --
+      tier med_wedge retained_musd gross_musd
+    <char>     <num>         <num>      <num>
+1:       1 0.4660895     0.1283007   31.54971
+2:       2 3.8343630    44.2840879  150.82008
+3:      3A 1.8151453    29.7037051   56.64931
+4:      3B 1.0863392    14.9028696   68.95652
+5:      4A 3.9358073    55.9695297   67.36626
+6:      4B 1.3507968    12.3641816   49.87265
+7: control 1.3289782    22.7150833   99.06791
+
+-- pass-through: log(uv_expRU) ~ log(uv_mirWC) | hs6 + tt  (slope ~1 => pure markup) --
+               Estimate Std. Error  t value   Pr(>|t|)
+log(uv_mirWC) 0.4765849  0.2113517 2.254937 0.03214442
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+-- pass-through, KZ-reported variant: log(uv_expRU) ~ log(uv_impW) --
+              Estimate Std. Error   t value  Pr(>|t|)
+log(uv_impW) 0.2039607  0.2692161 0.7576098 0.4552463
+attr(,"vcov_type")
+[1] "Clustered (hs6)"

@@ -1,0 +1,36 @@
+===== (a) PLACEBO — civilian control basket (inbound = mirWC) =====
+  mirWC_usd   surge basket        : supF =    4.12  p = 0.2669
+  mirWC_usd   civilian (unpurged) : supF =    0.32  p = 1   [25 HS6]
+  mirWC_usd   civilian (purged)   : supF =    0.70  p = 1   [20 HS6]
+
+  expRU_usd   surge basket        : supF =  150.68  p = 0
+  expRU_usd   civilian (unpurged) : supF =   34.37  p = 1.546e-07   [25 HS6]
+  expRU_usd   civilian (purged)   : supF =   35.36  p = 9.558e-08   [20 HS6]
+
+  DiD on the civilian basket only (placebo 'treatment' = top-quartile pre-2022 size):
+           Estimate Std. Error   t value    Pr(>|t|)
+big:post -0.9514515  0.2548088 -3.733982 0.001029001
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+  5 civilian HS6 fall in the surge basket; their share of post-2022 gross flow to RU: 5.1%
+
+===== (b) ARMENIA / KYRGYZ REPUBLIC parallel =====
+
+Exports to Russia, surge-basket HS6, $m:
+Key: <yr>
+      yr       ARM       KGZ
+   <int>     <num>     <num>
+1:  2018 15.206608  0.731949
+2:  2019  8.723470  3.143201
+3:  2020  6.829632  5.700887
+4:  2021  8.762935  7.432956
+5:  2022 70.940101 12.379148
+6:  2023 93.446939 30.301343
+7:  2024 42.178014 11.564127
+8:  2025 12.773685 12.028083
+  ARM exports->Russia: supF = 10.47  p = 0.0145
+  KGZ exports->Russia: supF = 13.44  p = 0.00357
+
+=> Same 2022 break in Armenia and the Kyrgyz Republic, neither of which had a
+    'New Kazakhstan' reform -> the KZ break is the common Russia-trade shock.
