@@ -1,6 +1,14 @@
 # Reproducibility Audit: Corridor, Not Factory
 
-**Date:** 2026-08-31 (Path B / hybrid rebuild)
+> **STALE (2026-08-31, round-2 revision).** After this audit the manuscript was revised again
+> against the round-2 seven-pass review: the §5.2 freight-netting derivation was dropped (value
+> capture now 5--11%, midpoint ~8%, from the 6--14% national-accounts margin only); §4.3 was
+> rebuilt around `12_did_robustness.R` (rule-matched permutation, size#year FE, donut, Holm);
+> Figure 3 swapped to the HS6-level event study; the §8 ARM/KGZ deal claim removed; Table 2
+> stars corrected. Re-run `/audit-reproducibility` against the current `_outputs/` before
+> submission. See session-log Update 22.
+
+**Date:** 2026-08-31 (Path B / hybrid rebuild — pre round-2 revision)
 **Manuscript:** `Manuscript/corridor.tex`
 **Outputs:** `scripts/R/kz_passthrough/_outputs/` (regenerated 2026-08-31),
 `scripts/R/kz_valueadd/_outputs/` (2026-08-28; §6--§9, unaffected by Path B)

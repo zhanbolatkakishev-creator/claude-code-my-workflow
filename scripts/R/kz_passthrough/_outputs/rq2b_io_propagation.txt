@@ -1,33 +1,29 @@
-===== RQ2(b): domestic value capture from the trade reorientation (HYBRID scope) =====
+===== RQ2(b): domestic value capture from the trade reorientation =====
 
-baseline 2018-21 : KZ->Russia $11 m/yr | Western inbound $169 m/yr (surge basket)
-incremental 2022-25 (reorientation-attributable): outbound to Russia $479 m ; Western inbound $887 m
-incremental flow-through (out / Western in)     : 0.54
+baseline 2018-21 : KZ->Russia $11 m/yr | Western inbound $169 m/yr | West+China inbound $444 m/yr
+incremental 2022-25 (reorientation-attributable): outbound $479 m ; Western inbound $887 m ; West+China inbound $3158 m
+incremental flow-through: out / Western in = 0.54 ;  out / West+China in = 0.15
 
-matched-cell gross margin (f.o.b. basis)        : 0.343  (upper bound; incl. inbound freight)
-  ... after netting inbound freight (~15%)       : 0.120
+matched-cell unit-value wedge (07), descriptive only: censored gross margin = +0.34 ; value-weighted aggregate = -0.49
+  -> not a usable margin estimate (censoring inflates; the aggregate is a c.i.f./f.o.b. + under-invoicing artifact).
+  -> m taken instead from the KZ national-accounts trade+insurance+freight convention: 6-14%.
 
 MODE: FULL — Leontief from OECD ICIO 2019 
   KZ VA multiplier: trade+transport = 0.787, manufacturing = 0.764 (v'L)
-  m band: 6% / 10% (NA convention) .. 12% (freight-netted matched-cell)
-
 
 -- domestic VA per $1 of incremental rerouted flow, vs per $1 of domestic mfg output --
-Key: <margin_rate>
-   margin_rate margin_VAmult mfg_VAmult VA_per_usd_rerouted VA_per_usd_domestic
-         <num>         <num>      <num>               <num>               <num>
-1:        0.06         0.787      0.764               0.047               0.764
-2:        0.10         0.787      0.764               0.079               0.764
-3:        0.12         0.787      0.764               0.094               0.764
-   ratio
-   <num>
-1: 0.062
-2: 0.103
-3: 0.124
+Key: <m>
+       m margin_VAmult mfg_VAmult VA_per_usd_rerouted VA_per_usd_domestic ratio
+   <num>         <num>      <num>               <num>               <num> <num>
+1:  0.06         0.787      0.764               0.047               0.764 0.062
+2:  0.10         0.787      0.764               0.079               0.764 0.103
+3:  0.14         0.787      0.764               0.110               0.764 0.144
 
 HEADLINE: of ~$479 m in incremental exports to Russia after 2022, Kazakhstan retains
-~$23-45 m as domestic value added, i.e. 5-9% of the gross flow (midpoint ~8%),
-against ~76% per dollar of domestic manufacturing output. A rerouted dollar creates on the
-order of a tenth to a fifth as much domestic value as a produced one. Corridor, not factory.
+~$23-53 m as domestic value added, i.e. 5-11% of the gross flow (midpoint ~8%),
+against ~76% per dollar of domestic manufacturing output --- a rerouted dollar creates on
+the order of a tenth as much domestic value as a produced one. Corridor, not factory.
 
-(Fiscal — customs duty + import VAT on the KZ-clearing, non-EAEU-exempt share — is 09_*.R.)
+CAVEAT: single I-O vintage (OECD ICIO 2019); the ICIO's KZ domestic-content shares are
+relatively high, so v_TT and v_M are likely upper bounds. An ADB MRIO / KZ BNS 68-product
+cross-check is left for a robustness appendix. (Fiscal is 09_*.R.)

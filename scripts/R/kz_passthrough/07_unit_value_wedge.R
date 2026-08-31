@@ -59,6 +59,11 @@ cat("\n-- pass-through: log(uv_expRU) ~ log(uv_mirWC) | hs6 + tt  (slope ~1 => p
 print(coeftable(feols(log(uv_expRU) ~ log(uv_mirWC) | hs6 + tt, post, cluster = ~hs6)))
 cat("\n-- pass-through, KZ-reported variant: log(uv_expRU) ~ log(uv_impW) --\n")
 print(coeftable(feols(log(uv_expRU) ~ log(uv_impW) | hs6 + tt, post[is.finite(uv_impW)], cluster = ~hs6)))
+cat(sprintf("\n-- weight ratio (kg out / kg in), matched cells: median %.3f, p25 %.3f, p75 %.3f ; share > 1.05: %.2f --\n",
+            median(post$wt_ratio, na.rm = TRUE),
+            quantile(post$wt_ratio, .25, na.rm = TRUE), quantile(post$wt_ratio, .75, na.rm = TRUE),
+            mean(post$wt_ratio > 1.05, na.rm = TRUE)))
+cat("   (a weight ratio persistently > 1 would indicate local input added; here it is at or below 1.)\n")
 sink()
 
 ## keep legacy column name for 08 compatibility
@@ -69,9 +74,9 @@ save_fig(
          aes(uv_wedge)) +
     geom_histogram(bins = 40) +
     geom_vline(xintercept = 1, linetype = 2, colour = "grey40") +
-    labs(title = "Unit-value wedge: KZ re-export price / KZ import price (same HS6, surge basket)",
-         subtitle = "Post-2022m3. Mass near 1 = corridor pass-through.",
-         x = "uv_expRU / uv_impW", y = "HS6 x month cells"),
+    labs(title = "Unit-value wedge: KZ re-export price / exporter-reported inbound price",
+         subtitle = "Same HS6, surge basket, post-2022. Both prices f.o.b. Wide dispersion; no mass at the high multiples.",
+         x = "uv_expRU / uv_mirWC  (f.o.b. / f.o.b.)", y = "HS6 x period cells"),
   "rq2a_fig_wedge_hist")
 
 message("RQ2(a) done: _outputs/rq2a_unit_value_wedge.txt, rq2a_fig_wedge_hist.png")

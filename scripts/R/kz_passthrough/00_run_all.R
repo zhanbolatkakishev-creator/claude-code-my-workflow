@@ -44,10 +44,13 @@ run("07_unit_value_wedge.R")                       # annual wedge (n=96) -> cano
 
 ## NOTE (2026-08-31, Path B): the inbound flow is now measured as West + China (mirWC) as the
 ## PRIMARY series everywhere (05 builds it; 06 selects the surge basket on it; 07/08/10 use it).
-## The DiD spec grid, wild-cluster bootstrap, randomisation inference and PPML that the
-## seven-pass review asked for are folded into 06 (annual branch); the unpurged placebo into
-## 10; Bai-Perron break CIs into 06m. Former helper scripts 12/13 removed.
+## DiD spec grid, wild-cluster bootstrap, randomisation inference and PPML are folded into 06
+## (annual branch); the unpurged placebo into 10; Bai-Perron break CIs into 06m.
 
-message("\nAll done. corridor.tex sec 4 uses rq1_estimates.txt (DiD grid + selection-aware ",
-        "inference) + rq1_monthly.txt (break CIs); sec 5.1 uses rq2a_unit_value_wedge*.txt; ",
+## ---- round-2 seven-pass review: DiD robustness for sec 4.3 ----
+run("12_did_robustness.R")     # rule-matched permutation, size#year FE, donut, Holm
+                               #   -> _outputs/rq1_did_robustness.txt
+
+message("\nAll done. corridor.tex sec 4 uses rq1_estimates.txt + rq1_did_robustness.txt + ",
+        "rq1_monthly.txt (break CIs); sec 5.1 uses rq2a_unit_value_wedge*.txt; ",
         "sec 5.2-5.3 use rq2b/rq2c. See _outputs/ and Manuscript/corridor.tex")

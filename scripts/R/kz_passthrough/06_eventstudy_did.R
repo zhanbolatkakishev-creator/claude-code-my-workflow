@@ -137,19 +137,25 @@ save_fig(
          x = NULL, y = "USD m", colour = NULL),
   "rq1_fig_surge")
 
-es <- mk(p, "mirWC_usd", "surge")$es
-ed <- data.table(term = names(coef(es)), b = as.numeric(coef(es)), se = as.numeric(se(es)))
-ed <- ed[grepl("t_rel::", term)]
-ed[, tr := as.integer(sub(".*t_rel::(-?[0-9]+).*", "\\1", term))]
-ed <- rbind(ed, data.table(term = "ref", b = 0, se = 0, tr = -1))[order(tr)]
+## HS6-level DiD event study (surge basket vs controls), BOTH outcomes, 95% CI clustered by HS6
+es_ed <- function(yv, lab) {
+  es <- mk(p, yv, "surge")$es
+  d  <- data.table(term = names(coef(es)), b = as.numeric(coef(es)), se = as.numeric(se(es)))
+  d  <- d[grepl("t_rel::", term)]
+  d[, tr := as.integer(sub(".*t_rel::(-?[0-9]+).*", "\\1", term))]
+  rbind(d, data.table(term = "ref", b = 0, se = 0, tr = -1))[order(tr)][, series := lab][]
+}
+ed <- rbind(es_ed("expRU_usd", "KZ -> Russia"), es_ed("mirWC_usd", "West+China -> KZ"))
 save_fig(
-  ggplot(ed, aes(tr, b)) +
+  ggplot(ed, aes(tr, b, colour = series)) +
     geom_hline(yintercept = 0, colour = "grey70") +
     geom_vline(xintercept = -0.5, linetype = 2, colour = "grey40") +
-    geom_pointrange(aes(ymin = b - 1.96*se, ymax = b + 1.96*se)) +
-    labs(title = "Event study: KZ imports from West+China, surge basket vs controls",
-         subtitle = "asinh(value) ~ i(period_rel, surge) | hs6 + period ; ref = -1 ; 95% CI",
-         x = paste0("periods relative to treatment (", FREQ, ")"), y = "coefficient"),
+    geom_pointrange(aes(ymin = b - 1.96*se, ymax = b + 1.96*se),
+                    position = position_dodge(width = .3)) +
+    scale_colour_manual(values = c("KZ -> Russia" = "#d95f0e", "West+China -> KZ" = "#2c7fb8")) +
+    labs(title = "Difference-in-differences event study: surge basket vs control lines",
+         subtitle = "asinh(y) ~ i(year_rel, surge) | HS6 + year ; ref = 2021 ; 95% CI clustered by HS6",
+         x = "years relative to 2022", y = "coefficient", colour = NULL),
   "rq1_fig_eventstudy")
 
 message("RQ1 done: _outputs/rq1_estimates.txt, rq1_fig_*.png")

@@ -3,7 +3,9 @@ suppressMessages({library(data.table); library(ggplot2)})
 OUT <- "C:/Users/zh.kakishev/my-project2/scripts/R/kz_valueadd/_outputs"
 dd <- readRDS(file.path(OUT, "deals_classified.rds"))
 
-## trade: surge-basket KZ imports from EU+China (mirror), annual, from the trade project
+## trade: surge-basket Western-reported inbound (mirror), annual. We plot the Western
+## component (not West+China) because that is the part that moves with the reorientation;
+## the West+China total is dominated by a large pre-existing China flow.
 tp <- "C:/Users/zh.kakishev/my-project2/scripts/R/kz_passthrough/_outputs/panel_annual.rds"
 sb <- "C:/Users/zh.kakishev/my-project2/scripts/R/kz_passthrough/_outputs/surge_basket_frozen.rds"
 p  <- readRDS(tp); s <- readRDS(sb); setDT(p); setDT(s)
@@ -23,11 +25,11 @@ g <- ggplot(m, aes(yr)) +
   geom_line(aes(y = trade_musd), colour = "#d95f0e", linewidth = 1) +
   geom_point(aes(y = trade_musd), colour = "#d95f0e") +
   geom_vline(xintercept = 2022, linetype = 2, colour = "grey40") +
-  scale_y_continuous(name = "surge-basket imports from EU+China, USD m (line)",
+  scale_y_continuous(name = "surge-basket Western-reported inbound, USD m (line)",
                      sec.axis = sec_axis(~ . / scale, name = "value-add-relevant deals per year (bars)")) +
   scale_x_continuous(breaks = 2016:2025) +
   labs(title = "Trade through Kazakhstan surged; the investment response did not",
-       subtitle = "Line: surge-basket inbound trade (mirror). Bars: M&A/PE deals in manufacturing-of-tradeables, transport/logistics, distribution. Dashed = 2022.",
+       subtitle = "Line: surge-basket Western-reported inbound trade (mirror). Bars: M&A/PE deals in manufacturing of tradeables, transport and logistics, and distribution. Dashed = 2022. Source: UN Comtrade; CapIQ/PitchBook/Preqin.",
        x = NULL)
 ggsave(file.path(OUT, "valueadd_fig_mismatch.png"), g, width = 9, height = 4.8, dpi = 150)
 

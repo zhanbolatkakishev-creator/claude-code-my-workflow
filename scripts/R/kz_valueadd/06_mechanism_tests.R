@@ -66,10 +66,14 @@ cat(sprintf("\n  electronics/precision deals 2015-21: %d   |   2022-25: %d\n",
             elec[yr<2022,.N], elec[yr>=2022,.N]))
 cat("\nPublic record (triangulation): post-2022 KZ launched/announced Chinese-brand SKD plants",
     "\n(Changan/Haval/Chery ~90k units), a KIA plant ($200m), Skoda assembly, a car-multimedia",
-    "\nplant (Almaty, 2024) — i.e. real capacity for the DURABLE auto shock, under the SAME weak",
-    "\nfinancial market. The TRANSITORY component shock got zero plants.\n")
-cat("\nINTERPRETATION: durable shock -> investment, transitory shock -> none, holding institutions",
-    "\nfixed => persistence/irreversibility is the binding moderator (real options), with",
-    "\ninstitutional voids as a LEVEL effect (baseline manufacturing investment is chronically thin).\n")
+    "\nplant (Almaty, 2024). NOTE: auto-sector DEAL counts actually fell after 2022 (6 -> 3); the",
+    "\ncapacity evidence is press/announcement triangulation, not deal data, and no symmetric",
+    "\nannouncement search was run for components. Much of the auto capacity also predates 2022.\n")
+cat("\nINTERPRETATION (illustrative, not a controlled test): the durable auto shock coincided with",
+    "\nnew assembly capacity while the transitory component shock did not, which is SUGGESTIVE that a",
+    "\ndurable, transformation-requiring shock draws capacity where a transitory re-export shock does",
+    "\nnot. But the two shocks differ in sunk-cost intensity, in whether market access requires domestic",
+    "\ncontent (EAEU rules bind for vehicles, not the re-export), and in destination market -- so this",
+    "\nis not a clean rho experiment. See corridor.tex Section 7.\n")
 sink()
 message("done: _outputs/mechanism_tests.txt")

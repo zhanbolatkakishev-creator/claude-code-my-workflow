@@ -1,132 +1,136 @@
-# Seven-Pass Review: "Corridor, Not Factory"
+# Seven-Pass Review: "Corridor, Not Factory" — ROUND 2
 
-**Date:** 2026-08-28
-**Path:** `Manuscript/corridor.tex` (20 pp; compiles clean; reproducibility audit = PASS)
-**Lens reports:** `quality_reports/seven_pass_corridor/lens_1..7_*.md`
+**Date:** 2026-08-31
+**Path:** `Manuscript/corridor.tex` (937 lines, 25 pp, compiles clean)
+**Lens reports:** `quality_reports/seven_pass_corridor/round2/lens_1..7_*.md`
+**Round 1:** `_SYNTHESIS_round1.md` (verdict was REVISE-MAJOR, 6 CRITICALs)
 
 ## Executive verdict
 
-**Overall state: REVISE-MAJOR.**
+**REVISE-MAJOR.** Five CRITICALs, all from the methods lens; the gate predicate blocks on
+`CRITICAL > 0`.
 
-The paper has a real spine — a Kazakhstan-specific measurement of the post-2022 trade
-reorientation, a value-capture estimate, a documented absence of an investment response, and a
-clean reproducibility pipeline. The Armenia/Kyrgyz parallel, the multi-database deal
-reconciliation design, and the "corridor, not factory" framing are genuine contributions.
+**But the trajectory is clearly positive.** Five of seven lenses improved (Abstract 6→7,
+Intro 6→7, Results 5→7, Robustness 4→6, Citations 7→8); Prose held at 6; Methods rose 3→5.
+Round 1's cross-lens CRITICALs are substantially resolved: the "five databases" over-claim,
+the missing regression table, the framework inflation, "Test F contradicted by own data", the
+placebo-purge, and the missing power analysis are all fixed or honestly hedged. The round-2
+CRITICALs are a narrower and more tractable class: **(a) two round-1 fixes that did not go
+deep enough** (the randomisation-inference benchmark; Figure 3), and **(b) arithmetic and
+evidentiary slips introduced by the fast Path B / hybrid rebuild** (the §5.2 freight-netting
+derivation; an §8 sentence with no data behind it; an unrun robustness check cited as run).
+None is fatal to the paper. Two headline numbers must move; the qualitative "corridor, not
+factory" conclusion survives an honest recomputation (and probably gets *smaller* value
+capture, not larger).
 
-But the **causal/inferential apparatus does not currently support the claims the abstract and
-§1 make**, and the pattern is systematic: across §4.3, §5.1, §5.2 and §7 the specification the
-paper reports is the one that supports the claim, while a specification the same script
-computed that does *not* support the claim is absent from the manuscript. Every one of these
-is in the shipped `_outputs/` and will be found by any referee who opens the replication
-package. The methods lens scored this 3/10; the robustness lens 4/10. This is fixable, but the
-revision is substantial and several headline numbers will move.
-
-**Hallucination gate:** the synthesis introduces no CRITICAL that a lens did not raise. The
-five methods CRITICALs were independently re-verified against the output files before this
-report was written (see "Verification" below) — they are grounded, not lens hallucination.
+**Hallucination gate:** all five CRITICALs originate in Lens 3 and none is
+synthesis-introduced. The two most consequential were independently re-verified against the
+outputs before this report: **C3** — Σ expRU = \$524.3m, Σ matched-inbound = \$781.3m, so the
+value-weighted aggregate matched-cell margin is **−49%**, not the +34% the paper reports (the
++34% is an artifact of censoring negative-margin cells); **C6** — `07_crosscountry.R` pulls
+World Bank WDI only, and Appendix A specifies every deal extract as Kazakhstan-only geography,
+so the §8 claim "the deal data show one [null]" for Armenia/Kyrgyz has no data behind it.
+C2, C4, C7 are corroborated by lenses 4 and/or 5.
 
 ## Cross-lens CRITICAL issues
 
 | # | Lens(es) | Issue | Recommendation |
 |---|---|---|---|
-| **C1** | L3-2, L5-1 | **The headline DiD is run on the wrong basket.** §4.3 reports γ = 2.88 (exports to Russia) and 2.94 (imports from the West) with "treated = priority-list codes" — but §3 says priority-list membership is used "only as a robustness check." The paper's actual object, the data-driven **surge basket**, has an **insignificant** DiD: expRU γ = 1.48 (p = 0.12), mirror-inbound γ = 1.27 (p = 0.17); only KZ-reported imports (`impW`, the series §3 disavows as incomplete) is significant (γ = 1.55, p = 0.015). The surge-basket DiD appears nowhere in the manuscript. | Report the full 2 (basket) × 4 (outcome) DiD grid. Make the surge-basket DiD primary. If it is insignificant on the mirror series, say so plainly and let the descriptive magnitudes + the structural breaks + the Armenia/Kyrgyz parallel carry §4 — the causal language ("a difference-in-differences coefficient of 2.94") must then come down. Reconcile §3 and §4.3. |
-| **C2** | L3-1, L5-5 | **The confound defense is compromised.** The "civilian placebo basket" has every surging civilian line deleted (`10_robustness.R:19`, `surge == FALSE` filter), so it cannot fail by construction — and it still does: control-basket break tests are supF 16.0 (p = 0.001) inbound and supF 34.6 (p < 0.001) outbound (`rq1_robustness.txt`). §4.3 reports only "sup-F = 16" and §1 calls it "nothing." The placebo *DiD* (−0.28, p = 0.34) is genuinely clean — that part stands. | Rebuild the placebo on the full 25-line civilian basket. Report both inbound and outbound supF *with p-values*. Disclose that the control-basket breaks are themselves significant and argue why the surge-basket break is still distinguishable (magnitude, timing, co-movement). Drop "shows nothing." |
-| **C3** | L3-3 | **The central null has no power analysis and flips with the window.** "7.3 vs 7.5 deals/year, before vs after" rests on ~7 and ~4 annual counts with within-period SD ≈ 3.5 (one pre-period year has zero). No MDE, no CI on the difference — the design could not reject a doubling. Excluding the shock year 2022 gives **9.0/yr (2023–25) vs 7.3/yr**. | Add an MDE / CI on the pre–post difference. Report the 2023–25 window beside 2022–25. Frame the result as "no *detectable* surge, and the design's floor is a response of size X," not "no response." |
-| **C4** | L3-4 | **Figure 3 is not an event study.** `06m_monthly_profile.R` saturates 31 monthly aggregate observations with 30 event-time dummies + intercept → zero residual df; the plotted "95% confidence intervals" are zero-width. No control group, so "flat pre-trend" is a de-meaned raw series (pre-period coefficients span ±0.85). | Rebuild as a real DiD event study at HS6 × month against the control basket with clustered SEs, or relabel the figure as a normalised time-series plot and delete the confidence-interval claim from the caption. |
-| **C5** | L3-5 | **Test F is contradicted by the paper's own data.** In the deal data, automotive deals *fell* post-2022 (6 in 2015–21 → 3 in 2022–25); electronics was flat (1 → 1) (`mechanism_tests.txt`). The "durable shock drew real capacity" claim rests entirely on press-announced SKD plants — a different evidence source than the electronics arm — and §6 states the auto capacity "predates and is largely independent of the reorientation." The comparison also moves ρ, sunk cost, market-access (EAEU local-content) and destination market at once. | Run a symmetric announcement search for electronics/components, or run both arms on the deal databases. Argue explicitly why I, h and destination market do not confound the ρ contrast. If neither is possible, demote Test F to an illustration and stop calling §7 an "identification." |
-| **C6** | L2-1 (C), L1-1, L4-2 | **The "five commercial databases" claim is not yet true.** Abstract, §1, contribution (iii), §6 and Table 2 present a five-database deal analysis and "divergence across deal databases" as a delivered method contribution; FactSet and Dealroom are marked "pending" / "[To run.]" and are not audited. The 7–8/yr rate, "weakest year," and zero-surge-basket claims rest on three sources. | Either run the FactSet + Dealroom extracts before circulating and complete Table 2, or rewrite every mention to "three databases, two more in progress" and move contribution (iii) to future work. Do not describe a cross-database reconciliation the table does not show. |
+| **C1** | 1, 2 (×2), 3, 5 | **The abstract and §1 state the interpretive claims flatter than §2/§6/§7/§10 now hedge them.** "Two within-country comparisons point to the irreversibility gate as binding" / "built real capacity for a durable auto-demand shock" / "there is no investment response" / "both [legs] at least doubled" — but §7 calls the two comparisons "illustrative rather than … a controlled test" and "not a clean ρ experiment", §6 concedes the auto capacity "predates … the reorientation", §2/§10 call the null "over-determined … we cannot cleanly attribute it to the trade shock alone", and §4.2 discloses the annual West+China inbound break is *insignificant*. Four lenses independently flag the same gap. | One editing pass over the abstract + §1: insert the concessive clauses that already exist downstream (null is over-determined + power-limited; "which gate binds" is suggestive not dispositive; Test F is illustrative; the inbound leg is product-level/monthly corroboration, not a co-equal aggregate break). Compress the §1 framework paragraph (18 lines → ~7). No new analysis. |
+| **C2** | 3, 5 | **The randomisation-inference benchmark does not test the selection-on-outcome problem it is offered for.** `06_eventstudy_did.R` draws *uniformly random* 29-line baskets; the surge basket is the extreme tail of the very moment the DiD estimates, so p = 0.009 is near-tautological. The correct null is baskets chosen by the *same ≥2×/≥2× rule* under H₀. Compounding: the rule is a post/pre *ratio* with the pre-period in the denominator, which induces mean reversion the unit+year FE absorb the level of and the 3-coefficient pre-trend test cannot see; and the inbound criterion is near non-binding (China ≈ ⅔ of the measure and grew economy-wide), so the operative screen is `expRU_ratio ≥ 2` — selection directly on the headline outcome. | Re-run RI as a **selection-rule-matched permutation**: permute the break date (and/or use pre-period splits), re-apply the ≥2× rule, collect the γ distribution, show the observed γ = 2.44 in its tail. Report how many of the 29 lines the inbound criterion actually binds on. If a rule-matched RI still puts γ in the tail, this resolves; if not, §4's causal language comes down to descriptive. |
+| **C3** | 3 (+ 4, 5 on the unsourced constant) | **The §5.2 "34% → 12% freight-netted margin" is arithmetically incoherent, and the abstract's 5–9% rests on it.** `07:29` censors the per-cell margin at zero (Σ retained = \$180m); `08:39` then subtracts freight (15% × \$781m) from that censored numerator over the *uncensored* base — mixing bases. Computed consistently, the value-weighted aggregate margin is **−49%** (KZ's matched re-exports to Russia are booked at less than the mirror-reported inbound cost — an outbound-under-invoicing / basis artifact, not a "retained margin"). The 15% freight rate is an uncited hardcode used at one point of a 10–20% range that inverts the band at 20%; the "6–14% national-accounts convention" appears only as a code comment, uncited. | **Drop the freight-netting derivation.** Bound the retained trade-and-logistics margin only by the KZ national-accounts trade-insurance-freight convention (6–14%), cited to a source. VA per rerouted dollar = 6–14% × 0.79 ≈ **5–11%**, midpoint ~8%; retained ≈ \$25–65m of \$479m. Keep the unit-value wedge in §5.1 as descriptive only ("median 0.73 c.i.f. / 1.6 f.o.b., no weight gain, too basis-dependent to pin the margin"). "Corridor, not factory" (5–11% ≪ 76%) is unaffected. |
+| **C4** | 3, 4, 5 | **Figure 3 was never actually fixed.** `06m_monthly_profile.R:45–47` fits 30 event-time dummies + intercept on 31 monthly aggregate observations → exactly saturated, zero residual df. The new caption says "the interval bands are correspondingly wide"; they are **zero-width**, and the shipped PNG's own subtitle still reads "95% CI". The real HS6-level DiD event study against the control basket (with the pre-trend Wald test the paper cites) already exists — `rq1_estimates.txt:38–47`, `rq1_fig_eventstudy.png` — and is not shown. | Swap `fig:es` to `rq1_fig_eventstudy.png`; report the HS6-level event-study coefficients (pre: 0.02 / −0.10 / 0.33; post builds to ~2.4) in a small table. Relabel the monthly aggregate profile as a raw two-series plot with no coefficients/bands, or delete it. |
+| **C5** | 3, 5 | **The significant negative placebo (γ = −0.95, p = 0.001) cannot be spun as "sharpens rather than muddies the contrast."** It is a different design — treatment assigned on the top quartile of pre-2022 `mirWC`, regressed on `mirWC` — so the coefficient is regression to the mean; but the pair (select on ratio → +2.44***; select on level → −0.95***) shows the panel returns a signed significant DiD for whichever moment the basket rule keys on, and it establishes that the control pool diverges sharply by pre-period size. The surge rule selects small-pre lines, so treated vs control is confounded with size. | Add a **pre-2022-size-decile × year FE** DiD (or a size-matched control); if γ survives, the size-divergence threat is answered. Alternatively add a Rambachan–Roth honest-DiD sensitivity bound. Replace a genuine selection-rule-matched placebo for the "reform confound" argument. Delete "sharpens the contrast". |
+| **C6** | 3 | **§8's "the deal data show one [null]" for Armenia and the Kyrgyz Republic has no data behind it**, and the cross-country evidence that exists runs the other way: `crosscountry.txt` gives Armenia's post-2022 investment rate **+3.3 pp of GDP** and FDI/GDP +0.9 pp. `07_crosscountry.R` pulls WDI macro only; Appendix A specifies every deal extract as Kazakhstan-only. | Delete "and the deal data show one". Either report ARM +3.3 pp GFCF explicitly with an explanation, or drop the ARM/KGZ external-validity claim. Add the full 2018–2025 neighbour outbound series (both revert to baseline by 2025 while Kazakhstan's does not — which *supports* §7's transitory-shock argument and should be used there). |
+| **C7** | 3 | **"results are similar dropping 2022" (§4.3) is an unrun robustness check** — no year-exclusion, alternative TREAT, or donut specification exists in any script or output. The same sentence cites a *monthly* reference period (2022m2) as the no-anticipation basis for the *annual* DiD (TREAT = 2022-01-01, reference year 2021). | Run it (drop 2022; and/or TREAT = 2023 donut) and put it in Table 2. State the annual reference period correctly. |
 
-## MAJOR issues (second-round)
+## MAJOR issues (second round)
 
 | # | Lens(es) | Issue |
 |---|---|---|
-| M1 | L2-2, L3-16, L6-4 | **Framework over-sold.** §1 calls the three-gate model a synthesis that "unifies" Dixit–Pindyck and Khanna–Palepu with a "novel" market-access gate; eq. (2) is an asserted multiplicative product, not derived from eq. (1). The mediation / moderated-mediation claim is *asserted and untestable in-sample* — M (HS6 × month) and Y (country × year, ~10 obs) never enter one regression; with R = f × h × g multiplicative and R ≈ 0 observed, the null carries no information about which gate binds, which is exactly what §7 claims to establish. "Complete mediation" is also misused (under h = 1 the direct path is *absent*, not offset). Fix: demote to "an organizing decomposition"; drop "unifies / novel framework / identify"; label the mediation paragraph as a theoretical restatement with no empirical counterpart. |
-| M2 | L3-10, L5-3 | **The ~8% value-capture headline is the assumed trade margin, not an estimate.** v_TT = 0.787 and v_M = 0.764 are near-identical, so 8% / 76% ≈ m × 1.03 — the Leontief step cancels. `07_unit_value_wedge.R` *estimates* the retained margin at 21.5%; `08_io_propagation.R` reads it and discards it for a hardcoded 6/10/14% band. At m = 0.215 the answer is ~17%, outside the reported 5–11%. §10's "not estimated line by line" is false, and m > 0 contradicts §5.1's "no positive markup" reading of the wedge. Fix: report the estimated margin, widen the headline range, argue the truncation bias in text, and stop advertising the I-O step as contribution (iii). |
-| M3 | L3-11 | **57% of the inbound surge is unaccounted for** ($1,309m in, $562m out; flow-through 0.43) and never discussed. Domestic absorption, unrecorded onward flow, and mirror over-reporting have opposite implications for the headline; none is bounded. Three flow bases ($562m / $618m / $716m) are used interchangeably. |
-| M4 | L3-9, L5-2 | **The unit-value wedge is not identified as "transformation."** CIF (imports) vs FOB (exports) pushes the ratio below one mechanically for a landlocked economy — unmentioned. The civilian control basket has a *lower* median wedge (0.57) than the surge basket (0.74), so a sub-unity wedge is not a property of the reorientation. No DiD on the wedge is ever run. The annual run of the same script gives slope 0.184 (p = 0.50); only the significant monthly run (0.27, p = 0.004) is reported. The promised under-invoicing "bound" (§10) does not exist anywhere in the code. |
-| M5 | L4-6, L3-6, L3-14 | **No regression table anywhere.** Every DiD, placebo, event study and pass-through slope lives in a prose sentence with no N, SE, FE rows, clustering statement or stars. No identifying assumption (parallel trends, no anticipation, SUTVA) is stated in the text. Inference is unadjusted for the data-driven basket, the single common treatment date (Bertrand–Duflo–Mullainathan), or multiple testing (8 DiDs run, 2 reported). A methods referee will require a full specification table + an identification subsection. |
-| M6 | L3-8, L6-17, L4 | **Structural-break reporting is selective and self-contradictory.** Bai–Perron returns mirW breaks at 2021-07, 2022-06 and 2023-08; only 2022-06 is reported and the 2021-07 pre-treatment break (a gradual-liberalisation signature) is suppressed. §4.2 says the break "does not coincide with … the June-2022 referendum" while the inbound break date it just cited *is* 2022m6 = June 2022. supF uses a mean-only model with no HAC on a persistent series, so "424 against critical values in the low tens" and the 16-vs-143 ratio are not interpretable as break strength. Annual break tests run on 8 observations. |
-| M7 | L3-13, L5-4 | **The only named confound is the one that runs against the finding.** "New Kazakhstan" is addressed; three confounds that would *generate* the investment null are unnamed: January 2022 Qandy Qantar (state of emergency in the first post-period month); secondary-sanctions / compliance risk deterring exactly the foreign acquirers who would answer the shock; and the 2022–25 nationalisation programme (read only as "ownership-transfer" evidence, not as a greenfield deterrent). |
-| M8 | L3-2, L3-15 | **The mirror-gap DiD — the spec most directly testing onward movement — is null and unreported** (0.74, p = 0.71 surge; 1.82, p = 0.39 priority; break supF 5.34, p = 0.16). Either report it and interpret the null, or stop leaning on mirror data as evidence of rerouting. |
-| M9 | L3-18 | **`asinh` on a panel of structural zeros.** Every empty HS6 × period cell is filled with zero, then estimated in `asinh`; under Chen–Roth the coefficient is not scale-invariant and has no percent interpretation, yet §4.2 converts it to "log points." No PPML alternative is shown. |
-| M10 | L4-1 | **"EU + China" inbound label vs a mirror definition that excludes China.** The headline inbound series is labelled "EU + China" in the abstract, §3, §4.1 and Table 1, but §4's mirror definition lists EU-27 + UK + US + JP + KR + CH + NO with **no China** — first-order for a China–Russia land bridge. Resolve which it is. |
-| M11 | L4-3, L4-4, L4-5 | **Tables/figures don't stand alone.** Table 3 places "$m (fund)" next to total private deal value with no note that the bases differ (invalidates the column comparison). Table 4 caption says "index" and §9 describes a four-input composite, but the table shows only raw components and no index column. Figure 1 caption gives no y-axis unit though the paper uses both levels and `asinh`. Tables 1, 4 and the moderators table have no notes at all. |
-| M12 | L7-1, L3-21 | **Four load-bearing citations sit in the `.bib` uncited** (Fisman–Wei 2004 for under-invoicing, Koopman–Wang–Wei 2014 and Johnson–Noguera 2012 for value-added trade, Arvis et al. 2010 for transit) — under `plainnat` they are silently dropped from References. No econometrics method is cited anywhere (Bai–Perron, Andrews supF, Chen–Roth, BDM). |
-| M13 | L1-2, L2-7 | **Abstract is ~370 words** (three 50–60-word sentences) and carries the full framework + both within-country tests + external validity. The roadmap is a nine-clause single sentence. Cut the abstract to ~200 words; state the question in sentence 1 and the contribution explicitly. |
-| M14 | L6-1, L6-2, L6-5 | **Prose regression in the newest sections.** §2, §8 and §10 have a dozen 50–95-word sentences, em-dash pairs that split subject from verb, and a dangling participle in the abstract ("propagating … the domestic value added … is about 8%"). §3–§6 are fine; the fix is localized. |
+| M1 | 3, 4 | **Table 2 (`tab:did`) mechanical errors, all overstating:** surge/exports-to-Russia p = 0.013 marked `**` (→ `*`); surge/inbound-W+China p = 0.051 marked `*` (→ unstarred; prose "p = 0.05" rounds a non-sig p down); placebo p = 0.00103 marked `***` (→ `**`). The note never says the parenthetical is the SE. Caption N = 600 is wrong for the placebo row (N = 200). Regenerate the table programmatically from `rq1_estimates.txt`. |
+| M2 | 3, 4 | **Stale figure labels after the Path B rebuild:** `valueadd_fig_mismatch.png` y-axis reads "imports from EU+China" but plots the Western-only series; `rq2a_fig_wedge_hist.png` title/x-axis/subtitle describe the c.i.f. variant while it plots the f.o.b. wedge. Pure label fixes in `03_fig.R` and `07:68–75`. |
+| M3 | 7 | **`desouza2026diffusion` cited as year 2026.** FRB Chicago WP 2024-20 is September 2024, revised March 2025 (SSRN 4972150). `\citet` renders "de Souza et al. (2026)" — a year matching no release. Set `year = 2024` (canonical WP) with a note that the March 2026 revision was consulted; rename the key. |
+| M4 | 3 | **§6 deal count: the 2015 pre-period value is an imputed zero** (`08_power_null.R` comment concedes the bucket table starts 2016). On 2016–21 the pre-mean is 8.5/yr (not 7.3), and the 2023–25 rate ratio is **1.06** (not 1.24). Verify whether 2015 is an observed zero in `deals_classified.rds`; if imputed, disclose and report the 2016–21 window. |
+| M5 | 3, 5 | **§5 denominator inconsistency.** §4 selects the basket on West+China; §5 measures flow-through on incremental *Western* inbound only (\$479m / \$887m = 0.54). On the selection basis the incremental inbound is ~\$3.2bn and flow-through ~0.15. Report both bases and justify the Western choice. Baseline windows also drift (selection 2019–21; incremental 2018–21). |
+| M6 | 5, 3 | **The inbound leg is over-claimed.** Annual West+China break insignificant (supF 4.12, p = 0.27); W+China DiD borderline (γ = 2.10, p = 0.051); Western-only DiD insignificant (γ = 1.73, p = 0.08). "Both legs at least doubled" (§1) and "imports of the same goods rose too" (abstract) outrun this. Lead with the outbound surge; present the inbound as product-level / monthly-Western corroboration, and state the null annual break where the claim is made, not only in §10. |
+| M7 | 3 | **"No large mark-up … on any basis" (§5.1) is contradicted by the paper's own tier medians:** 3.83 (CHPL tier 2, \$150.8m gross) and 3.94 (tier 4A, \$67.4m) — 42% of matched-cell outbound flow at ~4× markups; overall p75 = 4.40. Only the median is reported. Report the tier table or drop the universal. |
+| M8 | 3 | **"No systematic weight gain" is asserted four times (including in the abstract) with no statistic anywhere.** `wt_ratio` is computed at `07:25` and never enters any output. Supply the distribution of `expRU_kg / mirWC_kg` with a test against 1, or drop the claim. |
+| M9 | 4, 3 | **§5.1 (f.o.b. wedge 1.6) and §5.2 (gross margin 34% / −49% recomputed) are never bridged** — the two ends of the load-bearing value-capture chain. Add the reconciliation (median-of-ratios vs value-weighted quantity match; matched-cell inbound is ~9× the outbound) and state which object the claim rests on. |
+| M10 | 5 | **No alternative input–output multiplier** (ADB MRIO / EORA / KZ BNS) despite the OECD ICIO's unusually high Kazakhstan domestic-content shares; the freight rate is uncited with no sensitivity grid. |
+| M11 | 3 | **Annual `supF` inference on 8 observations**, mean-only model, no HAC, reported to four significant figures ("p < 10⁻⁴"; a literal "p = 1" appears in `rq1_robustness.txt`). Report annual breaks descriptively without p-values, or rely on the monthly tests (60+ obs), which are sound. |
+| M12 | 3, 5 | **Neighbour series truncated at 2023.** ARM 8.8→70.9→93.4→**42.2→12.8**; KGZ 7.4→12.4→30.3→**11.6→12.0** — both revert to baseline by 2025 while Kazakhstan's does not (128/145/119/133). Report the full 2018–2025 series. The reversion supports §7 (transitory) and complicates §8 ("share Kazakhstan's value on every moderator"). |
+| M13 | 3 | **§3 misstates the selection rule:** the post window is `tt < 2024-06-01` (2022–2024 on the annual panel, not "2022–2023"); the ratios are shrunk by +\$10,000 on both sides (not a raw doubling); the "modest post-period levels" floors are \$200k inbound / \$100k outbound. State the rule exactly as coded. |
+| M14 | 6 | **Prose (7 MAJOR):** four dangling participles reintroduced in the rewrites (§1 L102, §5.1 L497/L501, §2 L260); the §10 Limitations paragraph is one ~165-word non-parallel sentence; the §2 confound sentence is ~85 words and contains "discontinuous in 2022m**4**" (contradicts the 2022m5 break used everywhere else); ~10 sentences run 52–72 words in the rewritten passages; AI-voice tells re-entered §5.1/§8 ("genuinely ambiguous and worth stating carefully", "That alone is close to sufficient", symmetric "When the gate is open … closed …"); five spellings of "West + China"; hedge saturation in the §5.2 derivation (11 of ~13 clauses hedge). |
+| M15 | 3 | **The stated inference concern is the wrong one.** Clustering on HS6 *is* the Bertrand–Duflo–Mullainathan fix for within-HS6 serial correlation; the threat from a single common treatment date is cross-sectional dependence in the year shocks (Donald–Lang). No multiple-testing adjustment across ~20 reported tests with headline p = 0.013 and 0.051. (The wild bootstrap itself is implemented correctly.) |
+| M16 | 5, 7 | **Under-invoicing named but never bounded** (§5.1, §10). One line would do: "exports to Russia would need to be under-invoiced by ≈X% to lift retained domestic value added above Y% of the gross flow." Fisman–Wei is also a loose mechanism match (it is importer under-invoicing to evade tariffs); Chupilkin et al. or Ferrantino–Liu–Wang fit the onward-transit bias better. |
+| M17 | 2 | **§1 framework paragraph is an 18-line theory block** wedged between the three steps and the contribution paragraph, pre-running §3 and §7 in full; it is where the residual over-claiming concentrates. Compress to ~7 lines. |
+| M18 | 5, 7 | **§8 Vietnam/Mexico contrast asserted with no citation** ("widely read as structural"). The EU-11th-package / anti-circumvention enforcement timeline in §7 is also unsourced. Consider engaging Simola/BOFIT on Russia's third-country import recovery and Hilgenstock–Ribakova on export-control leakage. |
 
 ## MINOR polish
 
-- "Three observations follow" in §2 precedes four emphasized items (L6-3).
-- "First host-economy incidence analysis" — soften to "to our knowledge, the first systematic" (L2-3).
-- "identical" for deal counts that are 5.1 vs 5.2 (L6-10); "essentially unchanged."
-- "Five reorientation intermediaries" but only three are ever named (L5, L6-13).
-- Value-chain deal bucket described four different ways with the same counts (L4, L6-14).
-- Denominator drift $562m / $618m / $716m needs one reconciliation sentence (L3-20, L4).
-- BrE/AmE mix ("industrialize" vs "nationalisation"); "value addition" vs "value added" (L6-11).
-- Notation $R$ used before it is defined at eq. (2) (L6-16).
-- EAEU / USMCA / "China-plus-one" / sup-$F$ / Bai–Perron / `asinh` unexpanded or uncited on first use (L6-9).
-- Reference period −1 = 2022m2 (invasion month); annual `TREAT = 2022-01-01` codes January 2022 as post (L3-19).
-- Add a DOI to `johnson2012accounting`; consider a one-line nod to Egorov et al. (CEPR DP 20601, 2025) and the Global Sanctions Data Base (L7-3, L7-4).
-- Past/present tense mixing within §4.3 (L6-22).
-
-## Data-availability gate (raised this session, tracked in README + reproducibility audit)
-
-The **state investment corporation (QIC/Baiterek) project register** — which underpins Table 3
-and the §7 "captive capital abstained" identification claim — is **not yet public** (expected
-~Sep 2026). §3 wording has been changed from "is public" to point at the fund's published
-register with the replication package pinning the release date. Hard gate before circulation:
-(1) register published, (2) published fields verified to contain project / sector / region /
-financing year / cost, (3) replication package pins the release and the extracted fields.
+Roadmap is a nine-clause single sentence (L2, L6); abstract has two comma splices (L6-9, L6-10) and no explicit contribution clause (L1-6); "roughly tenfold" vs "3.5×" in one abstract sentence is unsignposted (L1-2, L2-R2-6); "sup-F of 561" is unscaled jargon in the abstract (L1-4); BrE/AmE mixing incl. "organizes" vs "organised" within §1, and "value addition" for "value added" (L6-11, L6-12); `$R$` used before it is defined (L6-14); acronyms unexpanded on first use — ICIO, EAEU, Bai–Perron, asinh, USMCA, PIPE (L6-15); §7 run-in headings inconsistent in form and "for three reasons" not enumerated (L6-16, L6-17); em-dash splices at §7 L715 and §10 (L6-18, L6-24); "not X but Y" seven times (L6-23); `power_null.txt` header label bug (L3-MIN2); trim the last two sentences of the §2 mediation paragraph (L3-MIN1); §2 mediation "polar case: h = 1" asserts a sign nothing estimates.
 
 ## Per-lens scorecard
 
-| Lens | Critical | Major | Minor | Score/10 |
-|---|---|---|---|---|
-| 1. Abstract | 0 | 2 | 6 | 6 |
-| 2. Intro | 1 | 4 | 4 | 6 |
-| 3. Methods | 5 | 13 | 4 | 3 |
-| 4. Results | 0 | 6 | 4 | 5 |
-| 5. Robustness | 1 | 3 | 4 | 4 |
-| 6. Prose | 0 | 5 | 17 | 6 |
-| 7. Citations | 0 | 1 | 3 | 7 |
-| **Overall** | **7** (6 after dedup) | **34** | **42** | **~4** |
-
-## Verification (post-judge hallucination gate)
-
-Before writing this synthesis the six cross-lens CRITICALs were re-checked against the shipped
-outputs, not just accepted from the methods lens:
-
-- **C1** — `rq1_estimates.txt`: surge-basket DiD expRU 1.484 (p = 0.1201), mirW 1.267 (p = 0.1744), impW 1.549 (p = 0.0152); "exposed" (priority-list) DiD expRU 2.875 (p = 2.3e-4), impW 2.940 (p = 4.6e-7). §4.3 text says "treated = the priority-list codes." **Confirmed.**
-- **C2** — `rq1_robustness.txt`: placebo control-basket supF mirW 16.02 (p = 0.001), expRU 34.63 (p ≈ 0); placebo DiD −0.282 (p = 0.341). **Confirmed.**
-- **C3** — `valueadd_findings.txt` §(3): value-add-relevant deals 2016–21 = 6,15,10,8,6,6; 2022–25 = 3,12,9,6; "51 deals … 7.3/yr" vs "30 … 7.5/yr". 2023–25 = 27/3 = 9.0/yr. **Confirmed.**
-- **C4** — `06m_monthly_profile.R:36-38` saturates the monthly aggregate with `i(mrel, ref=-1)`; caption claims "95% confidence intervals." **Confirmed from code + caption.**
-- **C5** — `mechanism_tests.txt`: "auto deals 2015-21: 6 | 2022-25: 3", "electronics/precision 2015-21: 1 | 2022-25: 1"; durable-arm evidence labelled "Public record (triangulation)." **Confirmed.**
-- **C6** — `corridor.tex` §3 / Table 2 / Appendix A / §10 all mark FactSet + Dealroom "[To run.]" / pending. **Confirmed.**
+| Lens | R1 | R2 | Critical | Major | Minor |
+|---|---|---|---|---|---|
+| 1. Abstract | 6 | **7** | 0 | 1 | 5 |
+| 2. Intro | 6 | **7** | 0 | 3 | 5 |
+| 3. Methods | 3 | **5** | 5 | 14 | 3 |
+| 4. Results | 5 | **7** | 0 | 5 | 7 |
+| 5. Robustness | 4 | **6** | 0 | 5 | 5 |
+| 6. Prose | 6 | **6** | 0 | 7 | 18 |
+| 7. Citations | 7 | **8** | 0 | 1 | 3 |
+| **Overall** | ~4 | **~5.5** | **5** | ~36 | ~46 |
 
 ## Revision plan (recommended order)
 
-1. **C1 + M8 + M5** — Rebuild §4.3 around the surge-basket DiD. Add a full specification table (all baskets × outcomes, with N/SE/FE/clustering), an identification subsection, and selection-aware inference (randomisation over placebo baskets drawn by the same selection rule; wild cluster bootstrap). Report the mirror-gap null. Bring the causal language into line with what survives.
-2. **C2 + M6 + M7** — Rebuild the placebo on the unpurged civilian basket; report all supF with p-values and all Bai–Perron breaks with CIs; delete/rewrite the referendum sentence; add Qandy Qantar, secondary-sanctions exposure and the nationalisation programme to §2 and show the null survives them (e.g. domestic-only dealmaking is equally flat).
-3. **C3** — Power/MDE for the deal-count null; report the 2023–25 window; reframe "no response" as "no detectable response, floor = X."
-4. **C5** — Fix or demote Test F (symmetric evidence sourcing; hold the other moderators fixed). Address the sanctions-compliance alternative for Test D or drop "not a financing story."
-5. **C4 + M11** — Rebuild Figure 3 as a real event study or relabel it; give every table complete notes, a consistent base for Table 3's two dollar columns, and an actual index column for Table 4.
-6. **M2 + M3 + M4** — Report the estimated 21.5% margin and widen the value-capture range; reconcile it with §5.1; decompose the missing 57% of the inbound flow; address CIF/FOB and the control-basket wedge; deliver the under-invoicing bound or drop the promise.
-7. **C6** — Run FactSet + Dealroom and complete Table 2, or downgrade the "five databases" language and contribution (iii) throughout.
-8. **M1 + M14** — Demote the framework from "unifying novel theory" to "organizing decomposition"; relabel the mediation paragraph; split the long sentences in §2/§8/§10; fix the abstract dangling participle.
-9. **M9 + M10 + M12 + M13** — PPML robustness for the `asinh` panel; resolve the "EU + China" label; wire in or remove the four orphan citations and cite the econometric methods; cut the abstract to ~200 words.
-10. **Minors** — the polish list above.
+1. **Front matter → body (C1, M6, M17, + abstract minors).** One editing pass: propagate the
+   hedges that already exist in §2/§6/§7/§10 into the abstract and §1; compress the §1
+   framework paragraph; lead with the outbound surge and demote the inbound leg to
+   corroboration; add a contribution clause. No new analysis. **~2 hrs, highest leverage.**
+2. **§5.2 value-capture derivation (C3, M5, M9, M10).** Drop the freight-netting. Bound the
+   margin by the 6–14% national-accounts convention, cited; VA per rerouted \$ ≈ 5–11%,
+   midpoint ~8%; retained ≈ \$25–65m. Report the wedge as descriptive only; report both
+   flow-through bases; add one alternative I-O multiplier if time. Update the abstract, §1,
+   §5, §10 to the new range.
+3. **DiD robustness rebuild (C2, C5, C7, M15).** (a) selection-rule-matched randomisation
+   inference; (b) size-decile × year FE DiD (or Rambachan–Roth bound); (c) drop-2022 / donut
+   spec into Table 2; (d) reframe the placebo text; (e) restate the inference rationale and
+   add a Romano–Wolf adjustment across the grid.
+4. **Figure 3 (C4).** Swap to `rq1_fig_eventstudy.png`; report the HS6-level event-study
+   coefficients; relabel/kill the aggregate profile.
+5. **§8 Armenia/Kyrgyz (C6, M12).** Delete "the deal data show one"; address ARM +3.3 pp GFCF;
+   add the full 2018–2025 neighbour series and note the reversion asymmetry.
+6. **Mechanical / drift fixes (M1, M2, M3, M13, M4, M7, M8).** Regenerate Table 2 from
+   `_outputs/`; fix stale figure labels; de Souza year → 2024; state the selection rule
+   exactly; verify the 2015 zero; supply the weight-ratio statistic or drop "no weight gain";
+   report the tier-median table or drop "no large mark-up on any basis".
+7. **Statistics hygiene (M11, M16).** Annual `supF` → descriptive only; negative-binomial RR
+   CI for the deal count; one-line under-invoicing bound.
+8. **Prose pass (M14, minors).** Split the ~10 long sentences; fix the four dangling
+   participles and the §10 Limitations mega-sentence; correct "2022m4"; standardise
+   "West + China"; de-hedge §5.2; expand acronyms on first use.
+9. **Citations (M18).** Cite the Vietnam/Mexico characterisation and the EU-11th-package
+   timeline; consider Simola/BOFIT + Hilgenstock–Ribakova.
+
+**Meta-fix (Lens 3's closing note, strongly endorsed):** add a build step that renders
+Table 2 and the §5.2 bounds directly from the `.txt`/`.rds` outputs. It would have caught
+M1, M2, M13 and C7 automatically and made C3's freight sensitivity impossible to hide. Four
+of the round-2 findings are the manuscript text drifting from the code during the Path B
+rebuild.
 
 ## Contradictions between lenses
 
-- **L2 vs L3/L6 on the framework.** L2 wants the contribution framing *strengthened*; L3 and L6 want the framework claims *dialed back*. Resolved, not contradictory: lead §1 with the empirical contribution (host-economy incidence + value capture + the investment null), which is defensible; demote the three-gate model to an organizing decomposition. Both moves point the same way — the empirical result leads, the theory supports.
-- **L3 credit vs C6.** L3 calls the multi-database reconciliation "a genuine methodological contribution"; C6 says the table doesn't show it yet. Resolved: the *design* is a real contribution; it becomes real in the paper when the two extracts are run.
+None hard. Lens 1 wants an explicit contribution sentence *added* to the abstract; Lens 2
+wants the §1 framework paragraph *compressed* — both point to tightening + retargeting the
+front matter, not in tension. Lens 4 says plotting the Western series in `fig:mismatch` is
+analytically correct (just relabel it); Lens 5 says lead with the outbound — compatible (the
+figure can stay, the emphasis in the text shifts).
 
 ## Token-budget report
 
-Seven-pass review: 7 forked reviewers (parallel) + synthesis with a verification pass against
-the output files. Approx subagent tokens: ~815k across the seven lenses (Lens 3 alone ~130k;
-its depth is the reason the run is worth the cost here). Runtime ~13 min wall-clock.
-
-Cheaper next time: `/review-paper` (single-pass) for iterative work; `/review-paper --peer
-<journal>` for a journal-calibrated editor + two referees once these CRITICALs are closed.
+Seven forked reviewers (2 completed on the first pass, 4 completed-but-file-only after the
+session-limit interruption, 1 re-run) + synthesis with independent re-verification of C3 and
+C6 against the outputs. Round-1 synthesis preserved as `_SYNTHESIS_round1.md`.

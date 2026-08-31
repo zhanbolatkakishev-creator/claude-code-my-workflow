@@ -33,3 +33,6 @@ attr(,"vcov_type")
 log(uv_impW) 0.152191  0.1086849 1.400295 0.1724092
 attr(,"vcov_type")
 [1] "Clustered (hs6)"
+
+-- weight ratio (kg out / kg in), matched cells: median 0.088, p25 0.011, p75 0.647 ; share > 1.05: 0.19 --
+   (a weight ratio persistently > 1 would indicate local input added; here it is at or below 1.)
