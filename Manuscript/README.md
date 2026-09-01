@@ -6,23 +6,32 @@
 
 ## Framing
 
-Standard development logic: a large, sector-specific increase in demand for tradeable goods
-should induce domestic investment. Kazakhstan got such a shock after 2022 (trade rerouting,
-×10 in 31 product lines). It produced **no investment response**. The paper measures the
-shock, shows Kazakhstan captures ~8% of the domestic value a producing economy would, documents
-the absent investment response in multi-source deal data, and interprets it with a **framework**
-(§2) in which the response is the product of three gates — irreversibility (Dixit–Pindyck),
-market access (a customs-union gate that makes trade a substitute for production, stated as a
-complete-mediation result), and institutions (Khanna–Palepu / Rajan–Zingales). Two
-within-country tests (§7) identify the irreversibility gate as binding: captive state capital
-also abstained, and the same institutions produced capacity for a *durable* shock (autos) but
-not the transitory one. §8 gives seven moderators + external validity; §9 ranks where
-investment *would* raise value capture.
+A **case study** in when a demand shock industrialises a country and when it does not.
+Standard development logic: a large, sector-specific increase in demand for a country's
+tradeable output should induce domestic investment. After the 2022 disruption of Russia's
+trade with its principal partners, a set of trade flows was reallocated through neighbouring
+economies; for Kazakhstan this was a ×10 rise in exports to Russia in ~29 technology-intensive
+product lines, with imports rising in step and the goods passing through untransformed. It
+produced **no investment response**. The paper measures the shock, shows Kazakhstan captures
+~8% of the domestic value a producing economy would, documents the absent investment response
+in multi-source deal data, and interprets it with a **framework** (§2): the response is the
+product of three gates — irreversibility (Dixit–Pindyck), market access (a customs union makes
+trade a substitute for production), and institutions (Khanna–Palepu / Rajan–Zingales). A
+within-country comparison ("Which gate binds?") points to the irreversibility gate being
+adverse too. The moderators section gives external validity; "Where investment would raise
+value capture" ranks the priority sectors; and the new **Policy implications** section draws
+the levers — for Kazakhstan (condition market access on domestic value-added; cut policy
+uncertainty and sunk cost; QIC from lead investor to co-investor; invest in the logistics
+platform first), Kazakhstan's rising **corridor leverage** as maritime chokepoints are
+disrupted and the northern land route is closed, and a tentative subsection on what China
+could change. Framing is deliberately neutral: this is a trade-reallocation case study, not a
+circumvention paper.
 
-**Structure:** Intro · §2 Framework (2-period threshold model, eq. 1–2; mediation/moderated-
-mediation) · §3 Data · §4 The demand shock · §5 What Kazakhstan retains · §6 The (non-)
-investment response · §7 Which gate binds? · §8 Moderators & external validity · §9 Where
-investment would pay off · §10 Discussion · App. A deal-database query spec. 20 pp.
+**Structure:** Intro · Setting (incl. the corridor/chokepoint context) · Framework · Data ·
+The demand shock · What Kazakhstan retains · The (non-)investment response · Which gate
+binds? · Moderators & external validity · Where investment would pay off · **Policy
+implications** (Kazakhstan · corridor leverage · China) · Discussion · App. A deal-database
+query spec.
 
 ## Data (all public or academically licensed — replicable)
 
@@ -86,7 +95,9 @@ Figures/tables referenced by `corridor.tex` are written to
 - ~~KZ national I-O table (68 products) as a robustness check on the ICIO multipliers.~~
   Done: `scripts/R/kz_passthrough/08b_kz_bns_io.R` (BNS 2023, `_data/kz_bns_io/io_2023_ru.xlsx`)
   → v_TT 0.89 / v_M 0.74 vs ICIO 0.79 / 0.76; qualitative result unchanged.
-- Widen the conflict-of-interest footnote if the paper leans further into policy prescription.
+- ~~Widen the conflict-of-interest footnote if the paper leans further into policy prescription.~~
+  Done: the footnote now flags that the Policy implications section is normative and the
+  author's own, not representing the AIFC / QIC / IFC.
 - `/capture-environment` (renv) + assemble the replication package.
 
 ## Related paper
