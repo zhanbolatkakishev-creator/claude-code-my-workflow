@@ -159,15 +159,25 @@ own +1.0pp GFCF (`crosscountry.txt:17`) unreported while Armenia's +3.3pp is fla
 
 ## Revision plan (in recommended order)
 
-> **STATUS 2026-09-01 (`feat/corridor-qic-report-rescope`, commits 2c112d6 / 40d67f6 / +1):**
-> C3 closed (QIC re-scope). C1, C2 addressed (m reframed + BNS-bounded + cited `qazstat2023io`;
-> under-invoicing bound corrected to 15–26%). Abstract/§1 parity, asinh threefold/tenfold,
-> L3-4/L3-5/L3-10/L3-12/L3-13/L3-14/L3-15, by-tier wedge, Fig 1/Fig 4 captions, §10 superlative,
-> `tab:priority` missing row, `desouza` note, the 2023–25 sanctions-circumvention cites, and the
-> prose MAJORs (L6-1..L6-5) all done. New analyses added to `12_did_robustness.R`:
-> leave-one-HS2-out (effect carried by HS 84/85; drop HS 85 → γ 1.4), threshold sensitivity
-> (1.5×→γ 1.6, 2.5–3×→γ 3.1), trend-preserving cyclic-shift permutation null (P(≥29)=0.000).
-> Remaining: full `/audit-reproducibility` re-run; `/verify-claims` on the new policy cites.
+> **STATUS 2026-09-01 — COMPLETE (`feat/corridor-qic-report-rescope`, 9 commits `5a311a3`→`e0d5cf0`):**
+> All 3 CRITICALs + all 35 MAJORs + most MINORs addressed.
+> - **C3** closed (QIC re-scoped to the public PE report; `tab:captive` deleted; Test D illustrative).
+> - **C1** — `m` reframed as a wholesale+freight calibration, BNS-bounded (transport 1%, full 49%),
+>   cited `qazstat2023io`, conceded not-estimated.
+> - **C2** — under-invoicing bound corrected: `k=(1-m)/(1-0.254)` → **13–21%** (not the "40%" in the
+>   draft, nor the "15–26%" of the first fix; caught in the audit).
+> - Abstract/§1 DiD parity; asinh threefold(PPML)/tenfold(raw) separated; L3-4/L3-5/L3-10/L3-12/
+>   L3-13/L3-14/L3-15; by-tier wedge ("no mass at high multiples" replaced); Fig 1/Fig 4 captions;
+>   §10 superlative; `tab:priority` +Electrical-equipment row; prose MAJORs L6-1..L6-5 + MINORs
+>   L6-9/L6-11/L6-13/L6-14.
+> - **New analyses** in `12_did_robustness.R`: leave-one-HS2-out (drop HS 85 → γ 1.36), thresholds
+>   (1.5×→γ 1.59 / 2.5–3×→γ 3.1), trend-preserving cyclic-shift null (P(≥29)=0.000).
+> - **`/verify-claims`** run on the new cites: `simola2023bofit` (BOFIT PB 15/2023),
+>   `kse2024exportcontrols` (WGP 16, Jan 2024), `wisniewska2025osw` (OSW report) — all verified;
+>   the invented Kluge/SWP entry dropped. `desouza` "Revised March 2025" note removed.
+> - **`/audit-reproducibility`: PASS** — 118 PASS / 0 FAIL / 1 EXPLAINED / 3 UNMATCHED.
+> Not pushed / not ff'd to main — awaiting user review. Before submission: regenerate `04`/`07`
+> (live Comtrade/WDI) and `11_macro` for a current provenance date.
 
 1. **Close C1 (uncited `m`).** Find and cite the KZ national-accounts trade-margin figure; add
    the §3 Data row; convert the 6–14% band to an explicit sensitivity grid; concede calibration.
