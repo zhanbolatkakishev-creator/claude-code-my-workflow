@@ -1,18 +1,18 @@
 ===== C3: how precise is the "no investment response" null? =====
 
-pre  2015-2021 : n years = 7, counts = 0,6,15,10,8,6,6 (2015 = observed zero), mean = 7.29/yr, sd = 4.57
-post 2022-2025 : n years = 4, counts = 3,12,9,6, mean = 7.50/yr, sd = 3.87
-post 2023-2025 : n years = 3, counts = 12,9,6, mean = 9.00/yr (drops shock year 2022)
+pre  2015-2021 : n years = 7, counts = 1,6,15,10,8,6,7 (2015 = coverage ramp-up), mean = 7.57/yr, sd = 4.28
+post 2022-2025 : n years = 4, counts = 3,12,8,6, mean = 7.25/yr, sd = 3.77
+post 2023-2025 : n years = 3, counts = 12,8,6, mean = 8.67/yr (drops shock year 2022)
 
-Welch t-test post vs pre : diff = +0.21/yr, 95% CI [-5.86, +6.29], p = 0.94
-Welch t-test 2023-25 vs pre : diff = +1.71/yr, 95% CI [-4.28, +7.70], p = 0.51
+Welch t-test post vs pre : diff = -0.32/yr, 95% CI [-6.18, +5.54], p = 0.90
+Welch t-test 2023-25 vs pre : diff = +1.10/yr, 95% CI [-4.90, +7.09], p = 0.66
 
-Poisson rate ratio (post/pre) = 1.03, 95% CI [0.63, 1.65], p = 0.91
-Poisson rate ratio (2023-25/pre) = 1.24, 95% CI [0.74, 2.01], p = 0.39
+Poisson rate ratio (post/pre) = 0.96, 95% CI [0.59, 1.53], p = 0.91
+Poisson rate ratio (2023-25/pre) = 1.14, 95% CI [0.69, 1.86], p = 0.62
 
-MDE (80% power, alpha .05, Poisson, lambda0 = 7.29, n_post = 4):
+MDE (80% power, alpha .05, Poisson, lambda0 = 7.57, n_post = 4):
    smallest detectable rate ratio ~ 1.8x  (i.e. we could only reliably detect
-   an increase to >= 13.1 deals/yr; a doubling to 14.6 is at ~94% power)
+   an increase to >= 13.6 deals/yr; a doubling to 15.1 is at ~95% power)
 
 Read: the data can rule out a LARGE surge in dealmaking, not a modest one. The claim is
 'no detectable step-up', with the detectable threshold around a doubling.

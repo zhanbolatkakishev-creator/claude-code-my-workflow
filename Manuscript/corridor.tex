@@ -53,8 +53,8 @@ cents per dollar rerouted, against about three-quarters for a dollar of domestic
 manufacturing. We find no investment response---though, with four post-2022 years, the data
 rule out a large response rather than a modest step-up, and the null is over-determined by
 contemporaneous shocks. Deal-making in manufacturing, transport and logistics runs at its
-pre-2022 rate; 2022 is the weakest year in the series; and no transaction over 2015--2025
-falls in the product lines the reorientation flows through. We read the null through a
+pre-2022 rate; 2022 is one of the weakest years in the series; and no transaction over
+2015--2025 falls in the product lines the reorientation flows through. We read the null through a
 three-gate decomposition---irreversibility, market access (a customs union makes trade a
 substitute for production), and capital-market institutions. A within-country comparison---the
 same institutions added assembly capacity for a \emph{durable} auto-demand shock but none for
@@ -122,9 +122,8 @@ detect. We assemble deal-level data on mergers, acquisitions, and private-equity
 transactions in Kazakhstan for 2015--2025 from three commercial databases (Capital~IQ,
 PitchBook, Preqin), together with the aggregate investment activity of Kazakhstan's state
 investment corporation as reported in \citet{qicaifcifc2026pe}. Deal-making in manufacturing of tradeable goods,
-transport and logistics, and distribution runs at essentially its pre-2022 rate, and 2022 is
-the weakest year in
-the series; with four post-2022 years the test rules out a large response, not a modest
+transport and logistics, and distribution runs at essentially its pre-2022 rate---if anything
+lower after 2022; with four post-2022 years the test rules out a large response, not a modest
 step-up, and the null is in any case over-determined---the January 2022 unrest, sanctions
 compliance exposure and the nationalisation wave would each depress entry. Reported deal value
 rises, but is concentrated in ownership transfers of existing or
@@ -356,11 +355,13 @@ to 68 products, 2023 reference year).
 \paragraph{Deal data.} Deal-level records of mergers, acquisitions, private-equity buyouts and
 growth transactions, and venture rounds involving Kazakhstan-domiciled targets, 2015--2025.
 The extract combines Capital~IQ, PitchBook and Preqin ($n\approx 500$ after
-de-duplication), classified to sectors and flagged for greenfield versus ownership transfer.
+de-duplication), each record carrying its native source deal identifier, classified to
+sectors and flagged for greenfield versus ownership transfer.
 The exact query specification for the three databases (geography filter, deal types, date
 range, industry taxonomy, extraction date) is in Appendix~\ref{app:deals}, and
 Table~\ref{tab:dealsource} reports each one's coverage. All are commercial but widely
-available under academic licence, so the extract is replicable. QIC investment activity is
+available under academic licence, and the replication package lists the deal identifiers, so
+the extract is reconstructible. QIC investment activity is
 taken from \citet{qicaifcifc2026pe}, which reports it in aggregate (about 98 investments,
 roughly \$2.2bn, 2015--2025), by sector and year, and names individual projects in its
 appendix and case studies; no project-level QIC register is public, and the paper uses only
@@ -644,22 +645,22 @@ in the sectors the flow passes through. We find none---though, with only four po
 the deal-count test can rule out a large response, not a modest one.
 
 Deal-making in manufacturing of tradeable goods, transport and logistics, and wholesale
-distribution runs at \textbf{7.3 per year} in 2015--2021 and \textbf{7.5 per year} in
-2022--2025 (a Poisson rate ratio of 1.03, 95\% CI 0.63--1.65); 2022 itself is the weakest year
-in the series (Figure~\ref{fig:mismatch}). 2015 is a first-year zero as the databases ramp up
-coverage; excluding it the pre-2022 rate is 8.5 per year, which would make the post period a
-slight decline---so the ``no response'' reading is conservative on this margin. Dropping the
-2022 trough, 2023--2025 runs at 9.0 per year (rate ratio 1.24, 95\% CI 0.74--2.01). The test
-has 80\% power only against an increase of roughly 80\% or more, so it excludes a surge in
-deal-making but not a modest step-up. Three features of the data say more than the count. First, reported deal \emph{value}
+distribution runs at \textbf{7.6 per year} in 2015--2021 and \textbf{7.2 per year} in
+2022--2025 (a Poisson rate ratio of 0.96, 95\% CI 0.59--1.53); after 2015 and 2022---a
+coverage ramp-up year and the unrest year---2022 is the weakest year in the series
+(Figure~\ref{fig:mismatch}). Excluding the thin 2015 first year the pre-2022 rate is 8.7 per
+year, so the post period is a slight decline on either basis. Dropping the 2022 trough,
+2023--2025 runs at 8.7 per year (rate ratio 1.14, 95\% CI 0.69--1.86). The test has 80\% power
+only against an increase of roughly 80\% or more, so it excludes a surge in deal-making but
+not a modest step-up. Three features of the data say more than the count. First, reported deal \emph{value}
 in these sectors rises, but is concentrated in ownership transfers of existing or distressed
 assets---the ArcelorMittal Temirtau to Qarmet nationalisation (2023), Eurocopter Kazakhstan
 and the Lokomotiv rolling-stock plant (re-nationalisations, 2024), and a \$0.8bn 2025
 consolidation of rail-freight and forwarding assets---not new productive capacity. Second,
-greenfield and new-capacity transactions run at one to two per year throughout, with no
-post-2022 change. Third, across the whole 2015--2025 window the data contain \textbf{no}
-transaction in the specific product lines that dominate the reorientation---a zero that a
-modest-response CI does not soften.
+greenfield and new-capacity transactions average under two per year and never exceed four,
+with no post-2022 increase (one to two per year after 2022). Third, across the whole
+2015--2025 window the data contain \textbf{no} transaction in the specific product lines that
+dominate the reorientation.
 
 \begin{figure}[t]
 \centering
@@ -692,9 +693,9 @@ after 2022 (5.1 versus 5.2 per year).
 \toprule
 Deals per year (unless noted) & Cap.~IQ & PitchBk & Preqin \\
 \midrule
-All deals, 2015--21              & 24.0 & 14.0 & 3.1 \\
-All deals, 2022--25              & 23.2 & 24.0 & 1.8 \\
-Mfg + transport + distrib., 2015--21 & 5.1 & 1.9 & 0.3 \\
+All deals, 2015--21              & 24.0 & 14.6 & 3.7 \\
+All deals, 2022--25              & 23.2 & 24.2 & 1.8 \\
+Mfg + transport + distrib., 2015--21 & 5.1 & 2.0 & 0.4 \\
 Mfg + transport + distrib., 2022--25 & 5.2 & 1.5 & 0.5 \\
 Surge-basket lines, 2015--25 (total) & 0$^{a}$ & 0 & 0 \\
 \bottomrule

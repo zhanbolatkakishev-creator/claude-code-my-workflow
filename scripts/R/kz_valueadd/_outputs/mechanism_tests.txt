@@ -8,7 +8,7 @@
 Private PE/M&A deals 2022-2025, by relation to the reorientation:
                             relation     n val_musd
                               <char> <int>    <num>
-1:                         unrelated   192    10373
+1:                         unrelated   188    10346
 2: vehicles/machinery (domestic mkt)     6      138
 3:     corridor logistics/processing     2      767
 4:               surge-basket sector     1       10

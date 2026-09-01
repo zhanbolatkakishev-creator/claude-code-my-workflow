@@ -32,13 +32,15 @@ investment would pay off · §10 Discussion · App. A deal-database query spec. 
 | OECD ICIO 2023 ed., Kazakhstan block | domestic value-added multipliers (Leontief) | free download |
 | World Bank WDI | macro context | free |
 | Kazakhstan Bureau of National Statistics | I-O robustness, customs revenue | free |
-| Capital IQ, PitchBook, Preqin | deal-level M&A/PE/VC universe | commercial; academic licence. Query spec in `corridor.tex` Appendix A |
+| Capital IQ, PitchBook, Preqin | deal-level M&A/PE/VC universe (493 deals, native per-source IDs) | commercial; academic licence. Consolidated list `20260825_Market size DA.xlsx` / `Deals_Preqin+Pitchbook+CapIQ`; query spec in `corridor.tex` Appendix A |
 | QIC/AIFC/IFC *Private Equity in Kazakhstan* report (Sep 2026) | state-fund investment activity — aggregate + sector-by-year + named projects | public (joint QIC + AIFC + IFC report) |
 
-The deal universe is built from CapIQ + PitchBook + Preqin (the three databases the PE report
-draws on). `scripts/R/kz_valueadd/05_deal_source_reconcile.R` reports each source's coverage
-for Table `tab:dealsource`. There is no project-level QIC register; all QIC facts in the paper
-come from the published report.
+The deal universe is the de-duplicated CapIQ + PitchBook + Preqin consolidation supplied by the
+market-sizing team (the three databases the PE report draws on), each record carrying its
+native source deal ID so a licence holder can reconstruct it.
+`scripts/R/kz_valueadd/05_deal_source_reconcile.R` reports each source's coverage for Table
+`tab:dealsource`. There is no project-level QIC register; all QIC facts in the paper come from
+the published report.
 
 ## Reproduce
 

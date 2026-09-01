@@ -9,9 +9,8 @@ suppressMessages(library(data.table))
 DIR_OUT <- "C:/Users/zh.kakishev/my-project2/scripts/R/kz_valueadd/_outputs"
 
 ## value-add-relevant annual counts, read straight from deals_classified.rds so the power
-## analysis tracks any change to the deal classification. 2015 is an OBSERVED zero: the
-## dataset has 31 deals in 2015, none of them in the value-add-relevant buckets
-## (mfg tradeables / transport-logistics / distribution).
+## analysis tracks any change to the deal classification. 2015 is a low first year as the
+## commercial databases ramp up Kazakhstan coverage.
 d <- readRDS(file.path(DIR_OUT, "deals_classified.rds")); setDT(d)
 va <- if ("valueadd_relevant" %in% names(d)) d[valueadd_relevant == TRUE] else
   d[bucket %in% c("mfg_tradeables", "transport_logistics", "trade_distribution")]
@@ -24,7 +23,7 @@ post_ex22 <- cnt[yr >= 2023]
 
 sink(file.path(DIR_OUT, "power_null.txt"), split = TRUE)
 cat("===== C3: how precise is the \"no investment response\" null? =====\n\n")
-cat(sprintf("pre  2015-2021 : n years = %d, counts = %s (2015 = observed zero), mean = %.2f/yr, sd = %.2f\n",
+cat(sprintf("pre  2015-2021 : n years = %d, counts = %s (2015 = coverage ramp-up), mean = %.2f/yr, sd = %.2f\n",
             nrow(pre), paste(pre$n, collapse = ","), mean(pre$n), sd(pre$n)))
 cat(sprintf("post 2022-2025 : n years = %d, counts = %s, mean = %.2f/yr, sd = %.2f\n",
             nrow(post), paste(post$n, collapse = ","), mean(post$n), sd(post$n)))

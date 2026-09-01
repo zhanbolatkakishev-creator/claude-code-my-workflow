@@ -1,6 +1,16 @@
 # Reproducibility Audit: Corridor, Not Factory
 
-**Date:** 2026-09-01 (post round-3 seven-pass revision + QIC re-scope)
+> **DEAL DATA SWAPPED (2026-09-01, `feat/corridor-adopt-platform-deallist`).** `01_read_deals.R`
+> now reads the consolidated three-source list `20260825_Market size DA.xlsx` /
+> `Deals_Preqin+Pitchbook+CapIQ` (493 deals, native per-source deal IDs). §6 rates change:
+> 7.3/7.5 → **7.6/7.2 per year**, Poisson RR 1.03 → **0.96 [0.59–1.53]**, 2023–25 rate 9.0 →
+> **8.7** (RR 1.14 [0.69–1.86]); `tab:dealsource` PitchBook row → 14.6/24.2/2.0/1.5, Preqin →
+> 3.7/1.8/0.4/0.5 (CapIQ row unchanged). 2015 goes from 0 to 1 in-scope deal; abstract/§1/§6
+> "2022 the weakest year" softened. Auto 6→3, surge-basket lines = 0 (same 2 CapIQ
+> misclassifications — Tokyo Rope, China Brilliant Financial), and the $767m 2025 rail-freight
+> consolidation are all unchanged. Deal-side outputs re-verified against the new run; no FAIL.
+
+**Date:** 2026-09-01 (post round-3 seven-pass revision + QIC re-scope + platform deal-list swap)
 **Manuscript:** `Manuscript/corridor.tex` (branch `feat/corridor-qic-report-rescope`, commit `91bba2d`+)
 **Outputs:**
 `scripts/R/kz_passthrough/_outputs/` — `rq1_estimates`, `rq1_did_robustness` (extended: +leave-one-HS2-out,

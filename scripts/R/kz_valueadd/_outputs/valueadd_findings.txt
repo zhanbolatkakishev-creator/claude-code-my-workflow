@@ -1,50 +1,51 @@
 ================================================================
  Does the post-2022 trade reorientation create value-add operations in Kazakhstan?
- Deal data: CapIQ/PitchBook/Preqin, non-duplicate, n = 501  (2015-2025)
+ Deal data: CapIQ/PitchBook/Preqin, non-duplicate, n = 493  (2015-2025)
 ================================================================
 
 --- (1) ALL deals by year: count, value $M ---
        yr     n val_m
     <int> <int> <num>
- 1:  2015    31  6751
- 2:  2016    38  1047
- 3:  2017    53   179
- 4:  2018    45  1058
- 5:  2019    38  2207
- 6:  2020    41  1921
- 7:  2021    54   346
- 8:  2022    37   119
+ 1:  2015    34  6769
+ 2:  2016    36   987
+ 3:  2017    51   189
+ 4:  2018    44  1058
+ 5:  2019    37  2212
+ 6:  2020    40  1920
+ 7:  2021    54   352
+ 8:  2022    35   116
  9:  2023    66  3496
-10:  2024    57  4256
-11:  2025    41  3417
+10:  2024    54  4231
+11:  2025    42  3417
 
 --- (2) deals by value-chain bucket ---
                 bucket     n val_m
                 <char> <int> <num>
-1:               other   146  4104
+1:               other   138  4048
 2:             digital   111  4809
-3:          extractive    85  8403
+3:          extractive    84  8403
 4:             finance    78  4174
 5:      mfg_tradeables    47  1658
-6:  trade_distribution    17   145
-7: transport_logistics    17  1504
+6: transport_logistics    19  1511
+7:  trade_distribution    16   144
 
 --- (3) VALUE-ADD-RELEVANT deals (mfg tradeables + transport/logistics + trade/distribution) by year ---
        yr     n val_m newcap_n MnA_n
     <int> <int> <num>    <int> <int>
- 1:  2016     6   201        2     4
- 2:  2017    15    74        2    13
- 3:  2018    10   185        1     9
- 4:  2019     8   160        1     7
- 5:  2020     6   370        3     3
- 6:  2021     6    22        3     3
- 7:  2022     3    18        1     2
- 8:  2023    12  1029        2    10
- 9:  2024     9   384        2     7
-10:  2025     6   864        1     5
+ 1:  2015     1     0        0     1
+ 2:  2016     6   201        2     4
+ 3:  2017    15    74        2    13
+ 4:  2018    10   185        1     9
+ 5:  2019     8   160        1     7
+ 6:  2020     6   370        3     3
+ 7:  2021     7    29        4     3
+ 8:  2022     3    18        1     2
+ 9:  2023    12  1029        2    10
+10:  2024     8   384        2     6
+11:  2025     6   864        1     5
 
-  pre-2022 (2015-2021): 51 deals, ~$1012m, 7.3/yr avg
-  2022-2025           : 30 deals, ~$2295m, 7.5/yr avg
+  pre-2022 (2015-2021): 53 deals, ~$1019m, 7.6/yr avg
+  2022-2025           : 29 deals, ~$2295m, 7.2/yr avg
 
 --- (4) mfg-of-tradeables deals, ALL years (the sectors the trade surge flows through) ---
        yr                                                              company
@@ -204,61 +205,67 @@
 --- (5) transport / logistics deals, ALL years ---
        yr
     <int>
- 1:  2016
- 2:  2017
+ 1:  2015
+ 2:  2016
  3:  2017
  4:  2017
- 5:  2018
+ 5:  2017
  6:  2018
- 7:  2019
+ 7:  2018
  8:  2019
- 9:  2020
-10:  2022
-11:  2023
-12:  2024
-13:  2024
+ 9:  2019
+10:  2020
+11:  2021
+12:  2022
+13:  2023
 14:  2024
-15:  2025
-16:  2025
+15:  2024
+16:  2024
 17:  2025
+18:  2025
+19:  2025
                                                                                                 company
                                                                                                  <char>
- 1:                                                                                       Petroleum LLP
- 2:                                                                                   Euro-Asia Air JSC
- 3: Aktobe TETS, East Kazakhstan Regional Energy Company, and Mangistau Distribution Power Grid Company
- 4:                                                                   JEL Distribution (Kazakhstan) LLP
- 5:                                                         Kazakhstan Temir Zholy National Company JSC
- 6:                                                                                         Atasu Group
- 7:                                                                                JSC Kedentransservis
- 8:                                                                                    Bayanaul Airport
- 9:                                                    Joint-Stock Company Almaty International Airport
-10:                                                                                        Petrosun LLP
-11:                                                                      Oral International Airport LLP
-12:                                                                                     Sky Service LLP
-13:                                                                                TNS Plus Corporation
-14:                                                                                       Qazaq Air JSC
-15:                                                                          Freedom Cloud Holding Ltd.
-16:                     BaltTransServis/GTI Management/New forwarding/Ural Wagonrepair/Adaptive Capital
-17:                                                                                 Universal Logistics
-             deal_type  val_m                           industry_raw
-                <char>  <num>                                 <char>
- 1: Merger/Acquisition 100.30 Oil and Gas Storage and Transportation
- 2: Merger/Acquisition  35.66                     Passenger Airlines
- 3: Merger/Acquisition     NA                     Electric Utilities
- 4: Merger/Acquisition   0.45                      Food Distributors
- 5: Merger/Acquisition     NA                    Rail Transportation
- 6:             Growth     NA               Logistics & Distribution
- 7: Merger/Acquisition     NA                    Rail Transportation
- 8: Merger/Acquisition   0.62                       Airport Services
- 9: Merger/Acquisition 365.00                       Airport Services
-10: Merger/Acquisition   0.00 Oil and Gas Storage and Transportation
-11: Merger/Acquisition     NA                       Airport Services
-12: Merger/Acquisition     NA                     Passenger Airlines
-13: Merger/Acquisition 137.50                   Alternative Carriers
-14: Merger/Acquisition  75.45                     Passenger Airlines
-15: Merger/Acquisition  22.34                   Alternative Carriers
-16: Merger/Acquisition 766.77                    Rail Transportation
-17:         Trade Sale     NA               Logistics & Distribution
+ 1:                                                                                 Universal Logistics
+ 2:                                                                                       Petroleum LLP
+ 3:                                                                                   Euro-Asia Air JSC
+ 4: Aktobe TETS, East Kazakhstan Regional Energy Company, and Mangistau Distribution Power Grid Company
+ 5:                                                                   JEL Distribution (Kazakhstan) LLP
+ 6:                                                         Kazakhstan Temir Zholy National Company JSC
+ 7:                                                                                         Atasu Group
+ 8:                                                                                JSC Kedentransservis
+ 9:                                                                                    Bayanaul Airport
+10:                                                    Joint-Stock Company Almaty International Airport
+11:                                                                        Almaty International Airport
+12:                                                                                        Petrosun LLP
+13:                                                                      Oral International Airport LLP
+14:                                                                                     Sky Service LLP
+15:                                                                                TNS Plus Corporation
+16:                                                                                       Qazaq Air JSC
+17:                                                                          Freedom Cloud Holding Ltd.
+18:                     BaltTransServis/GTI Management/New forwarding/Ural Wagonrepair/Adaptive Capital
+19:                                                                                 Universal Logistics
+              deal_type  val_m                           industry_raw
+                 <char>  <num>                                 <char>
+ 1:              Buyout     NA               Logistics & Distribution
+ 2:  Merger/Acquisition 100.30 Oil and Gas Storage and Transportation
+ 3:  Merger/Acquisition  35.66                     Passenger Airlines
+ 4:  Merger/Acquisition     NA                     Electric Utilities
+ 5:  Merger/Acquisition   0.45                      Food Distributors
+ 6:  Merger/Acquisition     NA                    Rail Transportation
+ 7:              Growth     NA               Logistics & Distribution
+ 8:  Merger/Acquisition     NA                    Rail Transportation
+ 9:  Merger/Acquisition   0.62                       Airport Services
+10:  Merger/Acquisition 365.00                       Airport Services
+11: PE Growth/Expansion   7.00                                    Air
+12:  Merger/Acquisition   0.00 Oil and Gas Storage and Transportation
+13:  Merger/Acquisition     NA                       Airport Services
+14:  Merger/Acquisition     NA                     Passenger Airlines
+15:  Merger/Acquisition 137.50                   Alternative Carriers
+16:  Merger/Acquisition  75.45                     Passenger Airlines
+17:  Merger/Acquisition  22.34                   Alternative Carriers
+18:  Merger/Acquisition 766.77                    Rail Transportation
+19:          Trade Sale     NA               Logistics & Distribution
 
 --- (6) QIC state-fund pipeline: see the QIC/AIFC/IFC PE report (aggregate + sector-year
        + named projects); not reconstructed here. corridor.tex Section 7.
