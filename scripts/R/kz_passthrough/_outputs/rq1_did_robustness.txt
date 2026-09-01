@@ -35,3 +35,26 @@
 2: mirWC_usd 0.05090 0.1020             FALSE
 3:  mirW_usd 0.08140 0.1020             FALSE
 4:  impW_usd 0.00401 0.0160              TRUE
+
+(e) leave-one-HS2-out jackknife on the surge-basket DiD (exports to Russia):
+    surge-basket HS2 chapters: 39, 40, 61, 84, 85, 90, 96
+    drop HS 39 (1 surge lines) : gamma=2.511  se=0.982  p=0.013
+    drop HS 40 (1 surge lines) : gamma=2.479  se=0.984  p=0.014
+    drop HS 61 (2 surge lines) : gamma=2.667  se=0.999  p=0.009
+    drop HS 84 (7 surge lines) : gamma=2.277  se=1.176  p=0.058
+    drop HS 85 (13 surge lines) : gamma=1.355  se=1.060  p=0.207
+    drop HS 90 (4 surge lines) : gamma=3.164  se=0.956  p=0.002
+    drop HS 96 (1 surge lines) : gamma=2.586  se=0.973  p=0.010
+
+(f) alternative surge-selection thresholds (both legs), exports to Russia:
+    threshold 1.5x : 40 lines   gamma=1.592  se=0.897  p=0.080
+    threshold 2.0x : 29 lines   gamma=2.441  se=0.959  p=0.013
+    threshold 2.5x : 23 lines   gamma=3.123  se=1.077  p=0.005
+    threshold 3.0x : 18 lines   gamma=3.159  se=1.271  p=0.015
+
+(g) trend-preserving (cyclic-shift) permutation null for the selection rule:
+    # lines the rule selects: 29 observed  vs  cyclic-null mean 5.2 (max 19)
+    P(rule selects >= 29 | cyclic null)     : 0.000
+    READ: even holding the trend fixed and only moving the break off 2022, the rule
+    almost never reproduces a 29-line basket -- the 2022 alignment, not a pre-existing
+    trend, is what the selection picks up.

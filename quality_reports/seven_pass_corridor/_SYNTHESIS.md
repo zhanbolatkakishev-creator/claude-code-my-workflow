@@ -159,6 +159,16 @@ own +1.0pp GFCF (`crosscountry.txt:17`) unreported while Armenia's +3.3pp is fla
 
 ## Revision plan (in recommended order)
 
+> **STATUS 2026-09-01 (`feat/corridor-qic-report-rescope`, commits 2c112d6 / 40d67f6 / +1):**
+> C3 closed (QIC re-scope). C1, C2 addressed (m reframed + BNS-bounded + cited `qazstat2023io`;
+> under-invoicing bound corrected to 15–26%). Abstract/§1 parity, asinh threefold/tenfold,
+> L3-4/L3-5/L3-10/L3-12/L3-13/L3-14/L3-15, by-tier wedge, Fig 1/Fig 4 captions, §10 superlative,
+> `tab:priority` missing row, `desouza` note, the 2023–25 sanctions-circumvention cites, and the
+> prose MAJORs (L6-1..L6-5) all done. New analyses added to `12_did_robustness.R`:
+> leave-one-HS2-out (effect carried by HS 84/85; drop HS 85 → γ 1.4), threshold sensitivity
+> (1.5×→γ 1.6, 2.5–3×→γ 3.1), trend-preserving cyclic-shift permutation null (P(≥29)=0.000).
+> Remaining: full `/audit-reproducibility` re-run; `/verify-claims` on the new policy cites.
+
 1. **Close C1 (uncited `m`).** Find and cite the KZ national-accounts trade-margin figure; add
    the §3 Data row; convert the 6–14% band to an explicit sensitivity grid; concede calibration.
    *Highest leverage — three lenses, two prior rounds, and it is the headline.*

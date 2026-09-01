@@ -157,10 +157,11 @@ speaks to when trade shocks induce a domestic supply response and when they do n
 \citep{juhasz2018temporary,bloom2016trade,juhaszlanerodrik2024,gopinathneiman2014}.
 (ii) It organises the two standard readings of a missing supply response---investment under
 uncertainty and irreversibility \citep{dixitpindyck1994}, and institutional voids in the
-capital market \citep{khanna1997,rajanzingales1998}---into a single decomposition, adding a
-customs-union market-access gate under which trade substitutes for production, and uses two
-within-country comparisons---suggestive, not dispositive---to argue the irreversibility gate is
-adverse here too. The decomposition is an organising device rather than an estimated model. (iii) Methodologically,
+capital market \citep{khanna1997,rajanzingales1998}---into a single decomposition, and adds a
+customs-union market-access gate under which trade substitutes for production. A
+within-country comparison, suggestive rather than dispositive, argues that the irreversibility
+gate is adverse here too. The decomposition is an organising device, not an estimated model.
+(iii) Methodologically,
 it combines public trade data, an input--output table, and multi-source commercial deal data
 into a replicable measure of what a transit economy captures, cross-checking the deal counts
 across databases rather than relying on one.
@@ -186,19 +187,21 @@ longer move directly, and they mean that acting as a conduit requires no transfo
 goods.
 
 Several things other than the reorientation changed in Kazakhstan around 2022, and each is a
-potential confound. The ``New Kazakhstan'' reform programme associated with the presidency of
-Kassym-Jomart Tokayev---an outward-oriented agenda that gathered pace in 2022 with a June
-constitutional referendum and a November snap election---would raise trade and investment
-generally and gradually; we show below that what we observe is instead concentrated in a
-narrow set of products and discontinuous in mid-2022, that a civilian control basket moves far
-less, and that Armenia and the Kyrgyz Republic show the same break with no comparable reform.
+potential confound. The first is the ``New Kazakhstan'' reform programme associated with the
+presidency of Kassym-Jomart Tokayev, an outward-oriented agenda that gathered pace in 2022
+with a June constitutional referendum and a November snap election. A reform of that kind would
+raise trade and investment broadly and gradually. What we observe is the opposite: a response
+concentrated in a narrow set of products, discontinuous in mid-2022, with a civilian control
+basket that moves far less and the same 2022 break in Armenia and the Kyrgyz Republic under no
+comparable reform.
+
 Three further shocks bear specifically on the \emph{investment} null and cannot be differenced
 away: the January 2022 unrest and state of emergency (``Qandy Qantar''), in the first month of
 the post-period; the secondary-sanctions and compliance exposure that the rerouting itself
 created, which deters exactly the foreign acquirers who might have answered the shock; and the
 2022--2025 wave of nationalisations, which both crowds the state investment pipeline and
 signals ownership risk to private entrants. We return to these where they matter, in
-Sections~\ref{sec:investment} and~\ref{sec:why}; they make the investment null
+Sections~\ref{sec:investment} and~\ref{sec:why}. They make the investment null
 \emph{over}-determined rather than fragile, but they also mean we cannot cleanly attribute it
 to the trade shock alone.
 
@@ -271,18 +274,23 @@ not funded; the capital that does move is captive---retained earnings, or a stat
 development-finance investor---and is allocated by criteria other than $R$
 \citep{khanna1997,rajanzingales1998}.
 
-The three gates combine multiplicatively, so the investment response to the shock is
+The three conditions can be summarised as a product. Each observation above identifies a factor
+that, on its own, is enough to drive the investment response to zero: an extreme
+irreversibility configuration, an open market-access gate (transformation not required, so
+$V_T$ is large), or a capital market that cannot fund the projects that pass. Writing
 \begin{equation}
 \begin{aligned}
 R \;=\;& \underbrace{f\!\left(\rho,\ \sigma^{-1},\ I^{-1}\right)}_{\text{irreversibility}}
 \;\times\; \underbrace{h(\text{transformation required})}_{\text{market access}} \\[2pt]
-&\times\; \underbrace{g(\text{financial depth, exit, private/state mix})}_{\text{institutions}} .
+&\times\; \underbrace{g(\text{financial depth, exit, private/state mix})}_{\text{institutions}}
 \end{aligned}
 \label{eq:gates}
 \end{equation}
-The structure is multiplicative: a closed gate anywhere drives $R$ to zero, and the gates bear
-on different questions---the first two on whether production is ever the right way to serve the
-demand, the third on whether the projects that pass get built. Sections~\ref{sec:shock}--%
+makes this explicit: $R \approx 0$ whenever any factor is near zero. This is an organising
+device, not a result derived from \eqref{eq:build}---the threshold there is on a sum, and the
+factors interact inside an indicator---and its content is that the three conditions are
+separately necessary. The first two bear on whether production is ever the right way to serve
+the demand, the third on whether the projects that pass get built. Sections~\ref{sec:shock}--%
 \ref{sec:why} show that for Kazakhstan the irreversibility and market-access gates are both
 adverse, so $R \approx 0$; Section~\ref{sec:moderators} and Section~\ref{sec:where} show that
 the institutional gate explains a separate fact---the durable adjacent opportunities the shock
@@ -461,14 +469,22 @@ same pattern ($\gamma = 2.88$ outbound, $2.12$ inbound). The outbound effect sur
 demanding checks: adding size-decile$\times$year fixed effects (pre-2022 inbound size) leaves
 $\gamma = 2.29$ ($p = 0.003$), and dropping 2022 raises it to $2.71$ ($p = 0.012$). The same
 size$\times$year controls cut the West + China inbound coefficient to $1.28$ ($p = 0.05$),
-consistent with the inbound leg being the weaker of the two throughout.
+consistent with the inbound leg being the weaker of the two throughout. Tightening the
+selection threshold from a doubling to $2.5\times$ or $3\times$ raises the outbound
+$\gamma$ to about $3.1$; loosening it to $1.5\times$ (40 lines) lowers it to $1.6$
+($p = 0.08$). The effect is carried by HS chapters~84 and~85: dropping HS~85 alone (13 of the
+29 lines) leaves $\gamma = 1.4$ ($p = 0.21$), while dropping any other contributing chapter
+leaves it between $2.3$ and $3.2$.
 
 Three qualifications keep us from resting identification on this cross-sectional
 regression. First, the selection-rule-matched permutation: when we impose the null by permuting
 the year labels within each HS6 and re-applying the doubling rule, the rule selects on average
 five lines (never as many as the 29 observed, so the \emph{existence} of the surge basket is
-not a chance artefact, $p < 0.001$), but the placebo $\gamma$ on those lines averages $2.8$,
-so the coefficient's \emph{magnitude} is not separable from the selection. Second, the two
+not a chance artefact, $p < 0.001$); a trend-preserving version that only shifts the break off
+calendar-2022, keeping each line's autocorrelation and level trend, gives the same result
+(null mean five lines, $p < 0.001$), so it is the 2022 alignment and not a pre-existing trend
+that the selection picks up. But the placebo $\gamma$ on the lines the free permutation selects
+averages $2.8$, so the coefficient's \emph{magnitude} is not separable from the selection. Second, the two
 selection thresholds bind differently: 55 of the 75 candidate lines clear the outbound
 doubling but only 41 clear the inbound one, so requiring both is a real screen on the import
 side, not just on the outflow to Russia---a partial check against selecting the basket purely
@@ -745,13 +761,12 @@ durable, transformation-requiring shock draws capacity where a transitory re-exp
 not; it is not a clean $\rho$ experiment.
 
 \emph{The transitory condition is observed, not assumed.} The surge-basket flow to Russia
-peaked in September 2022 and then fell by more than a third over the second half of 2023
-(from about \$15m per month in 2023-H1 to about \$9m in 2023-H2) as enforcement tightened
-(the EU's eleventh sanctions package, Council Regulation (EU) 2023/1214 of 23 June 2023, which
-introduced an anti-circumvention transit tool;
-sustained bilateral pressure on Kazakhstan through 2023). A firm observing this in real time
-saw the flow already receding within eighteen months---low $\rho$, and a $\sigma$ dominated by
-policy risk.
+peaked in September 2022 and then fell by more than a third over the second half of 2023, from
+about \$15m per month in 2023-H1 to about \$9m in 2023-H2. This coincided with tighter
+enforcement: the EU's eleventh sanctions package (Council Regulation (EU) 2023/1214 of 23 June
+2023) introduced an anti-circumvention transit tool, and bilateral pressure on Kazakhstan was
+sustained through 2023. A firm observing this in real time saw the flow already receding within
+eighteen months---low $\rho$, and a $\sigma$ dominated by policy risk.
 
 \emph{The institutional gate explains the residual.} It does not explain the shock-specific
 null---the state fund's pipeline bypassed the reorientation regardless---but it explains a distinct fact taken up in
