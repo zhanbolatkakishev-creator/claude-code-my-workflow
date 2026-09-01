@@ -92,5 +92,27 @@ cat(sprintf("  ratio to a produced $ (/v_M) : ICIO 0.10   |  BNS %.3f\n",
 cat("\nper-sector multipliers used:\n")
 print(data.table(code = names(m_tt),  group = "trade+transport", mult = round(m_tt, 3)))
 print(data.table(code = names(m_mfg), group = "manufacturing",   mult = round(m_mfg, 3)))
+
+## --- trade & transport margin rates from the resources table (sheet "1.") ---
+## bounds for m in section 5.2: transport-only (lower) vs full trade+transport incl. retail (upper).
+s1 <- rd("1.")
+num1 <- function(v) suppressWarnings(as.numeric(v))
+gd <- data.table(code = as.character(s1[6:73, 2]),
+                 res_basic = num1(s1[6:73, 74]),   # total resources at basic prices
+                 trade_m   = num1(s1[6:73, 75]),
+                 trans_m   = num1(s1[6:73, 76]))
+gd[is.na(gd)] <- 0
+gd[, hd := suppressWarnings(as.integer(sub("-.*", "", code)))]
+goods <- gd[!is.na(hd) & hd <= 33]
+mach  <- gd[code %in% c("26", "27", "28")]
+mrate <- function(d, col) 100 * d[, sum(get(col))] / d[, sum(res_basic)]
+cat(sprintf("\nBNS resources table margin rates (%% of basic-price value):\n"))
+cat(sprintf("  all goods (CPA 01-33) : transport %.1f%%   trade+transport %.1f%%\n",
+            mrate(goods, "trans_m"), 100 * goods[, sum(trade_m + trans_m)] / goods[, sum(res_basic)]))
+cat(sprintf("  machinery+electronics (CPA 26-28) : transport %.1f%%   trade+transport %.1f%%\n",
+            mrate(mach, "trans_m"), 100 * mach[, sum(trade_m + trans_m)] / mach[, sum(res_basic)]))
+cat("  -> section 5.2 uses m = 6-14%: freight/insurance + a WHOLESALE trade margin, i.e.\n")
+cat("     above the transport-only floor and well below the full margin (which carries the\n")
+cat("     retail leg the corridor never performs).\n")
 sink()
 message("wrote _outputs/rq2b_bns_io_check.txt")

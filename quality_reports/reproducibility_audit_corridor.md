@@ -109,7 +109,7 @@ study), and §8 (ARM/KGZ neighbour series). Every changed number traces to a reg
 | §5.2 West+China inbound / flow-through ("one-sixth") | $3.2 bn; 1/6 | 3158; 0.15 | `rq2b_io_propagation` |
 | **§5.2 BNS I-O cross-check** $\bar v^{TT}$, $\bar v^{M}$ (§3, §5.2) | 0.89, 0.74 | 0.885, 0.742 | `rq2b_bns_io_check` |
 | §5.2 BNS cross-check — ratio moves "one-in-ten → one-in-eight" | ICIO 0.10 → BNS ~0.12 | 0.103 → 0.119 | `rq2b_bns_io_check` |
-| §5.2 under-invoicing bound (§5.2) | ~25 % margin ⇒ ~40 % under-recording | 0.20/0.787 = 0.254; recording +81 % ⇒ ~45 % under-recorded | derive from `rq2b` |
+| §5.2 under-invoicing bound (§5.2) | ~25 % margin ⇒ **15–26 %** under-recording (corrected 2026-09-01) | m*=1−(1−m)/k, cost fixed: k=(1−m)/(1−0.253) → 15–26 % for m∈{6,10,14}% | derive from `rq2b` |
 | §5.3 incremental flow, cumulative / per year | $479 m; $107–134 m/yr | 479; 117/134/107/122 | `rq2c_fiscal` |
 | §5.3 customs duty | ~$22 m / 4 yr (~$5 m/yr) | 21.6 (mid: CET 6 %, cleared 75 %) | `rq2c_fiscal` |
 | §5.3 flow as % of GDP | 0.2–0.3 % | 0.20–0.27 (2022–25) | `rq2d_macro` |

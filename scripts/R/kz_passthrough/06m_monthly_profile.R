@@ -62,6 +62,8 @@ save_fig(
   ggplot(plot_dt, aes(tt, value, colour = variable)) +
     geom_vline(xintercept = as.numeric(TREAT), linetype = 2, colour = "grey40") +
     geom_line(linewidth = .7, na.rm = TRUE) +
+    scale_colour_manual(values = c("West+China -> KZ (mirror)" = "#1f77b4",   # blue
+                                   "KZ -> Russia"              = "#d62728")) + # red
     labs(title = "Surge-basket trade through Kazakhstan, monthly",
          subtitle = "USD million. Frozen (annual-defined) basket. Dashed = 2022-03. 2024 omitted (no KZ monthly reporting).",
          x = NULL, y = "USD m", colour = NULL),

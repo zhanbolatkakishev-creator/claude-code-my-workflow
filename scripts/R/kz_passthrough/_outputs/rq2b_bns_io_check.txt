@@ -48,3 +48,10 @@ per-sector multipliers used:
 21:     33 manufacturing 0.700
       code         group  mult
     <char>        <char> <num>
+
+BNS resources table margin rates (% of basic-price value):
+  all goods (CPA 01-33) : transport 1.5%   trade+transport 42.3%
+  machinery+electronics (CPA 26-28) : transport 1.0%   trade+transport 49.4%
+  -> section 5.2 uses m = 6-14%: freight/insurance + a WHOLESALE trade margin, i.e.
+     above the transport-only floor and well below the full margin (which carries the
+     retail leg the corridor never performs).

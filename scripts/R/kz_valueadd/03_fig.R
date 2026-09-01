@@ -29,7 +29,8 @@ g <- ggplot(m, aes(yr)) +
                      sec.axis = sec_axis(~ . / scale, name = "value-add-relevant deals per year (bars)")) +
   scale_x_continuous(breaks = 2016:2025) +
   labs(title = "Trade through Kazakhstan surged; the investment response did not",
-       subtitle = "Line: surge-basket Western-reported inbound trade (mirror). Bars: M&A/PE deals in manufacturing of tradeables, transport and logistics, and distribution. Dashed = 2022. Source: UN Comtrade; CapIQ/PitchBook/Preqin.",
+       subtitle = "Line: surge-basket Western-reported inbound trade. Bars: value-add-relevant deals/yr. Dashed = 2022.",
+       caption = "Source: UN Comtrade; Capital IQ / PitchBook / Preqin. Bars from 2016; 2015 = observed zero.",
        x = NULL)
 ggsave(file.path(OUT, "valueadd_fig_mismatch.png"), g, width = 9, height = 4.8, dpi = 150)
 
