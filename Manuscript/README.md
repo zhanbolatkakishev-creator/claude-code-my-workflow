@@ -43,25 +43,28 @@ come from the published report.
 ## Reproduce
 
 ```
-# trade + value capture + I-O
+# trade + value capture + I-O + DiD robustness
 scripts/R/kz_passthrough/00_run_all.R          # (fetch_*.sh first; needs COMTRADE_PRIMARY)
+                                               #   ends with 12_did_robustness.R
 # investment response + sector priority
-scripts/R/kz_valueadd/01_read_deals.R
-scripts/R/kz_valueadd/01b_read_aggs_qic.R
+scripts/R/kz_valueadd/01_read_deals.R          # interim deal source; refresh from a verifiable
+                                               #   CapIQ/PitchBook/Preqin re-pull before submission
 scripts/R/kz_valueadd/02_valueadd_analysis.R
 scripts/R/kz_valueadd/fetch_kz_imports_hs2.sh  # needs COMTRADE_PRIMARY
 scripts/R/kz_valueadd/03_fig.R
-scripts/R/kz_valueadd/04_sector_priority.R
+scripts/R/kz_valueadd/04_sector_priority.R     # re-pulls Comtrade HS2 imports live
 scripts/R/kz_valueadd/05_deal_source_reconcile.R
 scripts/R/kz_valueadd/06_mechanism_tests.R
-scripts/R/kz_valueadd/08_power_null.R          # C3: power/MDE for the deal-count null
+scripts/R/kz_valueadd/07_crosscountry.R        # pulls World Bank WDI live
+scripts/R/kz_valueadd/08_power_null.R          # power/MDE for the deal-count null
 ```
 
-Seven-pass-review revision estimates (2026-08-28), feeding the §4 rewrite:
-`scripts/R/kz_passthrough/12_review_revisions.R` (DiD specification grid, wild-cluster
-bootstrap, randomisation inference over baskets, unpurged placebo, Bai–Perron break CIs) and
-`13_corrected_inbound.R` (inbound measured as West + China, which is what the text claims;
-PPML). Outputs `review_did_grid.txt`, `review_corrected_inbound.txt`, `power_null.txt`.
+`04_sector_priority.R` and `07_crosscountry.R` pull Comtrade / World Bank data at run time, so
+their outputs (`sector_priority*`, `crosscountry.txt`) drift by a few percent as those sources
+revise; the replication package pins the extracts used for the tables. `12_did_robustness.R`
+carries the §4.3 robustness battery: selection-rule-matched permutation (free and
+trend-preserving cyclic-shift), size-decile×year FE, donut/drop-2022, Holm across the outcome
+grid, leave-one-HS2-out, and alternative selection thresholds (1.5×/2.5×/3×).
 
 Figures/tables referenced by `corridor.tex` are written to
 `scripts/R/kz_passthrough/_outputs/` and `scripts/R/kz_valueadd/_outputs/`.
