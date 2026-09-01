@@ -1,5 +1,12 @@
 # QIC / Baiterek project register — fields the paper needs in the public release
 
+> **SUPERSEDED (2026-09-01).** No project-level QIC register will be published. The paper now
+> uses the public QIC/AIFC/IFC *Private Equity in Kazakhstan* report (`qicaifcifc2026pe`) for
+> aggregate + sector-timing + named-project evidence only; `tab:captive` was deleted and §7
+> Test D is now illustrative, not identifying. See
+> `quality_reports/plans/2026-09-01_qic-report-rescope.md`. Kept for the record.
+
+
 **Paper:** *Corridor, Not Factory: Trade Reorientation and the Missing Investment Response in
 Kazakhstan, 2022–2025.* The QIC/Baiterek register underpins Table 3 (`tab:captive`) and the
 §7 "captive capital abstained" identification — the paper's argument that the missing

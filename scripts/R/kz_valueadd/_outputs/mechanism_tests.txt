@@ -2,15 +2,8 @@
  Mechanism horse race: real options (irreversibility) vs institutional voids
 ================================================================
 
-===== TEST D — did captive state capital (QIC) respond to the reorientation? =====
-
-QIC projects financed 2022-2025, by relation to the reorientation:
-                                     relation     n kkm_usd_m proj_cost_kzt_bn
-                                       <char> <int>     <num>            <num>
-1: unrelated (agri, steel, chem, energy, ...)    34       453              411
-2:          vehicles/machinery (domestic mkt)    13      1170             3599
-3:              corridor logistics/processing     2       117               82
-4:                        surge-basket sector     1         4                2
+===== TEST D — did private capital respond to the reorientation, by relation to the shock? =====
+(Captive state capital: see the QIC/AIFC/IFC PE report; illustrative, not a controlled test.)
 
 Private PE/M&A deals 2022-2025, by relation to the reorientation:
                             relation     n val_musd
@@ -20,9 +13,11 @@ Private PE/M&A deals 2022-2025, by relation to the reorientation:
 3:     corridor logistics/processing     2      767
 4:               surge-basket sector     1       10
 
-INTERPRETATION: if BOTH state and private ~ 0 in 'surge-basket sector' and 
-'corridor logistics/processing built FOR the flow', the binding constraint is not 
-financing (state capital is unconstrained) -> real options / irreversibility.
+INTERPRETATION: private capital is ~ 0 in 'surge-basket sector' and in 'corridor 
+logistics/processing built FOR the flow'. The published QIC/AIFC/IFC PE report shows the 
+state fund's disclosed post-2022 pipeline (power, poultry, steel/energy bonds, pipe 
+systems, bioethanol, a school, an office block) is also free of reorientation-linked 
+projects -- illustrative, not a controlled test (no pre-2022 baseline, no denominator).
 
 
 ===== TEST F — same country/institutions/period: durable vs transitory demand shock =====

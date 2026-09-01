@@ -1,12 +1,13 @@
 # 02_valueadd_analysis.R — is the post-2022 trade route generating value-add operations
 # (production / assembly / logistics capacity) in Kazakhstan?
-# Deal-level M&A/PE/VC data (CapIQ/PitchBook/Preqin, n~509, 2015-2025) + QIC state-fund projects.
+# Deal-level M&A/PE/VC data (CapIQ/PitchBook/Preqin, n~509, 2015-2025).
+# QIC state-fund evidence is taken from the published QIC/AIFC/IFC PE report, not from a
+# private register -- see corridor.tex Section 7; no QIC data is read here.
 
 suppressMessages({library(data.table)})
 OUT <- "C:/Users/zh.kakishev/my-project2/scripts/R/kz_valueadd/_outputs"
 dir.create(OUT, showWarnings = FALSE, recursive = TRUE)
 dd  <- readRDS("C:/Users/zh.kakishev/my-project2/scripts/R/kz_valueadd/_data/deals_nondup.rds")
-qi  <- readRDS("C:/Users/zh.kakishev/my-project2/scripts/R/kz_valueadd/_data/qic_named.rds")
 
 ## ---- classify deals into value-chain buckets from industry_raw / group ----
 ir <- tolower(paste(dd$industry_raw, dd$industry_group, dd$company))
@@ -50,15 +51,8 @@ print(dd[bucket == "mfg_tradeables", .(yr, company, deal_type, val_m, industry_r
 cat("\n--- (5) transport / logistics deals, ALL years ---\n")
 print(dd[bucket == "transport_logistics", .(yr, company, deal_type, val_m, industry_raw)][order(yr)])
 
-## ---- QIC state-fund real-economy projects, post-2022 ----
-qi[, `:=`(cost = suppressWarnings(as.numeric(project_cost)),
-          kkm  = suppressWarnings(as.numeric(kkm_inv_usd_m)))]
-cat("\n--- (6) QIC (state fund) projects 2022+ in industry/manufacturing/logistics ---\n")
-qi_rel <- qi[yr >= 2022 & grepl("\u041c\u0435\u0442\u0430\u043b\u043b|\u043c\u0430\u0448\u0438\u043d\u043e|\u0425\u0438\u043c\u0438|\u043f\u0440\u043e\u043c\u044b\u0448\u043b|\u043b\u043e\u0433\u0438\u0441\u0442|\u0442\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442|\u0410\u041f\u041a", paste(industry_comb, project))]
-print(qi_rel[, .(yr, industry_comb, region_kz, kkm_usd_m = round(kkm), cost = round(cost),
-                 project = substr(project, 1, 70))][order(yr)], nrow = 60)
-cat(sprintf("\n  QIC 2022+ industry/logistics: %d projects, KKM $%.0fm, total project cost $%.0fm\n",
-            nrow(qi_rel), qi_rel[, sum(kkm, na.rm=TRUE)], qi_rel[, sum(cost, na.rm=TRUE)]))
+cat("\n--- (6) QIC state-fund pipeline: see the QIC/AIFC/IFC PE report (aggregate + sector-year\n")
+cat("       + named projects); not reconstructed here. corridor.tex Section 7.\n")
 
 sink()
 saveRDS(dd, file.path(OUT, "deals_classified.rds"))

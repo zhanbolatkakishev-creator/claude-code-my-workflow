@@ -24,6 +24,8 @@ to Kazakhstan's state investment vehicles; and previously worked with a consulti
 Kazakhstan trade-strategy engagement. Neither role is used in this paper: all analysis is
 based on public data and on commercial deal databases to which the author has academic access,
 and the paper takes a positive rather than a prescriptive stance on Kazakh investment policy.
+The state-fund investment figures cited here are drawn from \citet{qicaifcifc2026pe}, a report
+co-published by the AIFC with QIC and the IFC.
 Replication materials (code, query specifications, public data) are at
 \texttt{scripts/R/kz\_passthrough/} and \texttt{scripts/R/kz\_valueadd/}.}}
 
@@ -52,10 +54,11 @@ contemporaneous shocks. Deal-making in manufacturing, transport and logistics ru
 pre-2022 rate; 2022 is the weakest year in the series; and no transaction over 2015--2025
 falls in the product lines the reorientation flows through. We read the null through a
 three-gate decomposition---irreversibility, market access (a customs union makes trade a
-substitute for production), and capital-market institutions. Two within-country
-comparisons---captive state capital abstained too, and the same institutions added assembly
-capacity for a \emph{durable} auto-demand shock but none for the transitory one---are
-suggestive that the irreversibility gate binds, though neither is a clean test. Kazakhstan
+substitute for production), and capital-market institutions. A within-country comparison---the
+same institutions added assembly capacity for a \emph{durable} auto-demand shock but none for
+the transitory one---is suggestive that the irreversibility gate binds, though it is not a
+clean test; the state investment corporation's own disclosed pipeline, which contains no
+reorientation-linked project, points the same way. Kazakhstan
 operates as a corridor, not a factory: the trade statistics move by an order of magnitude
 while the domestic economy barely registers it.
 
@@ -113,9 +116,8 @@ under 1\% of customs revenue, and the flow is 0.2--0.3\% of GDP.
 \emph{Third, we ask whether the shock induced investment}---and find no response the data can
 detect. We assemble deal-level data on mergers, acquisitions, and private-equity and venture
 transactions in Kazakhstan for 2015--2025 from three commercial databases (Capital~IQ,
-PitchBook, Preqin), with FactSet and Dealroom extracts specified in Appendix~\ref{app:deals}
-for cross-validation in the final draft, and supplemented by the transaction record of
-Kazakhstan's state investment corporation. Deal-making in manufacturing of tradeable goods,
+PitchBook, Preqin), together with the aggregate investment activity of Kazakhstan's state
+investment corporation as reported in \citet{qicaifcifc2026pe}. Deal-making in manufacturing of tradeable goods,
 transport and logistics, and distribution runs at essentially its pre-2022 rate, and 2022 is
 the weakest year in
 the series; with four post-2022 years the test rules out a large response, not a modest
@@ -131,11 +133,12 @@ policy-contingent, given the option to serve the demand through trade?), \emph{m
 the projects that clear the first two be financed?). For Kazakhstan the market-access gate is
 plainly open---a customs union with the destination makes trade a close substitute for
 production---which is close to sufficient for a null, and which also forgoes the technology
-transfer a rules-of-origin regime would have forced \citep{desouza2024diffusion}. Two
-within-country comparisons, which we read as suggestive rather than dispositive
-(Section~\ref{sec:why} sets out why neither is a clean test), point to the irreversibility
-gate being adverse as well: captive state capital abstained too, and the same institutions
-added capacity for a \emph{durable} auto-demand shock but not the transitory one. The
+transfer a rules-of-origin regime would have forced \citep{desouza2024diffusion}. A
+within-country comparison, which we read as suggestive rather than dispositive
+(Section~\ref{sec:why} sets out why it is not a clean test), points to the irreversibility
+gate being adverse as well: the same institutions added capacity for a \emph{durable}
+auto-demand shock but not the transitory one, and the state investment corporation's
+disclosed pipeline shows no reorientation-linked project. The
 institutional gate then explains a separate fact---why the durable adjacent opportunities the
 shock reveals go unfinanced by private capital.
 
@@ -334,16 +337,16 @@ to 68 products, 2023 reference year).
 
 \paragraph{Deal data.} Deal-level records of mergers, acquisitions, private-equity buyouts and
 growth transactions, and venture rounds involving Kazakhstan-domiciled targets, 2015--2025.
-The core extract combines Capital~IQ, PitchBook and Preqin ($n\approx 500$ after
+The extract combines Capital~IQ, PitchBook and Preqin ($n\approx 500$ after
 de-duplication), classified to sectors and flagged for greenfield versus ownership transfer.
-For the final draft we reconstruct the same universe from FactSet and Dealroom as a
-cross-validation step; the exact query specification for all five databases (geography filter,
-deal types, date range, industry taxonomy, extraction date) is in Appendix~\ref{app:deals},
-and Table~\ref{tab:dealsource} reports the coverage of the three analysed here. All are
-commercial but widely available under academic licence, so the extract is replicable. The state investment
-corporation's project register---project, sector, region, financing year and cost---is a
-public disclosure of the fund (QIC\slash Baiterek); the replication package pins the release
-date of the register used here and lists the fields drawn from it.
+The exact query specification for the three databases (geography filter, deal types, date
+range, industry taxonomy, extraction date) is in Appendix~\ref{app:deals}, and
+Table~\ref{tab:dealsource} reports each one's coverage. All are commercial but widely
+available under academic licence, so the extract is replicable. QIC investment activity is
+taken from \citet{qicaifcifc2026pe}, which reports it in aggregate (about 98 investments,
+roughly \$2.2bn, 2015--2025), by sector and year, and names individual projects in its
+appendix and case studies; no project-level QIC register is public, and the paper uses only
+the report's aggregate, sector-timing and named-project evidence.
 
 \paragraph{Macro.} World Bank World Development Indicators.
 
@@ -629,38 +632,37 @@ PitchBook more small early-stage rounds, Preqin fewer of either---but none shows
 increase in manufacturing or logistics dealmaking. In the Capital~IQ extract, which best
 captures the mid-market industrial deals that a genuine capacity response would generate, the
 count of manufacturing, transport and distribution deals is essentially unchanged before and
-after 2022 (5.1 versus 5.2 per year). The FactSet and Dealroom extracts specified in
-Appendix~\ref{app:deals} are for cross-validation in the final draft.
+after 2022 (5.1 versus 5.2 per year).
 
 \begin{table}[t]
 \centering
 \caption{Deal counts for the Kazakhstan universe, by source and period}
 \label{tab:dealsource}
 \footnotesize
-\begin{tabular}{lrrrrr}
+\begin{tabular}{lrrr}
 \toprule
-Deals per year (unless noted) & Cap.~IQ & PitchBk & Preqin & FactSet & Dealroom \\
+Deals per year (unless noted) & Cap.~IQ & PitchBk & Preqin \\
 \midrule
-All deals, 2015--21              & 24.0 & 14.0 & 3.1 & --- & --- \\
-All deals, 2022--25              & 23.2 & 24.0 & 1.8 & --- & --- \\
-Mfg + transport + distrib., 2015--21 & 5.1 & 1.9 & 0.3 & --- & --- \\
-Mfg + transport + distrib., 2022--25 & 5.2 & 1.5 & 0.5 & --- & --- \\
-Surge-basket lines, 2015--25 (total) & 0$^{a}$ & 0 & 0 & --- & --- \\
+All deals, 2015--21              & 24.0 & 14.0 & 3.1 \\
+All deals, 2022--25              & 23.2 & 24.0 & 1.8 \\
+Mfg + transport + distrib., 2015--21 & 5.1 & 1.9 & 0.3 \\
+Mfg + transport + distrib., 2022--25 & 5.2 & 1.5 & 0.5 \\
+Surge-basket lines, 2015--25 (total) & 0$^{a}$ & 0 & 0 \\
 \bottomrule
 \end{tabular}
 
 \vspace{2pt}
 \footnotesize $^{a}$ Two Capital~IQ records carry an ``electronic'' industry tag---a
 steel-wire-rope manufacturer and a finance holding company---and are misclassifications; there
-are no transactions in the reorientation's product lines. FactSet and Dealroom columns pending
-(Appendix~\ref{app:deals}).
+are no transactions in the reorientation's product lines.
 \end{table}
 
 Kazakhstan is adding vehicle assembly (Chinese marques, KIA, \v{S}koda) and some appliance
 capacity, but this predates and is largely independent of the reorientation, is kit assembly
 with low domestic value added, and serves the domestic and Eurasian consumer market rather
-than the flow of restricted components to Russia. The state investment corporation's post-2022
-industrial pipeline is agri-processing and metallurgy, not corridor processing. The one
+than the flow of restricted components to Russia. The state investment corporation's disclosed
+post-2022 pipeline is domestic food, energy and infrastructure, not corridor processing
+\citep{qicaifcifc2026pe}. The one
 investment signal that is reorientation-linked---the 2025 rail-freight consolidation, with
 Russia-linked asset names---deepens Kazakhstan's role as a forwarding operation, not a
 producing one.
@@ -672,53 +674,25 @@ The market-access gate is plainly open: under the Eurasian Economic Union the go
 Russia with no transformation and no border, and the unit-value evidence
 (Section~\ref{sec:capture}) is consistent with no transformation occurring---so $V_T > 0$ and,
 with $\mu_P \lesssim \mu_T$, building is dominated in \eqref{eq:build} before the option value
-is added. That is close to sufficient for $R \approx 0$ on its own. Two within-country comparisons
-point to the irreversibility gate being independently closed as well. Neither is a clean
-identification---each holds some things fixed while others move---and we set out their limits.
+is added. That is close to sufficient for $R \approx 0$ on its own. Two further observations
+point to the irreversibility gate being independently adverse: the state fund's disclosed
+pipeline, and a durable-versus-transitory shock comparison. Neither is a clean
+identification---each holds some things fixed while others move---and we set out the limits of
+each.
 
-\emph{Captive capital abstained too.} Kazakhstan's state investment corporation
-(QIC\slash Baiterek) faces neither an external-finance constraint nor an exit constraint---the
-institutional gate does not bind for it in the way it binds for an outside equity investor.
-Yet its post-2022 deployment bypasses the reorientation almost entirely, and so does private
-capital (Table~\ref{tab:captive}): of the state fund's 50 industrial and logistics projects
-financed in 2022--2025, one is in a surge-basket sector and two are in corridor logistics; the
-rest are domestic-market agri-processing, steel (the Qarmet rescue) and chemicals. This points
-away from a pure external-finance story: the investor least constrained by capital-market
-voids also did not build. Two caveats keep it from being decisive. QIC allocates under
-statutory sectoral programmes rather than scanning the opportunity set, so its silence in
-component manufacturing is partly a mandate artefact; and a state-owned vehicle is precisely
-the actor most exposed to secondary-sanctions and reputational risk from financing the
-rerouting of restricted goods, so its abstention is also consistent with a compliance
-constraint rather than an irreversibility one. The durable-shock comparison below is what
-separates these.
-
-\begin{table}[t]
-\centering
-\caption{Investment 2022--2025 by relation to the reorientation}
-\label{tab:captive}
-\small
-\begin{tabular}{@{}lcccc@{}}
-\toprule
-& \multicolumn{2}{c}{State fund (QIC/Baiterek)} & \multicolumn{2}{c}{Private M\&A / PE / VC} \\
-\cmidrule(lr){2-3}\cmidrule(lr){4-5}
-Relation to the reorientation & projects & \$m (fund) & deals & \$m \\
-\midrule
-Surge-basket sector                       & 1  & 4    & 1$^{a}$ & 10 \\
-Corridor logistics / processing           & 2  & 117  & 2       & 767 \\
-Vehicles / machinery (domestic market)    & 13 & 1{,}170 & 6    & 138 \\
-Unrelated (agri, steel, chemicals, energy)& 34 & 453  & 192     & 10{,}373 \\
-\bottomrule
-\end{tabular}
-
-\vspace{2pt}
-\footnotesize \emph{Notes.} The two dollar columns are on different bases and are not
-comparable across the divider: ``\$m (fund)'' is QIC/Baiterek's own committed amount;
-``\$m'' is total disclosed transaction value, including co-investor and acquirer capital.
-Deal counts are the comparable quantities. $^{a}$ A steel-wire-rope manufacturer carrying an
-``electronic'' industry tag; there is no genuine component-manufacturing transaction.
-Private-deal values are dominated by oil, mining and banking; the \$767m in corridor logistics
-is a single 2025 rail-freight consolidation of existing assets.
-\end{table}
+\emph{The state fund's disclosed pipeline bypasses the reorientation.} Kazakhstan's state
+investment corporation (QIC\slash Baiterek) faces neither an external-finance nor an exit
+constraint, so the institutional gate does not bind for it the way it binds for an outside
+investor. Its deployment in fact \emph{rose} sharply after 2022---about \$2.2bn cumulative
+over 2015--2025, some \$1.5bn of it in 2025, of which \$1.0bn was a single steel-producer bond
+\citep{qicaifcifc2026pe}. But the projects the report identifies are a power plant, a poultry
+producer, steel and energy bonds, a pipe-systems maker, a bioethanol plant, a school and an
+office block---domestic food, energy and infrastructure, none in a surge-basket component line
+and none in corridor logistics built for the flow; the report's note that manufacturing became
+prominent in the deal record from 2023 refers to these domestic-market projects. This is
+illustrative rather than a controlled test---the report gives no pre-2022 baseline and no
+sector-level denominator---but the least capital-constrained investor in the economy did not
+build for the reorientation either.
 
 \emph{A durable shock, the same institutions, a different outcome.} Over the same window,
 Kazakhstan's \emph{durable} passenger-vehicle demand shock---Western marques withdrawing from
@@ -747,7 +721,7 @@ saw the flow already receding within eighteen months---low $\rho$, and a $\sigma
 policy risk.
 
 \emph{The institutional gate explains the residual.} It does not explain the shock-specific
-null---captive capital abstained regardless---but it explains a distinct fact taken up in
+null---the state fund's pipeline bypassed the reorientation regardless---but it explains a distinct fact taken up in
 Section~\ref{sec:where}: the durable adjacent opportunities the shock reveals, for which the
 irreversibility gate is open (warehousing and transport support, with a domestic value-added
 multiplier of 0.82; machinery and fabricated-metal import substitution), are financed only
@@ -920,8 +894,8 @@ rules-of-origin regime would have forced from foreign suppliers \citep{desouza20
 which is where the long-run cost of being a corridor sits.
 
 \paragraph{Limitations.} Two limitations are central. First, the argument for which gate binds
-rests on two within-country comparisons (captive versus constrained capital, and a durable
-versus a transitory shock) rather than on a cross-country panel, and neither is a clean
+rests on a durable-versus-transitory shock comparison, with the state fund's disclosed pipeline
+as illustrative corroboration, rather than on a cross-country panel, and neither is a clean
 experiment; the panel that would separate the irreversibility and institutional gates directly
 requires greenfield-project data by sector and country. Second, the investment null is
 \emph{over}-determined---the January 2022 unrest, secondary-sanctions exposure and the
@@ -940,14 +914,14 @@ is significant with the opposite sign, indicating the control pool is not homoge
 trend. The retained margin is taken from the national-accounts convention (6--14\%), not
 estimated line by line, and the value-added multipliers come from the OECD ICIO (2019),
 cross-checked against the Kazakhstan national input--output table (2023) with the same
-qualitative result. The FactSet and Dealroom deal extracts are pending for the revision.
+qualitative result.
 
 \appendix
 \section{Deal-database query specification}\label{app:deals}
 
-The same Kazakhstan deal universe is extracted from up to five commercial databases; the
-analysis in this draft uses the first three (Capital~IQ, PitchBook, Preqin), with the FactSet
-and Dealroom extracts specified here and run for the final draft. Common parameters: \emph{target/issuer geography} = Kazakhstan (country of incorporation or primary
+The Kazakhstan deal universe is extracted from three commercial databases (Capital~IQ,
+PitchBook, Preqin). Common parameters: \emph{target/issuer geography} = Kazakhstan (country of
+incorporation or primary
 operations); \emph{announced date} between 1~January 2015 and 31~December 2025; \emph{deal
 types} = merger/acquisition, majority/minority stake, private-equity buyout and growth,
 venture (all stages), joint venture, and PIPE/private placement; \emph{status} = completed or
@@ -962,16 +936,13 @@ M\&A, Buyout\slash LBO, PE Growth\slash Expansion, all VC stages, Angel, Acceler
 Incubator; Deal Date range as above.
 \item[Preqin:] Private Equity $>$ Deals \& Exits; Portfolio Company Country = Kazakhstan; Deal
 Date range as above.
-\item[FactSet:] Mergers \& Acquisitions / Private Markets; Target Nation = Kazakhstan;
-Transaction Type = as above; Announce Date range as above. \emph{[To run.]}
-\item[Dealroom:] Companies $>$ HQ country = Kazakhstan; Funding rounds and M\&A; Round date
-range as above; include grants and ICO/token as separate flags. \emph{[To run.]}
 \end{description}
 
 De-duplication is on target name, announced date ($\pm$30 days) and deal type. Sector
 classification is harmonised to ISIC rev.~4 divisions from each database's native taxonomy via
-a documented crosswalk. All five extracts, the crosswalk, and the reconciliation script are in
-the replication package.
+a documented crosswalk. The three extracts, the crosswalk, and the reconciliation script are
+in the replication package, which pins each source's extraction date and its earliest year of
+reasonably complete Kazakhstan coverage.
 
 % For submission, switch to the target journal's style (e.g. aer). plainnat is used here
 % because it is universally available and bug-free; it is author-year, matching \citep.

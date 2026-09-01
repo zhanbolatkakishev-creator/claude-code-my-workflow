@@ -1,9 +1,11 @@
 # 06_mechanism_tests.R — discriminate real-options (irreversibility) vs institutional-voids
 # as the explanation for the missing investment response.
 #
-# TEST D: did CAPTIVE state capital (QIC/Baiterek) respond to the reorientation specifically?
-#   real options -> no (not worth irreversible commitment for a transitory flow)
-#   inst. voids  -> yes, more than private (state can self-finance)
+# TEST D: did PRIVATE capital respond to the reorientation specifically, by relation to the
+#   shock? (surge-basket components / corridor logistics built FOR the flow / vehicles /
+#   unrelated). The captive-state-capital comparison is handled qualitatively in the paper
+#   from the published QIC/AIFC/IFC PE report (no project-level QIC register is public) --
+#   see corridor.tex Section 7; it is NOT reconstructed here.
 # TEST F: same country, same institutions, same period — durable demand shock (autos) vs
 #   transitory demand shock (re-export components). Different response => persistence is the
 #   binding moderator (real options). Same (null) response => institutions (voids).
@@ -13,31 +15,17 @@ VA  <- "C:/Users/zh.kakishev/my-project2/scripts/R/kz_valueadd"
 OUT <- file.path(VA, "_outputs")
 
 dd <- readRDS(file.path(OUT, "deals_classified.rds"))          # CapIQ/PitchBook/Preqin
-qi <- readRDS(file.path(VA, "_data/qic_named.rds"))
-qi[, `:=`(cost = suppressWarnings(as.numeric(project_cost)),
-          kkm  = suppressWarnings(as.numeric(kkm_inv_usd_m)),
-          yr   = suppressWarnings(as.integer(fin_year_short)))]
 
 sink(file.path(OUT, "mechanism_tests.txt"), split = TRUE)
 cat("================================================================\n")
 cat(" Mechanism horse race: real options (irreversibility) vs institutional voids\n")
 cat("================================================================\n")
 
-## ---------- TEST D: captive state capital vs private, by relation to the shock ----------
-cat("\n===== TEST D — did captive state capital (QIC) respond to the reorientation? =====\n")
+## ---------- TEST D: private capital by relation to the shock ----------
+cat("\n===== TEST D — did private capital respond to the reorientation, by relation to the shock? =====\n")
+cat("(Captive state capital: see the QIC/AIFC/IFC PE report; illustrative, not a controlled test.)\n")
 
-## classify each QIC post-2022 project by its relation to the reorientation
-qi22 <- qi[yr >= 2022]
-ic <- tolower(paste(qi22$industry_comb, qi22$project, qi22$name))
-qi22[, relation := fifelse(grepl("электрон|полупроводник|микроэлектрон|прибор.*учет|оптическ", ic), "surge-basket sector",
-  fifelse(grepl("логист|склад|терминал|транзит|контейнер|торгово-логист|экспортоориентированн", ic), "corridor logistics/processing",
-  fifelse(grepl("автомоб|автосбор|vehicles|машиностроен", ic), "vehicles/machinery (domestic mkt)",
-  "unrelated (agri, steel, chem, energy, ...)")))]
-cat("\nQIC projects financed 2022-2025, by relation to the reorientation:\n")
-print(qi22[, .(n = .N, kkm_usd_m = round(sum(kkm, na.rm=TRUE)),
-               proj_cost_kzt_bn = round(sum(cost, na.rm=TRUE)/1000)), by = relation][order(-n)])
-
-## private deals post-2022 by the same relation
+## private deals post-2022 by relation to the reorientation
 d22 <- dd[yr >= 2022]
 dr <- tolower(paste(d22$industry_raw, d22$company, d22$industry_group))
 d22[, relation := fifelse(grepl("electronic|semiconductor|optical|instrument|integrated circuit", dr), "surge-basket sector",
@@ -47,9 +35,11 @@ d22[, relation := fifelse(grepl("electronic|semiconductor|optical|instrument|int
 cat("\nPrivate PE/M&A deals 2022-2025, by relation to the reorientation:\n")
 print(d22[, .(n = .N, val_musd = round(sum(val_m, na.rm=TRUE))), by = relation][order(-n)])
 
-cat("\nINTERPRETATION: if BOTH state and private ~ 0 in 'surge-basket sector' and",
-    "\n'corridor logistics/processing built FOR the flow', the binding constraint is not",
-    "\nfinancing (state capital is unconstrained) -> real options / irreversibility.\n")
+cat("\nINTERPRETATION: private capital is ~ 0 in 'surge-basket sector' and in 'corridor",
+    "\nlogistics/processing built FOR the flow'. The published QIC/AIFC/IFC PE report shows the",
+    "\nstate fund's disclosed post-2022 pipeline (power, poultry, steel/energy bonds, pipe",
+    "\nsystems, bioethanol, a school, an office block) is also free of reorientation-linked",
+    "\nprojects -- illustrative, not a controlled test (no pre-2022 baseline, no denominator).\n")
 
 ## ---------- TEST F: durable shock (autos) vs transitory shock (re-export components) ----------
 cat("\n\n===== TEST F — same country/institutions/period: durable vs transitory demand shock =====\n")

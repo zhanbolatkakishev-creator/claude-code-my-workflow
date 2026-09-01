@@ -32,13 +32,13 @@ investment would pay off · §10 Discussion · App. A deal-database query spec. 
 | OECD ICIO 2023 ed., Kazakhstan block | domestic value-added multipliers (Leontief) | free download |
 | World Bank WDI | macro context | free |
 | Kazakhstan Bureau of National Statistics | I-O robustness, customs revenue | free |
-| Capital IQ, PitchBook, Preqin, **FactSet**, **Dealroom** | deal-level M&A/PE/VC universe | commercial; academic licence. Query spec in `corridor.tex` Appendix A |
-| Kazakhstan state investment corporation (QIC) transactions | state-fund industrial pipeline | public |
+| Capital IQ, PitchBook, Preqin | deal-level M&A/PE/VC universe | commercial; academic licence. Query spec in `corridor.tex` Appendix A |
+| QIC/AIFC/IFC *Private Equity in Kazakhstan* report (Sep 2026) | state-fund investment activity — aggregate + sector-by-year + named projects | public (joint QIC + AIFC + IFC report) |
 
-The deal universe is built from CapIQ + PitchBook + Preqin and **cross-validated** against
-FactSet and Dealroom. Run `scripts/R/kz_valueadd/05_deal_source_reconcile.R` after exporting
-FactSet/Dealroom to `scripts/R/kz_valueadd/_data/deals_factset.csv` and `deals_dealroom.csv`
-(spec in the appendix) to populate Table `tab:dealsource`.
+The deal universe is built from CapIQ + PitchBook + Preqin (the three databases the PE report
+draws on). `scripts/R/kz_valueadd/05_deal_source_reconcile.R` reports each source's coverage
+for Table `tab:dealsource`. There is no project-level QIC register; all QIC facts in the paper
+come from the published report.
 
 ## Reproduce
 
@@ -69,13 +69,14 @@ Figures/tables referenced by `corridor.tex` are written to
 ## Before submission
 
 - `/verify-claims` on the intro citations (Chupilkin et al. year/volume; Juhász).
-- Run the FactSet + Dealroom extracts; complete Table `tab:dealsource`.
-- **State investment corporation (QIC/Baiterek) project register — gate.** The register is
-  not yet public (expected release: ~Sep 2026). Do **not** circulate the draft until: (1) the
-  register is published, (2) the published fields (project, sector, region, financing year,
-  cost) are verified to contain everything `tab:captive` / §7 rely on, and (3) the replication
-  package pins the release date and the extracted fields. §3 wording already points to the
-  published register; the §7 "captive capital abstained" identification claim depends on it.
+- Refresh the deal universe from a verifiable CapIQ + PitchBook + Preqin re-pull; re-run
+  `05_deal_source_reconcile.R`; pin each source's extraction date and earliest year of
+  complete Kazakhstan coverage in the replication package.
+- **QIC data — resolved.** No project-level QIC register will be published; the paper uses the
+  QIC/AIFC/IFC *Private Equity in Kazakhstan* report (`qicaifcifc2026pe`) for aggregate +
+  sector-timing + named-project evidence only. `tab:captive` has been removed; §7 Test D is
+  now an illustrative comparison, not an identifying test. The replication package pins the
+  report edition. Cite the published version once it is released.
 - `/audit-reproducibility` on every headline number.
 - ~~KZ national I-O table (68 products) as a robustness check on the ICIO multipliers.~~
   Done: `scripts/R/kz_passthrough/08b_kz_bns_io.R` (BNS 2023, `_data/kz_bns_io/io_2023_ru.xlsx`)

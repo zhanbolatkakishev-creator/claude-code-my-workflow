@@ -1,5 +1,12 @@
 # Reproducibility Audit: Corridor, Not Factory
 
+> **PARTIALLY SUPERSEDED (2026-09-01, `feat/corridor-qic-report-rescope`).** The QIC data
+> source was re-scoped to the public QIC/AIFC/IFC PE report: **Table `tab:captive` was deleted**
+> (its `QIC {1/4, 2/117, 13/1170, 34/453}` and `private {1/10, 2/767, 6/138, 192/10373}` rows
+> are withdrawn), §7 Test D is now illustrative, and the two **FactSet/Dealroom `UNMATCHED`
+> rows are withdrawn** (that cross-validation was dropped). The `kz_valueadd` pipeline no longer
+> reads any private QIC workbook. Re-run `/audit-reproducibility` against the current tree.
+
 **Date:** 2026-08-31 (round-2 revision — post seven-pass R2 + KZ BNS I-O robustness)
 **Manuscript:** `Manuscript/corridor.tex`
 **Outputs:**
