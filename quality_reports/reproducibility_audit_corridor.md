@@ -75,6 +75,28 @@
 >   (0.54 incremental-Western / 0.15 level-West+China / 0.11 matched-cell aggregate).
 > Compiles clean (0 undefined, 28 cites, no overfull boxes). TASTE items deferred to the response letter.
 
+> **/verify-claims ON THE INTRO CITATIONS + arvis2010landlocked (2026-09-02, `feat/corridor-jie-submission`).**
+> Forked `claim-verifier` checked 14 citation<->claim pairs against the published record (and the
+> full text of the Arvis book). 12 SUPPORTED with exact metadata. Outcome: **1 HIGH-WARN + 3 PARTIAL,
+> all now fixed in `corridor.tex`.**
+> - **HIGH (C1a) FIXED.** Sec 5.2 attributed a "single-digit percent c.i.f./f.o.b. freight-and-insurance
+>   gap for the region" to `arvis2010landlocked`. The book reports no such figure and explicitly warns
+>   the c.i.f./f.o.b. metric is unreliable for former-Soviet economies (recorded f.o.b. can exceed
+>   c.i.f.). Rewrote: the freight/insurance wedge is stated at the conventional ~few per cent (c.i.f./f.o.b.
+>   factor ~1.06), Arvis is now cited only for its own caveat that FSU c.i.f./f.o.b. margins are noisy,
+>   and the 6-14% band is grounded in the BNS resources-table bracket. No new load-bearing citation added.
+> - **PARTIAL (A1) FIXED.** "doubly landlocked" (Sec 2) -> "landlocked" (only Uzbekistan / Liechtenstein
+>   are doubly landlocked; Kazakhstan borders Russia and China).
+> - **PARTIAL (C1c/A2) FIXED.** Sec 2 and Sec 10 framed the binding logistics constraint as "high
+>   overland logistics costs"; the book's Ch.4 is titled that delays/unpredictability matter more than
+>   transport cost. Recast both as "high and unpredictable".
+> - **PARTIAL (A3) FIXED.** `isakova2016tariffs` (Sec 2): "reshaped the level and composition of its
+>   imports" -> "shifted the sourcing of its imports away from China and toward within-union partners,
+>   though the estimated magnitudes are modest" (the paper finds trade diversion but small effects).
+> - Bib: `wisniewska2025osw` gains `number = {4/2025}` and `month = apr` (published 14 April 2025).
+> Recompiles clean (0 undefined, 28 cites). The audit's UNMATCHED flag on the Arvis c.i.f./f.o.b.
+> claim is resolved (the claim was removed, not re-sourced to an unverified figure).
+
 
 > **DEAL DATA SWAPPED (2026-09-01, `feat/corridor-adopt-platform-deallist`).** `01_read_deals.R`
 > now reads the consolidated three-source list `20260825_Market size DA.xlsx` /

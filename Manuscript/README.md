@@ -107,9 +107,12 @@ Figures/tables referenced by `corridor.tex` are written to
 
 - Fill the two placeholders: acknowledgements on the title page; 3–4 suggested referees in the
   cover letter (trade-intermediation / entrepôt-margin / trade-policy-incidence area).
-- `/verify-claims` on the intro citations (Chupilkin et al. year/volume; Juhász) **and on the
-  now load-bearing `arvis2010landlocked` "single-digit c.i.f./f.o.b." claim** (the reproducibility
-  audit lists it UNMATCHED).
+- ~~`/verify-claims` on the intro citations and on the load-bearing `arvis2010landlocked`
+  c.i.f./f.o.b. claim.~~ **Done (2026-09-02).** 12 of 14 citation↔claim pairs verified exact;
+  the Arvis c.i.f./f.o.b. attribution was a HIGH-WARN (the book does not report that figure and
+  warns the metric is invalid for former-Soviet economies) — §5.2 rewritten to drop it; three
+  PARTIALs (`doubly landlocked` → `landlocked`; logistics-cost emphasis → `high and
+  unpredictable`; `isakova2016tariffs` "level" → "sourcing … magnitudes modest") also fixed.
 - Optional round-2 TASTE items still open (not gating): Armenian GFCF decomposition; a
   route-level exit-count from the deal data for the "buy-back leading" claim; EAEU-integration
   literature positioning in §2–§3; a §9 paragraph on the continuum of the market-access gate
