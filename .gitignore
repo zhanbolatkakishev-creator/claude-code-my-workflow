@@ -80,7 +80,9 @@ quality_reports/diagnoses/*
 !quality_reports/diagnoses/.gitkeep
 
 # R analysis outputs (generated artifacts; keep scripts, ignore outputs)
-scripts/R/_outputs/
+# Exception: computational_requirements.md is an environment-snapshot deliverable, keep it.
+scripts/R/_outputs/*
+!scripts/R/_outputs/computational_requirements.md
 
 # Output artifacts — uncomment lines below based on your preference
 # *.rds

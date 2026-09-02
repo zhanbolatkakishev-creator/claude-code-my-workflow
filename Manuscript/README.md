@@ -133,7 +133,14 @@ Figures/tables referenced by `corridor.tex` are written to
 - ~~Widen the conflict-of-interest footnote if the paper leans further into policy prescription.~~
   Done: the footnote now flags that the Policy implications section is normative and the
   author's own, not representing the AIFC / QIC / IFC.
-- `/capture-environment` (renv) + assemble the replication package.
+- ~~`/capture-environment` (renv) + assemble the replication package.~~ **Done (2026-09-02).**
+  `renv.lock` verified (85 pkgs, all resolvable); `sessionInfo.txt` refreshed in both
+  `_outputs/` dirs with the full seed inventory; `scripts/R/_outputs/computational_requirements.md`
+  updated. Replication-package skeleton at `replication_package/` (README + DCAS checklist +
+  restricted-data note + license). **Three blocking `[FILL]` items before openICPSR upload:**
+  (1) de-absolutise the OneDrive path in `scripts/R/kz_valueadd/01_read_deals.R`;
+  (2) add `scripts/R/kz_valueadd/00_run_all.R`; (3) pick a code license.
+  See `quality_reports/replication_package_corridor.md`.
 
 ## Related paper
 

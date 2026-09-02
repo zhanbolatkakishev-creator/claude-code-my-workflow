@@ -1,0 +1,7 @@
+# The code/ and output/ trees are populated locally before the openICPSR upload
+# (see README.md §7). Do not commit the copies or the large raw-pull cache.
+code/
+output/
+data/raw/*.xlsx
+data/raw/icio/
+data/analysis/*.rds
