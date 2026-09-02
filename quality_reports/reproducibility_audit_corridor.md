@@ -26,6 +26,27 @@
 >   `gourdon2022vat`, `isakova2016tariffs`, `eaeu2014treaty`, `khannapalepu2000`.
 > - Housekeeping: `\date` → "September 2026" (dropped "Preliminary draft"); `plainnat` → `abbrvnat`.
 > - `tab:dealsource` caption gains N (493 universe; 82 = 53 pre + 29 post mfg/transport/distrib.).
+>
+> **R&R secondary items (2026-09-02, `feat/corridor-rnr-round1-secondaries`).** No FAIL.
+> - **#1** zero-cell shares (surge basket, cell-level): expRU 23 % pre / 3 % post; impW 50 % / 22 %
+>   — justifies asinh + PPML. New `tab:did` Panel B (PPML `e^β`: 3.5× / 2.4×; β = 1.26 / 0.85) and
+>   Panel C (rule-matched RI). Source: ad-hoc R over `panel_hs_period.rds`; PPML from `rq1_estimates`.
+> - **#7** flat vs linear-trend counterfactual for the $479m outbound increment: pre-series
+>   17→8 (declining); flat cf $11.3m/yr → **$479m**; trend cf (3.2, 0, 0, 0) → **$521m** (+9 %).
+>   New `08_io_propagation.R` block; `rq2b_io_propagation.txt`.
+> - **#8** decomposition of the $887m incremental Western inbound: onward to Russia **$479m (54 %)**,
+>   onward to non-Russia **$41m (5 %)**, residual (domestic use + inventory + c.i.f./mirror gap)
+>   **$367m (41 %)**. Source: `08_io_propagation.R` #8 block over `_data/json_annual/kzexp_*.json`
+>   (KZ exports of the 29 surge HS6 to partnerCode 0 vs 643). PASS.
+> - **#3/#4** SEs cluster within HS6 but treat lines as independent (optimistic); RI does not —
+>   stated in Sec 4.2. **#9** CHPL tier construction documented in a Sec 5.1 footnote (published
+>   list's own Tier 1–4 labels, carried unchanged). **#12** greenfield-register gap (fDi Markets /
+>   Orbis Cross-border) named as Limitation 4. **#21** `tab:priority` caption gains N = 13.
+> - **#22** [EDITOR-ADDED] the ResearchGate Georgia-refining item (`publication/401854161`) is
+>   **not cited anywhere in the manuscript** — the "first host-economy analysis" claim stands on
+>   the Chupilkin et al. literature alone. Nothing to fix.
+> - Also: neutralised residual loaded vocabulary in Sec 4.3 ("sanctioning economies" → "Western
+>   reporters"); dropped the annual sup-F magnitudes from the reform-confound paragraph too (#5).
 
 
 > **DEAL DATA SWAPPED (2026-09-01, `feat/corridor-adopt-platform-deallist`).** `01_read_deals.R`

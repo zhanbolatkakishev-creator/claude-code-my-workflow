@@ -54,3 +54,16 @@ cross-check is left for a robustness appendix. (Fiscal is 09_*.R.)
    m up to about 0.12; it weakens to 'about a fifth' at m~0.19 and to 'about a third' at m~0.32.
    The paper's 6-14% band is a wholesale-plus-freight reading of the BNS bracket; it is chosen,
    not estimated, and the whole headline scales with it.
+
+-- #7: counterfactual sensitivity of the incremental outbound flow --
+   pre-2022 outbound $m/yr : 17.4, 12.2, 7.1, 8.4  (declining)
+   flat cf (2018-21 mean)  : 11.3/yr  -> increment = $479 m  (headline)
+   linear-trend cf         : 3.2, 0, 0, 0      -> increment = $521 m
+   => the flat counterfactual is conservative; the trend cf raises the increment ~9%
+
+-- #8: decomposition of the incremental Western inbound ($887m) --
+   onward to Russia (KZ-reported exports)      : $479 m  (54%)
+   onward to non-Russia destinations           : $41 m  (5%)
+   residual (domestic absorption + inventory + c.i.f./mirror measurement gap): $367 m  (41%)
+   => onward diversion to third countries is small; the gap is domestic use + measurement,
+      not hidden re-export.

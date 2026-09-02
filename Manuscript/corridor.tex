@@ -479,7 +479,11 @@ clustered by HS6, reference year 2021. Source: UN Comtrade.}
 \paragraph{Specification and identifying assumptions.} On the annual panel we estimate
 $\text{asinh}(y_{it}) = \gamma\,(\text{treated}_i \times \text{post}_t) + \mu_i + \lambda_t +
 \varepsilon_{it}$ with HS6 and year fixed effects and standard errors clustered by HS6 (75
-lines, 8 years; reference year 2021). Identification requires parallel paths absent the shock
+lines, 8 years; reference year 2021). Zeros are common on the outbound leg before the shock
+and rare after---23\% of surge-basket cells are zero in 2018--21 against 3\% in 2022--25---so
+we report the asinh specification alongside a Poisson (PPML) estimate in levels, which handles
+the zeros without a transformation and weights by size; the two tell the same story
+(Table~\ref{tab:did}). Identification requires parallel paths absent the shock
 (a joint test of the three pre-period interaction coefficients does not reject: $p = 0.42$
 inbound, $p = 0.78$ outbound) and no anticipation (dropping 2022 entirely, or setting the
 treatment year to 2023, leaves $\gamma$ essentially unchanged; see below). The civilian
@@ -489,7 +493,11 @@ effect. The surge basket is \emph{selected on the post-period outcome}, which in
 mechanically; the selection-rule-matched permutation test below, not the cross-sectional
 regression, is what speaks to this and to the cross-sectional dependence a single common
 treatment date induces. We also report wild-cluster-bootstrap $p$-values (few clusters,
-within-HS6 serial correlation) and Holm-adjust across the four surge-basket outcomes.
+within-HS6 serial correlation) and Holm-adjust across the four surge-basket outcomes. Both the
+analytic and the bootstrap standard errors cluster within HS6 but treat lines as independent;
+with a single common treatment date and a shock that hits related product lines together, that
+is optimistic. The randomisation-inference $p$-values below do not rely on it---they resample
+whole treatment histories---and are the inference we lean on.
 
 \paragraph{Results.} Table~\ref{tab:did} reports $\gamma$ for the surge basket, the
 externally defined priority list, and a placebo. On the surge basket, exports to Russia rise by
@@ -555,32 +563,42 @@ inbound (West + China) and outbound flows; the priority list (50 codes) is exter
 & Exports to & Inbound & Inbound & KZ-reported \\
 Treated set & Russia & (W+China) & (Western) & imports \\
 \midrule
+\multicolumn{5}{@{}l}{\emph{Panel A. asinh DiD, $\gamma$ (cluster-robust s.e.\ by HS6)}} \\
 Surge basket (29 HS6)                 & 2.44 (0.96)$^{*}$ & 2.10 (1.06) & 1.73 (0.98) & 1.88 (0.63)$^{**}$ \\
 Priority list, external (50 HS6) & 2.88 (0.74)$^{***}$ & 2.12 (0.71)$^{**}$ & 1.93 (0.67)$^{**}$ & 2.94 (0.53)$^{***}$ \\
 Placebo (largest civilian lines)      & --- & $-0.95$ (0.25)$^{**}$ & --- & --- \\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Panel B. Poisson (PPML) DiD in levels, $e^{\beta}$ (multiplicative)}} \\
+Surge basket (29 HS6)                 & $3.5\times^{*}$ & $2.4\times^{***}$ & --- & --- \\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Panel C. selection-rule-matched randomisation inference (surge basket, exports to Russia)}} \\
+\multicolumn{5}{@{}l}{\quad rule-matched null $\gamma$: mean $2.79$, s.d.\ $1.50$; $P(|\gamma^{\text{perm}}|\ge 2.44) = 0.58$} \\
+\multicolumn{5}{@{}l}{\quad basket-existence null: $P(\text{rule selects}\ge 29\text{ lines}\mid H_0) = 0.000$} \\
 \bottomrule
 \end{tabular}
 
 \vspace{2pt}
 \footnotesize $^{*}$ $p<0.05$, $^{**}$ $p<0.01$, $^{***}$ $p<0.001$ (cluster-robust; before
 multiple-testing adjustment). After Holm adjustment across the four surge-basket outcomes,
-exports to Russia and KZ-reported imports remain significant at 5\%. Poisson
-in levels: surge basket $3.5\times$ outbound ($p=0.02$), $2.4\times$ inbound ($p<10^{-4}$).
+exports to Russia and KZ-reported imports remain significant at 5\%. Surge-basket and
+priority-list rows in Panel A have $N = 600$ (75 lines $\times$ 8 years); the placebo row has
+$N = 200$. Panel B: exact PPML coefficients $\beta = 1.26$ ($p = 0.02$) outbound and
+$\beta = 0.85$ ($p < 10^{-4}$) inbound. Panel C: the coefficient's \emph{magnitude} is not
+separable from the post-outcome selection, but the \emph{existence} of a 29-line basket is not
+a chance artefact under either a free or a trend-preserving permutation.
 \end{table}
 
 \paragraph{The reform confound.} Three things separate the reorientation from the
 outward-oriented policy agenda of 2022. First, the civilian control basket tells the story a
-broad reform cannot: on the annual data its inbound flow shows no 2022 movement at all
-(sup-$F \approx 0.3$), and while its exports to Russia do shift---a general Russia-trade
-effect---the shift is a small fraction of the surge basket's (annual sup-$F$ of 34 versus 151;
-monthly, the surge-basket outbound break has sup-$F$ of 561), and the cross-sectional placebo
-runs the wrong way. Second, the outbound break is dated 2022m5, before the June referendum and
-the November election. Third, and most directly: Armenia's surge-basket exports to Russia rose
-from \$7--15m per year to \$71m in 2022 and \$93m in 2023, and the Kyrgyz Republic's from
-\$1--7m to \$12m and \$30m, on the same timing---neither country having a ``New Kazakhstan''
-reform. The annual break statistics rest on eight observations and we read them as
-corroboration rather than inference; the direction is also asymmetric, in from sanctioning
-economies and out to Russia.
+broad reform cannot: on the annual data its inbound flow shows no 2022 movement at all, and
+while its exports to Russia do shift---a general Russia-trade effect---the shift is far
+smaller than the surge basket's on the same test, and the monthly surge-basket outbound break
+is much sharper still; the cross-sectional placebo runs the wrong way. Second, the outbound
+break is dated 2022m5, before the June referendum and the November election. Third, and most
+directly: Armenia's surge-basket exports to Russia rose from \$7--15m per year to \$71m in
+2022 and \$93m in 2023, and the Kyrgyz Republic's from \$1--7m to \$12m and \$30m, on the same
+timing---neither country having a ``New Kazakhstan'' reform. The direction is also
+asymmetric---inbound from Western reporters, onward to Russia.
 
 \section{What Kazakhstan retains}\label{sec:capture}
 
@@ -588,11 +606,21 @@ economies and out to Russia.
 
 We measure what Kazakhstan retains on the \emph{incremental} flow---exports to Russia above
 the pre-2022 baseline, about \$479m cumulatively over 2022--2025---since that is the part the
-reorientation drove. Set against the incremental \emph{Western} inbound of about \$887m, the
-flow-through is roughly one half; set against the incremental West + China inbound of about
-\$3.2bn, it is one sixth. The gap is domestic use, onward flow to other destinations, and
-measurement in the import series, which we cannot separate; the Western basis is the relevant
-one for the reorientation, and we use it here.
+reorientation drove. The \$479m increment is measured against a flat counterfactual at the
+2018--21 mean (\$11m/yr); because the pre-2022 outbound series is itself declining
+(\$17m$\to$\$8m), that is the conservative choice---extrapolating the pre-trend would put the
+counterfactual near zero by 2024 and raise the increment to about \$521m, widening every
+downstream figure by roughly a tenth. Set against the incremental \emph{Western} inbound of
+about \$887m, the flow-through is roughly one half; set against the incremental West + China
+inbound of about \$3.2bn, it is one sixth. The inbound leg is the more weakly identified of
+the two---its DiD coefficient loses significance under size$\times$year controls and after
+multiple-testing adjustment (Section~\ref{sec:did})---so the flow-through ratio should be read
+as indicative, not precise. The remaining \$887m${}-{}$\$479m${}={}$\$408m of
+the Western increment decomposes into only about \$41m of onward exports to destinations other
+than Russia (Kazakhstan's surge-basket exports to the rest of the world barely move) and about
+\$367m of domestic absorption, inventory and the c.i.f./mirror measurement gap---so the
+flow-through gap is not hidden re-export through third countries. The Western basis is the
+relevant one for the reorientation, and we use it here.
 
 The unit-value evidence is consistent with a corridor and does not identify a retained margin
 on its own. On a c.i.f./f.o.b.\ basis---Kazakhstan's f.o.b.\ re-export price against the
@@ -614,7 +642,12 @@ the median and below one at both quartiles---no sign of local input added on the
 transit, but on a thin slice of the basket. The Comtrade extract carries value and net weight
 but not physical quantity, so a cleaner per-unit transformation test is not available here.
 Second, the dispersion in the f.o.b.\ wedge is not a processing signal: the high
-multiples---a median near four in the highest priority tiers, on about half the
+multiples---a median near four in the highest priority tiers,\footnote{The priority list is
+published with the goods grouped into tiers (Tier~1--2 the most sensitive, Tiers~3--4
+progressively less so); we carry the published tier labels unchanged and use them only to
+describe where in the list the high wedges fall. Tier~1 = HS 8542 (integrated circuits);
+Tier~2 adds transceivers, capacitors, connectors; Tiers~3--4 are broader machinery,
+instruments and components.} on about half the
 matched gross flow (Figure~\ref{fig:wedge})---fall in exactly the lines where scarcity markups
 on goods that became harder to source directly are expected. This is the pattern
 \citet{feenstrahanson2004entrepot} document for Hong Kong's entrep\^ot trade in Chinese goods,
@@ -988,8 +1021,9 @@ domestic value-added multiplier $(v_d' L_d)_j$ from the OECD ICIO block; Output 
 import value. Dashes: not applicable (platform sectors are not import-competing) or not
 computed. Surge-basket HS6 are netted out of the electronics and machinery chapters. The
 substitution rows are the four top-ranked candidates on a combined score (value-added
-multiplier, import-substitution gap, import growth, deal base); the full ranking of 13 is in
-the replication output.}
+multiplier, import-substitution gap, import growth, deal base) out of $N = 13$ ranked
+tradeable sectors; two platform and two ``avoid'' rows are shown alongside, so 8 of the 13
+appear here and the full ranking is in the replication output.}
 \label{tab:priority}
 \small
 \begin{tabular}{@{}p{1.5cm}p{5.4cm}rrrr@{}}
@@ -1177,7 +1211,7 @@ this: the goods pass through without a domestic firm ever entering the supply ch
 is no linkage to learn from. That is where the long-run cost of being a corridor sits, and it
 is not captured by the value-added arithmetic.
 
-\paragraph{Limitations.} Three limitations are central. First, the case observes a single
+\paragraph{Limitations.} Four limitations are central. First, the case observes a single
 configuration in which every gate is adverse, so it identifies the market-access gate as open
 and rules the institutional gate out for the shock-specific null, but it cannot establish that
 irreversibility independently binds; the durable-versus-uncertain shock comparison and the
@@ -1191,7 +1225,11 @@ investment null is
 \emph{over}-determined---the January 2022 unrest, the cross-border compliance exposure noted
 in Section~\ref{sec:setting}, and the nationalisation wave would each depress entry---so we
 bound its magnitude (Section~\ref{sec:investment}) rather than attribute it to the trade shock
-alone.
+alone. Fourth, the deal databases capture \emph{transacted} investment---M\&A and private
+financing rounds---and under-cover pure greenfield capacity that is built without an external
+transaction. A dedicated greenfield register (fDi Markets, or Orbis Cross-border Investment)
+would close that gap; the plant-level evidence we use in Section~\ref{sec:why} is a manual
+substitute, and it too shows no reorientation-linked capacity.
 
 Five measurement caveats bear on the estimates. The inbound side is partner-reported (mirror)
 data, which overstates Kazakh absorption for onward-moving goods. The inbound flow is

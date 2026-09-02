@@ -122,6 +122,59 @@ cat("   The paper's 6-14% band is a wholesale-plus-freight reading of the BNS br
 cat("   not estimated, and the whole headline scales with it.\n")
 save_out(sens, "rq2b_m_sensitivity")
 
+## ---- R&R secondary #7: flat vs trend counterfactual for the $479m increment ----
+## The pre-2022 outbound series is itself declining (17 -> 8), so a flat counterfactual at
+## the 2018-21 mean is conservative relative to extrapolating the pre-trend.
+ru_ann <- p[surge == TRUE, .(ru = sum(expRU_usd) / 1e6), by = .(yr = year(tt))][order(yr)]
+pre_ru <- ru_ann[yr %in% base_yr]; post_ru <- ru_ann[yr %in% post_yr]
+cf_flat  <- mean(pre_ru$ru)
+cf_trend <- pmax(0, predict(lm(ru ~ yr, pre_ru), newdata = post_ru))
+incr_flat  <- sum(post_ru$ru) - length(post_yr) * cf_flat
+incr_trend <- sum(post_ru$ru) - sum(cf_trend)
+cat("\n-- #7: counterfactual sensitivity of the incremental outbound flow --\n")
+cat(sprintf("   pre-2022 outbound $m/yr : %s  (declining)\n", paste(round(pre_ru$ru, 1), collapse = ", ")))
+cat(sprintf("   flat cf (2018-21 mean)  : %.1f/yr  -> increment = $%.0f m  (headline)\n", cf_flat, incr_flat))
+cat(sprintf("   linear-trend cf         : %s      -> increment = $%.0f m\n",
+            paste(round(cf_trend, 1), collapse = ", "), incr_trend))
+cat(sprintf("   => the flat counterfactual is conservative; the trend cf raises the increment ~%.0f%%\n",
+            100 * (incr_trend / incr_flat - 1)))
+
+## ---- R&R secondary #8: where the flow-through gap goes -------------------------
+## flow-through = incr KZ->Russia / incr Western inbound. The complement is domestic use +
+## onward export to non-Russia destinations + measurement. Decompose using KZ-reported
+## exports of the surge basket to World (partnerCode 0) and to Russia (643).
+kzx_f <- list.files(file.path(DIR_DATA, "json_annual"), "^kzexp_.*json$", full.names = TRUE)
+if (length(kzx_f)) {
+  suppressMessages(library(jsonlite))
+  sbv <- gg[surge == TRUE, hs6]
+  kzx <- rbindlist(lapply(kzx_f, function(f) {
+    j <- tryCatch(fromJSON(f), error = function(e) NULL)
+    if (is.null(j$data) || !length(j$data)) return(NULL)
+    as.data.table(j$data)
+  }), fill = TRUE)
+  kzx[, `:=`(hs6 = sprintf("%06d", as.integer(cmdCode)), v = as.numeric(primaryValue),
+             yr = refYear, pc = partnerCode)]
+  kzx <- kzx[hs6 %in% sbv & pc %in% c(0, 643)]
+  w <- dcast(kzx, yr ~ pc, value.var = "v",
+             fun.aggregate = function(x) sum(x, na.rm = TRUE) / 1e6)
+  setnames(w, c("0", "643"), c("world", "russia"), skip_absent = TRUE)
+  w[, nonRU := world - russia]
+  iw <- function(col) sum(w[yr %in% post_yr][[col]]) - length(post_yr) * mean(w[yr %in% base_yr][[col]])
+  incr_world <- iw("world"); incr_ru_x <- iw("russia"); incr_nonRU <- iw("nonRU")
+  resid_gap <- incr_mirW - incr_ru_x - incr_nonRU
+  cat("\n-- #8: decomposition of the incremental Western inbound ($", sprintf("%.0f", incr_mirW), "m) --\n", sep = "")
+  cat(sprintf("   onward to Russia (KZ-reported exports)      : $%.0f m  (%.0f%%)\n",
+              incr_ru_x, 100 * incr_ru_x / incr_mirW))
+  cat(sprintf("   onward to non-Russia destinations           : $%.0f m  (%.0f%%)\n",
+              incr_nonRU, 100 * incr_nonRU / incr_mirW))
+  cat(sprintf("   residual (domestic absorption + inventory + c.i.f./mirror measurement gap): $%.0f m  (%.0f%%)\n",
+              resid_gap, 100 * resid_gap / incr_mirW))
+  cat("   => onward diversion to third countries is small; the gap is domestic use + measurement,\n")
+  cat("      not hidden re-export.\n")
+} else {
+  cat("\n-- #8: skipped (no _data/json_annual/kzexp_*.json) --\n")
+}
+
 sink()
 save_out(grid, "rq2b_io_results")
 message("RQ2(b) done: _outputs/rq2b_io_propagation.txt")
