@@ -1,13 +1,13 @@
 # 03_fig.R — the mismatch: trade flow x10, investment response flat
-suppressMessages({library(data.table); library(ggplot2)})
-OUT <- "C:/Users/zh.kakishev/my-project2/scripts/R/kz_valueadd/_outputs"
+source("00_setup.R")
+OUT <- DIR_OUT
 dd <- readRDS(file.path(OUT, "deals_classified.rds"))
 
 ## trade: surge-basket Western-reported inbound (mirror), annual. We plot the Western
 ## component (not West+China) because that is the part that moves with the reorientation;
 ## the West+China total is dominated by a large pre-existing China flow.
-tp <- "C:/Users/zh.kakishev/my-project2/scripts/R/kz_passthrough/_outputs/panel_annual.rds"
-sb <- "C:/Users/zh.kakishev/my-project2/scripts/R/kz_passthrough/_outputs/surge_basket_frozen.rds"
+tp <- file.path(DIR_PASS_OUT, "panel_annual.rds")
+sb <- file.path(DIR_PASS_OUT, "surge_basket_frozen.rds")
 p  <- readRDS(tp); s <- readRDS(sb); setDT(p); setDT(s)
 p <- merge(p, s[, .(hs6, surge)], by = "hs6", all.x = TRUE, suffixes = c("", ".s"))
 trade <- p[surge == TRUE, .(trade_musd = sum(mirW_usd) / 1e6), by = .(yr = as.integer(format(tt, "%Y")))]

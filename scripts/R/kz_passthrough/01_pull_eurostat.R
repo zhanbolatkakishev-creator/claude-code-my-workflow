@@ -21,7 +21,7 @@ SITC_SETS <- c(
   ext_lt_mainmine  = "SITC3_fuels",
   ext_lt_mainchem  = "SITC5_chemicals",
   ext_lt_mainmanu  = "SITC6_8_manuf",
-  ext_lt_mainmach  = "SITC7_machinery_transport"   # <- circumvention-relevant
+  ext_lt_mainmach  = "SITC7_machinery_transport"   # <- reorientation-relevant
 )
 
 pull_one <- function(dscode, label) {

@@ -8,12 +8,12 @@
 #   base_musd      KZ domestic output
 #  => a transparent composite + a PLATFORM / SUBSTITUTION / AVOID tag.
 
-suppressMessages({library(data.table); library(jsonlite); library(ggplot2)})
-VA <- "C:/Users/zh.kakishev/my-project2/scripts/R/kz_valueadd"
-OUT <- file.path(VA, "_outputs"); dir.create(OUT, showWarnings = FALSE, recursive = TRUE)
+source("00_setup.R")
+VA  <- "."
+OUT <- DIR_OUT
 
 ## ---- 1. I-O sector table ------------------------------------------------
-io <- readRDS("C:/Users/zh.kakishev/my-project2/scripts/R/kz_passthrough/_data/kz_io.rds")
+io <- readRDS(file.path(DIR_PASS_DATA, "kz_io.rds"))
 sec <- data.table(sector = io$sectors, va_mult = io$va_mult, v_direct = io$v, base_musd = io$x)
 LAB <- c(A01_02="Agriculture",A03="Fishing",B05_06="Coal & crude extraction",B07_08="Metal-ore mining",
  B09="Mining support",C10T12="Food, beverages, tobacco",C13T15="Textiles, apparel, leather, footwear",
@@ -69,8 +69,8 @@ impS <- imp[, .(imp_musd = sum(val, na.rm=TRUE)/1e6), by = .(sector, yr)]
 ## import figures reflect genuine domestic demand, not the transit flow (HS84/85/90 carry
 ## the surge-basket HS6). Subtract the mirror inflow of the surge basket, split across C26-C28.
 sbp <- tryCatch({
-  p <- readRDS("C:/Users/zh.kakishev/my-project2/scripts/R/kz_passthrough/_outputs/panel_annual.rds")
-  s <- readRDS("C:/Users/zh.kakishev/my-project2/scripts/R/kz_passthrough/_outputs/surge_basket_frozen.rds")
+  p <- readRDS(file.path(DIR_PASS_OUT, "panel_annual.rds"))
+  s <- readRDS(file.path(DIR_PASS_OUT, "surge_basket_frozen.rds"))
   setDT(p); setDT(s); p <- merge(p, s[,.(hs6,surge)], by="hs6", all.x=TRUE, suffixes=c("",".s"))
   p[surge==TRUE, .(sb = sum(mirW_usd + mirCN_usd, na.rm=TRUE)/1e6), by=.(yr=as.integer(format(tt,"%Y")))]
 }, error = function(e) NULL)

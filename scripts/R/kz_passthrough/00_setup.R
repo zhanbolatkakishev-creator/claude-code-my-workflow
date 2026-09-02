@@ -1,6 +1,6 @@
-# 00_setup.R — packages, paths, shared helpers for the KZ pass-through project
-# Project: "Passing Through — What Kazakhstan Captures from Sanctions-Circumvention Trade"
-# Plan: C:/Users/zh.kakishev/.claude/plans/snuggly-popping-donut.md
+# 00_setup.R — packages, paths, shared helpers for the KZ trade-reorientation pipeline
+# Paper: "Corridor, Not Factory: Trade Reorientation and the Missing Investment Response
+#         in Kazakhstan, 2022–2025"
 
 ## ---- paths -----------------------------------------------------------------
 # Run from the project dir. If launched from the repo root, hop into it.

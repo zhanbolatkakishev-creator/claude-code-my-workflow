@@ -6,11 +6,16 @@
 # QIC/AIFC/IFC "Private Equity in Kazakhstan" report draws on. The replication package pins
 # this file and lists the deal IDs so a licence holder can reconstruct it.
 # QIC data is NOT read here -- all QIC facts in the paper come from the published PE report.
-suppressMessages({library(readxl); library(data.table)})
-SRC <- "C:/Users/zh.kakishev/OneDrive - AIFC/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/Personal/Trade research"
-OUT <- "C:/Users/zh.kakishev/my-project2/scripts/R/kz_valueadd/_data"
-dir.create(OUT, showWarnings = FALSE, recursive = TRUE)
-f <- file.path(SRC, "20260825_Market size DA.xlsx")
+source("00_setup.R")
+suppressMessages(library(readxl))
+OUT <- DIR_DATA
+# Place the licensed extract at kz_valueadd/_data/20260825_Market size DA.xlsx.
+# It is NOT redistributable -- see replication_package/data/access-restricted-data.md
+# for the query specification a licence holder uses to reconstruct it.
+f <- Sys.getenv("KZ_DEAL_XLSX",
+                unset = file.path(DIR_DATA, "20260825_Market size DA.xlsx"))
+stopifnot("deal extract not found -- see replication_package/data/access-restricted-data.md" =
+            file.exists(f))
 
 dd <- as.data.table(read_excel(f, sheet = "Deals_Preqin+Pitchbook+CapIQ"))
 setnames(dd, c("source", "deal_id", "company", "date", "year", "deal_type", "value_m",

@@ -1,12 +1,9 @@
 # 07_crosscountry.R — does the investment response to a tradeable-demand shock track
 # SHOCK PERSISTENCE (real options) or FINANCIAL DEVELOPMENT (institutional voids)?
-# 2x2: shock type (transitory / sanctions-driven  vs  durable / structural) x findev (low/high).
+# 2x2: shock type (event-driven / policy-contingent  vs  durable / structural) x findev (low/high).
 
-suppressMessages({library(data.table)})
-OUT <- "C:/Users/zh.kakishev/my-project2/scripts/R/kz_valueadd/_outputs"
-if (!requireNamespace("wbstats", quietly = TRUE))
-  install.packages("wbstats", repos = "https://cloud.r-project.org", quiet = TRUE)
-suppressMessages(library(wbstats))
+source("00_setup.R")
+OUT <- DIR_OUT
 
 ## intermediary economies (transitory, sanctions-driven reorientation shock, 2022) +
 ## comparators with a DURABLE / structural tradeable-demand shock in the same window

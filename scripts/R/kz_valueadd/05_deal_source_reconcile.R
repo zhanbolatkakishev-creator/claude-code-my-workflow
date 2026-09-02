@@ -9,8 +9,8 @@
 # + trade/distribution), 2015-21 vs 2022-25. The "surge-basket lines = 0" row in the paper
 # is a manual note (two CapIQ records carry a spurious "electronic" tag), not computed here.
 
-suppressMessages({library(data.table)})
-OUT <- "C:/Users/zh.kakishev/my-project2/scripts/R/kz_valueadd/_outputs"
+source("00_setup.R")
+OUT <- DIR_OUT
 dd  <- readRDS(file.path(OUT, "deals_classified.rds"))
 dd[, src := fifelse(grepl("cap", tolower(source)), "CapIQ",
               fifelse(grepl("pitch", tolower(source)), "PitchBook",

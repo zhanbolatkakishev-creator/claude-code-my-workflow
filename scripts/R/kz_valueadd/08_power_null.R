@@ -5,8 +5,7 @@
 #
 # Writes _outputs/power_null.txt
 
-suppressMessages(library(data.table))
-DIR_OUT <- "C:/Users/zh.kakishev/my-project2/scripts/R/kz_valueadd/_outputs"
+source("00_setup.R")
 
 ## value-add-relevant annual counts, read straight from deals_classified.rds so the power
 ## analysis tracks any change to the deal classification. 2015 is a low first year as the

@@ -136,11 +136,11 @@ Figures/tables referenced by `corridor.tex` are written to
 - ~~`/capture-environment` (renv) + assemble the replication package.~~ **Done (2026-09-02).**
   `renv.lock` verified (85 pkgs, all resolvable); `sessionInfo.txt` refreshed in both
   `_outputs/` dirs with the full seed inventory; `scripts/R/_outputs/computational_requirements.md`
-  updated. Replication-package skeleton at `replication_package/` (README + DCAS checklist +
-  restricted-data note + license). **Three blocking `[FILL]` items before openICPSR upload:**
-  (1) de-absolutise the OneDrive path in `scripts/R/kz_valueadd/01_read_deals.R`;
-  (2) add `scripts/R/kz_valueadd/00_run_all.R`; (3) pick a code license.
-  See `quality_reports/replication_package_corridor.md`.
+  updated. Replication-package skeleton at `replication_package/`. All DCAS blocking items are
+  cleared (the `kz_valueadd` pipeline was refactored off absolute paths, given a `00_setup.R`
+  and `00_run_all.R`, and verified end-to-end; MIT license in place). Remaining before the
+  openICPSR upload is author metadata only. See `quality_reports/replication_package_corridor.md`
+  and `replication_package/DCAS_checklist.md`.
 
 ## Related paper
 

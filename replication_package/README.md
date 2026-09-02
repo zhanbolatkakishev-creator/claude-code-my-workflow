@@ -128,23 +128,15 @@ cd code/kz_passthrough
 Rscript 00_run_all.R          # trade shock, value capture, DiD, breaks -> _outputs/
 
 cd ../kz_valueadd
-Rscript 01_read_deals.R       # [FILL] wrap 01..08 in a 00_run_all.R
-Rscript 02_valueadd_analysis.R
-Rscript 03_fig.R
-Rscript 04_sector_priority.R  # re-pulls Comtrade HS2 live
-Rscript 05_deal_source_reconcile.R
-Rscript 06_mechanism_tests.R
-Rscript 07_crosscountry.R     # re-pulls World Bank WDI live
-Rscript 08_power_null.R
+Rscript 00_run_all.R          # investment response, sector priority -> _outputs/
+                             #   (runs 01_read_deals .. 08_power_null; step 04 re-pulls
+                             #    Comtrade HS2 and step 07 re-pulls World Bank WDI live)
 ```
 
-Suggested `kz_valueadd/00_run_all.R`:
-
-```r
-for (f in sprintf("%02d_%s.R", 1:8, c("read_deals","valueadd_analysis","fig",
-  "sector_priority","deal_source_reconcile","mechanism_tests","crosscountry","power_null")))
-  source(f, local = new.env())
-```
+Both pipelines use a `00_setup.R` that resolves all paths relative to the script directory;
+`kz_valueadd` reads the trade-pipeline outputs from `../kz_passthrough/_outputs/`, so run
+`kz_passthrough` first. Point `KZ_DEAL_XLSX` at the licensed extract if it is not at
+`kz_valueadd/_data/20260825_Market size DA.xlsx`.
 
 ### 5.4 Expected outputs
 

@@ -66,7 +66,7 @@ p[, `:=`(
   post   = as.integer(tt >= TREAT),
   t_rel  = match(tt, per) - ref_idx,
   mirror_gap    = mirW_usd  - impW_usd,                     # West-only proxy (kept)
-  mirror_gap_wc = mirWC_usd - (impW_usd + impCN_usd),       # West+China circumvention proxy
+  mirror_gap_wc = mirWC_usd - (impW_usd + impCN_usd),       # West+China onward-movement proxy
   uv_impW  = fifelse(impW_kg  > 0, impW_usd  / impW_kg,  NA_real_),
   uv_expRU = fifelse(expRU_kg > 0, expRU_usd / expRU_kg, NA_real_),
   uv_mirWC = fifelse(mirWC_kg > 0, mirWC_usd / mirWC_kg, NA_real_))]

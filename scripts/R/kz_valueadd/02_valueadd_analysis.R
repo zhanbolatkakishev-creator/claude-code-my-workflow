@@ -4,10 +4,9 @@
 # QIC state-fund evidence is taken from the published QIC/AIFC/IFC PE report, not from a
 # private register -- see corridor.tex Section 7; no QIC data is read here.
 
-suppressMessages({library(data.table)})
-OUT <- "C:/Users/zh.kakishev/my-project2/scripts/R/kz_valueadd/_outputs"
-dir.create(OUT, showWarnings = FALSE, recursive = TRUE)
-dd  <- readRDS("C:/Users/zh.kakishev/my-project2/scripts/R/kz_valueadd/_data/deals_nondup.rds")
+source("00_setup.R")
+OUT <- DIR_OUT
+dd  <- readRDS(file.path(DIR_DATA, "deals_nondup.rds"))
 
 ## ---- classify deals into value-chain buckets from industry_raw / group ----
 ir <- tolower(paste(dd$industry_raw, dd$industry_group, dd$company))

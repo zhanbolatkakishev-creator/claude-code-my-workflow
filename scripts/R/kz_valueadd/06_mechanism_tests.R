@@ -10,9 +10,9 @@
 #   transitory demand shock (re-export components). Different response => persistence is the
 #   binding moderator (real options). Same (null) response => institutions (voids).
 
-suppressMessages({library(data.table)})
-VA  <- "C:/Users/zh.kakishev/my-project2/scripts/R/kz_valueadd"
-OUT <- file.path(VA, "_outputs")
+source("00_setup.R")
+VA  <- "."
+OUT <- DIR_OUT
 
 dd <- readRDS(file.path(OUT, "deals_classified.rds"))          # CapIQ/PitchBook/Preqin
 
