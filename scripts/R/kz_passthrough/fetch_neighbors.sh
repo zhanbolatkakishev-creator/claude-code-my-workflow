@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
-# fetch_neighbors.sh — Armenia (51) & Kyrgyz Republic (417) annual HS6, keyless preview.
-# Their imports-from-West and exports-to-Russia for the surge-basket codes, to show the same
-# 2022 break with no "New Kazakhstan" reform (reform-confound robustness).
+# fetch_neighbors.sh — neighbour intermediaries, annual HS6, keyless preview.
+#   Armenia (51) & Kyrgyz Republic (417): customs-union intermediaries (same 2022 break, no
+#     "New Kazakhstan" reform -> reform-confound robustness).
+#   R&R Essential 5 -- Georgia (268) & Turkiye (792): NON-customs-union intermediaries. A
+#     supply from them to Russia crosses a border, so the framework predicts a supply response
+#     there; the trade half is the discriminating comparison for external validity.
 set -u
 cd "$(dirname "$0")"
 OUT=_data/json_annual_nb
@@ -30,11 +33,16 @@ get() { # tag who year ci chunk
 for y in 2018 2019 2020 2021 2022 2023 2024 2025; do
   echo "year $y"
   ci=0; while [ $ci -lt $NC ]; do
-    # Armenia (51) and Kyrgyz Rep (417): imports (flow M) + exports (flow X)
+    # customs-union intermediaries: Armenia (51), Kyrgyz Rep (417)
     get arm_imp "reporterCode=51&flowCode=M"  "$y" "$ci" "${CHUNKS[$ci]}"
     get arm_exp "reporterCode=51&flowCode=X"  "$y" "$ci" "${CHUNKS[$ci]}"
     get kgz_imp "reporterCode=417&flowCode=M" "$y" "$ci" "${CHUNKS[$ci]}"
     get kgz_exp "reporterCode=417&flowCode=X" "$y" "$ci" "${CHUNKS[$ci]}"
+    # non-customs-union intermediaries (R&R E5): Georgia (268), Turkiye (792)
+    get geo_imp "reporterCode=268&flowCode=M" "$y" "$ci" "${CHUNKS[$ci]}"
+    get geo_exp "reporterCode=268&flowCode=X" "$y" "$ci" "${CHUNKS[$ci]}"
+    get tur_imp "reporterCode=792&flowCode=M" "$y" "$ci" "${CHUNKS[$ci]}"
+    get tur_exp "reporterCode=792&flowCode=X" "$y" "$ci" "${CHUNKS[$ci]}"
     ci=$((ci+1))
   done
 done

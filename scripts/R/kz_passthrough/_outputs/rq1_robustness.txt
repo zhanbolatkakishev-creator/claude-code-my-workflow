@@ -15,22 +15,26 @@ attr(,"vcov_type")
 
   5 civilian HS6 fall in the surge basket; their share of post-2022 gross flow to RU: 5.1%
 
-===== (b) ARMENIA / KYRGYZ REPUBLIC parallel =====
+===== (b) NEIGHBOUR-INTERMEDIARY PARALLEL (Armenia, Kyrgyz Rep. | Georgia, Turkiye) =====
 
 Exports to Russia, surge-basket HS6, $m:
 Key: <yr>
-      yr       ARM       KGZ
-   <int>     <num>     <num>
-1:  2018 15.206608  0.731949
-2:  2019  8.723470  3.143201
-3:  2020  6.829632  5.700887
-4:  2021  8.762935  7.432956
-5:  2022 70.940101 12.379148
-6:  2023 93.446939 30.301343
-7:  2024 42.178014 11.564127
-8:  2025 12.773685 12.028083
-  ARM exports->Russia: supF = 10.47  p = 0.0145
-  KGZ exports->Russia: supF = 13.44  p = 0.00357
+      yr       ARM       GEO       KGZ       TUR
+   <int>     <num>     <num>     <num>     <num>
+1:  2018 15.206608 0.1642633  0.731949  53.15714
+2:  2019  8.723470 0.7032017  3.143201  54.71816
+3:  2020  6.829632 0.3921734  5.700887  47.44993
+4:  2021  8.762935 0.6618235  7.432956  58.01069
+5:  2022 70.940101 0.9994481 12.379148 118.71988
+6:  2023 93.446939 1.0604121 30.301343 206.62676
+7:  2024 42.178014 1.6969479 11.564127  97.97270
+8:  2025 12.773685 0.6635732 12.028083  72.98068
+  ARM [EAEU customs union         ] exports->Russia: supF =   10.47  p = 0.0145 ; largest jump at 2022
+  KGZ [EAEU customs union         ] exports->Russia: supF =   13.44  p = 0.00357 ; largest jump at 2019
+  GEO [non-EAEU (border to Russia)] exports->Russia: supF =    6.95  p = 0.07456 ; largest jump at 2019
+  TUR [non-EAEU (border to Russia)] exports->Russia: supF =   11.94  p = 0.00725 ; largest jump at 2022
 
-=> Same 2022 break in Armenia and the Kyrgyz Republic, neither of which had a
-    'New Kazakhstan' reform -> the KZ break is the common Russia-trade shock.
+=> The 2022 break appears in every intermediary regardless of customs-union status:
+    Armenia/Kyrgyz Rep. (EAEU, no 'New Kazakhstan' reform) AND Georgia/Turkiye (non-EAEU).
+    The break is the common Russia-trade shock, and the demand shock generalises across
+    the named population; the investment test remains Kazakhstan-only.

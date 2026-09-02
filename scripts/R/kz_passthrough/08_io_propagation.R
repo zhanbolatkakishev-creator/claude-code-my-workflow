@@ -89,6 +89,39 @@ the order of a tenth as much domestic value as a produced one. Corridor, not fac
 cat("\nCAVEAT: single I-O vintage (OECD ICIO 2019); the ICIO's KZ domestic-content shares are\n")
 cat("relatively high, so v_TT and v_M are likely upper bounds. An ADB MRIO / KZ BNS 68-product\n")
 cat("cross-check is left for a robustness appendix. (Fiscal is 09_*.R.)\n")
+
+## ---- R&R Essential 1(a): full sensitivity of the headline to m -----------------
+## m is a calibration, not an estimate. The I-O step does little work (mv ~= fv), so the
+## rerouted-vs-produced ratio is ~ (mv/fv)*m. Sweep m over the whole BNS resources-table
+## bracket [transport-only ~1%, full trade+transport ~49%] and report where the headline
+## framing changes.
+mg <- seq(0.01, 0.49, by = 0.01)
+sens <- data.table(m = mg,
+                   VA_per_usd_rerouted = mg * mv,
+                   ratio_to_produced   = (mg * mv) / fv,
+                   retained_musd       = gross_musd * mg * mv)
+cross <- function(target) sens[which.min(abs(ratio_to_produced - target)), m]
+cat("\n-- Essential 1(a): sensitivity of the value-capture headline to m --\n")
+cat(sprintf("   ratio_to_produced ~= %.3f * m   (mv=%.3f, fv=%.3f; the I-O step moves it ~%.0f%%)\n",
+            mv/fv, mv, fv, 100*abs((mv/fv)-1)))
+anchors <- data.table(
+  label = c("transport margin only", "paper's band (lo)", "paper's band (mid)",
+            "paper's band (hi)", "censored matched-cell gross margin", "full trade+transport margin"),
+  m     = c(0.01, 0.06, 0.10, 0.14, 0.34, 0.49))
+anchors[, `:=`(VA_per_usd_rerouted = round(m * mv, 3),
+               ratio_to_produced   = round((m * mv) / fv, 3),
+               retained_musd       = round(gross_musd * m * mv))]
+print(anchors)
+cat(sprintf("\n   m at which the rerouted dollar captures one-fifth of a produced dollar : %.2f\n", cross(1/5)))
+cat(sprintf("   m at which it captures one-third                                       : %.2f\n", cross(1/3)))
+cat(sprintf("   m at which it captures one-half                                        : %.2f\n", cross(1/2)))
+cat("   READ: 'corridor, not factory' (a rerouted dollar ~ a tenth of a produced one) holds for\n")
+cat(sprintf("   m up to about %.2f; it weakens to 'about a fifth' at m~%.2f and to 'about a third' at m~%.2f.\n",
+            cross(0.12), cross(1/5), cross(1/3)))
+cat("   The paper's 6-14% band is a wholesale-plus-freight reading of the BNS bracket; it is chosen,\n")
+cat("   not estimated, and the whole headline scales with it.\n")
+save_out(sens, "rq2b_m_sensitivity")
+
 sink()
 save_out(grid, "rq2b_io_results")
 message("RQ2(b) done: _outputs/rq2b_io_propagation.txt")

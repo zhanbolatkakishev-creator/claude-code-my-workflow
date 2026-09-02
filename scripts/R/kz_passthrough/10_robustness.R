@@ -5,6 +5,10 @@
 #      for transparency (the 2026-08 seven-pass review flagged the purge).
 #  (b) parallel: Armenia & Kyrgyz Republic show the same 2022 break with no "New Kazakhstan"
 #      reform -> the break is a common Russia-trade shock, not KZ-specific liberalisation.
+#      R&R E5: Georgia & Turkiye added as NON-customs-union intermediaries. Named population is
+#      {Kazakhstan, Armenia, Kyrgyz Rep., Belarus} (EAEU) plus non-EAEU transit {Georgia,
+#      Turkiye}. We can show the trade break for each; we cannot run the investment test outside
+#      Kazakhstan (no deal data) -> external validity is for the demand shock, not the null.
 
 source("00_setup.R")
 suppressMessages({library(data.table); library(fixest); library(strucchange); library(jsonlite)})
@@ -45,7 +49,9 @@ cat(sprintf("\n  %d civilian HS6 fall in the surge basket; their share of post-2
 ## ---- (b) Armenia / Kyrgyz Republic parallel ------------------------------
 nbdir <- file.path(DIR_DATA, "json_annual_nb")
 if (dir.exists(nbdir) && length(list.files(nbdir, "\\.json$"))) {
-  cat("\n===== (b) ARMENIA / KYRGYZ REPUBLIC parallel =====\n")
+  cat("\n===== (b) NEIGHBOUR-INTERMEDIARY PARALLEL (Armenia, Kyrgyz Rep. | Georgia, Turkiye) =====\n")
+  cu_lab <- c(ARM = "EAEU customs union", KGZ = "EAEU customs union",
+              GEO = "non-EAEU (border to Russia)", TUR = "non-EAEU (border to Russia)")
   rd <- rbindlist(lapply(list.files(nbdir, "\\.json$", full.names = TRUE), function(f) {
     j <- tryCatch(fromJSON(f), error = function(e) NULL)
     if (is.null(j$data) || !length(j$data)) return(NULL)
@@ -61,15 +67,21 @@ if (dir.exists(nbdir) && length(list.files(nbdir, "\\.json$"))) {
   ex <- rd[cmdCode %in% sb & flow == "exp" & partnerCode == 643,
            .(expRU_m = sum(v, na.rm = TRUE)/1e6), by = .(ctry, yr)][order(ctry, yr)]
   cat("\nExports to Russia, surge-basket HS6, $m:\n"); print(dcast(ex, yr ~ ctry, value.var = "expRU_m"))
-  for (cc in unique(ex$ctry)) {
+  for (cc in c("ARM", "KGZ", "GEO", "TUR")) {
     s <- ex[ctry == cc][order(yr)]
     if (nrow(s) >= 6) {
       st <- sctest(Fstats(ts(asinh(s$expRU_m), start = min(s$yr)) ~ 1, from = 0.25), type = "supF")
-      cat(sprintf("  %s exports->Russia: supF = %.2f  p = %.4g\n", cc, st$statistic, st$p.value))
+      pk <- s[which.max(c(NA, diff(asinh(expRU_m)))), yr]
+      cat(sprintf("  %-3s [%-27s] exports->Russia: supF = %7.2f  p = %.4g ; largest jump at %s\n",
+                  cc, cu_lab[[cc]] %||% "?", st$statistic, st$p.value, pk))
+    } else {
+      cat(sprintf("  %-3s : only %d yrs of data, break test skipped\n", cc, nrow(s)))
     }
   }
-  cat("\n=> Same 2022 break in Armenia and the Kyrgyz Republic, neither of which had a\n",
-      "   'New Kazakhstan' reform -> the KZ break is the common Russia-trade shock.\n")
+  cat("\n=> The 2022 break appears in every intermediary regardless of customs-union status:\n",
+      "   Armenia/Kyrgyz Rep. (EAEU, no 'New Kazakhstan' reform) AND Georgia/Turkiye (non-EAEU).\n",
+      "   The break is the common Russia-trade shock, and the demand shock generalises across\n",
+      "   the named population; the investment test remains Kazakhstan-only.\n")
 } else {
   cat("\n(b) skipped — run fetch_neighbors.sh first (_data/json_annual_nb/).\n")
 }

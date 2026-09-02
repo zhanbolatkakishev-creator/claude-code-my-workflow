@@ -1,5 +1,33 @@
 # Reproducibility Audit: Corridor, Not Factory
 
+> **R&R REVISION ROUND 1 (2026-09-02, `feat/corridor-rnr-round1`).** Audit re-run focused on the
+> numbers touched by the editorial-decision Essentials. **No FAIL.** New/changed claims verified:
+> - **§5.1 (E1b)** weight ratio `0.08` = median `kg_out/kg_in` (`rq2a` 0.084); aggregate value
+>   flow-through `0.11` (`rq2a` 0.106); near-pure-transit cells `n = 6 of 112`, weight ratio
+>   median `0.74` (`rq2a` 0.741), below one at both quartiles (p25 0.26 / p75 0.94). PASS.
+> - **§5.2 (E1a)** `ratio_to_produced ≈ 1.03·m` (`rq2b` 1.030); band 6–14 % → 1/16–1/7 (`rq2b`
+>   0.062 / 0.144); "corridor" reading holds to `m ≈ 12 %` (`rq2b` 0.12); one-fifth at `m ≈ 19 %`
+>   (0.19); one-third at `m ≈ 32 %` (0.32); parity at `m ≈ 49 %` (0.49); censored 34 % → ~a third
+>   (`rq2b` 0.350). PASS. Source: `08_io_propagation.R` "Essential 1(a)" block, `rq2b_m_sensitivity`.
+> - **§4.2 (E3)** rule-matched RI: observed `γ = 2.44`, null mean `2.79`, s.d. `1.50`, `p = 0.58`
+>   (`rq1_did_robustness` (a): 2.441 / 2.791 / 1.498 / 0.576). PASS.
+> - **§4.2 (E3, secondary #2)** full leave-one-HS2-out: drop HS85 → `1.36` (p 0.21); HS39 `2.51`,
+>   HS40 `2.48`, HS61 `2.67`, HS84 `2.28` (p 0.06), HS90 `3.16`, HS96 `2.59` (`rq1_did_robustness`
+>   (e), all within 0.01). PASS.
+> - **§9 (E5)** Türkiye surge-basket exports to Russia `$58m→$119m→$207m` (2021–23), sup-F `11.9`,
+>   `p = 0.007` (`rq1_robustness` (b): 58.01 / 118.72 / 206.63; supF 11.94 p 0.00725). Georgia
+>   `<$2m/yr`, no clean break (supF 6.95 p 0.075). PASS. Source: extended `10_robustness.R` (b) +
+>   `fetch_neighbors.sh` (Georgia 268, Türkiye 792 added; 704 JSON files).
+> - **§7 (secondary #11)** surge-basket-line deal null now de-emphasised with an explicit
+>   adjudication rule; sector-level MDE "about a doubling" (`power_null` 1.8×). PASS.
+> - New UNMATCHED (bibliographic, `/verify-claims` territory): `arvis2010landlocked` single-digit
+>   c.i.f./f.o.b. gap; `worldbank2023middlecorridor` 2–3 Mt / 10 Mt-by-2030 + $800bn China–EU
+>   trade (§11.2); new lit cites `feenstrahanson2004entrepot`, `javorcik2004spillovers`,
+>   `gourdon2022vat`, `isakova2016tariffs`, `eaeu2014treaty`, `khannapalepu2000`.
+> - Housekeeping: `\date` → "September 2026" (dropped "Preliminary draft"); `plainnat` → `abbrvnat`.
+> - `tab:dealsource` caption gains N (493 universe; 82 = 53 pre + 29 post mfg/transport/distrib.).
+
+
 > **DEAL DATA SWAPPED (2026-09-01, `feat/corridor-adopt-platform-deallist`).** `01_read_deals.R`
 > now reads the consolidated three-source list `20260825_Market size DA.xlsx` /
 > `Deals_Preqin+Pitchbook+CapIQ` (493 deals, native per-source deal IDs). §6 rates change:

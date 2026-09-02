@@ -63,7 +63,34 @@ cat(sprintf("\n-- weight ratio (kg out / kg in), matched cells: median %.3f, p25
             median(post$wt_ratio, na.rm = TRUE),
             quantile(post$wt_ratio, .25, na.rm = TRUE), quantile(post$wt_ratio, .75, na.rm = TRUE),
             mean(post$wt_ratio > 1.05, na.rm = TRUE)))
-cat("   (a weight ratio persistently > 1 would indicate local input added; here it is at or below 1.)\n")
+
+## ---- R&R Essential 1(b): the aggregate kg ratio tracks the value flow-through, so it is
+## uninformative about transformation whenever flow-through is partial. The Comtrade extract
+## carries value + net weight but NOT physical quantity/units, so the per-physical-unit
+## statistic the referee asks for (netWgt/qty in vs out) cannot be formed here. Fallback
+## (editor-offered): restrict to NEAR-PURE-TRANSIT cells where value flow-through ~ 1, where
+## the aggregate weight ratio IS interpretable.
+post[, vft := expRU_usd / mirWC_usd]                       # cell-level value flow-through
+val_ratio_all <- sum(post$expRU_usd, na.rm=TRUE) / sum(post$mirWC_usd, na.rm=TRUE)
+transit <- post[is.finite(vft) & vft >= 0.8 & vft <= 1.25]  # near-pure-transit cells
+cat(sprintf("\n-- Essential 1(b): weight ratio vs value flow-through --\n"))
+cat(sprintf("   median kg_out/kg_in = %.3f   ~=   aggregate value flow-through = %.3f  (same object)\n",
+            median(post$wt_ratio, na.rm=TRUE), val_ratio_all))
+cat(sprintf("   -> ~%.0f%% of the imported tonnage in these lines is NOT re-exported to Russia; an\n",
+            100*(1 - median(post$wt_ratio, na.rm=TRUE))))
+cat("      aggregate kg ratio below one is consistent with that, not only with 'no weight gain'.\n")
+cat(sprintf("   near-pure-transit cells (value flow-through in [0.8, 1.25]): n = %d of %d\n",
+            nrow(transit), nrow(post)))
+if (nrow(transit) >= 5) {
+  cat(sprintf("      weight ratio there: median %.3f, p25 %.3f, p75 %.3f ; share > 1.05: %.2f\n",
+              median(transit$wt_ratio, na.rm=TRUE),
+              quantile(transit$wt_ratio, .25, na.rm=TRUE), quantile(transit$wt_ratio, .75, na.rm=TRUE),
+              mean(transit$wt_ratio > 1.05, na.rm=TRUE)))
+  cat("      In cells where essentially all the tonnage is re-exported, the weight ratio is at or\n")
+  cat("      below one -> no evidence of local input added on the goods that do transit.\n")
+} else {
+  cat("      too few near-pure-transit cells for a stable read; report the limitation.\n")
+}
 sink()
 
 ## keep legacy column name for 08 compatibility
