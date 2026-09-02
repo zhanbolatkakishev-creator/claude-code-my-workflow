@@ -203,6 +203,48 @@ Every profile has these fields:
 
 ---
 
+## Field / regional economics
+
+### Journal of Comparative Economics (JCE)
+
+**Short name:** `JCE`
+
+**Focus.** Comparative economic systems, transition and post-transition economies, institutions and development, and single- or few-country case studies with a clear analytical lens. Publishes country case studies routinely — provided the case identifies a mechanism or tests a framework rather than merely describing it. Central Asia, the Caucasus, China and the former Soviet bloc are core territory, not a fit problem. Does **not** publish pure measurement notes, atheoretic descriptive pieces, or policy advocacy without an analytical spine.
+
+**Bar.** "A well-identified result, or a sharp framework applied to a case that teaches us something general." Acceptance ~10–12%. A case study clears the desk if (a) the phenomenon is well measured, (b) there is a framework or mechanism the case speaks to, and (c) the external-validity claim is stated honestly rather than oversold. Top-5-absolute identification is **not** required; credible, transparent identification with limits acknowledged is.
+
+**Domain-referee adjustments.**
+- Contribution 30 → 28 (a clean case + framework suffices; importance bar lower than general-interest)
+- Lit positioning 25 → 25 (must engage the transition/institutions and trade-shock literatures)
+- Substance 20 → 22 (does the case actually discriminate between mechanisms?)
+- External validity 15 → 18 (a single-country case lives or dies on how the generalisation is framed)
+- Fit 10 → 7 (Central Asia / transition / institutions is squarely in scope)
+
+**Methods-referee adjustments.**
+- Identification 35 → 30 (credible-and-transparent, not top-5-absolute; selection-on-outcome handled honestly, not necessarily eliminated)
+- External validity / generalisation 15 → 20 (the case-to-framework link is load-bearing)
+- Replication 5 → 8 (JCE requires a replication package at acceptance)
+- If paper type is `descriptive` or `theory+empirics`: Mechanism / framework discrimination 20 → 25
+
+**Typical concerns.**
+- "The framework is an organising device — does the case actually let you distinguish the gates, or just illustrate them?"
+- "You call this a case study; what is the population it is a case *of*, and how far do the conclusions travel?"
+- "The surge basket is selected on the post-2022 outcome, and the permutation test shows the magnitude is not separable from selection — so what is the identified object?"
+- "The policy section is normative. Is it disciplined by the framework, or is it a wish list?"
+- "Value capture rests on an assumed 6–14% margin. How much of the headline is calibration?"
+
+**Referee-pool weights.**
+- STRUCTURAL: 0.22
+- THEORY: 0.20
+- POLICY: 0.20
+- MEASUREMENT: 0.18
+- CREDIBILITY: 0.12
+- SKEPTIC: 0.08
+
+**Table format override.** Significance stars permitted; SE in parentheses; report N per specification.
+
+---
+
 ## Political Science (Top-3)
 
 Three flagship general-interest political-science journals. The `paper_type` taxonomy here typically resolves to `reduced-form`, `formal-theory`, or `survey-experiment` (added in v1.8.0 to support these journals). Other types still apply when relevant.
