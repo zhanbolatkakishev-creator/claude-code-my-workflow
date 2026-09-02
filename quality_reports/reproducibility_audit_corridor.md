@@ -48,6 +48,33 @@
 > - Also: neutralised residual loaded vocabulary in Sec 4.3 ("sanctioning economies" → "Western
 >   reporters"); dropped the annual sup-F magnitudes from the reform-confound paragraph too (#5).
 
+> **R2 PEER-REVIEW MUST-FIX ITEMS (2026-09-02, `feat/corridor-rnr-round1-secondaries`).** Both
+> referees returned Minor revision; both round-1 FATALs cleared. Six must-fix edits applied. No FAIL.
+> - **M1 arithmetic erratum** (both referees). Abstract + Sec 1: "any margin under a quarter" ->
+>   "under a fifth" (ratio ~= 1.03*m; at m=0.25 -> 0.257 > 0.20; one-fifth reached at m ~= 0.19).
+>   Sec 5.2: "about 25%" relabelled "one-fifth *of the gross rerouted flow*" (m*vbar_TT = 0.20 ->
+>   m ~= 0.254) to disambiguate from one-fifth of a produced dollar. Sec 12 Limitation 2 restated
+>   as Sec 5.2 does (one-tenth reading to m ~= an eighth / 12%; one-fifth at m ~= a fifth / 19%).
+>   Verified against `rq2b_m_sensitivity` (1.030*m; crossings 0.12 / 0.19 / 0.32 / 0.49).
+> - **M2 un-propagated retractions.** Sec 1 "a shock this transitory" -> "this uncertain"; Sec 12
+>   Limitation 1 "every gate is adverse" -> "the three gates are not separately identified";
+>   `fig:wedge` caption drops "the weight gain domestic transformation would produce".
+> - **M3 "rules out" verb.** All instances already carry "as the binding constraint for this null"
+>   (editor ruling: full form stands); no bare-shorthand instance remained -> no edit.
+> - **M4 Sec 5.2 closing sentence** no longer leans on the disclaimed tonnage/pass-through evidence;
+>   re-based on the value-weighted aggregate wedge below one (suggestive, not dispositive);
+>   self-referential `\ref{sec:capture}` inside Sec 5.2 removed.
+> - **M5 mu_P <~ mu_T from a null.** Sec 2 and Sec 8: dropped "the unit-value evidence measures mu_T
+>   directly"; the inequality now rests on the near-zero domestic base (~$230m) and the 0.69
+>   value-added multiplier; the price/weight non-distinguishability demoted to an "in any case" aside.
+> - **M6 Sec 5.1 measurement hygiene.** Weight ratio and value flow-through now on matching bases:
+>   weight ratio median 0.08 / aggregate 0.11; value flow-through median 0.15 / aggregate 0.11
+>   (aggregate weight ratio == aggregate value flow-through, coincide at 0.11 -- verified by ad-hoc
+>   R over `rq2a_cell_measures.rds`). Added the 11%-of-cells >1.05 tail, IQR 0.02-0.49, the six
+>   transit cells' quartiles (0.26 / 0.94), and a footnote defining the three flow-through ratios
+>   (0.54 incremental-Western / 0.15 level-West+China / 0.11 matched-cell aggregate).
+> Compiles clean (0 undefined, 28 cites, no overfull boxes). TASTE items deferred to the response letter.
+
 
 > **DEAL DATA SWAPPED (2026-09-01, `feat/corridor-adopt-platform-deallist`).** `01_read_deals.R`
 > now reads the consolidated three-source list `20260825_Market size DA.xlsx` /
