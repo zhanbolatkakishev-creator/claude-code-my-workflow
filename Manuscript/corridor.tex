@@ -8,7 +8,7 @@
 \usepackage{graphicx}
 \graphicspath{{../scripts/R/kz_passthrough/_outputs/}{../scripts/R/kz_valueadd/_outputs/}}
 \usepackage[hidelinks]{hyperref}
-\usepackage{natbib}
+\usepackage[authoryear]{natbib}
 \usepackage{setspace}
 \onehalfspacing
 \usepackage{caption}
@@ -37,40 +37,21 @@ Replication materials (code, query specifications, public data) are at
 
 \begin{abstract}
 \noindent A large, sector-specific rise in demand for a tradeable good is expected to induce
-domestic investment---import substitution, value-chain entry, new capacity. After February
-2022 a set of trade flows was reallocated: with Russia's direct trade with its principal
-partners disrupted, part of it moved through neighbouring economies, Kazakhstan among them. We
-measure the resulting demand shock at the product level (HS6, 2018--2025), estimate what
-Kazakhstan retains, and ask whether it induced investment; to our knowledge this is the first
-host-economy analysis of what a transit economy retains from a post-2022 trade reallocation
-and whether it induced investment. In 29
-product lines, exports to Russia rise sharply and discontinuously in 2022m5; the raw increase
-is roughly tenfold, and an externally compiled product list not selected on Kazakh outcomes
-shows the same break. Imports of the same goods rise too, more weakly, and the inbound series
-is dominated by a large pre-existing flow from China. The unit-value and weight evidence does
-not sharply distinguish the re-export flow from ordinary Kazakh trade. Propagating a
-wholesale-and-freight margin---6--14\%, a band we choose rather than estimate---through the
-input--output table implies domestic value added of roughly 5--11 cents per dollar rerouted,
-against about three-quarters for a dollar of domestic manufacturing; the headline scales
-almost one-for-one with the margin and stays below one-fifth of a produced dollar for any
-margin under a fifth.
-We find no investment response---though, with four post-2022 years, the data rule out a large
-response rather than a modest step-up, and the null is over-determined by contemporaneous
-shocks. Deal-making in manufacturing, transport and logistics runs at its
-pre-2022 rate; greenfield and new-capacity transactions do not step up; and reported
-deal value rises only through ownership transfers of existing assets. We read the null
-through a three-gate decomposition---market access,
-irreversibility, and capital-market institutions. The case identifies an open market-access
-gate (a customs union makes trade a close substitute for production) and rules out
-capital-market institutions as the binding constraint for this null---captive state capital
-did not build either; whether irreversibility independently binds cannot be settled here,
-because the flow's persistence through 2025 makes the shock look uncertain rather than clearly
-transitory. Kazakhstan
-operates as a corridor, not a factory: the trade statistics move by an order of magnitude
-while the domestic economy barely registers it. We read the case through the three-gate
-framework and set out what would have to change---in Kazakhstan, and in how its trading
-partners structure the flow---for a demand shock of this kind to industrialise a transit
-economy.
+domestic investment. After February 2022, with Russia's direct trade with its main partners
+disrupted, part of it was reallocated through neighbouring economies, Kazakhstan among them.
+Using product-level trade data (HS6, 2018--2025) we measure the demand shock, estimate what
+Kazakhstan retains, and ask whether it induced investment. In 29 product lines, exports to
+Russia rise discontinuously in May 2022, roughly tenfold; an externally compiled product list
+not selected on Kazakh outcomes shows the same break. Propagating a wholesale-and-freight
+margin---6--14\%, a band we choose rather than estimate---through the input--output table
+implies domestic value added of 5--11 cents per rerouted dollar, against about three-quarters
+for a produced dollar. Across three commercial deal databases we find no investment response
+in the reoriented lines, though four post-2022 years rule out only a large one. We read the
+null through three gates: market access, irreversibility, and capital-market institutions. The
+case identifies an open market-access gate---a customs union makes trade a close substitute
+for production---and rules out capital-market institutions as the binding constraint; whether
+irreversibility independently binds cannot be settled here. Kazakhstan operates as a corridor,
+not a factory.
 
 \medskip
 \noindent\textbf{Keywords:} trade reorientation, demand shocks, investment under
@@ -369,7 +350,8 @@ lines in which the mean inbound flow (West + China) and the mean outflow to Russ
 least doubled from 2019--2021 to 2022--2024, and exceeded \$0.2m (inbound) and \$0.1m
 (outbound) in the post period, computing the ratio with \$10{,}000 added to numerator and
 denominator so that a line rising from near-zero does not qualify on a rounding artefact.
-Twenty-four of the 29 lines are on the priority list. Because the basket is selected on the
+Twenty-four of the 29 lines are on the priority list; the codes, tiers and control set are in
+Appendix~\ref{app:products}. Because the basket is selected on the
 post-period outcome, we also run every specification on the priority list, which is defined on
 product characteristics rather than on Kazakh flows---though, compiled in 2024, it is not
 independent of the phenomenon it helps describe---and we benchmark the difference-in-differences
@@ -524,7 +506,8 @@ where the reorientation is concentrated; the sign and the sub-5\% significance d
 when the largest chapter is removed.
 
 Three qualifications keep us from resting identification on this cross-sectional
-regression. First, the selection-rule-matched permutation: when we impose the null by permuting
+regression (the full battery is in Appendix~\ref{app:did}). First, the selection-rule-matched
+permutation: when we impose the null by permuting
 the year labels within each HS6 and re-applying the doubling rule, the rule selects on average
 five lines (never as many as the 29 observed, so the \emph{existence} of the surge basket is
 not a chance artefact, $p < 0.001$); a trend-preserving version that only shifts the break off
@@ -712,7 +695,9 @@ produced one. Of the \$479m in incremental exports to Russia after 2022, Kazakhs
 roughly \textbf{\$23--53m} as domestic value added.
 
 Because the propagation step is close to the identity, the headline is a one-for-one function
-of $m$, and the reader can substitute a different margin directly. Sweeping $m$ across the full
+of $m$, and the reader can substitute a different margin directly (Appendix~\ref{app:io}
+gives the full sweep, the input--output cross-check and the matched-cell wedge detail).
+Sweeping $m$ across the full
 Bureau of National Statistics bracket: at the transport-only end ($m \approx 1\%$) a rerouted
 dollar captures about one-hundredth of a produced one; across our $6$--$14\%$ band, one-sixteenth
 to one-seventh; the ``corridor, not factory'' reading---a rerouted dollar worth on the order of
@@ -976,7 +961,8 @@ processing or assembly response. On the trade side the shock is visible in the n
 too---T\"urkiye's surge-basket exports to Russia roughly double at the 2022 break (from about
 \$58m in 2021 to \$119m in 2022 and \$207m in 2023; sup-$F$ of $11.9$, $p = 0.007$), while
 Georgia barely participates in this particular flow (under \$2m a year throughout, no clean
-break). We cannot run the investment test for either: our deal data are Kazakhstan-only, and
+break); Appendix~\ref{app:breaks} gives the full series and break tests, alongside Armenia and
+the Kyrgyz Republic. We cannot run the investment test for either: our deal data are Kazakhstan-only, and
 T\"urkiye's large pre-existing manufacturing base would in any case make a marginal-capacity
 response hard to detect in aggregates. The external-validity claim we can support is therefore
 narrow---the \emph{demand shock} generalises across the intermediary population---while the
@@ -1286,8 +1272,14 @@ cross-checked against the Kazakhstan national input--output table (2023) with th
 qualitative result.
 
 \appendix
-\section{Deal-database query specification}\label{app:deals}
+\renewcommand{\thesection}{\Alph{section}}
+\numberwithin{table}{section}
+\numberwithin{figure}{section}
 
+\section{Deal-database query specification}\label{app:deals}
+\emph{For online publication.}
+
+\medskip
 The Kazakhstan deal universe is extracted from three commercial databases (Capital~IQ,
 PitchBook, Preqin). Common parameters: \emph{target/issuer geography} = Kazakhstan (country of
 incorporation or primary
@@ -1313,8 +1305,235 @@ a documented crosswalk. The three extracts, the crosswalk, and the reconciliatio
 in the replication package, which pins each source's extraction date and its earliest year of
 reasonably complete Kazakhstan coverage.
 
-% abbrvnat: compact author-year natbib style, universally available, matches \citep.
-% Replace with the target journal's .bst at submission (JCE/Elsevier: model5-names).
+\section{Product-set construction}\label{app:products}
+\emph{For online publication.}
+
+\medskip
+The candidate set is 75 HS6 lines: 50 from an externally compiled list of technology-intensive
+items published in February 2024 (the ``priority list''), grouped by its publisher into six
+tiers, plus 25 clearly civilian control lines. The \textbf{surge basket} is defined from the
+data as the lines in which the mean inbound flow (Western reporters + China) and the mean
+outflow to Russia \emph{each} at least doubled from 2019--2021 to 2022--2024, with the ratio
+computed after adding \$10{,}000 to numerator and denominator, and with post-period floors of
+\$0.2m (inbound) and \$0.1m (outbound). Twenty-nine lines qualify; 24 are on the priority list
+and 5 are control lines that also surged. Of the 75 candidates, 55 clear the outbound doubling
+and 41 the inbound one; requiring both is the binding screen.
+
+\begin{table}[htbp]
+\centering
+\caption{Priority-list HS6 codes by publisher tier, and the civilian control set.
+$\dagger$ marks the 29 surge-basket lines.}
+\label{tab:appb}
+\footnotesize
+\begin{tabular}{@{}p{1.6cm}p{12.4cm}@{}}
+\toprule
+Tier & HS6 codes \\
+\midrule
+1 & 854231$\dagger$, 854232, 854233$\dagger$, 854239$\dagger$ \\
+2 & 851762$\dagger$, 852691$\dagger$, 853221, 853224, 854800$\dagger$ \\
+3A & 847150, 850440, 851769, 852589$\dagger$, 852910, 852990, 853669$\dagger$, 853690, 854110$\dagger$, 854121, 854129$\dagger$, 854130, 854149$\dagger$, 854151, 854159$\dagger$, 854160 \\
+3B & 848210, 848220$\dagger$, 848230$\dagger$, 848250, 880730, 901310$\dagger$, 901380, 901420, 901480 \\
+4A & 847180$\dagger$, 848610, 848620, 848640, 853400, 854320$\dagger$, 902750$\dagger$, 903020, 903032$\dagger$, 903039$\dagger$, 903082 \\
+4B & 845710$\dagger$, 845811$\dagger$, 845891$\dagger$, 845961, 846693$\dagger$ \\
+\midrule
+Control & 090111, 170490, 190590, 210390, 210690, 220300, 330300, 330499, 340111, 392321, 392490$\dagger$, 401110$\dagger$, 480256, 610910$\dagger$, 611020$\dagger$, 620342, 630260, 640399, 691110, 732690, 841810, 870899, 940360, 950300, 961900$\dagger$ \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\footnotesize Priority list: EU/US/UK/JP List of Common High Priority Items, version of
+February 2024. Tier labels are the publisher's; we carry them unchanged.
+\end{table}
+
+\section{Difference-in-differences robustness}\label{app:did}
+\emph{For online publication.}
+
+\medskip
+Table~\ref{tab:appc} collects the full battery summarised in Section~\ref{sec:did}. The outcome
+throughout is $\text{asinh}$ of Kazakhstan's exports to Russia; $\gamma$ is the coefficient on
+$\text{treated}\times\text{post}$ with HS6 and year fixed effects and cluster-robust standard
+errors by HS6, unless noted.
+
+\begin{table}[htbp]
+\centering
+\caption{Difference-in-differences robustness, surge basket, exports to Russia.}
+\label{tab:appc}
+\footnotesize
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Specification & $\gamma$ & s.e. & $p$ \\
+\midrule
+Baseline (HS6 + year FE)                              & 2.44 & 0.96 & 0.013 \\
+\quad wild-cluster bootstrap $p$ (B $=$ 1999)          &      &      & 0.010 \\
+\quad Holm-adjusted across 4 surge-basket outcomes     &      &      & 0.039 \\
+$+$ size-decile $\times$ year FE                       & 2.29 &      & 0.003 \\
+Drop 2022 entirely                                    & 2.71 & 1.05 & 0.012 \\
+Donut (drop 2022, treatment year $=$ 2023)             & 2.71 & 1.05 & 0.012 \\
+Poisson (PPML) in levels, $e^{\beta}$                  & 3.5$\times$ &      & 0.020 \\
+Priority list (50 HS6, externally defined)             & 2.88 & 0.74 & $<0.001$ \\
+Placebo (largest civilian lines)                       & $-0.95$ & 0.25 & 0.001 \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Leave-one-HS2-out jackknife}} \\
+Drop HS 39 (1 line)                                   & 2.51 & 0.98 & 0.013 \\
+Drop HS 40 (1 line)                                   & 2.48 & 0.98 & 0.014 \\
+Drop HS 61 (2 lines)                                  & 2.67 & 1.00 & 0.009 \\
+Drop HS 84 (7 lines)                                  & 2.28 & 1.18 & 0.058 \\
+Drop HS 85 (13 lines)                                 & 1.36 & 1.06 & 0.207 \\
+Drop HS 90 (4 lines)                                  & 3.16 & 0.96 & 0.002 \\
+Drop HS 96 (1 line)                                   & 2.59 & 0.97 & 0.010 \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Alternative surge-selection thresholds (both legs)}} \\
+$1.5\times$ (40 lines)                                & 1.59 & 0.90 & 0.080 \\
+$2.0\times$ (29 lines, baseline)                      & 2.44 & 0.96 & 0.013 \\
+$2.5\times$ (23 lines)                                & 3.12 & 1.08 & 0.005 \\
+$3.0\times$ (18 lines)                                & 3.16 & 1.27 & 0.015 \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Selection-rule-matched randomisation inference}} \\
+\multicolumn{4}{@{}p{15cm}}{\footnotesize Free permutation (year labels within HS6, rule
+re-applied): the rule selects a mean of 5.0 lines under $H_0$ (max 12 over 1{,}000 draws), so
+$P(\text{rule selects}\ge 29\mid H_0)=0.000$; the permuted-null $\gamma$ has mean 2.79, s.d.\
+1.50, 95th percentile 5.37, and $P(|\gamma^{\text{perm}}|\ge 2.44)=0.58$. Trend-preserving
+cyclic-shift null: mean 5.2 lines selected (max 19), $P(\ge 29\mid H_0)=0.000$.} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Value capture: input--output detail}\label{app:io}
+\emph{For online publication.}
+
+\medskip
+Domestic value added per rerouted dollar is $m\,\bar v^{TT}$, against $\bar v^{M}$ per dollar
+of domestic manufacturing output. From the OECD ICIO Kazakhstan block,
+$\bar v^{TT} = 0.787$ (trade, transport, warehousing) and $\bar v^{M} = 0.764$ (manufacturing),
+so the rerouted-vs-produced ratio is $\approx 1.03\,m$ and the input--output step does almost
+no work. Recomputing on the Kazakhstan Bureau of National Statistics symmetric input--output
+table (2023, 57 industries matched, output-weighted within group) gives $\bar v^{TT} = 0.885$
+and $\bar v^{M} = 0.742$, moving the ratio from $0.10$ to $0.12$. The BNS resources table
+brackets $m$: the transport-only margin on machinery and electronics is about $1\%$ of
+basic-price value and the full trade-and-transport margin (which carries the retail leg the
+corridor never performs) about $49\%$; the $6$--$14\%$ band is a freight-plus-wholesale
+reading, above the floor and well below the ceiling.
+
+\begin{table}[htbp]
+\centering
+\caption{Sensitivity of the value-capture headline to the retained margin $m$.
+Ratio $=$ domestic value added per rerouted dollar, relative to per produced dollar
+($m\,\bar v^{TT}/\bar v^{M}$, OECD ICIO).}
+\label{tab:appd}
+\footnotesize
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+$m$ & 0.06 & 0.10 & 0.14 & 0.19 \\
+\midrule
+VA per rerouted \$ & 0.047 & 0.079 & 0.110 & 0.150 \\
+Ratio to a produced \$ & 0.062 & 0.103 & 0.144 & 0.196 \\
+Retained, \$m (of \$479m) & 23 & 38 & 53 & 72 \\
+\midrule
+$m$ & 0.25 & 0.32 & 0.34 & 0.49 \\
+\midrule
+VA per rerouted \$ & 0.197 & 0.252 & 0.268 & 0.386 \\
+Ratio to a produced \$ & 0.258 & 0.330 & 0.350 & 0.505 \\
+Retained, \$m (of \$479m) & 94 & 121 & 128 & 185 \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\footnotesize Anchors: transport-only $m\approx 0.01$; freight-plus-wholesale band
+$0.06$--$0.14$; censored matched-cell gross margin $0.34$; full trade-and-transport margin
+$0.49$. The ``corridor, not factory'' reading (a rerouted dollar $\approx$ a tenth of a
+produced one) holds for $m$ up to about $0.12$; it weakens to ``about a fifth'' at $m\approx
+0.19$, ``about a third'' at $m\approx 0.32$, and reaches parity at $m\approx 0.49$.
+\end{table}
+
+The matched-cell unit-value evidence (annual, $n = 112$ HS6$\times$period cells) is
+descriptive only. The median re-export/import ratio is $0.73$ on a c.i.f./f.o.b.\ basis and
+$1.6$ on a like-for-like f.o.b.\ basis; the civilian control basket gives $0.59$ and $0.94$.
+The pass-through slope $\log(\text{uv}_{\text{expRU}})$ on $\log(\text{uv}_{\text{mirWC}})$ is
+$0.48$ ($p = 0.03$), and $0.20$ ($p = 0.46$) against the Kazakh-reported import price. The
+f.o.b.\ wedge by tier is $0.47$ (Tier 1), $3.83$ (2), $1.82$ (3A), $1.09$ (3B), $3.94$ (4A),
+$1.35$ (4B), against $1.33$ for the control basket---high multiples concentrated in the most
+sensitive tiers, the pattern of a scarcity markup rather than a processing margin. The
+cell-level weight ratio (re-exported over imported tonnage) has median $0.08$ and aggregate
+$0.11$; the aggregate weight ratio equals the aggregate value flow-through ($0.11$), so a
+sub-one weight ratio is largely a flow-through fact. Eleven per cent of cells exceed $1.05$,
+on an interquartile range of $0.02$ to $0.49$. In the six near-pure-transit cells (value
+flow-through in $[0.8, 1.25]$) the weight ratio is $0.74$ at the median ($0.26$ and $0.94$ at
+the quartiles).
+
+\section{Neighbour and comparator structural breaks}\label{app:breaks}
+\emph{For online publication.}
+
+\medskip
+Table~\ref{tab:appe} reports surge-basket exports to Russia for the other post-2022
+intermediaries and a mean-shift (sup-$F$) break test on the annual $\text{asinh}$ series,
+$2018$--$2025$. Armenia, the Kyrgyz Republic and Belarus are inside the Eurasian Economic
+Union with Russia; Georgia and T\"urkiye route across a customs border. The 2022 break appears
+regardless of customs-union status; the demand shock generalises across the population, while
+the investment test is Kazakhstan-only for want of deal data elsewhere.
+
+\begin{table}[htbp]
+\centering
+\caption{Surge-basket exports to Russia, USD million per year, and the annual break test.}
+\label{tab:appe}
+\footnotesize
+\begin{tabular}{@{}lrrrrrrrrr r@{}}
+\toprule
+& 2018 & 2019 & 2020 & 2021 & 2022 & 2023 & 2024 & 2025 & sup-$F$ & $p$ \\
+\midrule
+Kazakhstan (EAEU)        & 17 & 12 & 7 & 8 & 128 & 145 & 119 & 133 & 150.7 & $<0.001$ \\
+Armenia (EAEU)           & 15 & 9 & 7 & 9 & 71 & 93 & 42 & 13 & 10.5 & 0.015 \\
+Kyrgyz Republic (EAEU)   & 1 & 3 & 6 & 7 & 12 & 30 & 12 & 12 & 13.4 & 0.004 \\
+T\"urkiye (non-EAEU)     & 53 & 55 & 47 & 58 & 119 & 207 & 98 & 73 & 11.9 & 0.007 \\
+Georgia (non-EAEU)       & 0.2 & 0.7 & 0.4 & 0.7 & 1.0 & 1.1 & 1.7 & 0.7 & 6.9 & 0.075 \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\footnotesize Kazakhstan row from Table~\ref{tab:magnitudes}. sup-$F$ is a mean-shift test on
+a persistent series; we read it as evidence of a break, not a cardinal magnitude.
+\end{table}
+
+\section*{Declaration of competing interest}
+The author is employed by the Astana International Financial Centre (AIFC), which operates the
+Astana International Exchange and is institutionally adjacent to Kazakhstan's state investment
+vehicles, and previously worked with a consulting team on a Kazakhstan trade-strategy
+engagement. The state-fund investment figures used here are drawn from a report co-published by
+the AIFC with the Qazaqstan Investment Corporation (QIC) and the International Finance
+Corporation (IFC). Neither role enters the empirical analysis, which rests on public data and
+on commercial deal databases available under academic licence; the policy recommendations in
+Section~\ref{sec:policy} are the author's own and do not represent the AIFC, QIC or the IFC.
+
+\section*{Funding}
+This research received no specific grant from any funding agency in the public, commercial, or
+not-for-profit sectors.
+
+\section*{Data availability}
+The trade analysis uses public data: UN Comtrade (HS6 annual and monthly), World Bank World
+Development Indicators, the OECD Inter-Country Input--Output tables (2023 edition), and the
+Kazakhstan Bureau of National Statistics symmetric input--output and resources tables. The
+deal-level data are licensed from Capital~IQ, PitchBook and Preqin and cannot be
+redistributed, but the full query specification (Appendix~\ref{app:deals}) and the native
+source deal identifiers are in the replication package, so the extract is reconstructible by a
+licence holder. State-fund investment aggregates are from the published QIC/AIFC/IFC report.
+Code and query specifications are in the replication package, under
+\texttt{scripts/R/}\allowbreak\texttt{kz\_passthrough/} and
+\texttt{scripts/R/}\allowbreak\texttt{kz\_valueadd/}.
+
+\section*{Declaration of generative AI in the writing process}
+During the preparation of this work the author used Claude (Anthropic) to draft and edit
+prose, to help write and debug the analysis code, and for structured internal review of the
+manuscript. All data choices, analytical decisions, results and interpretations are the
+author's own; the author reviewed and edited all output and takes full responsibility for the
+content of the publication.
+
+\section*{CRediT authorship contribution statement}
+\textbf{Zhanbolat Kakishev:} Conceptualization, Methodology, Software, Formal analysis, Data
+curation, Writing --- original draft, Writing --- review \& editing, Visualization.
+
+% abbrvnat: author-date natbib style, compile-safe everywhere, consistent with \citep/\citet.
+% Elsevier "Your Paper Your Way" accepts any consistent reference style at initial submission.
+% At revision, switch to the JIE/Elsevier style: \bibliographystyle{model5-names} with the
+% elsarticle package (or elsarticle-harv), which are not in this local TeX bundle.
 \bibliographystyle{abbrvnat}
 \bibliography{corridor}
 

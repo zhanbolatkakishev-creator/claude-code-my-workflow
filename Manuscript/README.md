@@ -16,10 +16,13 @@ produced **no investment response**. The paper measures the shock, shows Kazakhs
 ~8% of the domestic value a producing economy would, documents the absent investment response
 in multi-source deal data, and interprets it with a **framework** (§2): the response is the
 product of three gates — irreversibility (Dixit–Pindyck), market access (a customs union makes
-trade a substitute for production), and institutions (Khanna–Palepu / Rajan–Zingales). A
-within-country comparison ("Which gate binds?") points to the irreversibility gate being
-adverse too. The moderators section gives external validity; "Where investment would raise
-value capture" ranks the priority sectors; and the new **Policy implications** section draws
+trade a substitute for production), and institutions (Khanna–Palepu / Rajan–Zingales). The
+case identifies the market-access gate as open and rules out capital-market institutions as
+the binding constraint for the shock-specific null (state capital did not build either);
+whether the irreversibility gate independently binds it cannot settle. The moderators section
+gives external validity — including a named intermediary population and a trade-side comparison
+with non-customs-union routes (Georgia, Türkiye); "Where investment would raise
+value capture" ranks the priority sectors; and the **Policy implications** section draws
 the levers — for Kazakhstan (condition market access on domestic value-added; cut policy
 uncertainty and sunk cost; QIC from lead investor to co-investor; invest in the logistics
 platform first), Kazakhstan's rising **corridor leverage** as maritime chokepoints are
@@ -30,8 +33,28 @@ circumvention paper.
 **Structure:** Intro · Setting (incl. the corridor/chokepoint context) · Framework · Data ·
 The demand shock · What Kazakhstan retains · The (non-)investment response · Which gate
 binds? · Moderators & external validity · Where investment would pay off · **Policy
-implications** (Kazakhstan · corridor leverage · China) · Discussion · App. A deal-database
-query spec.
+implications** (Kazakhstan · corridor leverage · China) · Discussion.
+Appendices (for online publication): A deal-database query spec · B product-set construction ·
+C DiD robustness battery · D value-capture input–output detail · E neighbour/comparator
+structural breaks.
+
+## JIE submission package
+
+Target: **Journal of International Economics** (Elsevier; single-anonymized review; "Your Paper
+Your Way" for the initial submission). Editorial Manager uploads:
+
+| Item | File | Notes |
+|---|---|---|
+| Manuscript | `corridor.pdf` | author identified (single-anonymized); includes Appendices A–E and the declaration blocks |
+| Title page | `title_page.pdf` | title, author, affiliation, corresponding-author details, abstract, keywords, JEL, acknowledgements (**author to complete**), all declarations |
+| Highlights | `highlights.txt` | 5 bullets, each ≤ 85 characters |
+| Cover letter | `cover_letter.pdf` | contribution, JIE fit, originality/exclusivity; **suggested referees to be filled in by the author** |
+| Declaration of interest | on the title page and in the manuscript | names AIFC / AIX / QIC / IFC |
+| Replication package | `scripts/R/kz_passthrough/`, `scripts/R/kz_valueadd/` | code + query specs; deal IDs pinned |
+
+Submission fee: USD 190 (USD 95 if all authors are PhD students — confirm eligibility).
+LaTeX: currently `\documentclass{article}` with `abbrvnat` references (YPYW-compatible); switch
+to `elsarticle` + `model5-names` only if invited to revise.
 
 ## Data (all public or academically licensed — replicable)
 
@@ -82,7 +105,16 @@ Figures/tables referenced by `corridor.tex` are written to
 
 ## Before submission
 
-- `/verify-claims` on the intro citations (Chupilkin et al. year/volume; Juhász).
+- Fill the two placeholders: acknowledgements on the title page; 3–4 suggested referees in the
+  cover letter (trade-intermediation / entrepôt-margin / trade-policy-incidence area).
+- `/verify-claims` on the intro citations (Chupilkin et al. year/volume; Juhász) **and on the
+  now load-bearing `arvis2010landlocked` "single-digit c.i.f./f.o.b." claim** (the reproducibility
+  audit lists it UNMATCHED).
+- Optional round-2 TASTE items still open (not gating): Armenian GFCF decomposition; a
+  route-level exit-count from the deal data for the "buy-back leading" claim; EAEU-integration
+  literature positioning in §2–§3; a §9 paragraph on the continuum of the market-access gate
+  (the Türkiye flow crosses a customs border yet still rose 3.6×); reconcile the
+  `tab:priority` "combined score" caption with the body text.
 - Refresh the deal universe from a verifiable CapIQ + PitchBook + Preqin re-pull; re-run
   `05_deal_source_reconcile.R`; pin each source's extraction date and earliest year of
   complete Kazakhstan coverage in the replication package.
