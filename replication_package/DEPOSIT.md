@@ -95,6 +95,7 @@ Classification for the openICPSR "Data Availability" control:
 |---|---|
 | Manuscript | `Manuscript/corridor.pdf` (git tag `jie-submission-2026-09-03`) |
 | Standard replication README (AEA template) | `replication_package/README.md` |
+| Cover note to the Data Editor | `replication_package/data_editor_note.md` |
 | DCAS compliance checklist | `replication_package/DCAS_checklist.md` |
 | Reproducibility audit (numeric claims vs. outputs) | `quality_reports/reproducibility_audit_corridor.md` — PASS, 0 FAIL |
 | Computational-requirements block | `replication_package/output/computational_requirements.md` |

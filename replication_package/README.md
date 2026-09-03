@@ -21,6 +21,7 @@ The openICPSR deposit tree is:
 replication_package/
 ├── README.md                     # this file
 ├── DEPOSIT.md                    # paste-ready openICPSR deposit metadata record
+├── data_editor_note.md          # cover note to the journal's Data Editor
 ├── DCAS_checklist.md             # AEA Data and Code Availability Standard compliance
 ├── LICENSE.md                    # code license (MIT) + per-source data-usage statement
 ├── data/
