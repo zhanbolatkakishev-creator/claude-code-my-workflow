@@ -138,9 +138,11 @@ Figures/tables referenced by `corridor.tex` are written to
   `_outputs/` dirs with the full seed inventory; `scripts/R/_outputs/computational_requirements.md`
   updated. Replication-package skeleton at `replication_package/`. All DCAS blocking items are
   cleared (the `kz_valueadd` pipeline was refactored off absolute paths, given a `00_setup.R`
-  and `00_run_all.R`, and verified end-to-end; MIT license in place). Remaining before the
-  openICPSR upload is author metadata only. See `quality_reports/replication_package_corridor.md`
-  and `replication_package/DCAS_checklist.md`.
+  and `00_run_all.R`, and verified end-to-end; MIT license in place). The openICPSR deposit
+  record is drafted paste-ready at `replication_package/DEPOSIT.md`; remaining before upload is
+  the author's ORCID, the article DOI on acceptance, a measured runtime, and vendor sign-off on
+  publishing bare deal identifiers. See `quality_reports/replication_package_corridor.md` and
+  `replication_package/DCAS_checklist.md`.
 
 ## Related paper
 

@@ -31,9 +31,12 @@ countrycode 1.9.0 (full closure of 78 packages in `renv.lock` and in the two
 replication package pins the exact extracts used for every table and figure; a live re-pull
 is expected to match within the `replication-protocol.md` tolerances, not byte-for-byte.
 
-**Approx. runtime:** [author to confirm — roughly 10–15 minutes single-core for the full
-`kz_passthrough/00_run_all.R`, dominated by the bootstrap and permutation loops in steps 06
-and 12; the `kz_valueadd` steps add another 2–3 minutes; network fetches excluded].
+**Approx. runtime:** approximately 12–18 minutes single-core, analysis only (network fetches
+excluded): ~10–15 minutes for the full `kz_passthrough/00_run_all.R`, dominated by the
+wild-cluster bootstrap and the permutation loops in steps 06 and 12; the `kz_valueadd` steps
+add another 2–3 minutes. The `fetch_*.sh` pulls and the live re-pulls in steps 04, 07, 11 add
+15–30 minutes depending on the Comtrade / World Bank API. Peak RAM under 4 GB; no HPC or
+cluster required. [Author: replace with the measured wall-clock time from a clean run.]
 
 **Lockfiles / environment files in the package:** `renv.lock` (repo root),
 `scripts/R/kz_passthrough/_outputs/sessionInfo.txt`,

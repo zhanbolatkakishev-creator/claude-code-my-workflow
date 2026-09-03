@@ -1,6 +1,6 @@
 # Access-Restricted Data — the deal-level extract
 
-The investment-response analysis (manuscript Section 6, Table 3, Figure 4, and the
+The investment-response analysis (manuscript Section 7, Table 3, Figure 4, and the
 minimum-detectable-effect calculation) uses a firm-transaction dataset that **cannot be
 redistributed** under the terms of the three source subscriptions. This note is what a
 replicator follows to obtain the identical inputs.
@@ -61,11 +61,14 @@ public deposit and is supplied on request to verified licence holders.
 ## What runs without the data
 
 Everything in `code/kz_passthrough/` (the entire trade-shock, value-capture, DiD, and
-structural-break analysis — Sections 3–5, 8–10, Tables 1–2 and 5–6, Figures 1–3, Appendix
-Tables B–E) runs with **no** access to the deal data. Only `code/kz_valueadd/` steps
-`01`, `02`, `03`, `05`, `06`, `08` require the xlsx. Once it is placed at
-`code/kz_valueadd/_data/20260825_Market size DA.xlsx` (after the path fix noted in the DCAS
-checklist), those steps run unchanged.
+structural-break analysis — Sections 3–6 and 8–10, **Tables 1–2**, **Figures 1–3**, Appendix
+**Tables B.1–E.1**) runs with **no** access to the deal data, as does the hand-assembled
+moderators table (**Table 4**). What needs the xlsx: **Table 3** (deal counts), **Table 5**
+(its "deal base" ranking input), **Figures 4–5**, and the Section 7 investment results and
+minimum-detectable-effect. Concretely, `code/kz_valueadd/` steps `01`, `02`, `03`, `04`, `05`,
+`06`, `08` read the deal extract (directly, or via `deals_classified.rds` from step `02`).
+Once the xlsx is at `code/kz_valueadd/_data/20260825_Market size DA.xlsx` (or `$KZ_DEAL_XLSX`
+points to it), those steps run unchanged.
 
 ## State-fund figures
 

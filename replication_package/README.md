@@ -20,8 +20,9 @@ The openICPSR deposit tree is:
 ```
 replication_package/
 ├── README.md                     # this file
+├── DEPOSIT.md                    # paste-ready openICPSR deposit metadata record
 ├── DCAS_checklist.md             # AEA Data and Code Availability Standard compliance
-├── LICENSE.md                    # [FILL] code license + data-usage statement
+├── LICENSE.md                    # code license (MIT) + per-source data-usage statement
 ├── data/
 │   ├── raw/                      # as-obtained inputs (see §3; large / licensed inputs are POINTERS)
 │   │   └── access-restricted-data.md   # how to obtain the licensed deal extract
@@ -55,7 +56,7 @@ them into the deposit tree.
 
 **Statement for the manuscript / deposit form:** *All trade, macro, and input–output data are
 public and either shipped in derived form or regenerable from the scripts. The deal-level data
-underlying the investment-response analysis (Section 6, Table 3) are proprietary
+underlying the investment-response analysis (Section 7, Table 3) are proprietary
 (Capital IQ, PitchBook, Preqin) and cannot be redistributed; the replication package provides
 the complete query specification and the source deal identifiers so that a researcher with
 the same subscriptions can reconstruct the identical extract. State-fund investment figures
@@ -94,8 +95,12 @@ See `output/computational_requirements.md` for the full block. In brief:
   and `12_did_robustness.R` (permutation battery, produces Table 2 Panel C);
   `set.seed(1)` — `kz_valueadd/08_power_null.R` (MDE). `RNGkind()` = R default, no parallel
   streams.
-- **Runtime:** *[author to confirm — roughly 10–15 min single-core for `kz_passthrough`, +2–3 min
-  for `kz_valueadd`, network fetches excluded]*.
+- **Runtime:** approximately **12–18 minutes single-core**, analysis only (network fetches
+  excluded): ~10–15 min for `kz_passthrough/00_run_all.R` — dominated by the wild-cluster
+  bootstrap (B = 1999) and the two permutation batteries in steps `06` and `12` — plus ~2–3 min
+  for `kz_valueadd/00_run_all.R`. The `fetch_*.sh` pulls and the live re-pulls in `04`, `07`,
+  `11` add 15–30 min depending on the Comtrade/World Bank API. Peak RAM < 4 GB; no HPC or
+  cluster required. *Author: replace with the measured wall-clock time from a clean run.*
 
 ---
 
@@ -162,17 +167,17 @@ A–E).
 | **Figure 3** — unit-value wedge histogram | `kz_passthrough/07_unit_value_wedge.R` | `save_fig(... "rq2a_fig_wedge_hist")` | `_outputs/rq2a_fig_wedge_hist.png` |
 | **Figure 4** — trade surged, investment did not | `kz_valueadd/03_fig.R` | `save_fig(... "valueadd_fig_mismatch")` | `_outputs/valueadd_fig_mismatch.png` |
 | **Table 3** — deal counts by source × period | `kz_valueadd/05_deal_source_reconcile.R` | full script | `_outputs/deal_source_reconcile.csv` |
-| **Table 5** — moderators (qualitative) | hand-assembled; supporting figures: `kz_valueadd/07_crosscountry.R` (credit+mktcap % GDP), `04_sector_priority.R` (electronics output ≈ $230m) | — | `_outputs/crosscountry.txt`, `sector_priority.txt` |
-| **Table 6** — sector characteristics for investment | `kz_valueadd/04_sector_priority.R` + multipliers from `kz_passthrough/08a_get_io.R` / `08b_kz_bns_io.R` | `04`: `sink("sector_priority.txt")` | `_outputs/sector_priority.txt`, `.csv` |
-| **Figure (sec 10)** — VA multiplier vs headroom | `kz_valueadd/04_sector_priority.R` | `save_fig(... "sector_priority_fig")` | `_outputs/sector_priority_fig.png` |
+| **Table 4** — moderators (qualitative) | hand-assembled; supporting figures: `kz_valueadd/07_crosscountry.R` (credit+mktcap % GDP), `04_sector_priority.R` (electronics output ≈ $230m) | — | `_outputs/crosscountry.txt`, `sector_priority.txt` |
+| **Table 5** — sector characteristics for investment | `kz_valueadd/04_sector_priority.R` + multipliers from `kz_passthrough/08a_get_io.R` / `08b_kz_bns_io.R` | `04`: `sink("sector_priority.txt")` | `_outputs/sector_priority.txt`, `.csv` |
+| **Figure 5** (§10) — VA multiplier vs headroom | `kz_valueadd/04_sector_priority.R` | `save_fig(... "sector_priority_fig")` | `_outputs/sector_priority_fig.png` |
 | **Table B.1** — priority-list codes by tier + surge marks | `kz_passthrough/03_classify_hs_chpl.R` (codes/tiers) + `06_eventstudy_did.R` (surge marks) | `03`: `fwrite(hs_class, ... "hs_class.csv")` | `_outputs/hs_class.csv`, `surge_basket_stats.rds` |
 | **Table C.1** — DiD robustness battery | `kz_passthrough/12_did_robustness.R` (a–g) + `06_eventstudy_did.R` (PPML, wild bootstrap) | `12`: sections (a)–(g); `06`: PPML block | `rq1_did_robustness.txt`, `rq1_estimates.txt` |
 | **Table D.1** — value-capture m-sensitivity + wedge detail | `kz_passthrough/08_io_propagation.R` (m-sweep, "Essential 1(a)" block) + `08b_kz_bns_io.R` (BNS cross-check) + `07_unit_value_wedge.R` (wedge-by-tier) | `08`: m-sensitivity block, `save_out(sens,"rq2b_m_sensitivity")` | `rq2b_io_propagation.txt`, `rq2b_m_sensitivity.rds`, `rq2b_bns_io_check.txt`, `rq2a_unit_value_wedge.txt` |
 | **Table E.1** — neighbour / comparator structural breaks | `kz_passthrough/10_robustness.R` section (b) | `10`: neighbour-parallel block, `sctest(Fstats(...))` loop | `rq1_robustness.txt` |
-| §4.1 structural breaks (monthly sup-F, CIs) | `kz_passthrough/04_probe_break_tests.R`, `06m_monthly_profile.R` | `04`: `sink("phase0_break_tests.txt")` (l. 14) | `phase0_break_tests.txt`, `rq1_monthly.txt` |
-| §5.2–5.3 value-capture headline, fiscal | `kz_passthrough/08_io_propagation.R`, `09_fiscal.R` | `08`, `09`: `sink(...)` headers | `rq2b_io_propagation.txt`, `rq2c_fiscal.txt` |
-| §5.1 flow-through gap decomposition, $521m counterfactual | `kz_passthrough/08_io_propagation.R` ("#7" and "#8" blocks) | `08`: secondary-item blocks | `rq2b_io_propagation.txt` |
-| §6 deal-count rate test + MDE | `kz_valueadd/02_valueadd_analysis.R`, `08_power_null.R` | `08`: `set.seed(1)` (l. 53) | `valueadd_findings.txt`, `power_null.txt` |
+| §5.2 structural breaks (monthly sup-F, CIs) | `kz_passthrough/04_probe_break_tests.R`, `06m_monthly_profile.R` | `04`: `sink("phase0_break_tests.txt")` (l. 14) | `phase0_break_tests.txt`, `rq1_monthly.txt` |
+| §6.2–6.3 value-capture headline, fiscal | `kz_passthrough/08_io_propagation.R`, `09_fiscal.R` | `08`, `09`: `sink(...)` headers | `rq2b_io_propagation.txt`, `rq2c_fiscal.txt` |
+| §6.1 flow-through gap decomposition, $521m counterfactual | `kz_passthrough/08_io_propagation.R` ("#7" and "#8" blocks) | `08`: secondary-item blocks | `rq2b_io_propagation.txt` |
+| §7 deal-count rate test + MDE | `kz_valueadd/02_valueadd_analysis.R`, `08_power_null.R` | `08`: `set.seed(1)` (l. 53) | `valueadd_findings.txt`, `power_null.txt` |
 
 ---
 
