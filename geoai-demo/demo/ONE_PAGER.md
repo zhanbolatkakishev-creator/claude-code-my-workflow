@@ -80,10 +80,12 @@ State-certified reserves.
 | 3 | First Kazakhstan field as a second dataset (KMG / Uzbekneftegas public data) |
 | 4 | Petroleum data scientist — ML + physics-based forecasting on real KZ wells |
 
-**The ask:** [funding amount] to reach a paid pilot with one operator in [N] months.
+**The ask:** **$200,000** to reach a paid pilot with one operator in **6 months** —
+two technical hires, cloud, and the localisation layer.
 
 ---
 
 *Data: Equinor Volve open dataset. GeoAI Analytics demo — not investment or reserves advice.
 KAZ-RC and Order MID RK No.374 are the solid-minerals codes; petroleum reserves are
-reported through the State (ГКЗ) classification. Contact: [email] · [phone].*
+reported through the State (ГКЗ) classification.
+Contact: Zhanbolat Kakishev · zhanbolat.kakishev@gmail.com · +7 701 733 1291*
