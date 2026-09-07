@@ -26,7 +26,7 @@ Drag the **Economic oil rate** slider; toggle **Rate axis → Linear** and back.
 > "Change the economic assumption and everything re-prices instantly."
 
 **0:45 — Screen the field (30 s)**
-Click **Well screening**.
+Click **Workover screening**.
 > "A transparent attention score per well — underperformance vs its own decline,
 > remaining oil, water cut, how fast water is rising. Four weights, all on the
 > About tab. No black box."

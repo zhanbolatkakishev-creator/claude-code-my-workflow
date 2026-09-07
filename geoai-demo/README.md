@@ -33,8 +33,9 @@ raise unlocks") — hire the engineer, build the localisation layer, add a Kazak
 - **P90 / P50 / P10 ranges** — parameter-covariance sampling of each fit
   (`.decline_bands` in `R/03_decline_curve.R`): a shaded range on the chart, P90–P10
   on every EUR figure, P90/P10 columns in the forecast table.
-- **Well screening tab** — `R/06_screening.R`: a transparent rule-based
-  attention score (0–100) + plain-language signal per well. Not ML.
+- **Workover screening tab** — `R/06_screening.R`: a transparent rule-based
+  attention score (0–100) + plain-language signal per well, and a threshold
+  slider that flags each well as a workover candidate (✔). Not ML.
 - **Field KPIs tab** — `R/07_analytics.R` `field_kpis()`: per-well operating
   snapshot; a **forecast-vs-actual backtest** (`backtest_field()`, 6-month hold-out,
   MAPE + bias).
