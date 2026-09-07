@@ -303,12 +303,16 @@ fit_decline <- function(well_df,
     bb <- tryCatch(.decline_bands(best, fc$t_years, last_rate, q_econ, np_to_date, b_max),
                    error = function(e) NULL)
     if (!is.null(bb)) {
-      eur_pt <- eur / 1e6                      # keep the point estimate inside the range
+      # The deterministic fit IS the best estimate, so P50 == point EUR. The
+      # sampled low/high cases are bracketed around it and bounded so a weak
+      # short-history hyperbolic tail can't yield an absurd range.
+      eur_pt <- eur / 1e6
       bands <- list(
         series = tibble::tibble(date = fc$date, lo = pmax(bb$rate_lo, 0),
                                 mid = bb$rate_mid, hi = bb$rate_hi),
-        eur_p90 = min(bb$eur_p90, eur_pt), eur_p50 = bb$eur_p50,
-        eur_p10 = max(bb$eur_p10, eur_pt))
+        eur_p50 = eur_pt,
+        eur_p90 = min(bb$eur_p90, eur_pt) |> max(0.5 * eur_pt),
+        eur_p10 = max(bb$eur_p10, eur_pt) |> min(2.5 * eur_pt))
     }
   }
   # bands stays NULL silently when the fit covariance is unusable

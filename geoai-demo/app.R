@@ -20,15 +20,23 @@ pct <- function(x, d = 0) ifelse(is.finite(x), paste0(formatC(100 * x, format = 
 
 # ---- data ---------------------------------------------------------------
 
-MONTHLY_PATH  <- "data/processed/volve_monthly.rds"
-data_ready    <- file.exists(MONTHLY_PATH)
-VOLVE_MONTHLY <- if (data_ready) readRDS(MONTHLY_PATH) else NULL
-volve_wells   <- if (data_ready) sort(unique(VOLVE_MONTHLY$well)) else character(0)
+# bundled datasets, in menu order (first is the default)
+SAMPLES <- c(
+  "Volve field (North Sea, real)"        = "data/processed/volve_monthly.rds",
+  "Kazakhstan mature field (synthetic)"  = "data/samples/kz_mature_synthetic.rds",
+  "Kazakhstan new field (synthetic)"     = "data/samples/kz_young_synthetic.rds"
+)
+SAMPLES     <- SAMPLES[file.exists(SAMPLES)]
+data_ready  <- length(SAMPLES) > 0
+FIRST_DS    <- if (data_ready) names(SAMPLES)[1] else NULL
+load_sample <- function(label) readRDS(SAMPLES[[label]])
+first_monthly <- if (data_ready) load_sample(FIRST_DS) else NULL
+first_wells   <- if (data_ready) sort(unique(first_monthly$well)) else character(0)
 
 BRAND        <- "#1b5e9c"
 COMPANY      <- "GeoAI Analytics"
-DEFAULT_WELL <- if ("15/9-F-12" %in% volve_wells) "15/9-F-12" else
-  if (length(volve_wells)) volve_wells[1] else NULL
+DEFAULT_WELL <- if ("15/9-F-12" %in% first_wells) "15/9-F-12" else
+  if (length(first_wells)) first_wells[1] else NULL
 LOGO_URI     <- if (file.exists("report/logo.png"))
   base64enc::dataURI(file = "report/logo.png", mime = "image/png") else NULL
 
@@ -55,7 +63,11 @@ ui <- page_sidebar(
     tags$script(HTML("
 /* lightweight EN<->RU UI localisation (demo). Full i18next comes with the build. */
 var GEOAI_I18N = {
- 'Well':'Скважина',
+ 'Well':'Скважина','Dataset':'Набор данных',
+ '↺ back to the selected dataset':'↺ вернуться к выбранному набору данных',
+ 'Volve field (North Sea, real)':'Месторождение Volve (Северное море, реальные данные)',
+ 'Kazakhstan mature field (synthetic)':'Зрелое месторождение, Казахстан (синтетика)',
+ 'Kazakhstan new field (synthetic)':'Новое месторождение, Казахстан (синтетика)',
  'Economic oil rate (bopd)':'Экономический дебит нефти (барр/сут)',
  'Fit window':'Окно аппроксимации',
  'Auto':'Авто','Post-peak':'После пика','Last stable':'Последний стабильный','All history':'Вся история',
@@ -136,7 +148,8 @@ $(document).on('shiny:connected', function(){
     } else {
       tagList(
         radioButtons("lang", NULL, c("EN" = "en", "RU" = "ru"), selected = "en", inline = TRUE),
-        selectInput("well", "Well", choices = volve_wells, selected = DEFAULT_WELL),
+        selectInput("dataset", "Dataset", choices = names(SAMPLES), selected = FIRST_DS),
+        selectInput("well", "Well", choices = first_wells, selected = DEFAULT_WELL),
         sliderInput("q_econ", "Economic oil rate (bopd)",
                     min = 10, max = 500, value = 50, step = 10),
         radioButtons("window", "Fit window",
@@ -154,7 +167,7 @@ $(document).on('shiny:connected', function(){
                   accept = c(".csv", ".xlsx", ".xls"), buttonLabel = "Browse…",
                   placeholder = "CSV or Excel"),
         div(class = "src-label", textOutput("src_label")),
-        actionLink("reset_sample", "↺ back to Volve sample"),
+        actionLink("reset_sample", "↺ back to the selected dataset"),
         hr(),
         downloadButton("dl_report",    "Well report (HTML)",   class = "btn-sm"),
         downloadButton("dl_kazrc",     "KAZ-RC report (HTML)", class = "btn-sm"),
@@ -170,8 +183,8 @@ $(document).on('shiny:connected', function(){
   } else {
     tagList(
       p(class = "demo-intro",
-        "Loaded with Equinor's ", strong("Volve"), " field — real North Sea production, ",
-        "2008–2016 (open data) — or ", strong("upload your own"), " production file (and a ",
+        "Switch ", strong("Dataset"), " between Equinor's real ", strong("Volve"), " field and two ",
+        "synthetic Kazakhstan fields — or ", strong("upload your own"), " production file (and a ",
         strong("LAS log"), " under Well logs). Pick a well for its Arps decline, P90–P10 range ",
         "and EUR. The field tabs — ", strong("KPIs"), ", ", strong("workover screening"), ", ",
         strong("ML attention"), ", ", strong("analog / new-well"), ", ", strong("portfolio"),
@@ -204,7 +217,7 @@ $(document).on('shiny:connected', function(){
           layout_columns(
             fill = FALSE, col_widths = c(8, 4),
             sliderInput("wo_cut", "Flag as candidate when attention score ≥",
-                        min = 0, max = 100, value = 40, step = 5),
+                        min = 0, max = 100, value = 30, step = 5),
             div(class = "pt-4", textOutput("wo_count"))
           ),
           scroll_table("screenTable", "440px")
@@ -240,7 +253,7 @@ $(document).on('shiny:connected', function(){
           h6("Nearest analogs to the selected well"),
           p(class = "text-muted small",
             "k-nearest neighbours on a standardised feature vector (log peak rate, Di, b, ",
-            "log cumulative oil, ending water cut, water-cut slope). Small field — 6 wells — ",
+            "log cumulative oil, ending water cut, water-cut slope). Small demo fields, ",
             "so treat as illustrative."),
           tableOutput("analogTable"),
           hr(),
@@ -267,8 +280,7 @@ $(document).on('shiny:connected', function(){
           "Well logs",
           p(class = "text-muted small",
             "Upload a LAS 2.0 well-log file to view depth tracks and a basic curve-QC ",
-            "report. (Volve's production spreadsheet has no logs; the full 40 GB Volve ",
-            "bundle does.)"),
+            "report. (The bundled production datasets carry no logs — try any LAS 2.0 file.)"),
           fileInput("las", NULL, accept = c(".las", ".LAS", ".txt"),
                     buttonLabel = "Browse LAS…", placeholder = "no file"),
           uiOutput("lasNote"),
@@ -283,8 +295,9 @@ $(document).on('shiny:connected', function(){
             p("A working prototype: it turns a well's monthly oil-production history into a ",
               "decline-curve forecast with a P90–P10 range and an estimated ultimate recovery ",
               "(EUR), rolls the wells up into an asset view, and screens them for intervention ",
-              "candidates. Runs on any field's production data; loaded here with Equinor's ",
-              "public ", strong("Volve"), " field."),
+              "candidates. Runs on any field's production data. Three datasets are bundled — ",
+              "Equinor's real ", strong("Volve"), " field, and two ", strong("synthetic"),
+              " Kazakhstan fields (illustrative shapes, not real production) — plus your own upload."),
             h5("Decline model"),
             tags$ul(
               tags$li(HTML("Fits the Arps model &nbsp;<em>q(t) = q<sub>i</sub> / (1 + b&middot;D<sub>i</sub>&middot;t)<sup>1/b</sup></em>&nbsp; by Levenberg–Marquardt least squares.")),
@@ -354,8 +367,19 @@ $(document).on('shiny:connected', function(){
 server <- function(input, output, session) {
   req(data_ready)
 
-  rv <- reactiveValues(monthly = VOLVE_MONTHLY, src = "Volve field (sample)")
+  rv <- reactiveValues(monthly = first_monthly, src = FIRST_DS)
   active <- reactive(rv$monthly)
+
+  load_dataset <- function(label) {
+    m  <- load_sample(label)
+    wl <- sort(unique(m$well))
+    rv$monthly <- m
+    rv$src <- label
+    sel <- if (!is.null(DEFAULT_WELL) && DEFAULT_WELL %in% wl) DEFAULT_WELL else wl[1]
+    updateSelectInput(session, "well", choices = wl, selected = sel)
+  }
+
+  observeEvent(input$dataset, load_dataset(input$dataset), ignoreInit = TRUE)
 
   observeEvent(input$upload, {
     req(input$upload)
@@ -373,17 +397,19 @@ server <- function(input, output, session) {
                      type = "message", duration = 6)
   })
 
-  observeEvent(input$reset_sample, {
-    rv$monthly <- VOLVE_MONTHLY
-    rv$src <- "Volve field (sample)"
-    updateSelectInput(session, "well", choices = volve_wells, selected = DEFAULT_WELL)
-  })
+  observeEvent(input$reset_sample, load_dataset(input$dataset))
 
   output$src_label <- renderText(paste0("Data: ", rv$src))
 
+  # the selected well, guaranteed valid for the active dataset (avoids a blank/
+  # error flash in the moment between switching datasets and the well list updating)
+  sel_well <- reactive({
+    wl <- unique(active()$well); req(length(wl) > 0)
+    if (!is.null(input$well) && input$well %in% wl) input$well else wl[1]
+  })
+
   fit <- reactive({
-    req(input$well, input$well %in% unique(active()$well))
-    fit_decline(dplyr::filter(active(), well == input$well),
+    fit_decline(dplyr::filter(active(), well == sel_well()),
                 q_econ = input$q_econ, window = input$window,
                 max_years = input$max_years, b_max = input$b_max)
   })
@@ -479,7 +505,7 @@ server <- function(input, output, session) {
 
   # production data -------------------------------------
   output$prodTable <- renderTable({
-    dplyr::filter(active(), well == input$well) |>
+    dplyr::filter(active(), well == sel_well()) |>
       dplyr::transmute(Month = format(month, "%Y-%m"),
                        `Oil (bbl)` = round(oil_bbl),
                        `Oil rate (bopd)` = round(oil_rate_bopd, 1),
@@ -650,7 +676,7 @@ server <- function(input, output, session) {
   # analogs + new well --------------------------------
   featR <- reactive(well_features(active(), portfolio()$fits))
   output$analogTable <- renderTable({
-    a <- analogs(featR(), input$well, k = 3)
+    a <- analogs(featR(), sel_well(), k = 3)
     validate(need(!is.null(a) && nrow(a) > 0, "No analogs (need at least 2 fitted wells)."))
     a |> dplyr::transmute(Analog = analog, Distance = distance,
                           `Di /yr` = di, b = b,
@@ -725,7 +751,7 @@ server <- function(input, output, session) {
   }
 
   # downloads -----------------------------------------
-  safe_well <- function() gsub("[^A-Za-z0-9]+", "_", input$well)
+  safe_well <- function() gsub("[^A-Za-z0-9]+", "_", sel_well())
 
   output$dl_forecast <- downloadHandler(
     filename = function() sprintf("forecast_%s.csv", safe_well()),
@@ -740,7 +766,7 @@ server <- function(input, output, session) {
   output$dl_report <- downloadHandler(
     filename = function() sprintf("report_%s.html", safe_well()),
     content  = function(path) {
-      writeLines(build_report_html(input$well, active(),
+      writeLines(build_report_html(sel_well(), active(),
                    q_econ = input$q_econ, window = input$window,
                    max_years = input$max_years, b_max = input$b_max),
                  path, useBytes = TRUE)
@@ -749,7 +775,7 @@ server <- function(input, output, session) {
   output$dl_kazrc <- downloadHandler(
     filename = function() sprintf("kazrc_report_%s.html", safe_well()),
     content  = function(path) {
-      writeLines(build_kazrc_html(input$well, active(),
+      writeLines(build_kazrc_html(sel_well(), active(),
                    q_econ = input$q_econ, window = input$window,
                    max_years = input$max_years, b_max = input$b_max),
                  path, useBytes = TRUE)
