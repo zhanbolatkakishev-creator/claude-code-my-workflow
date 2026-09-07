@@ -217,7 +217,7 @@ $(document).on('shiny:connected', function(){
           layout_columns(
             fill = FALSE, col_widths = c(8, 4),
             sliderInput("wo_cut", "Flag as candidate when attention score ≥",
-                        min = 0, max = 100, value = 40, step = 5),
+                        min = 0, max = 100, value = 30, step = 5),
             div(class = "pt-4", textOutput("wo_count"))
           ),
           scroll_table("screenTable", "440px")
@@ -401,9 +401,15 @@ server <- function(input, output, session) {
 
   output$src_label <- renderText(paste0("Data: ", rv$src))
 
+  # the selected well, guaranteed valid for the active dataset (avoids a blank/
+  # error flash in the moment between switching datasets and the well list updating)
+  sel_well <- reactive({
+    wl <- unique(active()$well); req(length(wl) > 0)
+    if (!is.null(input$well) && input$well %in% wl) input$well else wl[1]
+  })
+
   fit <- reactive({
-    req(input$well, input$well %in% unique(active()$well))
-    fit_decline(dplyr::filter(active(), well == input$well),
+    fit_decline(dplyr::filter(active(), well == sel_well()),
                 q_econ = input$q_econ, window = input$window,
                 max_years = input$max_years, b_max = input$b_max)
   })
@@ -499,7 +505,7 @@ server <- function(input, output, session) {
 
   # production data -------------------------------------
   output$prodTable <- renderTable({
-    dplyr::filter(active(), well == input$well) |>
+    dplyr::filter(active(), well == sel_well()) |>
       dplyr::transmute(Month = format(month, "%Y-%m"),
                        `Oil (bbl)` = round(oil_bbl),
                        `Oil rate (bopd)` = round(oil_rate_bopd, 1),
@@ -670,7 +676,7 @@ server <- function(input, output, session) {
   # analogs + new well --------------------------------
   featR <- reactive(well_features(active(), portfolio()$fits))
   output$analogTable <- renderTable({
-    a <- analogs(featR(), input$well, k = 3)
+    a <- analogs(featR(), sel_well(), k = 3)
     validate(need(!is.null(a) && nrow(a) > 0, "No analogs (need at least 2 fitted wells)."))
     a |> dplyr::transmute(Analog = analog, Distance = distance,
                           `Di /yr` = di, b = b,
@@ -745,7 +751,7 @@ server <- function(input, output, session) {
   }
 
   # downloads -----------------------------------------
-  safe_well <- function() gsub("[^A-Za-z0-9]+", "_", input$well)
+  safe_well <- function() gsub("[^A-Za-z0-9]+", "_", sel_well())
 
   output$dl_forecast <- downloadHandler(
     filename = function() sprintf("forecast_%s.csv", safe_well()),
@@ -760,7 +766,7 @@ server <- function(input, output, session) {
   output$dl_report <- downloadHandler(
     filename = function() sprintf("report_%s.html", safe_well()),
     content  = function(path) {
-      writeLines(build_report_html(input$well, active(),
+      writeLines(build_report_html(sel_well(), active(),
                    q_econ = input$q_econ, window = input$window,
                    max_years = input$max_years, b_max = input$b_max),
                  path, useBytes = TRUE)
@@ -769,7 +775,7 @@ server <- function(input, output, session) {
   output$dl_kazrc <- downloadHandler(
     filename = function() sprintf("kazrc_report_%s.html", safe_well()),
     content  = function(path) {
-      writeLines(build_kazrc_html(input$well, active(),
+      writeLines(build_kazrc_html(sel_well(), active(),
                    q_econ = input$q_econ, window = input$window,
                    max_years = input$max_years, b_max = input$b_max),
                  path, useBytes = TRUE)
