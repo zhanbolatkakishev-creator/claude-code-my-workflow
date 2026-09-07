@@ -71,7 +71,9 @@ var GEOAI_I18N = {
  'Forecast (CSV)':'Прогноз (CSV)',
  'Open a report and press Ctrl/Cmd-P → Save as PDF.':'Откройте отчёт и нажмите Ctrl/Cmd-P → Сохранить как PDF.',
  'Forecast table':'Таблица прогноза','Fit details':'Параметры аппроксимации',
- 'Production data':'Данные добычи','Well screening':'Скрининг скважин',
+ 'Production data':'Данные добычи','Workover screening':'Скрининг КРС (капремонт скважин)',
+ 'Flag as candidate when attention score ≥':'Отмечать кандидатом при балле ≥',
+ 'Candidate':'Кандидат',
  'Field KPIs':'KPI месторождения','ML attention':'ML-приоритизация',
  'Analog & new well':'Аналоги и новая скважина','Field portfolio':'Портфель месторождения',
  'Well logs':'Каротаж (LAS)','About & method':'О методе',
@@ -86,7 +88,7 @@ var GEOAI_I18N = {
  'Guess Di (/yr)':'Оценка Di (/год)','Guess b':'Оценка b',
  'What this is':'Что это','Decline model':'Модель падения дебита',
  'P90 / P50 / P10 range':'Диапазон P90 / P50 / P10',
- 'Well screening score (0–100)':'Балл скрининга скважин (0–100)',
+ 'Workover screening score (0–100)':'Балл скрининга КРС (0–100)',
  'ML attention (XGBoost)':'ML-приоритизация (XGBoost)',
  'Field KPIs & backtest':'KPI месторождения и ретро-тест',
  'Analog wells & new-well estimate':'Скважины-аналоги и оценка новой скважины',
@@ -171,7 +173,7 @@ $(document).on('shiny:connected', function(){
         "Loaded with Equinor's ", strong("Volve"), " field — real North Sea production, ",
         "2008–2016 (open data) — or ", strong("upload your own"), " production file (and a ",
         strong("LAS log"), " under Well logs). Pick a well for its Arps decline, P90–P10 range ",
-        "and EUR. The field tabs — ", strong("KPIs"), ", ", strong("screening"), ", ",
+        "and EUR. The field tabs — ", strong("KPIs"), ", ", strong("workover screening"), ", ",
         strong("ML attention"), ", ", strong("analog / new-well"), ", ", strong("portfolio"),
         " — work the whole asset. ", strong("About & method"), " explains every number."),
       layout_columns(
@@ -194,12 +196,18 @@ $(document).on('shiny:connected', function(){
         nav_panel("Fit details",      tableOutput("fitDetails")),
         nav_panel("Production data",   scroll_table("prodTable")),
         nav_panel(
-          "Well screening",
+          "Workover screening",
           p(class = "text-muted small",
-            "Rule-based, not a machine-learning model. Every input is a plain production ",
-            "signal and the score is a transparent weighted sum — see ", strong("About & method"),
-            ". Ranks wells worth a closer look for intervention; it decides nothing."),
-          scroll_table("screenTable", "460px")
+            "Ranks wells as workover / intervention candidates. Rule-based (not ML): a ",
+            "transparent weighted sum of four production signals — see ", strong("About & method"),
+            ". Set the threshold; wells at or above it are flagged as candidates."),
+          layout_columns(
+            fill = FALSE, col_widths = c(8, 4),
+            sliderInput("wo_cut", "Flag as candidate when attention score ≥",
+                        min = 0, max = 100, value = 40, step = 5),
+            div(class = "pt-4", textOutput("wo_count"))
+          ),
+          scroll_table("screenTable", "440px")
         ),
         nav_panel(
           "Field KPIs",
@@ -291,8 +299,10 @@ $(document).on('shiny:connected', function(){
               "residuals, and read the 10th / 50th / 90th percentiles of the resulting rate and ",
               "EUR. P90 is the low (conservative) case, P10 the high case. This is a ",
               "parametric approximation, not a full probabilistic reserves study."),
-            h5("Well screening score (0–100)"),
-            p("A transparent weighted sum of four production signals — no training, no black box:"),
+            h5("Workover screening score (0–100)"),
+            p("Ranks wells as workover / intervention candidates — a transparent weighted sum ",
+              "of four production signals, no training, no black box. Set the threshold on the ",
+              "tab; wells at or above it get a ✔ in the Candidate column:"),
             tags$ul(
               tags$li("35% — underperformance vs the well's own fitted decline (producing below trend)"),
               tags$li("25% — remaining oil to produce (enough upside to be worth an intervention)"),
@@ -478,14 +488,20 @@ server <- function(input, output, session) {
                        `Cum oil (Mbbl)` = round(cum_oil_bbl / 1e6, 3))
   }, striped = TRUE, spacing = "xs", width = "100%", digits = 1)
 
-  # well screening ------------------------------------
+  # workover screening -------------------------------
   screening <- reactive(screen_wells(active(), portfolio()$fits, input$q_econ))
+  output$wo_count <- renderText({
+    s <- screening(); cut <- input$wo_cut %||% 40
+    n <- sum(is.finite(s$attention) & s$attention >= cut, na.rm = TRUE)
+    sprintf("%d of %d wells flagged as workover candidates", n, nrow(s))
+  })
   output$screenTable <- renderTable({
-    s <- screening()
+    s <- screening(); cut <- input$wo_cut %||% 40
     validate(need(nrow(s) > 0, "No wells to screen."))
     s |>
       dplyr::transmute(
         Well = well,
+        Candidate = ifelse(is.finite(attention) & attention >= cut, "✔", "—"),
         `Attention` = ifelse(is.finite(attention), as.character(attention), "—"),
         `Current bopd` = ifelse(is.finite(current_bopd), formatC(current_bopd, format = "d", big.mark = ","), "—"),
         `6-mo decline` = pct(decline_6mo),
@@ -700,7 +716,7 @@ server <- function(input, output, session) {
 
   # keep cheap tab contents live even while hidden; leave the expensive ones
   # (ML training, per-well backtest, LAS) lazy so they only run when their tab opens
-  for (id in c("fcTable", "fitDetails", "prodTable", "screenTable",
+  for (id in c("fcTable", "fitDetails", "prodTable", "screenTable", "wo_count",
                "kpiTable", "backtestPlot", "analogTable", "newWellTable",
                "mlHeader", "mlRiskPlot", "mlImpPlot", "mlShapTable",
                "lasNote", "lasPlot", "lasQcTable",
