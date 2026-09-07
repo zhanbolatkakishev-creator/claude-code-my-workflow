@@ -30,6 +30,7 @@ app_files <- c(
   "data/processed/volve_monthly.rds"
 )
 if (file.exists("report/logo.png")) app_files <- c(app_files, "report/logo.png")
+app_files <- c(app_files, list.files("data/samples", pattern = "\\.rds$", full.names = TRUE))
 missing <- app_files[!file.exists(app_files)]
 if (length(missing))
   stop("missing bundle files: ", paste(missing, collapse = ", "),
