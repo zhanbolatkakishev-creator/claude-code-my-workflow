@@ -73,6 +73,6 @@ points to it), those steps run unchanged.
 ## State-fund figures
 
 The QIC investment aggregates in Sections 6–8 are **not** from these platforms. They are
-transcribed from the published report *Private Equity in Kazakhstan* (QIC, AIFC, IFC,
+transcribed from the published report *Private Equity Market in Kazakhstan* (QIC, AIFC, IFC,
 September 2026); there is no project-level QIC register, public or licensed. The report is the
 citable source; nothing from it is redistributed here.

@@ -78,7 +78,7 @@ Classification for the openICPSR "Data Availability" control:
 | OECD Inter-Country Input–Output tables, 2023 ed. | Public, third-party, **redistribution not permitted** | Pointer only — replicator downloads `2019_SML.csv` from OECD |
 | Kazakhstan Bureau of National Statistics I–O + resources tables | Public, third-party | Pinned copy shipped; auto-downloaded by `08b_kz_bns_io.R` |
 | S&P Capital IQ / PitchBook / Preqin deal extract | **Proprietary, redistribution prohibited** | Pointer + query spec + identifiers only; aggregate counts (Table 3) shipped |
-| QIC/AIFC/IFC, *Private Equity in Kazakhstan* (2026) | Published report, third-party | Not shipped; cited figures transcribed |
+| QIC/AIFC/IFC, *Private Equity Market in Kazakhstan* (2026) | Published report, third-party | Not shipped; cited figures transcribed |
 
 ## 7. Terms of use
 

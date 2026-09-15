@@ -1,5 +1,44 @@
 # Reproducibility Audit: Corridor, Not Factory
 
+> **QIC REPORT GATE CLOSED (2026-09-15).** The final published PDF of the QIC/AIFC/IFC *Private
+> Equity Market in Kazakhstan* report (September 2026) was obtained and every corridor.tex claim
+> citing `qicaifcifc2026pe` was checked against it (full text extracted via `pdftools`,
+> `scripts/R` not modified). Result: **2 FAIL, corrected in-place; the rest PASS.**
+> - **FAIL → corrected.** The named QIC-linked investments in §8 ("a power plant, a poultry
+>   producer, steel and energy bonds, a pipe-systems maker, a bioethanol plant, a school and an
+>   office block") were a placeholder list carried over from a pre-publication draft
+>   (`PE Report_Draft_MasterFile_v2 clean.docx`, per `quality_reports/plans/2026-09-01_qic-report-
+>   rescope.md`) and never re-verified against the release, despite that plan's own note to
+>   "confirm the exact published title / author styling against the released PDF at
+>   implementation time." Four of the seven named items (pipe-systems maker, bioethanol plant,
+>   school, office block) do not appear anywhere in the 98-page final report. Corrected to the
+>   four investments the final PDF actually discloses: Almaty International Airport (minority
+>   stake via a QIC-linked fund, KIF), the Aktau Energy 160MW combined-cycle power plant
+>   (Mangystau), the Aitas KZ poultry producer, and the \$1.0bn Qarmet convertible-bond
+>   investment. The \$2.2bn cumulative / \$1.5bn-in-2025 / \$1.0bn-Qarmet-bond figures were
+>   independently correct and PASS as-is; added the verified detail that the \$1.5bn in 2025 was
+>   a twelvefold increase on \$120m in 2024 (report Executive Summary, p. 17).
+> - **FAIL → corrected.** "The domestic private-equity market has no functioning exit, with the
+>   founder buy-back the leading route" (§9, restated in §10 and §11) is contradicted by the
+>   report: Trade Sale is the most preferred exit route among the 17 surveyed PE participants
+>   (30%), Buyback is second (24%), Secondary Sale third (21%) (Figure 27, p. 66). Rewrote all
+>   three passages around the accurate fact — trade sale, buyback and secondary sale together
+>   account for ~75% of stated preferences, against under 10% for a public listing — which
+>   preserves the paper's institutional-voids argument (weak public-market / capital-markets
+>   exit route) without the false specific claim.
+> - **PASS, unchanged.** "About 98 investments" (raw QIC investment-record count before
+>   de-duplication; report p. 17: "Adding 98 QIC investment records... gives a combined 116
+>   transactions"). Report title corrected in `corridor.bib` and the replication package:
+>   *Private Equity Market in Kazakhstan* (was missing "Market").
+> - Also corrected: §4 Data overstated the report's project-level disclosure ("names individual
+>   projects in its appendix and case studies") — Appendix B is a table of GPs/LPs/funds, not
+>   investee companies; only the case-study section names individual investments. Reworded.
+> - This closes the "Next steps" gate below ("do not circulate until the QIC/AIFC/IFC PE report
+>   is published and its aggregate figures are confirmed against the released PDF").
+> Source file: `private-equity-market-in-kazakhstan-1.pdf` (user-supplied, OneDrive "Trade
+> research" folder); extracted text retained at the session scratchpad, not committed (large,
+> derivative of a third-party publication).
+
 > **R&R REVISION ROUND 1 (2026-09-02, `feat/corridor-rnr-round1`).** Audit re-run focused on the
 > numbers touched by the editorial-decision Essentials. **No FAIL.** New/changed claims verified:
 > - **§5.1 (E1b)** weight ratio `0.08` = median `kg_out/kg_in` (`rq2a` 0.084); aggregate value
@@ -252,5 +291,7 @@ re-derived), and the three new policy citations (bibliographic — `/verify-clai
    `desouza2024diffusion` revision date) before submission.
 2. On the next full run, regenerate the `kz_valueadd` `04`/`07` outputs and re-run `11_macro`
    (World Bank API) so `sector_priority` / `crosscountry` / `rq2d_macro` carry a 2026-09 date.
-3. Gate: do not circulate until the QIC/AIFC/IFC PE report is published and its aggregate figures
-   are confirmed against the released PDF.
+3. ~~Gate: do not circulate until the QIC/AIFC/IFC PE report is published and its aggregate
+   figures are confirmed against the released PDF.~~ **Closed 2026-09-15** — see the dated note
+   at the top of this file. The gate caught two real errors (a stale draft-sourced project list
+   and a wrong exit-route claim), both now corrected in `corridor.tex`.

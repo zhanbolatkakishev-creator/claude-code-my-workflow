@@ -65,7 +65,7 @@ to `elsarticle` + `model5-names` only if invited to revise.
 | World Bank WDI | macro context | free |
 | Kazakhstan Bureau of National Statistics | I-O robustness, customs revenue | free |
 | Capital IQ, PitchBook, Preqin | deal-level M&A/PE/VC universe (493 deals, native per-source IDs) | commercial; academic licence. Consolidated list `20260825_Market size DA.xlsx` / `Deals_Preqin+Pitchbook+CapIQ`; query spec in `corridor.tex` Appendix A |
-| QIC/AIFC/IFC *Private Equity in Kazakhstan* report (Sep 2026) | state-fund investment activity — aggregate + sector-by-year + named projects | public (joint QIC + AIFC + IFC report) |
+| QIC/AIFC/IFC *Private Equity Market in Kazakhstan* report (Sep 2026) | state-fund investment activity — aggregate + sector-by-year + named projects | public (joint QIC + AIFC + IFC report) |
 
 The deal universe is the de-duplicated CapIQ + PitchBook + Preqin consolidation supplied by the
 market-sizing team (the three databases the PE report draws on), each record carrying its
@@ -113,19 +113,30 @@ Figures/tables referenced by `corridor.tex` are written to
   warns the metric is invalid for former-Soviet economies) — §5.2 rewritten to drop it; three
   PARTIALs (`doubly landlocked` → `landlocked`; logistics-cost emphasis → `high and
   unpredictable`; `isakova2016tariffs` "level" → "sourcing … magnitudes modest") also fixed.
-- Optional round-2 TASTE items still open (not gating): Armenian GFCF decomposition; a
-  route-level exit-count from the deal data for the "buy-back leading" claim; EAEU-integration
-  literature positioning in §2–§3; a §9 paragraph on the continuum of the market-access gate
-  (the Türkiye flow crosses a customs border yet still rose 3.6×); reconcile the
-  `tab:priority` "combined score" caption with the body text.
+- Optional round-2 TASTE items still open (not gating): Armenian GFCF decomposition;
+  EAEU-integration literature positioning in §2–§3; a §9 paragraph on the continuum of the
+  market-access gate (the Türkiye flow crosses a customs border yet still rose 3.6×); reconcile
+  the `tab:priority` "combined score" caption with the body text.
 - Refresh the deal universe from a verifiable CapIQ + PitchBook + Preqin re-pull; re-run
   `05_deal_source_reconcile.R`; pin each source's extraction date and earliest year of
   complete Kazakhstan coverage in the replication package.
-- **QIC data — resolved.** No project-level QIC register will be published; the paper uses the
-  QIC/AIFC/IFC *Private Equity in Kazakhstan* report (`qicaifcifc2026pe`) for aggregate +
-  sector-timing + named-project evidence only. `tab:captive` has been removed; §7 Test D is
-  now an illustrative comparison, not an identifying test. The replication package pins the
-  report edition. Cite the published version once it is released.
+- **QIC data — resolved and checked against the released PDF (2026-09-15).** No project-level
+  QIC register was ever published; the paper uses the final QIC/AIFC/IFC *Private Equity Market
+  in Kazakhstan* report (`qicaifcifc2026pe`, published September 2026) for aggregate +
+  sector-timing + named-investment evidence only. `tab:captive` was removed earlier; §7's
+  "captive capital" paragraph remains illustrative, not an identifying test. Checking the draft-
+  sourced specifics against the final PDF surfaced two corrections, now applied: (i) the
+  QIC-linked named investments were a placeholder list from a pre-publication draft — four of
+  the seven items (a pipe-systems maker, a bioethanol plant, a school, an office block) do not
+  appear anywhere in the released report and have been dropped; the paper now names only the
+  four investments the final PDF actually discloses (Almaty International Airport, the Aktau
+  Energy 160MW power plant, the Aitas KZ poultry producer, and the \$1.0bn Qarmet convertible
+  bond); (ii) "founder buy-back [is] the leading [exit] route" is false in the final report —
+  trade sale is the most preferred exit route (30% of surveyed PE participants) with buyback
+  second (24%); the paper's exit-market argument (§9, §10, §11) is rewritten around the accurate
+  fact, that trade sale, buyback and secondary sale together account for ~75% of preferences
+  against under 10% for a public listing. See `quality_reports/reproducibility_audit_corridor.md`
+  for the verification note.
 - `/audit-reproducibility` on every headline number.
 - ~~KZ national I-O table (68 products) as a robustness check on the ICIO multipliers.~~
   Done: `scripts/R/kz_passthrough/08b_kz_bns_io.R` (BNS 2023, `_data/kz_bns_io/io_2023_ru.xlsx`)
