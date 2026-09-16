@@ -1,5 +1,51 @@
 # Reproducibility Audit: Corridor, Not Factory
 
+> **JIE ROUND-2 FIX PASS (2026-09-16, `fix/corridor-jie-r2-revision`).** Response to the
+> `/review-paper --peer JIE --r2` round-2 referee reports
+> (`quality_reports/peer_review_corridor_JIE/referee_domain_r2.md`,
+> `referee_methods_r2.md`, `editorial_decision_r2.md`). Two genuine bugs found and fixed in
+> the round-1 revision itself, both surfaced by referees independently re-deriving the
+> author's numbers against the code rather than trusting the response letter:
+> - **N1 (methods referee).** `06_eventstudy_did.R`'s `exposed_only` (26-line residual
+>   priority-list) DiD was run against the full 75-line panel, so its "control" group still
+>   contained the 29 surge-basket lines -- the most heavily treated units. The manuscript's
+>   reported sample ("N = 208, 26 clusters") did not exist in the code (actual: N = 600, 75
+>   clusters). Fixed: the regression now runs on a purged sample (`p_resid`, 26 treated + the
+>   20-line civilian control excluded of the surge basket, N = 368, 46 clusters). **This
+>   reverses the round-1 finding**: on the clean sample, the residual set shows a
+>   statistically significant, smaller-magnitude effect on the outbound flow (γ = 1.94,
+>   wild-cluster bootstrap p = 0.035; own level rise 2.4×), not the previously reported null
+>   (γ = −0.15, p = 0.87 on the contaminated sample). The "priority list corroborates the
+>   break date only, not the magnitude" claim is corrected throughout the manuscript (abstract,
+>   intro, Table 2, Table C.1) to "corroborates the break date and, at smaller magnitude, part
+>   of the effect."
+> - **N2 (methods referee).** `scripts/R/kz_valueadd/06_mechanism_tests.R` still asserted "no
+>   symmetric announcement search was run for components," directly contradicting the
+>   manuscript's §7/§9 claim (added in the round-1 revision) that a bounded WebSearch-based
+>   search was performed. Fixed: the script's comment now correctly describes the search as
+>   having been conducted separately (via WebSearch, not reconstructed from the deal
+>   database), with its null result and its weaker-instrument caveat, matching the manuscript.
+>   Re-ran; output regenerated, no other numeric changes.
+>
+> Also fixed: the theory cascade Referee A flagged (the market-access gate's "sufficient only
+> jointly with a small margin" qualifier from §3 propagated to the abstract, intro, §7/§8
+> (twice) and §11, all of which still asserted the stronger, disavowed "sufficient on its own"
+> claim); the abstract-vs-§3 contradiction (NEW-1); the Limitations paragraph's sign-inversion
+> on the Türkiye/Georgia null (NEW-2); "rules out capital-market institutions" softened to
+> "is inconsistent with" at 7 body locations (C8); the Table 2 surge-basket star removed (C1);
+> the 3.5× selection-free ratio attached to "tenfold" at 2 locations plus a new Table 1 row
+> (C3); the Kyrgyz Republic/Georgia break-year discrepancy disclosed in Table E.1 and the
+> "same 2022 break" claim scoped to the countries it holds for (N3); four new
+> WebSearch-verified citations added (Roberts--Tybout 1997 AER, Das--Roberts--Tybout 2007
+> Econometrica, Atkin--Khandelwal--Osman 2017 QJE, Verhoogen 2008 QJE). BNS wholesale-margin
+> characterization (C7-1) reviewed and found already correctly hedged in the manuscript body
+> and `08b_kz_bns_io.R`'s own output — no change needed there.
+>
+> **Not verified in this pass:** LaTeX compilation. Tectonic is not installed on this machine
+> in this session; table column counts and brace/dollar balance were checked manually in every
+> edited block, but a full compile (0 undefined refs, page count, overfull-hbox diff) is still
+> owed before this revision is considered submission-ready.
+
 > **JIE ROUND-1 REVISION (2026-09-16, `fix/corridor-jie-r1-revision`).** Full response to the
 > simulated `/review-paper --peer JIE` Major Revision decision
 > (`quality_reports/peer_review_corridor_JIE/`); see `response_to_referees_r1.md` for the

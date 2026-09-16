@@ -34,10 +34,22 @@ p[is.na(surge), surge := FALSE]
 ## selection-free residual set used to test whether the priority-list DiD is independent
 ## corroboration or just the same lines (JIE round-1 review, Referee B Concern 2).
 p[, exposed_only := exposed == TRUE & surge == FALSE]
+## JIE round-2 review, Referee B N1: the exposed_only DiD must NOT be run against the full
+## panel, because that control group would still contain the 29 surge-basket lines (the most
+## heavily treated units, +11.6x). The clean comparison is the 26 residual lines against the
+## "purged" civilian control (exposed==FALSE & surge==FALSE) already used as the placebo
+## control in 10_robustness.R -- excluding BOTH the surge basket and the 5 civilian lines that
+## happen to fall in it. p_resid is used ONLY for the exposed_only regressions below; "surge"
+## and "exposed" keep the full panel, which is the correct control set for those two arms.
+p_resid <- p[exposed_only == TRUE | (exposed == FALSE & surge == FALSE)]
 save_out(gg, "surge_basket_stats")
 cat("surge-basket HS6 (West+China rule):", sum(gg$surge), "of", nrow(gg),
     "| dual-use among surge:", p[surge == TRUE, uniqueN(hs6[exposed == TRUE])],
     "| exposed_only (priority-list, non-surge) HS6:", p[, uniqueN(hs6[exposed_only == TRUE])], "\n")
+cat("exposed_only CLEAN sample (JIE R2 Referee B N1): treated =",
+    p_resid[exposed_only == TRUE, uniqueN(hs6)], "| purged civilian control =",
+    p_resid[exposed_only == FALSE, uniqueN(hs6)], "| total clusters =", p_resid[, uniqueN(hs6)],
+    "| rows (N) =", nrow(p_resid), "\n")
 
 mk <- function(dt, yv, tv) {
   dt <- copy(dt); dt[, y := asinh(get(yv))]; dt[, TR := as.integer(get(tv))]
@@ -55,19 +67,24 @@ tv_labels <- c(surge = "(data-driven surge basket, West+China rule)",
                exposed = "(dual-use CHPL list — pre-specified robustness)",
                exposed_only = "(priority list MINUS surge basket -- independence check, JIE round-1 Referee B C2)")
 for (tv in c("surge", "exposed", "exposed_only")) {
+  dtv <- if (tv == "exposed_only") p_resid else p
   cat("\n########", tv, tv_labels[[tv]], "########\n")
+  if (tv == "exposed_only")
+    cat(sprintf("  [clean control: purged civilian only; N = %d, %d clusters]\n",
+                nrow(dtv), dtv[, uniqueN(hs6)]))
   for (yv in OUTC) {
-    cat("\n----", yv, "(asinh) : DiD  TR:post ----\n"); print(coeftable(mk(p, yv, tv)$did))
+    cat("\n----", yv, "(asinh) : DiD  TR:post ----\n"); print(coeftable(mk(dtv, yv, tv)$did))
   }
   cat("\n-- event study: KZ imports from West+China (mirWC_usd) --\n")
-  print(coeftable(mk(p, "mirWC_usd", tv)$es))
+  print(coeftable(mk(dtv, "mirWC_usd", tv)$es))
 }
 
 ## ---- independence check: wild-cluster bootstrap p for exposed_only, same protocol as surge --
+## JIE round-2 review, Referee B N1: run on p_resid (clean control), not the full panel.
 if (FREQ == "A") {
-  cat("\n-- exposed_only (priority list minus surge basket): wild cluster bootstrap p --\n")
-  wcb_tv <- function(yv, tv, B = 1999) {
-    d <- copy(p); d[, TR := as.integer(get(tv))]; d[, y := asinh(get(yv))]
+  cat("\n-- exposed_only (priority list minus surge basket, CLEAN control): wild cluster bootstrap p --\n")
+  wcb_tv <- function(dt, yv, tv, B = 1999) {
+    d <- copy(dt); d[, TR := as.integer(get(tv))]; d[, y := asinh(get(yv))]
     t_obs <- coeftable(feols(y ~ TR:post | hs6 + tt, d, cluster = ~hs6))["TR:post","t value"]
     rest  <- feols(y ~ 1 | hs6 + tt, d)
     d[, `:=`(fit_r = predict(rest), e_r = resid(rest))]; cl <- unique(d$hs6)
@@ -77,7 +94,8 @@ if (FREQ == "A") {
     mean(abs(tb) >= abs(t_obs))
   }
   for (yv in c("expRU_usd","mirWC_usd"))
-    cat(sprintf("  exposed_only %-11s : p_wcb = %.3f\n", yv, wcb_tv(yv, "exposed_only")))
+    cat(sprintf("  exposed_only %-11s : p_wcb = %.3f  [N=%d, %d clusters]\n",
+                yv, wcb_tv(p_resid, yv, "exposed_only"), nrow(p_resid), p_resid[, uniqueN(hs6)]))
 }
 
 ## ---- pre-trend joint test (surge basket) --------------------------------

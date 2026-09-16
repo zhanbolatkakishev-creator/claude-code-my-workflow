@@ -52,8 +52,15 @@ ELECTRONICS / PRECISION (the transitory re-export shock):
 Public record (triangulation): post-2022 KZ launched/announced Chinese-brand SKD plants 
 (Changan/Haval/Chery ~90k units), a KIA plant ($200m), Skoda assembly, a car-multimedia 
 plant (Almaty, 2024). NOTE: auto-sector DEAL counts actually fell after 2022 (6 -> 3); the 
-capacity evidence is press/announcement triangulation, not deal data, and no symmetric 
-announcement search was run for components. Much of the auto capacity also predates 2022.
+capacity evidence is press/announcement triangulation, not deal data. A symmetric 
+WebSearch-based announcement search on the same 2022-2025 window, for electrical-machinery, 
+component and instrument capacity in Kazakhstan, was conducted separately (JIE round-1 
+review, Referee B Concern 6; not reconstructed in this script, which only triangulates from 
+the deal database -- see corridor.tex Section 7/9 for the search and its result). It turned 
+up no comparable named capacity project, and is treated in the paper as a weaker check than 
+this auto-sector triangulation, not an equally thorough symmetric search: the auto-sector 
+evidence draws on more extensive public reporting on that sector specifically. Much of the 
+auto capacity also predates 2022.
 
 INTERPRETATION (illustrative, not a controlled test): the durable auto shock coincided with 
 new assembly capacity while the transitory component shock did not, which is SUGGESTIVE that a 

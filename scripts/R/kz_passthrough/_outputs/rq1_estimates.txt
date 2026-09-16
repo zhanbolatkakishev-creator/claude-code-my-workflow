@@ -91,52 +91,53 @@ attr(,"vcov_type")
 [1] "Clustered (hs6)"
 
 ######## exposed_only (priority list MINUS surge basket -- independence check, JIE round-1 Referee B C2) ########
+  [clean control: purged civilian only; N = 368, 46 clusters]
 
 ---- expRU_usd (asinh) : DiD  TR:post ----
-          Estimate Std. Error    t value  Pr(>|t|)
-TR:post -0.1505803  0.9415397 -0.1599298 0.8733721
+        Estimate Std. Error  t value   Pr(>|t|)
+TR:post 1.944413  0.9020866 2.155461 0.03651153
 attr(,"vcov_type")
 [1] "Clustered (hs6)"
 
 ---- mirWC_usd (asinh) : DiD  TR:post ----
-          Estimate Std. Error    t value  Pr(>|t|)
-TR:post -0.4939412   1.001959 -0.4929756 0.6234896
+        Estimate Std. Error  t value  Pr(>|t|)
+TR:post 1.124143  0.8311675 1.352487 0.1829773
 attr(,"vcov_type")
 [1] "Clustered (hs6)"
 
 ---- mirW_usd (asinh) : DiD  TR:post ----
-          Estimate Std. Error    t value  Pr(>|t|)
-TR:post -0.3465231  0.9562754 -0.3623674 0.7181103
+        Estimate Std. Error  t value  Pr(>|t|)
+TR:post 1.017758  0.8145365 1.249494 0.2179445
 attr(,"vcov_type")
 [1] "Clustered (hs6)"
 
 ---- impW_usd (asinh) : DiD  TR:post ----
-         Estimate Std. Error   t value  Pr(>|t|)
-TR:post 0.2719142    0.66673 0.4078326 0.6845741
+        Estimate Std. Error  t value    Pr(>|t|)
+TR:post 2.084003  0.6908004 3.016795 0.004192654
 attr(,"vcov_type")
 [1] "Clustered (hs6)"
 
 ---- mirror_gap_wc (asinh) : DiD  TR:post ----
-        Estimate Std. Error   t value  Pr(>|t|)
-TR:post 2.073851   2.133614 0.9719898 0.3342221
+        Estimate Std. Error  t value  Pr(>|t|)
+TR:post 3.597557   2.358013 1.525673 0.1340896
 attr(,"vcov_type")
 [1] "Clustered (hs6)"
 
 -- event study: KZ imports from West+China (mirWC_usd) --
-                Estimate Std. Error     t value  Pr(>|t|)
-t_rel::-4:TR  0.13458805  0.4679440  0.28761572 0.7744448
-t_rel::-3:TR  0.24918129  0.2081673  1.19702426 0.2351178
-t_rel::-2:TR -0.21607350  0.3049555 -0.70854115 0.4808354
-t_rel::0:TR   0.02039606  1.0019417  0.02035653 0.9838137
-t_rel::1:TR  -0.08697034  0.9825708 -0.08851305 0.9297080
-t_rel::2:TR  -0.67202142  1.0672974 -0.62964778 0.5308643
-t_rel::3:TR  -1.06947323  1.2327546 -0.86754757 0.3884467
+                Estimate Std. Error     t value   Pr(>|t|)
+t_rel::-4:TR  0.22119197  0.5042498  0.43865554 0.66301004
+t_rel::-3:TR  0.28718768  0.2451699  1.17138225 0.24761033
+t_rel::-2:TR -0.02800125  0.2965525 -0.09442256 0.92519269
+t_rel::0:TR   1.61499921  0.8152763  1.98092267 0.05373141
+t_rel::1:TR   1.69748487  0.7853795  2.16135617 0.03602625
+t_rel::2:TR   1.09684697  0.8852051  1.23908801 0.22173695
+t_rel::3:TR   0.56761927  1.1593648  0.48959503 0.62679877
 attr(,"vcov_type")
 [1] "Clustered (hs6)"
 
--- exposed_only (priority list minus surge basket): wild cluster bootstrap p --
-  exposed_only expRU_usd   : p_wcb = 0.870
-  exposed_only mirWC_usd   : p_wcb = 0.669
+-- exposed_only (priority list minus surge basket, CLEAN control): wild cluster bootstrap p --
+  exposed_only expRU_usd   : p_wcb = 0.035  [N=368, 46 clusters]
+  exposed_only mirWC_usd   : p_wcb = 0.238  [N=368, 46 clusters]
 
 -- pre-trend joint Wald test (surge basket) --
 Wald test, H0: joint nullity of t_rel::-4:TR, t_rel::-3:TR and t_rel::-2:TR
@@ -149,16 +150,16 @@ Wald test, H0: joint nullity of t_rel::-4:TR, t_rel::-3:TR and t_rel::-2:TR
   expRU_usd   : b=0.188  se=0.897  p=0.835  (row: t_rel::-4:TR)
 
 -- wild cluster bootstrap p (Rademacher, restricted resid, cluster=HS6, B=1999) --
-  surge expRU_usd   : p_wcb = 0.013
-  surge mirWC_usd   : p_wcb = 0.052
-  surge mirW_usd    : p_wcb = 0.084
-  surge impW_usd    : p_wcb = 0.002
+  surge expRU_usd   : p_wcb = 0.014
+  surge mirWC_usd   : p_wcb = 0.051
+  surge mirW_usd    : p_wcb = 0.094
+  surge impW_usd    : p_wcb = 0.006
 
 -- randomisation inference: surge-basket gamma vs a random basket of the same size --
-  expRU_usd   : gamma=2.441  p2=0.009  p_upper=0.004
-  mirWC_usd   : gamma=2.099  p2=0.033  p_upper=0.022
-  mirW_usd    : gamma=1.730  p2=0.052  p_upper=0.031
-  impW_usd    : gamma=1.884  p2=0.004  p_upper=0.003
+  expRU_usd   : gamma=2.441  p2=0.007  p_upper=0.005
+  mirWC_usd   : gamma=2.099  p2=0.027  p_upper=0.015
+  mirW_usd    : gamma=1.730  p2=0.056  p_upper=0.032
+  impW_usd    : gamma=1.884  p2=0.003  p_upper=0.002
 
 -- PPML (fepois) DiD in levels, surge basket --
   expRU_usd   : b=1.262 se=0.523 p=0.01581  exp(b)=3.53x
