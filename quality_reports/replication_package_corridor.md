@@ -4,6 +4,26 @@
 · **Language:** R 4.5.3 (only) · **Deposit target:** openICPSR (Elsevier / *Journal of
 International Economics* data editor)
 
+> **JIE ROUND-2/3 UPDATE (2026-09-16).** The manuscript's exhibit count and script mapping are
+> unchanged by the JIE revision — the same scripts still produce the same tables/figures — but
+> three exhibits gained content that needed noting in the Table/Figure → program:line map
+> (README §6, updated this pass): **Table 1** gained a priority-list comparator row; **Table 2**
+> had its residual-list row re-specified on a purged 46-cluster sample (fixing a control-group
+> contamination bug found by the round-2 methods referee) and gained a pre-trend Wald test;
+> **Table E.1** gained a "largest jump year" column. A new online appendix (`app:search`,
+> public-record search protocols) was added — hand-assembled prose, no producing script, so it
+> has no exhibit-map entry. `06_mechanism_tests.R` (kz_valueadd) was also corrected (a comment
+> contradicting the manuscript's search claim; no numeric/table content changed). **Phase 3
+> note:** a fresh full `/audit-reproducibility` pass was not re-run from scratch; this update
+> instead relies on the independent, claim-by-claim verification the round-2/3 methods referee
+> already performed against the regenerated `_outputs/*.txt` files
+> (`quality_reports/peer_review_corridor_JIE/referee_methods_r2.md`, `_r3.md`) — every changed
+> number (γ = 1.94, wcb p = 0.035, N = 368/46 clusters; pre-trend F = 0.75, p = 0.528) verified
+> exact. The pre-JIE baseline audit (118 PASS, 0 FAIL) still stands for everything outside
+> Tables 1/2/E.1. **The local deposit tree was physically populated this pass**
+> (`replication_package/code/`, `output/`, `data/analysis/` — gitignored, not committed) per
+> README §7, ready for a clean-checkout dry run.
+
 ## DCAS checklist
 
 | Item | Status |

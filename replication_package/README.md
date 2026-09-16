@@ -161,10 +161,10 @@ A–E).
 
 | Exhibit | Producing script | Key line(s) | Output file |
 |---|---|---|---|
-| **Table 1** — surge-basket trade, USD m/yr | `kz_passthrough/05_panel_build.R` → `06_eventstudy_did.R` | `06`: `save_out(gg,"surge_basket_stats")` (l. 33); per-year series in `rq1_estimates.txt` | `_outputs/surge_basket_stats.rds`, `rq1_estimates.txt` |
+| **Table 1** — surge-basket trade, USD m/yr, + priority-list comparator row (added JIE R2, Referee B C3) | `kz_passthrough/05_panel_build.R` → `06_eventstudy_did.R` | `06`: `save_out(gg,"surge_basket_stats")` (l. 33); selection-free level check block; per-year series in `rq1_estimates.txt` | `_outputs/surge_basket_stats.rds`, `rq1_estimates.txt`, `rq1_levels_exposed.rds` |
 | **Figure 1** — monthly series | `kz_passthrough/06m_monthly_profile.R` | `save_fig(... "rq1_fig_monthly")` | `_outputs/rq1_fig_monthly.png` |
 | **Figure 2** — DiD event study | `kz_passthrough/06_eventstudy_did.R` | event-study block; `save_fig(... "rq1_fig_eventstudy")` | `_outputs/rq1_fig_eventstudy.png` |
-| **Table 2** — DiD (Panel A asinh, B PPML, C rule-matched RI) | `06_eventstudy_did.R` (A, B) + `12_did_robustness.R` (C) | `06`: `sink("rq1_estimates.txt")` (l. 43); `12`: `set.seed(20260831)` (l. 13), sec (a) | `rq1_estimates.txt`, `rq1_did_robustness.txt` |
+| **Table 2** — DiD (Panel A asinh incl. residual-list row on a purged 46-cluster sample, B PPML, C rule-matched RI) | `06_eventstudy_did.R` (A, B — residual row added/corrected JIE R2 Referee B N1) + `12_did_robustness.R` (C) | `06`: `p_resid` construction (l. 44); residual-arm DiD, wild-cluster bootstrap, and pre-trend Wald test (added JIE R3 Referee B M2); `sink("rq1_estimates.txt")` | `rq1_estimates.txt`, `rq1_did_robustness.txt` |
 | **Figure 3** — unit-value wedge histogram | `kz_passthrough/07_unit_value_wedge.R` | `save_fig(... "rq2a_fig_wedge_hist")` | `_outputs/rq2a_fig_wedge_hist.png` |
 | **Figure 4** — trade surged, investment did not | `kz_valueadd/03_fig.R` | `save_fig(... "valueadd_fig_mismatch")` | `_outputs/valueadd_fig_mismatch.png` |
 | **Table 3** — deal counts by source × period | `kz_valueadd/05_deal_source_reconcile.R` | full script | `_outputs/deal_source_reconcile.csv` |
@@ -174,7 +174,8 @@ A–E).
 | **Table B.1** — priority-list codes by tier + surge marks | `kz_passthrough/03_classify_hs_chpl.R` (codes/tiers) + `06_eventstudy_did.R` (surge marks) | `03`: `fwrite(hs_class, ... "hs_class.csv")` | `_outputs/hs_class.csv`, `surge_basket_stats.rds` |
 | **Table C.1** — DiD robustness battery | `kz_passthrough/12_did_robustness.R` (a–g) + `06_eventstudy_did.R` (PPML, wild bootstrap) | `12`: sections (a)–(g); `06`: PPML block | `rq1_did_robustness.txt`, `rq1_estimates.txt` |
 | **Table D.1** — value-capture m-sensitivity + wedge detail | `kz_passthrough/08_io_propagation.R` (m-sweep, "Essential 1(a)" block) + `08b_kz_bns_io.R` (BNS cross-check) + `07_unit_value_wedge.R` (wedge-by-tier) | `08`: m-sensitivity block, `save_out(sens,"rq2b_m_sensitivity")` | `rq2b_io_propagation.txt`, `rq2b_m_sensitivity.rds`, `rq2b_bns_io_check.txt`, `rq2a_unit_value_wedge.txt` |
-| **Table E.1** — neighbour / comparator structural breaks | `kz_passthrough/10_robustness.R` section (b) | `10`: neighbour-parallel block, `sctest(Fstats(...))` loop | `rq1_robustness.txt` |
+| **Table E.1** — neighbour / comparator structural breaks, + per-country "largest jump" year (added JIE R3, Referee B N3) | `kz_passthrough/10_robustness.R` section (b) | `10`: neighbour-parallel block, `sctest(Fstats(...))` loop, `pk <- s[which.max(...), yr]` | `rq1_robustness.txt` |
+| **Appendix — Public-record search protocols** (`app:search`, new JIE R3) | hand-assembled from the WebSearch queries used for §7/§9's components-sector searches | — (no script; both searches are best-effort WebSearch substitutes for a purchased greenfield register, disclosed as such) | — |
 | §5.2 structural breaks (monthly sup-F, CIs) | `kz_passthrough/04_probe_break_tests.R`, `06m_monthly_profile.R` | `04`: `sink("phase0_break_tests.txt")` (l. 14) | `phase0_break_tests.txt`, `rq1_monthly.txt` |
 | §6.2–6.3 value-capture headline, fiscal | `kz_passthrough/08_io_propagation.R`, `09_fiscal.R` | `08`, `09`: `sink(...)` headers | `rq2b_io_propagation.txt`, `rq2c_fiscal.txt` |
 | §6.1 flow-through gap decomposition, $521m counterfactual | `kz_passthrough/08_io_propagation.R` ("#7" and "#8" blocks) | `08`: secondary-item blocks | `rq2b_io_propagation.txt` |
