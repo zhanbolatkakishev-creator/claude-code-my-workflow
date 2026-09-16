@@ -245,6 +245,88 @@ Every profile has these fields:
 
 ---
 
+## International trade and finance
+
+### Journal of International Economics (JIE)
+
+**Short name:** `JIE`
+
+**Focus.** The flagship Elsevier field journal for international trade and international
+finance/macro — trade theory and its quantification, gravity and structural trade models,
+global value chains, trade policy (tariffs, non-tariff barriers, sanctions and trade
+reallocation), exchange rates, capital flows, and international finance. A country case study
+clears if it is framed as evidence on a general mechanism in the trade or international-finance
+literature, not as a description of one country's experience. Publishes "Your Paper Your Way"
+at initial submission (no formatting mandate pre-review). Does **not** publish pure policy
+commentary, atheoretic description, or a result that speaks only to the case country without a
+stated external-validity class.
+
+**Bar.** "A well-quantified mechanism that a trade or international-finance economist anywhere
+would recognise as adding to a live debate." Sits below the general-interest top-5 but above a
+regional/comparative field journal on both identification rigor and the breadth of the claimed
+contribution — a JIE referee wants the credibility bar of a top field journal *and* the
+"why should I, working on Vietnam or Mexico, care" test. Acceptance rate in the high single
+digits. A single-country case must (a) measure the phenomenon cleanly against a well-defined
+counterfactual, (b) map onto an explicit class of shocks or mechanisms in the trade/international
+literature (not just "Kazakhstan is interesting"), and (c) be honest about what the case does
+and does not identify.
+
+**Domain-referee adjustments.**
+- Contribution 30 → 32 (must matter to the trade/international-finance literature broadly, not
+  only to Central Asia or transition-economy specialists)
+- Lit positioning 25 → 28 (must engage the trade-reallocation, entrepôt/re-export, GVC and
+  investment-under-uncertainty literatures specifically, not institutions-and-development
+  broadly)
+- External validity 15 → 20 (a JIE referee pushes harder than a regional-journal referee on
+  whether a single-country, single-episode result travels to the stated class of cases)
+- Fit 10 → 10 (trade reorientation and value capture are squarely in scope; no adjustment)
+
+**Methods-referee adjustments.**
+- Identification 35 → 35 (no adjustment — JIE's bar is close to the template default: credible
+  quasi-experimental identification with limits stated, not top-5-absolute, but higher than a
+  regional field journal's tolerance for "illustrative" comparisons)
+- Measurement / calibration transparency 10 → 15 (JIE referees scrutinise any headline number
+  built on a chosen rather than estimated parameter — e.g. an assumed margin propagated through
+  an input–output table — and want the full sensitivity band, not just the point estimate)
+- Robustness 10 → 12 (structural breaks, permutation/randomisation inference, and
+  selection-on-outcome diagnostics are expected as standard, not bonus, for a paper whose sample
+  is defined by a data-driven rule)
+- Replication 5 → 8 (JIE's Elsevier data-and-code policy expects a runnable replication package
+  at acceptance)
+
+**Typical concerns.**
+- "The sample (the 'surge basket') is selected on the post-treatment outcome, and your own
+  permutation test shows the point estimate is not separable from that selection — what exactly
+  is identified here, and is the difference-in-differences doing any work the structural breaks
+  and neighbour comparison don't already do on their own?"
+- "The gates are described as a multiplicative organising device, not an estimated model. What
+  would it take to actually separate irreversibility from institutions, and why is that outside
+  this paper rather than a natural extension you should attempt?"
+- "The value-capture headline is a calibration on a hand-picked margin. You report the
+  sensitivity band, which is good practice — but a JIE reader will ask why the paper leads with
+  a point estimate at all rather than the band."
+- "You claim this is a case of a general phenomenon — a trade-policy-driven demand shock that
+  does not induce production. What is the reference class, and which other episodes (nearshoring,
+  China-plus-one, rules-of-origin-driven relocation) would this framework predict differently
+  for, in a way a reader could check?"
+- "Why should an international-economics reader who does not work on Central Asia care about
+  this specific episode, beyond 'it is a clean natural experiment'?"
+
+**Referee-pool weights.**
+- CREDIBILITY: 0.28
+- STRUCTURAL: 0.18
+- THEORY: 0.16
+- MEASUREMENT: 0.16
+- POLICY: 0.14
+- SKEPTIC: 0.08
+
+**Table format override.** Significance stars permitted; cluster-robust SE in parentheses;
+report N and the clustering dimension in every table note; author-date (Harvard) citation style
+at revision (`elsarticle`/`model5-names`), any consistent style accepted at initial submission
+under Your Paper Your Way.
+
+---
+
 ## Political Science (Top-3)
 
 Three flagship general-interest political-science journals. The `paper_type` taxonomy here typically resolves to `reduced-form`, `formal-theory`, or `survey-experiment` (added in v1.8.0 to support these journals). Other types still apply when relevant.
