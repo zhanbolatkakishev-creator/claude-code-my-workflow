@@ -30,9 +30,14 @@ gg[, `:=`(inWC_ratio  = (inWC_post + 1e4) / (inWC_pre + 1e4),
 gg[, surge := inWC_ratio >= 2 & expRU_ratio >= 2 & inWC_post >= 2e5 & expRU_post >= 1e5]
 p <- merge(p, gg[, .(hs6, surge, inWC_ratio, expRU_ratio)], by = "hs6", all.x = TRUE)
 p[is.na(surge), surge := FALSE]
+## exposed_only = the priority-list (CHPL) lines NOT in the data-driven surge basket -- a
+## selection-free residual set used to test whether the priority-list DiD is independent
+## corroboration or just the same lines (JIE round-1 review, Referee B Concern 2).
+p[, exposed_only := exposed == TRUE & surge == FALSE]
 save_out(gg, "surge_basket_stats")
 cat("surge-basket HS6 (West+China rule):", sum(gg$surge), "of", nrow(gg),
-    "| dual-use among surge:", p[surge == TRUE, uniqueN(hs6[exposed == TRUE])], "\n")
+    "| dual-use among surge:", p[surge == TRUE, uniqueN(hs6[exposed == TRUE])],
+    "| exposed_only (priority-list, non-surge) HS6:", p[, uniqueN(hs6[exposed_only == TRUE])], "\n")
 
 mk <- function(dt, yv, tv) {
   dt <- copy(dt); dt[, y := asinh(get(yv))]; dt[, TR := as.integer(get(tv))]
@@ -46,15 +51,33 @@ cat("===== RQ1: trade reorientation through Kazakhstan (freq =", FREQ, ") =====\
 cat(" inbound measure: mirWC_usd = West (EU-27/UK/US/JP/KR/CH/NO) + China mirrored exports to KZ\n")
 
 OUTC <- c("expRU_usd", "mirWC_usd", "mirW_usd", "impW_usd", "mirror_gap_wc")
-for (tv in c("surge", "exposed")) {
-  cat("\n########", tv,
-      ifelse(tv == "exposed", "(dual-use CHPL list — pre-specified robustness)",
-             "(data-driven surge basket, West+China rule)"), "########\n")
+tv_labels <- c(surge = "(data-driven surge basket, West+China rule)",
+               exposed = "(dual-use CHPL list — pre-specified robustness)",
+               exposed_only = "(priority list MINUS surge basket -- independence check, JIE round-1 Referee B C2)")
+for (tv in c("surge", "exposed", "exposed_only")) {
+  cat("\n########", tv, tv_labels[[tv]], "########\n")
   for (yv in OUTC) {
     cat("\n----", yv, "(asinh) : DiD  TR:post ----\n"); print(coeftable(mk(p, yv, tv)$did))
   }
   cat("\n-- event study: KZ imports from West+China (mirWC_usd) --\n")
   print(coeftable(mk(p, "mirWC_usd", tv)$es))
+}
+
+## ---- independence check: wild-cluster bootstrap p for exposed_only, same protocol as surge --
+if (FREQ == "A") {
+  cat("\n-- exposed_only (priority list minus surge basket): wild cluster bootstrap p --\n")
+  wcb_tv <- function(yv, tv, B = 1999) {
+    d <- copy(p); d[, TR := as.integer(get(tv))]; d[, y := asinh(get(yv))]
+    t_obs <- coeftable(feols(y ~ TR:post | hs6 + tt, d, cluster = ~hs6))["TR:post","t value"]
+    rest  <- feols(y ~ 1 | hs6 + tt, d)
+    d[, `:=`(fit_r = predict(rest), e_r = resid(rest))]; cl <- unique(d$hs6)
+    tb <- replicate(B, { w <- setNames(sample(c(-1,1), length(cl), TRUE), cl)
+      d[, yb := fit_r + e_r * w[as.character(hs6)]]
+      coeftable(feols(yb ~ TR:post | hs6 + tt, d, cluster = ~hs6))["TR:post","t value"] })
+    mean(abs(tb) >= abs(t_obs))
+  }
+  for (yv in c("expRU_usd","mirWC_usd"))
+    cat(sprintf("  exposed_only %-11s : p_wcb = %.3f\n", yv, wcb_tv(yv, "exposed_only")))
 }
 
 ## ---- pre-trend joint test (surge basket) --------------------------------
@@ -63,6 +86,17 @@ for (yv in c("mirWC_usd", "expRU_usd")) {
   es <- mk(p, yv, "surge")$es
   w <- tryCatch(wald(es, keep = "t_rel::-[2-9]"), error = function(e) NULL)
   if (!is.null(w)) cat(sprintf("  %-11s : F = %.3f  p = %.3f\n", yv, w$stat, w$p))
+}
+
+## ---- 2018 individual coefficient (JIE round-1 Referee B minor #3): the selection rule uses
+## the 2019-2021 mean as its denominator, so 2018 is the one pre-period year outside the
+## selection window and the most informative single placebo-year check.
+cat("\n-- 2018 individual event-study coefficient (outside the 2019-2021 selection window) --\n")
+for (yv in c("mirWC_usd", "expRU_usd")) {
+  es <- mk(p, yv, "surge")$es; ct <- coeftable(es)
+  rn <- grep("t_rel::-4", rownames(ct), value = TRUE)  # 2018 relative to 2022 treat year = t_rel -4
+  if (length(rn)) cat(sprintf("  %-11s : b=%.3f  se=%.3f  p=%.3f  (row: %s)\n",
+                              yv, ct[rn,1], ct[rn,2], ct[rn,4], rn))
 }
 
 ## ---- selection-aware inference (annual only; the review's C1) -----------
@@ -99,6 +133,26 @@ if (FREQ == "A") {
     m <- tryCatch(fepois(yy ~ TR:post | hs6 + tt, d, cluster = ~hs6), error = function(e) NULL)
     if (!is.null(m)) { ct <- coeftable(m)["TR:post", ]
       cat(sprintf("  %-11s : b=%.3f se=%.3f p=%.4g  exp(b)=%.2fx\n", yv, ct[1], ct[2], ct[4], exp(ct[1]))) }
+  }
+}
+
+## ---- selection-free level check: annual expRU for the priority list and its residual ----
+## (JIE round-1 Referee B C3: is "roughly tenfold" a fact about the surge basket's selection
+## rule, or does a product set NOT selected on Kazakh outcomes show a comparable ratio?)
+if (FREQ == "A") {
+  lvl <- function(flag_col) {
+    d <- p[get(flag_col) == TRUE, .(expRU = sum(expRU_usd), mirWC = sum(mirWC_usd)), by = .(yr = year(tt))][order(yr)]
+    pre_mean  <- d[yr %in% 2018:2021, mean(expRU)]
+    post_mean <- d[yr %in% 2022:2025, mean(expRU)]
+    list(levels = d, ratio = post_mean / pre_mean)
+  }
+  cat("\n-- selection-free level check: annual KZ exports to Russia, by product set --\n")
+  for (nm in c("surge", "exposed", "exposed_only")) {
+    r <- lvl(nm)
+    cat(sprintf("  %-13s : pre-2022 mean $%.1fm, post-2022 mean $%.1fm, ratio %.1fx\n",
+                nm, r$levels[yr %in% 2018:2021, mean(expRU)]/1e6,
+                r$levels[yr %in% 2022:2025, mean(expRU)]/1e6, r$ratio))
+    save_out(r$levels, paste0("rq1_levels_", nm))
   }
 }
 

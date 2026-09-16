@@ -55,3 +55,11 @@ BNS resources table margin rates (% of basic-price value):
   -> section 5.2 uses m = 6-14%: freight/insurance + a WHOLESALE trade margin, i.e.
      above the transport-only floor and well below the full margin (which carries the
      retail leg the corridor never performs).
+
+data-derived trade-margin-only anchor (excludes transport; likely still bundles
+  retail, since this table does not split wholesale from retail margins):
+  all goods (CPA 01-33)             : trade margin only = 40.8%
+  machinery+electronics (CPA 26-28)  : trade margin only = 48.4%
+  -> read as an UPPER bound on the wholesale-only component of m (it still includes
+     retail); it is not evidence the 6-14% band is too low, since retail must be netted
+     out and this table does not let us do that split directly.

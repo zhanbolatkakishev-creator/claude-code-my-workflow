@@ -114,5 +114,18 @@ cat(sprintf("  machinery+electronics (CPA 26-28) : transport %.1f%%   trade+tran
 cat("  -> section 5.2 uses m = 6-14%: freight/insurance + a WHOLESALE trade margin, i.e.\n")
 cat("     above the transport-only floor and well below the full margin (which carries the\n")
 cat("     retail leg the corridor never performs).\n")
+
+## JIE round-1 review, Referee B Concern 7: a data-derived anchor for m, rather than only the
+## transport-only floor and full trade+transport ceiling. The resources table's "trade_m"
+## column is the trade-margin component net of transport (trans_m); it is NOT separately split
+## into wholesale vs. retail in this table, so it is reported as an upper-bound anchor for the
+## wholesale-only slice the paper's band targets, not as a like-for-like wholesale estimate.
+cat(sprintf("\ndata-derived trade-margin-only anchor (excludes transport; likely still bundles\n"))
+cat(sprintf("  retail, since this table does not split wholesale from retail margins):\n"))
+cat(sprintf("  all goods (CPA 01-33)             : trade margin only = %.1f%%\n", mrate(goods, "trade_m")))
+cat(sprintf("  machinery+electronics (CPA 26-28)  : trade margin only = %.1f%%\n", mrate(mach, "trade_m")))
+cat("  -> read as an UPPER bound on the wholesale-only component of m (it still includes\n")
+cat("     retail); it is not evidence the 6-14% band is too low, since retail must be netted\n")
+cat("     out and this table does not let us do that split directly.\n")
 sink()
 message("wrote _outputs/rq2b_bns_io_check.txt")

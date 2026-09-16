@@ -24,12 +24,19 @@ p07 <- readRDS(file.path(DIR_OUT, "rq2a_cell_measures.rds")); setDT(p07)
 
 ## ---- incremental flows (reorientation-attributable), $m ----------------------
 base_yr <- 2018:2021; post_yr <- 2022:2025
+## JIE round-1 review, Referee B Concern 5: the 2025 mirWC_usd figure is Western-only (China
+## has not yet reported), so mixing it into a West+China increment against a West+China
+## baseline produces a spurious negative 2025 contribution. West/outbound are reported for
+## the full window and are unaffected; the West+China ("mirWC") increment is restricted to
+## 2022-2024, the years both components are actually reported, and both versions are printed.
+post_yr_wc <- 2022:2024
 b_expRU  <- p[surge == TRUE & year(tt) %in% base_yr, sum(expRU_usd)]  / length(base_yr)
 b_mirW   <- p[surge == TRUE & year(tt) %in% base_yr, sum(mirW_usd)]   / length(base_yr)
 b_mirWC  <- p[surge == TRUE & year(tt) %in% base_yr, sum(mirWC_usd)]  / length(base_yr)
 incr_expRU <- max(0, p[surge == TRUE & year(tt) %in% post_yr, sum(expRU_usd)] - b_expRU * length(post_yr)) / 1e6
 incr_mirW  <- max(0, p[surge == TRUE & year(tt) %in% post_yr, sum(mirW_usd)]  - b_mirW  * length(post_yr)) / 1e6
-incr_mirWC <- max(0, p[surge == TRUE & year(tt) %in% post_yr, sum(mirWC_usd)] - b_mirWC * length(post_yr)) / 1e6
+incr_mirWC_mixed <- max(0, p[surge == TRUE & year(tt) %in% post_yr, sum(mirWC_usd)] - b_mirWC * length(post_yr)) / 1e6
+incr_mirWC <- max(0, p[surge == TRUE & year(tt) %in% post_yr_wc, sum(mirWC_usd)] - b_mirWC * length(post_yr_wc)) / 1e6
 gross_musd <- incr_expRU
 
 ## ---- matched-cell unit-value wedge: descriptive only (see header) ------------
@@ -43,10 +50,12 @@ sink(file.path(DIR_OUT, "rq2b_io_propagation.txt"), split = TRUE)
 cat("===== RQ2(b): domestic value capture from the trade reorientation =====\n\n")
 cat(sprintf("baseline 2018-21 : KZ->Russia $%.0f m/yr | Western inbound $%.0f m/yr | West+China inbound $%.0f m/yr\n",
             b_expRU/1e6, b_mirW/1e6, b_mirWC/1e6))
-cat(sprintf("incremental 2022-25 (reorientation-attributable): outbound $%.0f m ; Western inbound $%.0f m ; West+China inbound $%.0f m\n",
-            incr_expRU, incr_mirW, incr_mirWC))
-cat(sprintf("incremental flow-through: out / Western in = %.2f ;  out / West+China in = %.2f\n\n",
-            incr_expRU/incr_mirW, incr_expRU/incr_mirWC))
+cat(sprintf("incremental 2022-25 (reorientation-attributable): outbound $%.0f m ; Western inbound $%.0f m\n",
+            incr_expRU, incr_mirW))
+cat(sprintf("West+China inbound increment: 2022-24 only (both components reported) $%.0f m ; 2022-25 mixed-basis (2025 = Western-only, NOT used) $%.0f m\n",
+            incr_mirWC, incr_mirWC_mixed))
+cat(sprintf("incremental flow-through: out / Western in = %.2f ;  out / West+China in (2022-24) = %.2f  [mixed-basis 2022-25 would be %.2f -- do not use]\n\n",
+            incr_expRU/incr_mirW, incr_expRU/incr_mirWC, incr_expRU/incr_mirWC_mixed))
 cat(sprintf("matched-cell unit-value wedge (07), descriptive only: censored gross margin = %+.2f ; value-weighted aggregate = %+.2f\n",
             m_gross_censored, m_agg_uncensored))
 cat("  -> not a usable margin estimate (censoring inflates; the aggregate is a c.i.f./f.o.b. + under-invoicing artifact).\n")

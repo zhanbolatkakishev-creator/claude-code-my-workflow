@@ -1,5 +1,23 @@
 # Reproducibility Audit: Corridor, Not Factory
 
+> **JIE ROUND-1 REVISION (2026-09-16, `fix/corridor-jie-r1-revision`).** Full response to the
+> simulated `/review-paper --peer JIE` Major Revision decision
+> (`quality_reports/peer_review_corridor_JIE/`); see `response_to_referees_r1.md` for the
+> item-by-item mapping. Six R scripts extended (`06_eventstudy_did.R`, `06m_monthly_profile.R`,
+> `08_io_propagation.R`, `08b_kz_bns_io.R`, `10_robustness.R`, `12_did_robustness.R`), all
+> re-run end-to-end via `00_run_all.R`, no errors. Every new number in the manuscript was
+> checked against its `_outputs/*.txt` line before being written into prose. Two genuine
+> findings changed the paper's claims rather than just its presentation: (1) the 26
+> priority-list lines not in the surge basket show a null DiD (γ = −0.15, p = 0.87 bootstrap),
+> so the "independent list corroborates the magnitude" claim is withdrawn and identification is
+> restated around the break dates, raw levels and neighbour comparison; (2) an HAC (Newey-West)
+> correction to the monthly break-date test leaves the confidence interval unchanged
+> (2022m4--2022m6), so the reform-confound timing argument is unaffected. Six new citations
+> added to `corridor.bib`, each WebSearch-verified (author/year/journal/volume/pages) before
+> entry: Handley--Lim\~ao (2015 AEJ:Policy, 2017 AER), Bown--Crowley (2007 JIE), Brainard (1997
+> AER), Helpman--Melitz--Yeaple (2004 AER), Ekholm--Forslid--Markusen (2007 JEEA). Compiles
+> clean: 46 pp (was 42), 34 cites (was 28), 0 undefined, no new overfull boxes.
+
 > **QIC REPORT GATE CLOSED (2026-09-15).** The final published PDF of the QIC/AIFC/IFC *Private
 > Equity Market in Kazakhstan* report (September 2026) was obtained and every corridor.tex claim
 > citing `qicaifcifc2026pe` was checked against it (full text extracted via `pdftools`,

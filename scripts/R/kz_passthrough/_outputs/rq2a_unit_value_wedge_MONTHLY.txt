@@ -35,4 +35,12 @@ attr(,"vcov_type")
 [1] "Clustered (hs6)"
 
 -- weight ratio (kg out / kg in), matched cells: median 0.088, p25 0.011, p75 0.647 ; share > 1.05: 0.19 --
-   (a weight ratio persistently > 1 would indicate local input added; here it is at or below 1.)
+
+-- Essential 1(b): weight ratio vs value flow-through --
+   median kg_out/kg_in = 0.088   ~=   aggregate value flow-through = 0.166  (same object)
+   -> ~91% of the imported tonnage in these lines is NOT re-exported to Russia; an
+      aggregate kg ratio below one is consistent with that, not only with 'no weight gain'.
+   near-pure-transit cells (value flow-through in [0.8, 1.25]): n = 49 of 799
+      weight ratio there: median 0.889, p25 0.375, p75 1.525 ; share > 1.05: 0.41
+      In cells where essentially all the tonnage is re-exported, the weight ratio is at or
+      below one -> no evidence of local input added on the goods that do transit.

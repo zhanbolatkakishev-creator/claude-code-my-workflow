@@ -58,3 +58,20 @@
     READ: even holding the trend fixed and only moving the break off 2022, the rule
     almost never reproduces a 29-line basket -- the 2022 alignment, not a pre-existing
     trend, is what the selection picks up.
+
+(g-2) trend-preserving (cyclic-shift) gamma null (companion to (a)'s free-permutation null):
+    observed gamma (exports to Russia)            : 2.441
+    cyclic-null gamma  mean | sd | p95            : 1.637 | 1.199 | 3.527  (B=814)
+    p (|cyclic-perm gamma| >= |observed|)         : 0.286
+    READ: as expected, preserving each line's own trend/autocorrelation narrows the null
+    relative to (a)'s free permutation; this does not overturn (a)'s conclusion that the
+    magnitude is not separable from the post-outcome selection.
+
+(h) randomisation inference for the priority-list ("exposed") gamma:
+    observed gamma (priority list, exports to Russia)  : 2.875
+    random-50-line-basket null gamma mean | sd | p95   : 0.002 | 0.965 | 1.590  (B=2000)
+    p (|random-basket gamma| >= |observed|)            : 0.002
+    READ: unlike the data-driven surge basket, the priority list is not selected on Kazakh
+    outcomes, so this is a check on whether ANY 50-line HS6 basket would show this gamma,
+    not a selection-on-outcome diagnostic -- a low p here means the priority-list result is
+    unusual relative to a random product basket of the same size.

@@ -15,6 +15,9 @@ attr(,"vcov_type")
 
   5 civilian HS6 fall in the surge basket; their share of post-2022 gross flow to RU: 5.1%
 
+  placebo fake-treatment ('big', top pre-2022 quartile) assigned to: 330499, 620342, 630260, 640399, 691110, 950300
+  of these, in the surge basket (contamination check): NONE
+
 ===== (b) NEIGHBOUR-INTERMEDIARY PARALLEL (Armenia, Kyrgyz Rep. | Georgia, Turkiye) =====
 
 Exports to Russia, surge-basket HS6, $m:

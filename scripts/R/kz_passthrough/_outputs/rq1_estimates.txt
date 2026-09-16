@@ -90,27 +90,84 @@ t_rel::3:TR  2.0949680  0.8375957 2.5011685 0.0145903888
 attr(,"vcov_type")
 [1] "Clustered (hs6)"
 
+######## exposed_only (priority list MINUS surge basket -- independence check, JIE round-1 Referee B C2) ########
+
+---- expRU_usd (asinh) : DiD  TR:post ----
+          Estimate Std. Error    t value  Pr(>|t|)
+TR:post -0.1505803  0.9415397 -0.1599298 0.8733721
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+---- mirWC_usd (asinh) : DiD  TR:post ----
+          Estimate Std. Error    t value  Pr(>|t|)
+TR:post -0.4939412   1.001959 -0.4929756 0.6234896
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+---- mirW_usd (asinh) : DiD  TR:post ----
+          Estimate Std. Error    t value  Pr(>|t|)
+TR:post -0.3465231  0.9562754 -0.3623674 0.7181103
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+---- impW_usd (asinh) : DiD  TR:post ----
+         Estimate Std. Error   t value  Pr(>|t|)
+TR:post 0.2719142    0.66673 0.4078326 0.6845741
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+---- mirror_gap_wc (asinh) : DiD  TR:post ----
+        Estimate Std. Error   t value  Pr(>|t|)
+TR:post 2.073851   2.133614 0.9719898 0.3342221
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+-- event study: KZ imports from West+China (mirWC_usd) --
+                Estimate Std. Error     t value  Pr(>|t|)
+t_rel::-4:TR  0.13458805  0.4679440  0.28761572 0.7744448
+t_rel::-3:TR  0.24918129  0.2081673  1.19702426 0.2351178
+t_rel::-2:TR -0.21607350  0.3049555 -0.70854115 0.4808354
+t_rel::0:TR   0.02039606  1.0019417  0.02035653 0.9838137
+t_rel::1:TR  -0.08697034  0.9825708 -0.08851305 0.9297080
+t_rel::2:TR  -0.67202142  1.0672974 -0.62964778 0.5308643
+t_rel::3:TR  -1.06947323  1.2327546 -0.86754757 0.3884467
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+
+-- exposed_only (priority list minus surge basket): wild cluster bootstrap p --
+  exposed_only expRU_usd   : p_wcb = 0.870
+  exposed_only mirWC_usd   : p_wcb = 0.669
+
 -- pre-trend joint Wald test (surge basket) --
 Wald test, H0: joint nullity of t_rel::-4:TR, t_rel::-3:TR and t_rel::-2:TR
  stat = 0.962715, p-value = 0.414982, on 3 and 74 DoF, VCOV: Clustered (hs6).  mirWC_usd   : F = 0.963  p = 0.415
 Wald test, H0: joint nullity of t_rel::-4:TR, t_rel::-3:TR and t_rel::-2:TR
  stat = 0.36687, p-value = 0.777113, on 3 and 74 DoF, VCOV: Clustered (hs6).  expRU_usd   : F = 0.367  p = 0.777
 
+-- 2018 individual event-study coefficient (outside the 2019-2021 selection window) --
+  mirWC_usd   : b=0.021  se=0.291  p=0.942  (row: t_rel::-4:TR)
+  expRU_usd   : b=0.188  se=0.897  p=0.835  (row: t_rel::-4:TR)
+
 -- wild cluster bootstrap p (Rademacher, restricted resid, cluster=HS6, B=1999) --
-  surge expRU_usd   : p_wcb = 0.010
-  surge mirWC_usd   : p_wcb = 0.051
-  surge mirW_usd    : p_wcb = 0.090
+  surge expRU_usd   : p_wcb = 0.013
+  surge mirWC_usd   : p_wcb = 0.052
+  surge mirW_usd    : p_wcb = 0.084
   surge impW_usd    : p_wcb = 0.002
 
 -- randomisation inference: surge-basket gamma vs a random basket of the same size --
-  expRU_usd   : gamma=2.441  p2=0.009  p_upper=0.005
-  mirWC_usd   : gamma=2.099  p2=0.025  p_upper=0.019
-  mirW_usd    : gamma=1.730  p2=0.058  p_upper=0.034
-  impW_usd    : gamma=1.884  p2=0.004  p_upper=0.002
+  expRU_usd   : gamma=2.441  p2=0.009  p_upper=0.004
+  mirWC_usd   : gamma=2.099  p2=0.033  p_upper=0.022
+  mirW_usd    : gamma=1.730  p2=0.052  p_upper=0.031
+  impW_usd    : gamma=1.884  p2=0.004  p_upper=0.003
 
 -- PPML (fepois) DiD in levels, surge basket --
   expRU_usd   : b=1.262 se=0.523 p=0.01581  exp(b)=3.53x
   mirWC_usd   : b=0.854 se=0.210 p=4.538e-05  exp(b)=2.35x
+
+-- selection-free level check: annual KZ exports to Russia, by product set --
+  surge         : pre-2022 mean $11.3m, post-2022 mean $131.1m, ratio 11.6x
+  exposed       : pre-2022 mean $72.7m, post-2022 mean $253.7m, ratio 3.5x
+  exposed_only  : pre-2022 mean $62.5m, post-2022 mean $147.4m, ratio 2.4x
 
 -- structural breaks (supF + Bai-Perron) on the surge-basket aggregate --
   mirWC  : supF = 4.12  p = 0.2669  

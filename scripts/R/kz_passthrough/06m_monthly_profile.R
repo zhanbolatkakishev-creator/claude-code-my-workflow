@@ -5,7 +5,7 @@
 # 2022m3, and the in->out lag.
 
 source("00_setup.R")
-suppressMessages({library(data.table); library(fixest); library(strucchange); library(ggplot2)})
+suppressMessages({library(data.table); library(fixest); library(strucchange); library(ggplot2); library(sandwich)})
 
 p  <- readRDS(file.path(DIR_OUT, "panel_monthly.rds")); setDT(p)
 fb <- readRDS(file.path(DIR_OUT, "surge_basket_frozen.rds")); setDT(fb)
@@ -24,21 +24,33 @@ cat("months:", as.character(range(ag$tt)), " (2024 dropped: KZ stopped monthly r
 cat("inbound = mirWC (West EU-27/UK/US/JP/KR/CH/NO + China mirrored exports to KZ)\n\n")
 
 ## structural break on the monthly aggregate series -> BREAK DATE(S) + 95% CI
+## JIE round-1 review, Referee B Concern 4: the homoskedastic sup-F/CI is uncorrected on a
+## series described throughout as highly persistent. Report the standard (homoskedastic)
+## break date + CI alongside an HAC-corrected (Newey-West) version of both, so the reform-
+## confound "precedes the June referendum" argument states which interval it relies on.
+hac_vcov <- function(x) sandwich::NeweyWest(x, prewhite = FALSE)
 for (v in c("mirWC", "mirW", "expRU")) {
   s  <- ts(asinh(ag[[v]]), frequency = 12, start = c(year(min(ag$tt)), month(min(ag$tt))))
   bp <- breakpoints(s ~ 1, h = 0.15)
   st <- sctest(Fstats(s ~ 1, from = 0.15), type = "supF")
-  bd <- "none"
+  st_hac <- tryCatch(sctest(Fstats(s ~ 1, from = 0.15, vcov = hac_vcov), type = "supF"),
+                      error = function(e) NULL)
+  bd <- "none"; bd_hac <- "none"
   if (!all(is.na(bp$breakpoints))) {
     ci <- tryCatch(confint(bp)$confint, error = function(e) NULL)
-    bd <- if (!is.null(ci))
+    ci_hac <- tryCatch(confint(bp, vcov. = hac_vcov)$confint, error = function(e) NULL)
+    fmt_ci <- function(ci_mat) if (!is.null(ci_mat))
       paste(sprintf("%s [%s,%s]", format(ag$tt[bp$breakpoints], "%Y-%m"),
-                    format(ag$tt[pmax(1, ci[, 1])], "%Y-%m"),
-                    format(ag$tt[pmin(nrow(ag), ci[, 3])], "%Y-%m")), collapse = "; ")
+                    format(ag$tt[pmax(1, ci_mat[, 1])], "%Y-%m"),
+                    format(ag$tt[pmin(nrow(ag), ci_mat[, 3])], "%Y-%m")), collapse = "; ")
       else paste(format(ag$tt[bp$breakpoints], "%Y-%m"), collapse = ", ")
+    bd <- fmt_ci(ci); bd_hac <- fmt_ci(ci_hac)
   }
-  cat(sprintf("  %-6s : supF = %.1f  p = %.3g   Bai-Perron breaks = %s\n",
+  cat(sprintf("  %-6s : supF = %.1f  p = %.3g   Bai-Perron breaks (homoskedastic) = %s\n",
               v, st$statistic, st$p.value, bd))
+  if (!is.null(st_hac))
+    cat(sprintf("  %-6s : supF (HAC, Newey-West) = %.1f  p = %.3g   Bai-Perron breaks (HAC CI) = %s\n",
+                v, st_hac$statistic, st_hac$p.value, bd_hac))
 }
 
 ## event study on the aggregate (monthly), window +-15 months, ref = -1

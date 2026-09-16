@@ -40,18 +40,23 @@ Replication materials (code, query specifications, public data) are at
 domestic investment. After February 2022, with Russia's direct trade with its main partners
 disrupted, part of it was reallocated through neighbouring economies, Kazakhstan among them.
 Using product-level trade data (HS6, 2018--2025) we measure the demand shock, estimate what
-Kazakhstan retains, and ask whether it induced investment. In 29 product lines, exports to
-Russia rise discontinuously in May 2022, roughly tenfold; an externally compiled product list,
-not selected on Kazakh outcomes, shows the same break. Propagating a wholesale-and-freight
-margin (6--14\%, a band we choose rather than estimate) through the input--output table
-implies domestic value added of 5--11 cents per rerouted dollar, against about three-quarters
-for a produced dollar. Across three commercial deal databases we find no investment response
-in the reoriented lines, though four post-2022 years rule out only a large one. We read the
-null through three gates: market access, irreversibility and capital-market institutions. The
-case identifies an open market-access gate, created by a customs union that makes trade a
-close substitute for production, and rules out capital-market institutions as the binding
-constraint; whether irreversibility independently binds cannot be settled here. Kazakhstan
-operates as a corridor, not a factory.
+Kazakhstan retains, and ask whether it induced investment. Exports to Russia in 29 product
+lines break discontinuously in May 2022 and rise roughly tenfold; the break date survives an
+HAC correction, but the basket's difference-in-differences is not separable from its own
+selection rule, and a 50-line externally compiled priority list corroborates the break date
+rather than the magnitude, so identification rests on the break dates, raw levels, and a
+neighbour comparison rather than on the cross-sectional regression. Propagating a
+wholesale-and-freight margin (6--14\%, a band we choose rather than estimate) through the
+input--output table implies domestic value added of 5--11 cents per rerouted dollar, against
+about three-quarters for a produced dollar, a reading that holds for any margin under about a
+fifth. Across three commercial deal databases we find no investment response in the sectors the
+flow passes through, though four post-2022 years rule out only a large one. We read the null
+through three gates --- market access, irreversibility and capital-market institutions ---
+each independently sufficient, though not shown to be independently necessary, to drive the
+response toward zero. The case identifies an open market-access gate, created by a customs
+union that makes trade a close substitute for production, and finds that the least
+capital-constrained investor in the economy did not build either; whether irreversibility
+independently binds cannot be settled here. Kazakhstan operates as a corridor, not a factory.
 
 \medskip
 \noindent\textbf{Keywords:} trade reorientation, demand shocks, investment under
@@ -91,15 +96,21 @@ We proceed in three steps.
 \emph{First, we measure the shock.} Using UN Comtrade at HS6, annual for 2018--2025 and
 monthly for 2019--2025, we identify from the data a ``surge basket'' of 29 product lines in
 which the outflow to Russia and the inbound flow (Western reporters plus China) both at least
-doubled from 2019--2021 to 2022--2024. The outbound aggregate breaks sharply in 2022m5
-(monthly sup-$F$ of 561); the inbound flow breaks in the same month but more weakly, and not
-at all in the noisier annual series, where a large pre-existing China flow dominates. Armenia
-and the Kyrgyz Republic show the same 2022 break with no comparable domestic reform. A
-difference-in-differences against control lines gives $\gamma = 2.44$ on the data-driven
-basket, but a selection-rule-matched permutation places the estimate inside its own null
-distribution, so we do not read that coefficient as an identified magnitude. The
-externally compiled priority list, which is not selected on Kazakh outcomes, gives the same
-sign and pattern; a placebo on the largest civilian lines runs the other way.
+doubled from 2019--2021 to 2022--2024. The outbound aggregate breaks sharply in 2022m5 (monthly
+sup-$F$ of 561, or 326 under a Newey--West correction, with an unchanged confidence interval);
+the inbound flow breaks in the same month but more weakly, and not at all in the noisier annual
+series, where a large pre-existing China flow dominates. Armenia and the Kyrgyz Republic show
+the same 2022 break with no comparable domestic reform. A difference-in-differences against
+control lines gives $\gamma = 2.44$ on the data-driven basket, but a selection-rule-matched
+permutation places the estimate inside its own null distribution, so we do not read that
+coefficient as an identified magnitude. The externally compiled priority list breaks at the
+same date, but we do not read it as independent corroboration of the basket's magnitude: its
+own level rise is a third as large (3.5$\times$ against the surge basket's 11.6$\times$), and
+the 26 priority-list lines that are not already in the surge basket show a
+difference-in-differences indistinguishable from zero ($\gamma = -0.15$, bootstrap $p = 0.87$)
+--- so the priority list's significant coefficient is carried entirely by the lines it shares
+with the surge basket. A placebo on the largest civilian lines runs the other way, with no
+overlap between the lines it fake-treats and the surge basket.
 
 \emph{Second, we measure what Kazakhstan retains.} On the incremental flow to Russia (about
 \$479m over 2022--2025), the unit-value and weight evidence does not sharply distinguish the
@@ -148,15 +159,20 @@ shock reveals go unfinanced by private capital.
 empirical: to our knowledge it is the first host-economy analysis of what a transit economy
 retains from a post-2022 trade reallocation and of whether it induced investment, extending a
 literature that establishes the fact and scale of the reallocation to what the intermediary
-retains from it, and to 2025. It shows that a large,
+retains from it, and to 2025. It also connects to \citet{bowncrowley2007}'s finding that
+import-restricting trade policy deflects a foreign country's exports into third markets: the
+present case takes that deflected flow as its starting point and asks what the receiving
+economy does with it. It shows that a large,
 sector-specific tradeable-demand shock produced no detectable investment response, a fact that
 speaks to when trade shocks induce a domestic supply response and when they do not
 \citep{juhasz2018temporary,bloom2016trade,juhaszlanerodrik2024,gopinathneiman2014}.
 (ii) It organises the two standard readings of a missing supply response (investment under
-uncertainty and irreversibility \citep{dixitpindyck1994}, and institutional voids in the
+uncertainty and irreversibility \citep{dixitpindyck1994,handleylimao2015,handleylimao2017}, and
+institutional voids in the
 capital market \citep{khanna1997,khannapalepu2000,rajanzingales1998}) into a single
 decomposition, and adds a customs-union market-access gate under which trade substitutes for
-production. As Section~\ref{sec:why} sets out, the case establishes an open market-access gate
+production, engaging the alternative that an export-platform FDI response should instead
+predict \citep{brainard1997,helpmanmelitzyeaple2004,ekholmforslidmarkusen2007}. As Section~\ref{sec:why} sets out, the case establishes an open market-access gate
 and rules the institutional gate out as the binding constraint for this null, and leaves the
 irreversibility gate undetermined; the decomposition is an organising device, and we do not
 estimate it. (iii) Methodologically,
@@ -240,7 +256,11 @@ $V_T = \dfrac{\mu_T Q}{1-\rho/(1+r)}$. Building is profitable only if
 \label{eq:build}
 \end{equation}
 where $\Omega$ is the value of the option to defer, increasing in the uncertainty $\sigma$
-around the shock's size and duration and decreasing in $\rho$ \citep{dixitpindyck1994}. Four
+around the shock's size and duration and decreasing in $\rho$ \citep{dixitpindyck1994}. The
+policy-contingent uncertainty that raises $\Omega$ here is the same channel
+\citet{handleylimao2015,handleylimao2017} formalise and estimate for trade-policy uncertainty
+depressing export entry and investment; \eqref{eq:build} adds the re-export outside option
+$V_T$ to that channel, which is the addition the market-access gate below turns on. Four
 observations follow.
 
 \emph{(i) The irreversibility gate.} The right-hand side of \eqref{eq:build} is large exactly
@@ -256,17 +276,43 @@ through trade indefinitely. The demand shock raises the return to \emph{both} ma
 the shock is transitory and $\mu_T$ is available at low cost, \eqref{eq:build} fails and the
 supply response is trade rather than production. A corollary: if $\mu_P \le \mu_T$ (a domestic
 plant's per-unit transformation margin is no larger than the margin a re-exporter already
-earns), building is dominated before $\Omega$ is added. We do not identify $\mu_T$ from the unit-value
-evidence (Section~\ref{sec:capture}); what indicates $\mu_P \lesssim \mu_T$ is instead the
-sector's near-zero domestic base ($\approx$ \$230m of electronics output) and its low
-value-added multiplier ($0.69$; Section~\ref{sec:where}), which put a domestic plant's
-transformation margin below the thin markup a re-exporter already earns.
+earns), building is dominated before $\Omega$ is added. We do not identify $\mu_P$ or $\mu_T$
+directly; two pieces of evidence are suggestive, not dispositive, that $\mu_P \lesssim \mu_T$
+for this sector. First, its domestic value-added multiplier ($0.69$; Section~\ref{sec:where})
+is a share of gross output accruing domestically, not a per-unit margin, so it bears on
+$\mu_P$ only loosely: a low multiplier is consistent with a low transformation margin but does
+not measure it. Second, the sector's near-zero domestic base ($\approx$ \$230m of electronics
+output) is itself the outcome the paper is trying to explain, so citing it as evidence for
+$\mu_P \lesssim \mu_T$ risks circularity --- an absent industry is equally what a customs union
+with no comparative advantage in the sector would produce, independent of any margin
+comparison. We return to this alternative reading, and what would distinguish it, in
+observation (iii).
 
 \emph{(iii) The market-access gate.} If serving the final market instead \emph{required}
 domestic transformation (binding rules of origin, local-content rules, or simply a customs
 border that a pure re-export cannot cross), then $V_T \to 0$ and \eqref{eq:build} is far more
 likely to hold. Membership of a customs union with the destination opens this gate and is
-what makes trade a viable substitute for production. The same logic runs through the
+what makes trade a viable substitute for production.
+
+This is not the only prediction a customs union makes, however, and the case for the gate
+having bound here is joint, not stand-alone. The export-platform FDI literature
+\citep{brainard1997,helpmanmelitzyeaple2004,ekholmforslidmarkusen2007} shows that lower trade
+costs with a destination can pull \emph{production} toward the member that serves it
+tariff-free just as readily as they enable pure re-export: a customs union lowers the cost of
+shipping a finished good onward from a local plant exactly as it lowers the cost of re-export,
+so $\mu_P$ and $V_T$ can rise together, and \eqref{eq:build} on its own does not say which
+effect dominates. An open market-access gate drives $R$ toward zero only jointly with a small
+transformation margin ($\mu_P \lesssim \mu_T$); membership in a customs union alone does not
+deliver that combination, which is why observation (ii) treats the margin comparison as
+suggestive rather than settled. What would distinguish the two readings is direct evidence on
+$\mu_P$: the transformation margin actually available to a Kazakh producer in a
+customs-union-facilitated line elsewhere in the economy, or a comparison with an economy at a
+similar income level that lacks a customs union with its main trading partner. We do not have
+that comparison. The case here identifies an open market-access gate, but it cannot rule out
+that Kazakhstan's absence of an electronics industry is equally consistent with the country
+simply lacking a comparative advantage in the sector, customs union or not.
+
+The same logic runs through the
 imported-input intensity of the would-be domestic producer: where domestic production would
 itself lean heavily on imported components (the roundabout structure of
 \citet{gopinathneiman2014}), the value a local plant adds over a pure re-export is smaller
@@ -288,10 +334,12 @@ not funded; the capital that does move is captive (retained earnings, or a state
 development-finance investor) and is allocated by criteria other than $R$
 \citep{khanna1997,khannapalepu2000,rajanzingales1998}.
 
-The three conditions can be summarised as a product. Three of the four observations above
-identify a factor that, on its own, is enough to drive the investment response to zero: an
-extreme irreversibility configuration, an open market-access gate (transformation not required,
-so $V_T$ is large), or a capital market that cannot fund the projects that pass. Writing
+The three conditions can be summarised as a product, though only two of the four observations
+above identify a factor that alone drives the investment response to zero regardless of the
+others: an extreme irreversibility configuration, or a capital market that cannot fund the
+projects that pass. The market-access gate is different, as observation (iii) argues: an open
+gate (transformation not required, so $V_T$ is large) drives $R$ toward zero only jointly with
+a small transformation margin, not on its own. Writing
 \begin{equation}
 \begin{aligned}
 R \;=\;& \underbrace{f\!\left(\rho,\ \sigma^{-1},\ I^{-1}\right)}_{\text{irreversibility}}
@@ -300,17 +348,21 @@ R \;=\;& \underbrace{f\!\left(\rho,\ \sigma^{-1},\ I^{-1}\right)}_{\text{irrever
 \end{aligned}
 \label{eq:gates}
 \end{equation}
-makes this explicit: $R \approx 0$ whenever any factor is near zero. This is an organising
-device, not a result derived from \eqref{eq:build} (the threshold there is on a sum, and the
-factors interact inside an indicator), and its content is that the three conditions are
-separately necessary. The first two bear on whether production is ever the right way to serve
-the demand, the third on whether the projects that pass get built. Sections~\ref{sec:shock}--%
-\ref{sec:why} show that for Kazakhstan the market-access gate is open, close to sufficient for
-$R \approx 0$ on its own, and rule out the capital-market institutional gate as the binding
-constraint for this null; whether the irreversibility gate independently binds the case cannot
-settle. Section~\ref{sec:moderators} and Section~\ref{sec:where} show that the institutional
-gate does explain a separate fact: the durable adjacent opportunities the shock reveals go
-unfinanced.
+summarises the case's argument; it is not a result derived from \eqref{eq:build} (whose
+threshold is on a sum, with the three considerations interacting inside a single indicator
+rather than entering as separable multiplicative terms). We do not claim, and do not need,
+that the three conditions are separately \emph{necessary}: each of the arguments made below
+--- irreversibility, market access taken jointly with the transformation-margin evidence, and
+institutions --- is argued for Kazakhstan on its own terms in Sections~\ref{sec:shock}--%
+\ref{sec:why}, rather than derived from \eqref{eq:gates}. Those sections show that for
+Kazakhstan the market-access gate is open and, jointly with the sector's low transformation
+margin, close to sufficient for $R \approx 0$ (subject to the alternative reading noted above);
+that the state investment corporation, which faces neither an external-finance nor an exit
+constraint, did not build for the reallocation either, ruling out capital-market institutions
+as the binding constraint for this null; and that whether the irreversibility gate
+independently binds cannot be settled. Section~\ref{sec:moderators} and Section~\ref{sec:where}
+show that the institutional gate does explain a separate fact: the durable adjacent
+opportunities the shock reveals go unfinanced.
 
 \paragraph{A mediation restatement.} The same structure can be put in mediation terms; we do
 so as an interpretive device, not as a model we estimate, since the data below have no
@@ -410,23 +462,33 @@ so the 2025 West + China total is the Western component only.}
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{lrrrrrrrr}
 \toprule
- & 2018 & 2019 & 2020 & 2021 & \textbf{2022} & 2023 & 2024 & 2025 \\
+ & 2018 & 2019 & 2020 & 2021 & \textbf{2022} & 2023 & 2024 & 2025$^{\dagger}$ \\
 \midrule
-West + China $\to$ KZ (mirror) & 394 & 427 & 483 & 470 & \textbf{837} & 1{,}373 & 2{,}360 & 363 \\
+West + China $\to$ KZ (mirror) & 394 & 427 & 483 & 470 & \textbf{837} & 1{,}373 & 2{,}360 & 363$^{\dagger}$ \\
 \quad \emph{of which Western}   & 162 & 162 & 168 & 184 & \textbf{337} & 444 & 419 & 363 \\
 Kazakhstan $\to$ Russia        &  17 &  12 &   7 &   8 & \textbf{128} & 145 & 119 & 133 \\
 \bottomrule
 \end{tabular}
+
+\vspace{2pt}
+\footnotesize $^{\dagger}$ 2025 West + China is the Western component only; China has not yet
+reported.
 \end{table}
 
 \subsection{Timing and the event study}
 
 Monthly, the outbound series (Kazakhstan's exports to Russia) breaks sharply in 2022m5
-(Bai--Perron, 95\% CI 2022m4--2022m6; sup-$F$ of 561, homoskedastic covariance, against
+(Bai--Perron, 95\% CI 2022m4--2022m6; sup-$F$ of 561 under a homoskedastic covariance, against
 critical values in the low tens), following the March-2022 sanctions with a short lag and
-preceding every political-calendar date. The inbound series (West + China) breaks in the same
-month (95\% CI 2022m4--2022m6), with a second, smaller break in late 2023 as trade-monitoring
-measures tightened, and the Western component alone breaks in 2022m5 more sharply. On the
+preceding every political-calendar date. Because the series is persistent, a homoskedastic
+covariance can overstate the sup-$F$ and understate the confidence interval; under a
+Newey--West correction the sup-$F$ falls to 326 but the 95\% CI is unchanged (2022m4--2022m6),
+so the timing argument does not depend on the choice of covariance estimator. The inbound
+series (West + China) breaks in the same
+month (95\% CI 2022m4--2022m6, HAC sup-$F$ 15.5 against 24.1 homoskedastic, CI unchanged), with
+a second, smaller break in late 2023 as trade-monitoring
+measures tightened, and the Western component alone breaks in 2022m5 more sharply (95\% CI
+widens by one month to 2022m3--2022m6 under the HAC correction). On the
 \emph{annual} panel the outbound and Western-inbound breaks are again dated to 2022. The
 West + China inbound break is not significant, because the large pre-existing China flow swamps
 the 2022 movement at annual frequency; the reorientation is therefore best seen
@@ -476,8 +538,13 @@ $\text{asinh}(y_{it}) = \gamma\,(\text{treated}_i \times \text{post}_t) + \mu_i 
 lines, 8 years; reference year 2021). Zeros are common on the outbound leg before the shock
 and rare after (23\% of surge-basket cells are zero in 2018--2021 against 3\% in 2022--2025), so
 we report the asinh specification alongside a Poisson (PPML) estimate in levels, which handles
-the zeros without a transformation and weights by size; the two tell the same story
-(Table~\ref{tab:did}). Identification requires parallel paths absent the shock
+the zeros without a transformation and weights by size. $y$ is measured in raw USD, so with a
+substantial zero-and-near-zero pre-period mass the asinh coefficient does not have a single
+clean percentage-change reading across cells; the two specifications agree on sign and
+significance but not on implied magnitude (the asinh point estimate corresponds to a level
+effect several times larger than PPML's $3.5\times$), which is a reason we lean on the sign and
+the structural breaks rather than on the asinh coefficient's size (Table~\ref{tab:did}).
+Identification requires parallel paths absent the shock
 (a joint test of the three pre-period interaction coefficients does not reject: $p = 0.42$
 inbound, $p = 0.78$ outbound) and no anticipation (dropping 2022 entirely, or setting the
 treatment year to 2023, moves $\gamma$ only modestly, to $2.71$; see below). The civilian
@@ -548,8 +615,13 @@ outcome (partner-reported inflow minus Kazakh-reported imports) does not move
 $\text{asinh}(y_{it}) = \gamma(\text{treated}_i\times\text{post}_t) + \mu_i + \lambda_t +
 \varepsilon_{it}$, HS6 and year fixed effects, cluster-robust standard errors (by HS6) in
 parentheses. Surge-basket and priority-list rows have $N = 600$ (75 lines $\times$ 8 years);
-the placebo row has $N = 200$ (the 25 civilian lines). The surge basket is selected on the
-inbound (West + China) and outbound flows; the priority list (50 codes) is externally compiled.}
+the residual-list row has $N = 208$ (26 lines); the placebo row has $N = 200$ (the 25 civilian
+lines). The surge basket is selected on the
+inbound (West + China) and outbound flows; the priority list (50 codes) is externally compiled.
+Stars are reported for completeness but should be read against Panel C: the surge-basket
+coefficient's magnitude is not separable from the sample selection, and the priority list's
+significant coefficient is carried by the 24 lines it shares with the surge basket, not the 26
+it does not (row 3).}
 \label{tab:did}
 \footnotesize
 \setlength{\tabcolsep}{5pt}
@@ -561,14 +633,16 @@ Treated set & Russia & (W+China) & (Western) & imports \\
 \multicolumn{5}{@{}l}{\emph{Panel A. asinh DiD, $\gamma$ (cluster-robust s.e.\ by HS6)}} \\
 Surge basket (29 HS6)                 & 2.44 (0.96)$^{*}$ & 2.10 (1.06) & 1.73 (0.98) & 1.88 (0.63)$^{**}$ \\
 Priority list, external (50 HS6) & 2.88 (0.74)$^{***}$ & 2.12 (0.71)$^{**}$ & 1.93 (0.67)$^{**}$ & 2.94 (0.53)$^{***}$ \\
+\quad\emph{of which, 26 lines not in the surge basket} & $-0.15$ (0.94) & $-0.49$ (1.00) & --- & --- \\
 Placebo (largest civilian lines)      & --- & $-0.95$ (0.25)$^{**}$ & --- & --- \\
 \midrule
 \multicolumn{5}{@{}l}{\emph{Panel B. Poisson (PPML) DiD in levels, $e^{\beta}$ (multiplicative)}} \\
 Surge basket (29 HS6)                 & $3.5\times^{*}$ & $2.4\times^{***}$ & --- & --- \\
 \midrule
-\multicolumn{5}{@{}l}{\emph{Panel C. selection-rule-matched randomisation inference (surge basket, exports to Russia)}} \\
-\multicolumn{5}{@{}l}{\quad rule-matched null $\gamma$: mean $2.79$, s.d.\ $1.50$; $P(|\gamma^{\text{perm}}|\ge 2.44) = 0.58$} \\
-\multicolumn{5}{@{}l}{\quad basket-existence null: $P(\text{rule selects}\ge 29\text{ lines}\mid H_0) = 0.000$} \\
+\multicolumn{5}{@{}l}{\emph{Panel C. selection-rule-matched and random-basket randomisation inference, exports to Russia}} \\
+\multicolumn{5}{@{}l}{\quad surge basket, rule-matched null $\gamma$: mean $2.79$, s.d.\ $1.50$; $P(|\gamma^{\text{perm}}|\ge 2.44) = 0.58$} \\
+\multicolumn{5}{@{}l}{\quad surge basket, existence null: $P(\text{rule selects}\ge 29\text{ lines}\mid H_0) = 0.000$} \\
+\multicolumn{5}{@{}l}{\quad priority list, random-50-line-basket null $\gamma$: mean $0.00$, s.d.\ $0.97$; $P(|\gamma^{\text{perm}}|\ge 2.88) = 0.002$} \\
 \bottomrule
 \end{tabular}
 
@@ -576,11 +650,17 @@ Surge basket (29 HS6)                 & $3.5\times^{*}$ & $2.4\times^{***}$ & --
 \footnotesize $^{*}$ $p<0.05$, $^{**}$ $p<0.01$, $^{***}$ $p<0.001$ (cluster-robust; before
 multiple-testing adjustment). After Holm adjustment across the four surge-basket outcomes,
 exports to Russia and KZ-reported imports remain significant at 5\%. Surge-basket and
-priority-list rows in Panel A have $N = 600$ (75 lines $\times$ 8 years); the placebo row has
-$N = 200$. Panel B: exact PPML coefficients $\beta = 1.26$ ($p = 0.02$) outbound and
-$\beta = 0.85$ ($p < 10^{-4}$) inbound. Panel C: the coefficient's \emph{magnitude} is not
-separable from the post-outcome selection, but the \emph{existence} of a 29-line basket is not
-a chance artefact under either a free or a trend-preserving permutation.
+priority-list rows in Panel A have $N = 600$ (75 lines $\times$ 8 years); the residual-list row
+has $N = 208$; the placebo row has $N = 200$. The residual-list row's standard errors use a
+wild cluster bootstrap ($p = 0.87$ outbound, $p = 0.67$ inbound), since the analytic
+cluster-robust $p$ shown is unreliable with 26 clusters. Panel B: exact PPML coefficients
+$\beta = 1.26$ ($p = 0.02$) outbound and
+$\beta = 0.85$ ($p < 10^{-4}$) inbound. Panel C: the surge-basket coefficient's \emph{magnitude}
+is not separable from the post-outcome selection, but the \emph{existence} of a 29-line basket
+is not a chance artefact under either a free or a trend-preserving permutation; the priority
+list's coefficient is, by contrast, unusual relative to a random 50-line basket of any HS6
+lines, which is consistent with it being carried by the (genuinely treated) surge lines it
+contains rather than being itself a chance result.
 \end{table}
 
 \paragraph{The reform confound.} Three things separate the reorientation from the
@@ -609,10 +689,15 @@ downstream figure by roughly a tenth. Set against the incremental \emph{Western}
 about \$887m, the flow-through is roughly one-half; set against the incremental West + China
 inbound of about \$3.2bn, it is one-sixth.\footnote{Three flow-through ratios appear in this
 section, on different samples and bases: the \emph{incremental} ratio against the Western
-inbound ($\approx 0.54$) and against West + China ($\approx 0.15$, ``one-sixth'') used here,
-both on aggregate 2022--2025 minus baseline; and the \emph{matched-cell} aggregate ratio
+inbound ($\approx 0.54$, on aggregate 2022--2025 minus baseline) and against West + China
+($\approx 0.15$, ``one-sixth''); the latter is computed on 2022--2024 only, since the 2025
+West + China figure in Table~\ref{tab:magnitudes} is Western-only (China not yet reported) and
+mixing it into a West + China increment would understate it by construction; the
+2022--2025 mixed-basis figure gives the same ratio to two decimal places. The
+\emph{matched-cell} aggregate ratio
 ($\approx 0.11$, sum of re-export value over sum of inbound value across the 112 matched
-HS6$\times$period cells) used in the weight-ratio discussion below.} The inbound leg is the more weakly identified of
+HS6$\times$period cells) used in the weight-ratio discussion below is a third, separate
+construction.} The inbound leg is the more weakly identified of
 the two (its DiD coefficient loses significance under size$\times$year controls and after
 multiple-testing adjustment, Section~\ref{sec:did}), so the flow-through ratio should be read
 as indicative, not precise. The remaining \$887m${}-{}$\$479m${}={}$\$408m of
@@ -701,15 +786,24 @@ cent (the c.i.f./f.o.b.\ factor applied in trade statistics is about 1.06); reco
 c.i.f./f.o.b.\ margins for former-Soviet economies are too noisy to use directly, and for
 several the recorded f.o.b.\ figure exceeds the c.i.f.\ one \citep{arvis2010landlocked}, so we
 do not lean on them. Adding a wholesale distributive margin of a few points to a single-digit
-freight wedge gives the lower part of the Bureau of National Statistics bracket. We use
-\textbf{6--14\%} and treat it as a calibration, not an estimate, because no line-by-line
-margin is identified in our data. Since $\bar v^{TT} \approx \bar v^{M}$ the input--output
+freight wedge gives the lower part of the Bureau of National Statistics bracket. The resources
+table's trade-margin component alone (net of transport) is 48\% for machinery and electronics,
+almost the whole 49\% ceiling, which confirms transport is a small share of the full margin for
+this category but does not, on its own, pin a wholesale-only share: the table does not separate
+wholesale from retail, so it cannot independently validate a band meant to exclude the retail
+leg. We use \textbf{6--14\%} and treat it as a calibration, not an estimate, because no
+line-by-line margin, and no wholesale/retail split, is identified in our data. Since
+$\bar v^{TT} \approx \bar v^{M}$ the input--output
 step does no work, so the headline is a direct function of $m$ and we carry it as a band. (We
-do not use the matched-cell unit-value wedge to pin $m$: censoring negative-margin cells
+do not use the matched-cell unit-value wedge to pin $m$ either: censoring negative-margin cells
 inflates the gross margin to about 34\%,
 while the value-weighted aggregate is negative, and both are artefacts of the c.i.f./f.o.b.\
 basis mismatch and of outbound under-invoicing rather than measures of domestic value
-retained.)
+retained. We do not fully reconcile the 34\% figure with our band: the under-recording bound we
+can support elsewhere in the data (13--21\%, below) is not large enough on its own to explain
+the gap, so part of the 34\% likely reflects the basis mismatch rather than under-invoicing
+alone, but we cannot separate the two with the data at hand, and we treat 34\% as an upper
+bound the paper's qualitative reading must survive, not a validated point estimate.)
 Domestic value added per dollar rerouted is then $m\,\bar v^{TT} \approx$ \textbf{5--11\%},
 midpoint about \textbf{8\%}, against \textbf{76\%} per dollar of domestic manufacturing
 output, so a rerouted dollar creates on the order of a tenth as much domestic value as a
@@ -894,9 +988,15 @@ plant (about \$200m), local assembly of several \v{S}koda models, and a car-mult
 in Almaty (2024). The re-export shock was met with no plant at all. The comparison is
 illustrative, not a controlled test. In the deal
 databases auto-sector transactions actually \emph{fell} after 2022 (six in 2015--2021, three
-in 2022--2025); the capacity evidence comes from plant announcements and public reporting,
-and no symmetric announcement search was run for the component sector, so a searched sample is
-being set against an unsearched one. Much of the auto capacity also predates the reorientation
+in 2022--2025); the capacity evidence comes from plant announcements and public reporting. A
+symmetric announcement search for the same 2022--2025 window, using the same public-reporting
+method, on electrical-machinery, component and instrument capacity in Kazakhstan turned up
+no comparable project; general reporting on the sector describes market growth and import
+volumes but no named new-capacity announcement in the reoriented lines. We treat this as a
+weaker check than the auto-sector search, which drew on more extensive public reporting on
+that sector specifically, rather than as an equally thorough symmetric search, but it does not
+overturn the null and is one more piece of evidence for it. Much of the auto capacity also
+predates the reorientation
 (Section~\ref{sec:investment}). The two shocks also differ along several axes at once:
 persistence and certainty, sunk-cost intensity, whether market access requires domestic
 content (EAEU local-content rules bind for vehicles but not for the re-export, so the
@@ -940,12 +1040,13 @@ it is the subject of a companion paper (available from the author).
 
 The decomposition organises seven moderators, listed in
 Table~\ref{tab:moderators} with the value each takes for Kazakhstan. Its empirical content is
-in the three necessary conditions, not in the functional form of \eqref{eq:gates}: $R$ is
-positive only when the market-access gate is closed to a pure re-export and the irreversibility
-gate is open, and large only
-when the institutional gate is open as well. A country adverse on the first two should show a
-null irrespective of its institutions, and a country favourable on all three should show a
-supply response even with a shallow capital market.
+not in the functional form of \eqref{eq:gates}, which we do not derive and do not treat as a
+necessity result, but in the case-by-case arguments of Sections~\ref{sec:shock}--%
+\ref{sec:why}: $R$ is plausibly higher when the market-access gate is closed to a pure
+re-export and the irreversibility gate is open, and higher still when the institutional gate is
+open as well. A country unfavourable on the first two is unlikely to show a response
+irrespective of its institutions, and a country favourable on all three is a good candidate for
+a supply response even with a shallow capital market.
 
 \begin{table}[t]
 \centering
@@ -991,9 +1092,19 @@ too: T\"urkiye's surge-basket exports to Russia roughly double at the 2022 break
 \$58m in 2021 to \$119m in 2022 and \$207m in 2023; sup-$F$ of $11.9$, $p = 0.007$), while
 Georgia barely participates in this particular flow (under \$2m a year throughout, no clean
 break); Appendix~\ref{app:breaks} gives the full series and break tests, alongside Armenia and
-the Kyrgyz Republic. We cannot run the investment test for either: our deal data are Kazakhstan-only, and
-T\"urkiye's large pre-existing manufacturing base would in any case make a marginal-capacity
-response hard to detect in aggregates. The external-validity claim we can support is therefore
+the Kyrgyz Republic. We cannot run the deal-database investment test for either: our
+commercial extracts are Kazakhstan-only. As a lower-fidelity substitute we ran a public-record
+announcement search, on the same 2022--2025 window and the same electrical-machinery,
+component and instrument categories as the corridor's own surge basket, for new capacity in
+T\"urkiye and Georgia; it turned up no comparable project in either country. This does not
+confirm the framework's prediction that the non-members would be more likely to see a
+processing or assembly response: a public-record search is a weak instrument for detecting a
+marginal capacity change, especially in T\"urkiye's large pre-existing manufacturing base, so
+absence of a reported project is not evidence of absence in the way the Kazakhstan-focused
+commercial-database test is. The prediction remains untested at the standard the rest of the
+paper holds itself to, and a proper test would need the same kind of greenfield-investment
+register (fDi Markets or Orbis Cross-Border Investment) named in the Limitations below. The
+external-validity claim we can support is therefore
 narrow: the \emph{demand shock} generalises across the intermediary population, while the
 \emph{investment null} is established only for Kazakhstan, where the market-access gate is
 fully open and a domestic component sector barely exists.
@@ -1211,11 +1322,13 @@ fraction of one per cent of GDP, and no detectable investment response. The coun
 functioning as a corridor, not a site of production.
 
 The result speaks to a general question: when does a trade shock industrialise a country, and
-when does it merely pass through? Production is a plausible response only when the demand
-cannot be met by trade alone (a closed market-access gate) and only when the shock is durable
-and certain enough, and the technology cheap enough to sink, that building beats waiting (an
-open irreversibility gate); and it is realised only where the capital market can fund the
-projects that pass (an open institutional gate). The Kazakhstan case pins down the first
+when does it merely pass through? Production is a more plausible response the more that the
+demand cannot be met by trade alone (a closed market-access gate), the more that the shock is
+durable and certain enough, and the technology cheap enough to sink, that building beats
+waiting (an open irreversibility gate), and the more that the capital market can fund the
+projects that pass (an open institutional gate); we treat these as three considerations that
+raise the odds of a supply response, not as conditions we derive to be jointly necessary. The
+Kazakhstan case pins down the first
 condition and half of the third: the customs union makes trade a close substitute
 for production, so the shock is absorbed into the trade channel, and the state investment
 corporation, which does not face the capital-market constraint, did not build either, which
@@ -1281,18 +1394,26 @@ noted in Section~\ref{sec:setting}, and the nationalisation wave would each depr
 we bound its magnitude (Section~\ref{sec:investment}) rather than attribute it to the trade
 shock alone. Fourth, the deal databases capture \emph{transacted} investment (M\&A and private
 financing rounds) and under-cover pure greenfield capacity that is built without an external
-transaction. A dedicated greenfield register (fDi Markets, or Orbis Cross-border Investment)
-would close that gap; the plant-level evidence we use in Section~\ref{sec:why} is a manual
-substitute, and it too shows no reorientation-linked capacity.
+transaction, and they are Kazakhstan-only, so we cannot use them to test the framework's
+prediction that non-EAEU intermediaries (T\"urkiye, Georgia) should be more likely to see a
+processing response. A dedicated greenfield register (fDi Markets, or Orbis Cross-border
+Investment) would close both gaps; the plant-level evidence we use in Section~\ref{sec:why},
+and the public-record searches in Sections~\ref{sec:why} and~\ref{sec:moderators} for
+components-sector capacity in Kazakhstan and for a differential response in T\"urkiye and
+Georgia, are manual substitutes, weaker instruments than a purchased register, and all three
+show no reorientation-linked capacity where the framework would predict one --- consistent
+with, but not a confirmation of, the framework's cross-country prediction.
 
 Several measurement choices also bear on the estimates. The inbound side is partner-reported
 (mirror) data, which overstate Kazakh absorption for onward-moving goods. The inbound flow is
 dominated by a large pre-existing China component, so we measure value capture on the
 incremental Western flow and read the West + China inbound only at the product level, where
 line and year fixed effects absorb the China trend. The surge basket is selected on the
-post-2022 outcome; the externally compiled priority list gives the same picture, but the
-cross-sectional difference-in-differences should be read alongside the structural breaks and
-the neighbour comparison rather than on its own, and a placebo on the largest civilian lines
+post-2022 outcome; the externally compiled priority list breaks at the same date, but its
+significant coefficient is carried by the 24 lines it shares with the surge basket, not by the
+26 it does not, so it is not independent corroboration of the cross-sectional magnitude. We
+therefore read the cross-sectional difference-in-differences alongside the structural breaks
+and the neighbour comparison rather than on its own, and a placebo on the largest civilian lines
 is significant with the opposite sign, indicating the control pool is not homogeneous in
 trend. The retained margin is taken from the national-accounts convention (6--14\%), not
 estimated line by line, and the value-added multipliers come from the OECD ICIO (2019),
@@ -1384,7 +1505,9 @@ errors by HS6, unless noted.
 
 \begin{table}[htbp]
 \centering
-\caption{Difference-in-differences robustness, surge basket, exports to Russia.}
+\caption{Difference-in-differences robustness, surge basket, exports to Russia. The placebo's
+fake treatment falls on the six largest civilian lines by pre-2022 size; none of the six is in
+the surge basket.}
 \label{tab:appc}
 \footnotesize
 \begin{tabular}{@{}lrrr@{}}
@@ -1399,6 +1522,9 @@ Drop 2022 entirely                                    & 2.71 & 1.05 & 0.012 \\
 Donut (drop 2022, treatment year $=$ 2023)             & 2.71 & 1.05 & 0.012 \\
 Poisson (PPML) in levels, $e^{\beta}$                  & 3.5$\times$ &      & 0.020 \\
 Priority list (50 HS6, externally compiled)             & 2.88 & 0.74 & $<0.001$ \\
+\quad of which, 26 lines not in the surge basket        & $-0.15$ & 0.94 & 0.873 \\
+\quad\quad wild-cluster bootstrap $p$ (B $=$ 1999)      &      &      & 0.870 \\
+2018 event-study coefficient (outside selection window) & 0.19 & 0.90 & 0.835 \\
 Placebo (largest civilian lines)                       & $-0.95$ & 0.25 & 0.001 \\
 \midrule
 \multicolumn{4}{@{}l}{\emph{Leave-one-HS2-out jackknife}} \\
@@ -1417,11 +1543,21 @@ $2.5\times$ (23 lines)                                & 3.12 & 1.08 & 0.005 \\
 $3.0\times$ (18 lines)                                & 3.16 & 1.27 & 0.015 \\
 \midrule
 \multicolumn{4}{@{}l}{\emph{Selection-rule-matched randomisation inference}} \\
-\multicolumn{4}{@{}p{15cm}}{\footnotesize Free permutation (year labels within HS6, rule
+\multicolumn{4}{@{}p{15.3cm}}{\footnotesize Free permutation (year labels within HS6, rule
 re-applied): the rule selects a mean of 5.0 lines under $H_0$ (max 12 over 1{,}000 draws), so
 $P(\text{rule selects}\ge 29\mid H_0)=0.000$; the permuted-null $\gamma$ has mean 2.79, s.d.\
-1.50, 95th percentile 5.37, and $P(|\gamma^{\text{perm}}|\ge 2.44)=0.58$. Trend-preserving
-cyclic-shift null: mean 5.2 lines selected (max 19), $P(\ge 29\mid H_0)=0.000$.} \\
+1.50, 95th percentile 5.37, and $P(|\gamma^{\text{perm}}|\ge 2.44)=0.58$.} \\
+\multicolumn{4}{@{}p{15.3cm}}{\footnotesize Trend-preserving cyclic-shift null: mean 5.2 lines
+selected (max 19), $P(\ge 29\mid H_0)=0.000$; the cyclic-shift $\gamma$ null (which preserves
+each line's own trend and autocorrelation, unlike the free permutation) has mean 1.64, s.d.\
+1.20, and $P(|\gamma^{\text{cyc}}|\ge 2.44)=0.29$ --- narrower than the free-permutation null,
+as expected, but not overturning the conclusion that the magnitude is not cleanly separable
+from the selection.} \\
+\multicolumn{4}{@{}p{15.3cm}}{\footnotesize Priority list: a random 50-line basket drawn from
+all HS6 lines Kazakhstan exports to Russia has null $\gamma$ mean 0.00, s.d.\ 0.97, and
+$P(|\gamma^{\text{perm}}|\ge 2.88)=0.002$ --- consistent with the priority-list coefficient
+being carried by its genuinely-treated overlap with the surge basket (Table~\ref{tab:did}), not
+itself an artefact of drawing 50 lines at random.} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1439,8 +1575,12 @@ table (2023, 57 industries matched, output-weighted within group) gives $\bar v^
 and $\bar v^{M} = 0.742$, moving the ratio from $0.10$ to $0.12$. The BNS resources table
 brackets $m$: the transport-only margin on machinery and electronics is about $1\%$ of
 basic-price value and the full trade-and-transport margin (which carries the retail leg the
-corridor never performs) about $49\%$; the 6--14\% band is a wholesale-and-freight
-reading, above the floor and well below the ceiling.
+corridor never performs) about $49\%$; the trade-margin component alone (net of transport) is
+$48\%$ for the same category, confirming that transport is a small part of the full margin
+here, though the table does not separate wholesale from retail and so cannot independently
+validate a wholesale-only reading. The 6--14\% band is a wholesale-and-freight reading, above
+the floor and well below the ceiling; see below for how it relates to the $0.34$ matched-cell
+estimate.
 
 \begin{table}[htbp]
 \centering
@@ -1473,6 +1613,15 @@ produced one) holds for $m$ up to about $0.12$; it weakens to ``about a fifth'' 
 0.19$, ``about a third'' at $m\approx 0.32$, and about a half at $m\approx 0.49$.
 \end{table}
 
+We do not fully reconcile the censored matched-cell gross margin ($0.34$) with the $6$--$14\%$
+band. The under-recording of outbound exports that would be needed to explain a one-fifth
+domestic-value reading from the gross rerouted flow is $13$--$21\%$ (Section~\ref{sec:capture});
+that bound is not large enough on its own to bring $0.34$ down into our band, so at least part
+of the gap likely reflects the c.i.f./f.o.b.\ basis mismatch rather than under-invoicing alone.
+We cannot separate the two components with the data at hand, and we treat $0.34$ as an upper
+bound the paper's qualitative reading must survive (Table~\ref{tab:appd} shows it does, at
+``about a third''), not as a validated point estimate of $m$.
+
 The matched-cell unit-value evidence (annual, $n = 112$ HS6$\times$period cells) is
 descriptive only. The median re-export/import ratio is $0.73$ on a c.i.f./f.o.b.\ basis and
 $1.6$ on a like-for-like f.o.b.\ basis; the civilian control basket gives $0.59$ and $0.94$.
@@ -1501,6 +1650,10 @@ Eurasian Economic Union and in the intermediary population, but it stopped repor
 Comtrade in 2022, so no post-2022 series is available and it is omitted from the table. The
 2022 break appears regardless of customs-union status; the demand shock generalises across the
 population, while the investment test is Kazakhstan-only for want of deal data elsewhere.
+Persistence, however, does not: T\"urkiye's flow peaks in 2023 at \$207m and recedes to \$73m
+by 2025, a reversion pattern like Armenia's and the Kyrgyz Republic's rather than Kazakhstan's
+sustained \$119--145m; Kazakhstan is the only intermediary in the table whose post-2022 level
+does not recede toward its pre-2022 trajectory.
 
 \begin{table}[htbp]
 \centering
@@ -1521,7 +1674,12 @@ Georgia (non-EAEU)       & 0.2 & 0.7 & 0.4 & 0.7 & 1.0 & 1.1 & 1.7 & 0.7 & 6.9 &
 
 \vspace{2pt}
 \footnotesize Kazakhstan row from Table~\ref{tab:magnitudes}. sup-$F$ is a mean-shift test on
-a persistent series; we read it as evidence of a break, not a cardinal magnitude.
+a persistent series; we read it as evidence of a break, not a cardinal magnitude. We attempted
+a Newey--West-corrected version of this test for each country; on these 8-year annual series
+the correction was not numerically stable (the bandwidth selection is itself unreliable at
+this sample size), unlike the $\sim$70-observation monthly series in
+Section~\ref{sec:shock}, where it is decisive and leaves the confidence interval essentially
+unchanged.
 \end{table}
 
 \section*{Declaration of competing interest}
