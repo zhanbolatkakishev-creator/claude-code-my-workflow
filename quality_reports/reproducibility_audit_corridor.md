@@ -1,5 +1,34 @@
 # Reproducibility Audit: Corridor, Not Factory
 
+> **JIE ROUND-3 (FINAL) PUNCH LIST + COMPILE (2026-09-16, `fix/corridor-jie-r2-revision`).**
+> Round-3 referees (`referee_domain_r3.md` 73/100 Minor Revision no conditions;
+> `referee_methods_r3.md` 79/100 Accept subject to editorial corrections) converged on a
+> 7-item mechanical punch list, all applied: (1) added a pre-trend Wald test + event study for
+> the residual-arm DiD's own headline outcome (`expRU_usd`), which passes (F=0.75, p=0.528) —
+> the row is quoted in the abstract and previously had no pre-trend check on this leg; (2)
+> removed an unsupported "roughly a fifth of the shared lines' magnitude" claim (2 locations),
+> replaced with "at a smaller magnitude"; (3) rescoped a fifth surviving "same 2022 break...
+> same timing" claim (§9/moderators) missed by the round-2 sweep; (4) un-indented and
+> relabeled Table 1's priority-list row (it is an overlapping comparator, not an "of which"
+> subset); (5) added a Table 2 note clarifying the three DiD rows use different control pools,
+> and dropped an unsupported star from the surge-basket row's KZ-imports column; (6) fixed
+> "symmetric announcement search" (self-contradicting two sentences later) to "parallel," and
+> added a new online-appendix section (`app:search`) documenting both WebSearch protocols. No
+> further referee round is required per either referee.
+>
+> **LaTeX compiled for the first time this revision cycle.** No LaTeX distribution was
+> installable via the system package manager (winget reported success twice but installed
+> nothing — likely blocked by machine policy); compiled instead with a portable Tectonic
+> 0.17.0 binary (no installer, downloaded to `~/bin/`). The first compile surfaced two genuine
+> new overfull-hbox regressions from this round's own table edits: Table 1's relabeled
+> priority-list row was too long for its column (67.96pt over), and Table E.1's new "largest
+> jump" column pushed the 12-column table past the margin (49.81pt over). Both fixed (shorter
+> row labels, tighter `\tabcolsep` on Table E.1) and re-verified. Final result: **49 pp (was
+> 46), 0 undefined references, 0 undefined citations, exactly 3 overfull-hbox warnings
+> (matches the pre-existing baseline exactly — 8.16pt/7.86pt/12.23pt — no new ones survive), 8
+> pre-existing underfull-hbox warnings** (cosmetic, moderators-table column wrapping,
+> unrelated to any change this round). `corridor.pdf` regenerated and delivered to the user.
+
 > **JIE ROUND-2 FIX PASS (2026-09-16, `fix/corridor-jie-r2-revision`).** Response to the
 > `/review-paper --peer JIE --r2` round-2 referee reports
 > (`quality_reports/peer_review_corridor_JIE/referee_domain_r2.md`,

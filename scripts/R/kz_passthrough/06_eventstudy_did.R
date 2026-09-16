@@ -106,6 +106,19 @@ for (yv in c("mirWC_usd", "expRU_usd")) {
   if (!is.null(w)) cat(sprintf("  %-11s : F = %.3f  p = %.3f\n", yv, w$stat, w$p))
 }
 
+## ---- pre-trend joint test + event study, exposed_only on its OWN headline outcome -------
+## JIE round-3 review, Referee B M2: gamma=1.94 on expRU_usd (the corrected N1 fix) is now
+## quoted in the abstract, but only the (null) inbound leg had an event study/pre-trend test.
+## Adding the outbound one here, on the same clean p_resid sample.
+if (FREQ == "A") {
+  cat("\n-- pre-trend joint Wald test, exposed_only CLEAN sample (own headline outcome) --\n")
+  es_resid <- mk(p_resid, "expRU_usd", "exposed_only")$es
+  print(coeftable(es_resid))
+  w_resid <- tryCatch(wald(es_resid, keep = "t_rel::-[2-9]"), error = function(e) NULL)
+  if (!is.null(w_resid)) cat(sprintf("  expRU_usd   : F = %.3f  p = %.3f  [N=%d, %d clusters]\n",
+                                     w_resid$stat, w_resid$p, nrow(p_resid), p_resid[, uniqueN(hs6)]))
+}
+
 ## ---- 2018 individual coefficient (JIE round-1 Referee B minor #3): the selection rule uses
 ## the 2019-2021 mean as its denominator, so 2018 is the one pre-period year outside the
 ## selection window and the most informative single placebo-year check.

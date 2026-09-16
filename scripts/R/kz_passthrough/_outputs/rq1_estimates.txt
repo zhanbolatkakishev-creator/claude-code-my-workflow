@@ -145,6 +145,20 @@ Wald test, H0: joint nullity of t_rel::-4:TR, t_rel::-3:TR and t_rel::-2:TR
 Wald test, H0: joint nullity of t_rel::-4:TR, t_rel::-3:TR and t_rel::-2:TR
  stat = 0.36687, p-value = 0.777113, on 3 and 74 DoF, VCOV: Clustered (hs6).  expRU_usd   : F = 0.367  p = 0.777
 
+-- pre-trend joint Wald test, exposed_only CLEAN sample (own headline outcome) --
+                Estimate Std. Error     t value   Pr(>|t|)
+t_rel::-4:TR -0.62843530  1.1069282 -0.56772904 0.57304081
+t_rel::-3:TR  0.47420085  1.1085395  0.42777084 0.67085825
+t_rel::-2:TR  0.04639843  0.9781643  0.04743419 0.96237707
+t_rel::0:TR   2.81697691  1.2460816  2.26066807 0.02866417
+t_rel::1:TR   2.58447693  1.2738142  2.02892763 0.04840681
+t_rel::2:TR   2.05343016  1.2961423  1.58426284 0.12013733
+t_rel::3:TR   0.21493083  1.3065860  0.16449804 0.87007578
+attr(,"vcov_type")
+[1] "Clustered (hs6)"
+Wald test, H0: joint nullity of t_rel::-4:TR, t_rel::-3:TR and t_rel::-2:TR
+ stat = 0.750784, p-value = 0.527649, on 3 and 45 DoF, VCOV: Clustered (hs6).  expRU_usd   : F = 0.751  p = 0.528  [N=368, 46 clusters]
+
 -- 2018 individual event-study coefficient (outside the 2019-2021 selection window) --
   mirWC_usd   : b=0.021  se=0.291  p=0.942  (row: t_rel::-4:TR)
   expRU_usd   : b=0.188  se=0.897  p=0.835  (row: t_rel::-4:TR)

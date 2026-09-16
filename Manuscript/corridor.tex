@@ -116,11 +116,12 @@ third as large (3.5$\times$ against the surge basket's 11.6$\times$), and the 26
 lines that are not already in the surge basket -- estimated against a control purged of the
 surge basket itself, rather than the full panel -- show a smaller but statistically
 distinguishable rise on the outbound flow to Russia ($\gamma = 1.94$, wild-cluster bootstrap
-$p = 0.035$; own level rise 2.4$\times$), though not on the inbound flow ($\gamma = 1.12$,
+$p = 0.035$; own level rise 2.4$\times$; pre-trend joint Wald $F = 0.75$, $p = 0.528$), though
+not on the inbound flow ($\gamma = 1.12$,
 $p = 0.238$). The priority list's larger, shared-line coefficient is not an artifact of the 24
 lines it shares with the surge basket alone, but its magnitude is not independent of the
-surge basket either: the residual lines move in the same direction at roughly a fifth of the
-shared lines' scale. A placebo on the largest civilian lines runs the other way, with no
+surge basket either: the residual lines move in the same direction at a smaller magnitude.
+A placebo on the largest civilian lines runs the other way, with no
 overlap between the lines it fake-treats and the surge basket.
 
 \emph{Second, we measure what Kazakhstan retains.} On the incremental flow to Russia (about
@@ -489,7 +490,7 @@ comparator to the surge basket's "roughly tenfold" rise.}
 West + China $\to$ KZ (mirror) & 394 & 427 & 483 & 470 & \textbf{837} & 1{,}373 & 2{,}360 & 363$^{\dagger}$ \\
 \quad \emph{of which Western}   & 162 & 162 & 168 & 184 & \textbf{337} & 444 & 419 & 363 \\
 Kazakhstan $\to$ Russia        &  17 &  12 &   7 &   8 & \textbf{128} & 145 & 119 & 133 \\
-\quad\emph{Priority list (50 HS6), selection-free} & 82 & 89 & 59 & 61 & \textbf{306} & 293 & 229 & 187 \\
+\emph{Priority list, overlapping (50 HS6)} & 82 & 89 & 59 & 61 & \textbf{306} & 293 & 229 & 187 \\
 \bottomrule
 \end{tabular}
 
@@ -647,8 +648,12 @@ review, Referee B N1 -- the full-panel control used in an earlier draft of this 
 double-counted the 29 surge-basket lines as "control," which is corrected here). The surge
 basket is selected on the
 inbound (West + China) and outbound flows; the priority list (50 codes) is externally compiled.
-Stars in row 1 are reported for completeness but should be read against Panel C: the
-surge-basket coefficient's magnitude is not separable from the sample selection. The residual
+Row 1 (surge basket) and row 2 (priority list) are estimated against the full 75-line panel;
+row 3 (residual list) is estimated against the 46-line purged sample described above, so its
+control pool differs from rows 1--2. No stars are reported in row 1: the surge-basket
+coefficient's magnitude is not separable from the sample selection (Panel C), including for
+the KZ-reported-imports column, whose apparent significance should be read against Panel C's
+randomisation-inference null for that basket rather than taken at face value. The residual
 row's star reflects the wild-cluster bootstrap $p$, the reliable statistic at 46 clusters.}
 \label{tab:did}
 \footnotesize
@@ -659,7 +664,7 @@ row's star reflects the wild-cluster bootstrap $p$, the reliable statistic at 46
 Treated set & Russia & (W+China) & (Western) & imports \\
 \midrule
 \multicolumn{5}{@{}l}{\emph{Panel A. asinh DiD, $\gamma$ (cluster-robust s.e.\ by HS6)}} \\
-Surge basket (29 HS6)                 & 2.44 (0.96) & 2.10 (1.06) & 1.73 (0.98) & 1.88 (0.63)$^{**}$ \\
+Surge basket (29 HS6)                 & 2.44 (0.96) & 2.10 (1.06) & 1.73 (0.98) & 1.88 (0.63) \\
 Priority list, external (50 HS6) & 2.88 (0.74)$^{***}$ & 2.12 (0.71)$^{**}$ & 1.93 (0.67)$^{**}$ & 2.94 (0.53)$^{***}$ \\
 \quad\emph{of which, 26 lines, purged civilian control} & 1.94 (0.90)$^{\dagger}$ & 1.12 (0.83) & --- & --- \\
 Placebo (largest civilian lines)      & --- & $-0.95$ (0.25)$^{**}$ & --- & --- \\
@@ -1027,10 +1032,11 @@ in Almaty (2024). The re-export shock was met with no plant at all. The comparis
 illustrative, not a controlled test. In the deal
 databases auto-sector transactions actually \emph{fell} after 2022 (six in 2015--2021, three
 in 2022--2025); the capacity evidence comes from plant announcements and public reporting. A
-symmetric announcement search for the same 2022--2025 window, using the same public-reporting
+parallel announcement search for the same 2022--2025 window, using the same public-reporting
 method, on electrical-machinery, component and instrument capacity in Kazakhstan turned up
 no comparable project; general reporting on the sector describes market growth and import
-volumes but no named new-capacity announcement in the reoriented lines. We treat this as a
+volumes but no named new-capacity announcement in the reoriented lines
+(Appendix~\ref{app:search}). We treat this as a
 weaker check than the auto-sector search, which drew on more extensive public reporting on
 that sector specifically, rather than as an equally thorough symmetric search, but it does not
 overturn the null and is one more piece of evidence for it. Much of the auto capacity also
@@ -1107,8 +1113,9 @@ Existing productive base / absorptive capacity & institutions & near-zero (elect
 \end{table}
 
 Within the reorientation group, Armenia and the Kyrgyz Republic received the same
-shock, with surge-basket exports to Russia rising several-fold and breaking in 2022 on the
-same timing, and they share Kazakhstan's value on every moderator: the shock is event-driven,
+shock, with surge-basket exports to Russia rising several-fold from 2022 (Armenia on the same
+break timing as Kazakhstan; the Kyrgyz Republic elevated from 2022 on a noisier series --
+Appendix~\ref{app:breaks}), and they share Kazakhstan's value on every moderator: the shock is event-driven,
 its persistence uncertain \emph{ex ante}, policy risk is high, and the customs union removes
 the need to transform. Two things are worth noting. Both neighbours' flows had already
 receded by 2024--2025 (Armenia's surge-basket exports to Russia: \$71m, \$93m, \$42m, \$13m
@@ -1134,7 +1141,7 @@ the Kyrgyz Republic. We cannot run the deal-database investment test for either:
 commercial extracts are Kazakhstan-only. As a lower-fidelity substitute we ran a public-record
 announcement search, on the same 2022--2025 window and the same electrical-machinery,
 component and instrument categories as the corridor's own surge basket, for new capacity in
-T\"urkiye and Georgia; it turned up no comparable project in either country. This does not
+T\"urkiye and Georgia (Appendix~\ref{app:search} gives the protocol); it turned up no comparable project in either country. This does not
 confirm the framework's prediction that the non-members would be more likely to see a
 processing or assembly response: a public-record search is a weak instrument for detecting a
 marginal capacity change, especially in T\"urkiye's large pre-existing manufacturing base, so
@@ -1469,8 +1476,8 @@ line and year fixed effects absorb the China trend. The surge basket is selected
 post-2022 outcome; the externally compiled priority list breaks at the same date, and its
 significant coefficient is carried substantially, though not entirely, by the 24 lines it
 shares with the surge basket -- the 26 it does not share are, against a control purged of the
-surge basket, independently significant on the outbound flow but at roughly a fifth of the
-shared lines' magnitude (Table~\ref{tab:did}), so this is partial, smaller-scale corroboration
+surge basket, independently significant on the outbound flow but at a smaller magnitude
+(Table~\ref{tab:did}), so this is partial, smaller-scale corroboration
 rather than a fully independent replication. We
 therefore read the cross-sectional difference-in-differences alongside the structural breaks
 and the neighbour comparison rather than on its own, and a placebo on the largest civilian lines
@@ -1584,6 +1591,7 @@ Poisson (PPML) in levels, $e^{\beta}$                  & 3.5$\times$ &      & 0.
 Priority list (50 HS6, externally compiled)             & 2.88 & 0.74 & $<0.001$ \\
 \quad of which, 26 lines, vs.\ purged civilian control ($N=368$) & 1.94 & 0.90 & 0.037 \\
 \quad\quad wild-cluster bootstrap $p$ (B $=$ 1999)      &      &      & 0.035 \\
+\quad\quad pre-trend joint Wald ($F$, 3 and 45 DoF)     & 0.75 &      & 0.528 \\
 2018 event-study coefficient (outside selection window) & 0.19 & 0.90 & 0.835 \\
 Placebo (largest civilian lines)                       & $-0.95$ & 0.25 & 0.001 \\
 \midrule
@@ -1720,9 +1728,10 @@ does not recede toward its pre-2022 trajectory.
 \caption{Surge-basket exports to Russia, USD million per year, and the annual break test.}
 \label{tab:appe}
 \footnotesize
+\setlength{\tabcolsep}{3.2pt}
 \begin{tabular}{@{}lrrrrrrrrrrc@{}}
 \toprule
-& 2018 & 2019 & 2020 & 2021 & 2022 & 2023 & 2024 & 2025 & sup-$F$ & $p$ & largest jump \\
+& 2018 & 2019 & 2020 & 2021 & 2022 & 2023 & 2024 & 2025 & sup-$F$ & $p$ & jump yr \\
 \midrule
 Kazakhstan (EAEU)        & 17 & 12 & 7 & 8 & 128 & 145 & 119 & 133 & 150.7 & $<0.001$ & 2022 \\
 Armenia (EAEU)           & 15 & 9 & 7 & 9 & 71 & 93 & 42 & 13 & 10.5 & 0.015 & 2022 \\
@@ -1750,6 +1759,37 @@ this sample size), unlike the $\sim$70-observation monthly series in
 Section~\ref{sec:shock}, where it is decisive and leaves the confidence interval essentially
 unchanged.
 \end{table}
+
+\section{Public-record search protocols}\label{app:search}
+\emph{For online publication.}
+
+\medskip
+Two public-record searches are referenced in Sections~\ref{sec:investment}
+and~\ref{sec:moderators} as lower-fidelity substitutes for a purchased greenfield-investment
+register (fDi Markets or Orbis Cross-Border Investment), which is unavailable to this project.
+Both used the same method: general web search and news aggregation for named capacity
+announcements (plant openings, assembly lines, production-capacity expansions) in the stated
+sector and window, cross-checked against the deal databases of Section~\ref{sec:data} where a
+transaction existed. Neither search used a purchased press-clipping service or a systematic
+industry-directory sweep, so both are weaker instruments than the auto-sector triangulation
+in Section~\ref{sec:investment}, which drew on more extensive public reporting specific to
+that sector.
+
+\begin{itemize}
+\item \textbf{Kazakhstan components search} (Section~\ref{sec:investment}): window
+2022--2025; sectors electrical machinery, components, and instruments (the surge-basket
+adjacent categories); search conducted 2026-09 using general web search for named
+new-capacity announcements. Result: no named new-capacity project found; general reporting on
+the sector describes market growth and import volumes only.
+\item \textbf{T\"urkiye/Georgia components search} (Section~\ref{sec:moderators}): same
+window and sector definitions, applied to T\"urkiye and Georgia; search conducted 2026-09.
+Result: no comparable project found in either country. As Section~\ref{sec:moderators}
+states, this is read as an uninformative weak-instrument null for the framework's
+cross-country prediction, not as a confirmation.
+\end{itemize}
+
+Neither search was pre-registered or independently replicated; both are disclosed as
+best-effort substitutes, not as a systematic literature or press-record audit.
 
 \section*{Declaration of competing interest}
 The author is employed by the Astana International Financial Centre (AIFC), which operates the
