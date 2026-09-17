@@ -503,11 +503,11 @@ against the surge basket's 11.6$\times$ (Section~\ref{sec:shock}).
 \subsection{Timing and the event study}
 
 Monthly, the outbound series (Kazakhstan's exports to Russia) breaks sharply in 2022m5
-(Bai--Perron, 95\% CI 2022m4--2022m6; sup-$F$ of 561 under a homoskedastic covariance, against
+(Bai--Perron \citep{baiperron1998}, 95\% CI 2022m4--2022m6; sup-$F$ \citep{andrews1993} of 561 under a homoskedastic covariance, against
 critical values in the low tens), following the March-2022 sanctions with a short lag and
 preceding every political-calendar date. Because the series is persistent, a homoskedastic
 covariance can overstate the sup-$F$ and understate the confidence interval; under a
-Newey--West correction the sup-$F$ falls to 326 but the 95\% CI is unchanged (2022m4--2022m6),
+Newey--West \citep{neweywest1987} correction the sup-$F$ falls to 326 but the 95\% CI is unchanged (2022m4--2022m6),
 so the timing argument does not depend on the choice of covariance estimator. The inbound
 series (West + China) breaks in the same
 month (95\% CI 2022m4--2022m6, HAC sup-$F$ 15.5 against 24.1 homoskedastic, CI unchanged), with
@@ -563,12 +563,15 @@ $\text{asinh}(y_{it}) = \gamma\,(\text{treated}_i \times \text{post}_t) + \mu_i 
 \varepsilon_{it}$ with HS6 and year fixed effects and standard errors clustered by HS6 (75
 lines, 8 years; reference year 2021). Zeros are common on the outbound leg before the shock
 and rare after (23\% of surge-basket cells are zero in 2018--2021 against 3\% in 2022--2025), so
-we report the asinh specification alongside a Poisson (PPML) estimate in levels, which handles
+we report the asinh specification alongside a Poisson (PPML) estimate in levels
+\citep{silvatenreyro2006}, which handles
 the zeros without a transformation and weights by size. $y$ is measured in raw USD, so with a
 substantial zero-and-near-zero pre-period mass the asinh coefficient does not have a single
-clean percentage-change reading across cells; the two specifications agree on sign and
+clean percentage-change reading across cells \citep{bellemarewichman2020}; the two specifications agree on sign and
 significance but not on implied magnitude (the asinh point estimate corresponds to a level
-effect several times larger than PPML's $3.5\times$), which is a reason we lean on the sign and
+effect several times larger than PPML's $3.5\times$), consistent with the general warning
+against reading log-like transformations of a variable with a nontrivial zero mass as
+percentage effects \citep{chenroth2024}, which is a reason we lean on the sign and
 the structural breaks rather than on the asinh coefficient's size (Table~\ref{tab:did}).
 Identification requires parallel paths absent the shock
 (a joint test of the three pre-period interaction coefficients does not reject: $p = 0.42$
@@ -579,7 +582,11 @@ control lines are not perfectly clean: their exports to Russia also break in 202
 economy-wide effect. The surge basket is \emph{selected on the post-period outcome}, which inflates $\gamma$
 mechanically; the selection-rule-matched permutation test below, not the cross-sectional
 regression, is what speaks to this and to the cross-sectional dependence a single common
-treatment date induces. We also report wild-cluster-bootstrap $p$-values (few clusters,
+treatment date induces --- exactly the small-number-of-policy-changes setting
+\citet{conleytaber2011} and \citet{fermanpinto2019} analyse, and our randomisation-inference
+approach follows their prescription of resampling treatment assignment rather than trusting
+asymptotic cluster-robust inference in this regime. We also report wild-cluster-bootstrap
+$p$-values \citep{cameronbellermillergelbach2008} (few clusters,
 within-HS6 serial correlation) and Holm-adjust across the four surge-basket outcomes. Both the
 analytic and the bootstrap standard errors cluster within HS6 but treat lines as independent;
 with a single common treatment date and a shock that hits related product lines together, that
