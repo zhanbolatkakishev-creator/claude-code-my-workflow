@@ -1,8 +1,25 @@
 # Replication Package: "Corridor, Not Factory: Trade Reorientation and the Missing Investment Response in Kazakhstan, 2022–2025"
 
-**Date:** 2026-09-02 (skeleton + blocking fixes); 2026-09-03 (openICPSR deposit record drafted)
-· **Language:** R 4.5.3 (only) · **Deposit target:** openICPSR (Elsevier / *Journal of
-International Economics* data editor)
+**Date:** 2026-09-02 (skeleton + blocking fixes); 2026-09-03 (openICPSR deposit record drafted,
+later superseded — see 2026-09-17 entry) · **Language:** R 4.5.3 (only) · **Deposit target:**
+Mendeley Data (Elsevier / *Journal of International Economics* data editor)
+
+> **DEPOSIT TARGET RECONCILED TO MENDELEY DATA (2026-09-17).** The 2026-09-03 deposit record
+> was drafted against openICPSR before the live JIE Guide for Authors was checked directly.
+> That check (done as part of the JIE submission-requirements pass, same date) found the
+> Guide's "Data Linking" section explicitly names Mendeley Data as the repository JIE requests
+> ("select the Item type 'Research Data'... and paste the Mendeley Data DOI"), not openICPSR.
+> Reconciled: `DEPOSIT.md` rewritten from openICPSR's DDI-style schema (PI/geographic
+> unit/universe/collection-date fields) to Mendeley Data's lighter schema (title, description,
+> steps to reproduce, license, per-component access type); `README.md` §1/§7,
+> `DCAS_checklist.md` (items 1 and 12, including a stale 8-code JEL list corrected to the
+> manuscript's current 6), `data_editor_note.md`, and `.gitignore`'s comment all updated to
+> reference Mendeley Data instead of openICPSR. Substance is unchanged — same files, same
+> access-type classification for the licensed deal data (not deposited, pointer + query spec +
+> identifiers only, per the cover letter's exemption request), same DCAS compliance — this was
+> a repository-target correction, not a content change. No `[FILL]` items were added or
+> resolved beyond what already existed (ORCID, measured runtime, vendor sign-off on bare deal
+> identifiers).
 
 > **JIE ROUND-2/3 UPDATE (2026-09-16).** The manuscript's exhibit count and script mapping are
 > unchanged by the JIE revision — the same scripts still produce the same tables/figures — but

@@ -4,7 +4,7 @@
 in Kazakhstan, 2022–2025"
 **Author:** Zhanbolat Kakishev, Nazarbayev University · zhanbolat.kakishev@nu.edu.kz
 **Journal:** *Journal of International Economics* · **Manuscript ID:** `[FILL]`
-**openICPSR project:** `[FILL — assigned at deposit]`
+**Mendeley Data DOI:** `[FILL — assigned on dataset creation, activated on publication]`
 **Date:** `[FILL — upload date]`
 
 ---
@@ -93,7 +93,7 @@ None blocks the deposit; all are flagged in `DCAS_checklist.md` and `DEPOSIT.md`
 |---|---|
 | Standard replication README (AEA template) | `README.md` |
 | DCAS compliance checklist (12 items, all PASS) | `DCAS_checklist.md` |
-| openICPSR metadata record | `DEPOSIT.md` |
+| Mendeley Data metadata record | `DEPOSIT.md` |
 | Reproducibility audit (0 FAIL) | `quality_reports/reproducibility_audit_corridor.md` |
 | Restricted-data reconstruction note | `data/raw/access-restricted-data.md` |
 | Computational requirements | `output/computational_requirements.md` |

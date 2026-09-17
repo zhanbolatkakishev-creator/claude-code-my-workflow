@@ -1,4 +1,4 @@
-# The code/ and output/ trees are populated locally before the openICPSR upload
+# The code/ and output/ trees are populated locally before the Mendeley Data upload
 # (see README.md §7). Do not commit the copies or the large raw-pull cache.
 code/
 output/

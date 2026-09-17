@@ -15,12 +15,12 @@ data plus one academically-licensed deal extract. It is R-only.
 
 ## 1. Contents and structure
 
-The openICPSR deposit tree is:
+The Mendeley Data deposit tree is:
 
 ```
 replication_package/
 ├── README.md                     # this file
-├── DEPOSIT.md                    # paste-ready openICPSR deposit metadata record
+├── DEPOSIT.md                    # paste-ready Mendeley Data deposit metadata record
 ├── data_editor_note.md          # cover note to the journal's Data Editor
 ├── DCAS_checklist.md             # AEA Data and Code Availability Standard compliance
 ├── LICENSE.md                    # code license (MIT) + per-source data-usage statement
@@ -183,7 +183,7 @@ A–E).
 
 ---
 
-## 7. Populating the openICPSR tree from this repository
+## 7. Populating the Mendeley Data tree from this repository
 
 ```bash
 # from the repo root
