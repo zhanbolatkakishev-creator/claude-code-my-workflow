@@ -51,7 +51,7 @@ have no relationship with. Also decide whether to name anyone to oppose.
 
 ## Open items only you can settle
 
-1. **ORCID iD and full postal address** of Nazarbayev University (title-page fields).
+1. ORCID iD and postal address: done (0009-0002-2227-0469; 53 Kabanbay Batyr Ave, Astana 010000). Enter them in the portal author fields too.
 2. **Data-identifier claim.** The manuscript's Data Availability section says native deal
    identifiers are in the replication package, but vendor permission to publish bare
    identifiers has not been confirmed. Either confirm with S&P, PitchBook and Preqin, or soften
