@@ -43,7 +43,7 @@ save_out <- function(obj, name) {
   invisible(obj)
 }
 save_fig <- function(plot, name, w = 8, h = 4.5) {
-  ggsave(file.path(DIR_OUT, paste0(name, ".png")), plot, width = w, height = h, dpi = 150)
+  ggsave(file.path(DIR_OUT, paste0(name, ".png")), plot, width = w, height = h, dpi = 1000)
   invisible(plot)
 }
 message("setup OK | wd = ", getwd(), " | comtrade key: ", has_comtrade)

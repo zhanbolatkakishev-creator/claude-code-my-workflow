@@ -32,7 +32,7 @@ g <- ggplot(m, aes(yr)) +
        subtitle = "Line: surge-basket Western-reported inbound trade. Bars: value-add-relevant deals/yr. Dashed = 2022.",
        caption = "Source: UN Comtrade; Capital IQ / PitchBook / Preqin. Bars from 2016; 2015 = observed zero.",
        x = NULL)
-ggsave(file.path(OUT, "valueadd_fig_mismatch.png"), g, width = 9, height = 4.8, dpi = 150)
+ggsave(file.path(OUT, "valueadd_fig_mismatch.png"), g, width = 9, height = 4.8, dpi = 1000)
 
 fwrite(m, file.path(OUT, "valueadd_mismatch.csv"))
 print(m)

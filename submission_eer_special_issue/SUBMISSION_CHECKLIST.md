@@ -84,6 +84,27 @@ PhD student, so the EUR 100 rate should apply. Two things to note:
    *before* submitting — I have not sent that email; let me know if you'd like me to draft it for
    your review and send once you approve.
 
+## Open item — figures are below EER's stated resolution minimum (found and partly fixed 2026-09-30)
+
+Direct inspection of the 5 PNG figures' embedded dimensions showed all of them at **150 DPI**,
+well under the guide's stated minimums for line drawings/charts (1000 DPI; minimum width 3543px
+single-column / 7480px full-page — ours are 1200-1500px wide). This was not caught in the
+2026-09-29 package because DPI wasn't checked against actual pixel data until this pass.
+
+**Fixed at the source level** (three `dpi = 150` → `dpi = 1000` edits):
+`scripts/R/kz_passthrough/00_setup.R:46` (the shared `save_fig()` helper, covers
+`rq1_fig_monthly.png`, `rq1_fig_eventstudy.png`, `rq2a_fig_wedge_hist.png`),
+`scripts/R/kz_valueadd/03_fig.R:35` (`valueadd_fig_mismatch.png`), and
+`scripts/R/kz_valueadd/04_sector_priority.R:179` (`sector_priority_fig.png`).
+
+**Not yet regenerated** — R is not available in this session's environment (confirmed:
+`Rscript` not on `PATH`), so the actual higher-resolution PNGs could not be produced here. **You
+need to re-run the two pipelines on your own machine** (`kz_passthrough/00_run_all.R` and
+`kz_valueadd/00_run_all.R`, or just the two figure-producing scripts) to regenerate the 5 PNGs at
+1000 DPI, then copy the refreshed files into `submission_eer_special_issue/source/` before
+uploading. The `.tex`/`.bib` files and all prose are otherwise final. At the new width×dpi (e.g.
+9in×1000dpi = 9000px, 10in×1000dpi = 10000px) all 5 will clear even the full-page 7480px floor.
+
 ## Compliance table (against the actual live guide, supplied 2026-09-29)
 
 | Requirement | Status |
@@ -97,7 +118,10 @@ PhD student, so the EUR 100 rate should apply. Two things to note:
 | Highlights: separate file, filename contains "highlights", 3–5 bullets ≤85 chars | Pass (reused from the JCE package, already verified compliant) |
 | Declaration of competing interest: manuscript + separate document + portal declarations tool | Manuscript + document done; **portal declarations tool must be completed live at submission** |
 | Data statement / Option B research-data guidance | Pass (existing replication-package approach) |
-| Generative-AI declaration section before references | Pass (carried over from prior packages) |
+| Generative-AI declaration section before references | Pass — heading corrected to the guide's exact required title ("Declaration of generative AI and AI-assisted technologies in the manuscript preparation process") |
+| Figure resolution (line drawings/charts, min 1000 DPI) | **Fail, fix committed but not regenerated** — see the section above; needs an R re-run on a machine with R installed |
+| Highlights content (5 bullets, ≤85 characters each) | Pass — verified directly this pass by extracting the actual `highlights.docx` text (longest bullet: 76 characters), not just carried over from the JCE package's claim |
+| Title page content (name, affiliation, address, ORCID, COI, funding, CRediT) | Pass — verified directly this pass by extracting the actual `title_page.docx` text |
 | Reference style at submission (any consistent style) | Pass (natbib author-year; will be reformatted at Elsevier's proof stage, not before) |
 | Special-issue designation field | `VSI: Global Trade` — enter at the portal's special-issue step |
 

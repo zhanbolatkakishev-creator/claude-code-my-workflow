@@ -176,5 +176,5 @@ g <- ggplot(pl, aes(imp_intensity, va_mult, size = base_musd, colour = category)
        title = "Where PE money buys the most domestic value added",
        subtitle = "Upper-right = high multiplier + large import gap. Surge basket (electronics/optical) is bottom-left: avoid.") +
   theme_minimal()
-ggsave(file.path(OUT, "sector_priority_fig.png"), g, width = 10, height = 6.5, dpi = 150)
+ggsave(file.path(OUT, "sector_priority_fig.png"), g, width = 10, height = 6.5, dpi = 1000)
 message("done: _outputs/sector_priority_matrix.csv / .txt / _fig.png")
