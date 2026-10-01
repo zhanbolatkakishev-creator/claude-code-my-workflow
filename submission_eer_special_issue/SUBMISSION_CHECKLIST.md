@@ -84,26 +84,43 @@ PhD student, so the EUR 100 rate should apply. Two things to note:
    *before* submitting — I have not sent that email; let me know if you'd like me to draft it for
    your review and send once you approve.
 
-## Open item — figures are below EER's stated resolution minimum (found and partly fixed 2026-09-30)
+## Figure resolution — fixed and regenerated (2026-10-01)
 
-Direct inspection of the 5 PNG figures' embedded dimensions showed all of them at **150 DPI**,
-well under the guide's stated minimums for line drawings/charts (1000 DPI; minimum width 3543px
-single-column / 7480px full-page — ours are 1200-1500px wide). This was not caught in the
-2026-09-29 package because DPI wasn't checked against actual pixel data until this pass.
+Direct inspection of the 5 PNG figures' embedded dimensions originally showed all of them at
+150 DPI, under the guide's stated minimum for line drawings/charts (1000 DPI; minimum width
+3543px single-column / 7480px full-page). Fixed at the source level (three `dpi = 150` ->
+`dpi = 1000` edits in `kz_passthrough/00_setup.R`'s `save_fig()` helper, `kz_valueadd/03_fig.R`,
+`kz_valueadd/04_sector_priority.R`) and **regenerated**: found an R installation on this machine
+at `C:\Users\zh.kakishev\AppData\Local\Programs\R\R-4.5.3\bin\Rscript.exe` (not on the session's
+`PATH` by default) and re-ran the two pipelines. `kz_passthrough/00_run_all.R`'s full run hit an
+unrelated World Bank API timeout in `11_macro.R` (a macro-context script, no figure dependency)
+after the three needed figures had already been produced by earlier steps in the script, except
+`rq1_fig_monthly.png`, which comes from the monthly branch later in the script and hadn't run
+yet — resumed just that branch separately. All 5 figures are now confirmed at 1000 DPI:
 
-**Fixed at the source level** (three `dpi = 150` → `dpi = 1000` edits):
-`scripts/R/kz_passthrough/00_setup.R:46` (the shared `save_fig()` helper, covers
-`rq1_fig_monthly.png`, `rq1_fig_eventstudy.png`, `rq2a_fig_wedge_hist.png`),
-`scripts/R/kz_valueadd/03_fig.R:35` (`valueadd_fig_mismatch.png`), and
-`scripts/R/kz_valueadd/04_sector_priority.R:179` (`sector_priority_fig.png`).
+| Figure | Dimensions | DPI |
+|---|---|---|
+| `rq1_fig_monthly.png` | 8000x4500 | 1000 |
+| `rq1_fig_eventstudy.png` | 8000x4500 | 1000 |
+| `rq2a_fig_wedge_hist.png` | 8000x4500 | 1000 |
+| `valueadd_fig_mismatch.png` | 9000x4800 | 1000 |
+| `sector_priority_fig.png` | 10000x6500 | 1000 |
 
-**Not yet regenerated** — R is not available in this session's environment (confirmed:
-`Rscript` not on `PATH`), so the actual higher-resolution PNGs could not be produced here. **You
-need to re-run the two pipelines on your own machine** (`kz_passthrough/00_run_all.R` and
-`kz_valueadd/00_run_all.R`, or just the two figure-producing scripts) to regenerate the 5 PNGs at
-1000 DPI, then copy the refreshed files into `submission_eer_special_issue/source/` before
-uploading. The `.tex`/`.bib` files and all prose are otherwise final. At the new width×dpi (e.g.
-9in×1000dpi = 9000px, 10in×1000dpi = 10000px) all 5 will clear even the full-page 7480px floor.
+The refreshed PNGs are already copied into `source/`, and `manuscript.pdf` recompiled from them
+(now ~2.9MB, up from ~540KB — expected given the higher-resolution embedded images, well within
+any portal file-size limit).
+
+**One real side effect, caught and fixed:** `kz_valueadd/04_sector_priority.R` re-pulls live
+Comtrade HS2 import data as part of producing its figure — re-running it today returned
+slightly different numbers than the committed outputs (trade statistics get revised over time;
+this is expected, not a bug). Two of those numbers are hand-typed into Table~\ref{tab:priority}
+in `corridor.tex` (not auto-generated from the script's output): the import-intensity and
+import-growth ratios for "Electrical equipment" (5.6/1.43 -> 5.9/1.37) and "Machinery &
+equipment n.e.c." (7.9/1.27 -> 8.1/1.25). Updated the table to match the regenerated data,
+recompiled, and re-verified the rendered table against the new `sector_priority_matrix.csv`.
+Every other figure/table in the manuscript is unaffected (`kz_passthrough`'s three figures use
+already-fetched static data; `valueadd_fig_mismatch.png` doesn't re-pull anything live). No
+other numeric claim changed.
 
 ## Compliance table (against the actual live guide, supplied 2026-09-29)
 
@@ -119,7 +136,7 @@ uploading. The `.tex`/`.bib` files and all prose are otherwise final. At the new
 | Declaration of competing interest: manuscript + separate document + portal declarations tool | Manuscript + document done; **portal declarations tool must be completed live at submission** |
 | Data statement / Option B research-data guidance | Pass (existing replication-package approach) |
 | Generative-AI declaration section before references | Pass — heading corrected to the guide's exact required title ("Declaration of generative AI and AI-assisted technologies in the manuscript preparation process") |
-| Figure resolution (line drawings/charts, min 1000 DPI) | **Fail, fix committed but not regenerated** — see the section above; needs an R re-run on a machine with R installed |
+| Figure resolution (line drawings/charts, min 1000 DPI) | Pass — regenerated 2026-10-01, all 5 figures confirmed at 1000 DPI (see table above) |
 | Highlights content (5 bullets, ≤85 characters each) | Pass — verified directly this pass by extracting the actual `highlights.docx` text (longest bullet: 76 characters), not just carried over from the JCE package's claim |
 | Title page content (name, affiliation, address, ORCID, COI, funding, CRediT) | Pass — verified directly this pass by extracting the actual `title_page.docx` text |
 | Reference style at submission (any consistent style) | Pass (natbib author-year; will be reformatted at Elsevier's proof stage, not before) |

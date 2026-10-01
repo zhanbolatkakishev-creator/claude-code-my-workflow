@@ -14,8 +14,8 @@
  6:    C16                        Wood products       SUBSTITUTION candidate
  7:    C19             Coke & refined petroleum       SUBSTITUTION candidate
  8:    C24                         Basic metals       SUBSTITUTION candidate
- 9:    C30            Other transport equipment       SUBSTITUTION candidate
-10: C13T15 Textiles, apparel, leather, footwear       SUBSTITUTION candidate
+ 9: C13T15 Textiles, apparel, leather, footwear       SUBSTITUTION candidate
+10:    C30            Other transport equipment       SUBSTITUTION candidate
 11:    C23        Non-metallic mineral products       SUBSTITUTION candidate
 12:    C22                    Rubber & plastics       SUBSTITUTION candidate
 13: C17_18                     Paper & printing       SUBSTITUTION candidate
@@ -55,18 +55,18 @@
     <char>                               <char>                       <char>
     va_mult base_musd imp23 imp_intens imp_grw deals dl_post priority
       <num>     <num> <num>      <num>   <num> <int>   <int>    <num>
- 1:   0.813      1148  6435       5.60    1.43     5       0    0.823
- 2:   0.796      1162  9169       7.89    1.27     7       3    0.717
- 3:   0.810     18958  6355       0.34    1.48    26       4    0.645
+ 1:   0.813      1148  6774       5.90    1.37     5       0    0.813
+ 2:   0.796      1162  9363       8.05    1.25     7       3    0.717
+ 3:   0.810     18958  6355       0.34    1.48    27       4    0.654
  4:   0.807      1845  3282       1.78    1.22     7       2    0.604
- 5:   0.789      3484  5897       1.69    1.52     4       1    0.559
+ 5:   0.789      3484  5897       1.69    1.52     4       1    0.569
  6:   0.789       167   598       3.58    1.40     0       0    0.541
  7:   0.840     10145  1817       0.18    1.24     0       0    0.497
- 8:   0.800     42832  2761       0.06    1.28    20      12    0.478
- 9:   0.733       732  2031       2.78    1.65     2       2    0.476
-10:   0.743       963 11176      11.61    1.33     0       0    0.460
+ 8:   0.800     42832  2761       0.06    1.28    20      12    0.487
+ 9:   0.743       963 11176      11.61    1.33     0       0    0.469
+10:   0.733       732  2031       2.78    1.65     2       2    0.467
 11:   0.773      4657   999       0.21    1.15     4       2    0.336
-12:   0.689      1581  3117       1.97    1.39     0       0    0.312
+12:   0.689      1581  3117       1.97    1.39     0       0    0.330
 13:   0.754       911   696       0.76    1.22     0       0    0.309
 14:   0.764     15745  1331       0.08    1.20     0       0    0.214
 15:   0.736      3946  2643       0.67    1.07     0       0    0.189
@@ -75,7 +75,7 @@
 18:   0.829     57237    NA         NA      NA     0       0       NA
 19:   0.750      3122    NA         NA      NA     0       0       NA
 20:   0.738      1495    NA         NA      NA     0       0       NA
-21:   0.694       234   591       2.53    1.85     0       0       NA
+21:   0.694       234  1026       4.39    1.26     0       0       NA
 22:   0.688      1530  9252       6.05    2.55     9       3       NA
 23:   0.790      9468    NA         NA      NA     0       0       NA
 24:   0.828      1397    NA         NA      NA     0       0       NA

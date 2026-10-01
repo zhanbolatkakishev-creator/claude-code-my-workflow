@@ -1,16 +1,16 @@
 sector,name,category,va_mult,v_direct,base_musd,imp_2023,imp_intensity,imp_growth,deals,deals_post,priority
-C27,Electrical equipment,SUBSTITUTION candidate,0.813,0.213,1148,6435,5.6,1.43,5,0,0.823
-C28,Machinery & equipment n.e.c.,SUBSTITUTION candidate,0.796,0.203,1162,9169,7.89,1.27,7,3,0.717
-C10T12,"Food, beverages, tobacco",SUBSTITUTION candidate,0.81,0.24,18958,6355,0.34,1.48,26,4,0.645
+C27,Electrical equipment,SUBSTITUTION candidate,0.813,0.213,1148,6774,5.9,1.37,5,0,0.813
+C28,Machinery & equipment n.e.c.,SUBSTITUTION candidate,0.796,0.203,1162,9363,8.05,1.25,7,3,0.717
+C10T12,"Food, beverages, tobacco",SUBSTITUTION candidate,0.81,0.24,18958,6355,0.34,1.48,27,4,0.654
 C25,Fabricated metal products,SUBSTITUTION candidate,0.807,0.228,1845,3282,1.78,1.22,7,2,0.604
-C20,Chemicals,SUBSTITUTION candidate,0.789,0.198,3484,5897,1.69,1.52,4,1,0.559
+C20,Chemicals,SUBSTITUTION candidate,0.789,0.198,3484,5897,1.69,1.52,4,1,0.569
 C16,Wood products,SUBSTITUTION candidate,0.789,0.255,167,598,3.58,1.4,0,0,0.541
 C19,Coke & refined petroleum,SUBSTITUTION candidate,0.84,0.165,10145,1817,0.18,1.24,0,0,0.497
-C24,Basic metals,SUBSTITUTION candidate,0.8,0.213,42832,2761,0.06,1.28,20,12,0.478
-C30,Other transport equipment,SUBSTITUTION candidate,0.733,0.203,732,2031,2.78,1.65,2,2,0.476
-C13T15,"Textiles, apparel, leather, footwear",SUBSTITUTION candidate,0.743,0.223,963,11176,11.61,1.33,0,0,0.46
+C24,Basic metals,SUBSTITUTION candidate,0.8,0.213,42832,2761,0.06,1.28,20,12,0.487
+C13T15,"Textiles, apparel, leather, footwear",SUBSTITUTION candidate,0.743,0.223,963,11176,11.61,1.33,0,0,0.469
+C30,Other transport equipment,SUBSTITUTION candidate,0.733,0.203,732,2031,2.78,1.65,2,2,0.467
 C23,Non-metallic mineral products,SUBSTITUTION candidate,0.773,0.219,4657,999,0.21,1.15,4,2,0.336
-C22,Rubber & plastics,SUBSTITUTION candidate,0.689,0.198,1581,3117,1.97,1.39,0,0,0.312
+C22,Rubber & plastics,SUBSTITUTION candidate,0.689,0.198,1581,3117,1.97,1.39,0,0,0.33
 C17_18,Paper & printing,SUBSTITUTION candidate,0.754,0.233,911,696,0.76,1.22,0,0,0.309
 B07_08,Metal-ore mining,context,0.764,0.307,15745,1331,0.08,1.2,0,0,0.214
 C31T33,"Furniture, other mfg & repair",SUBSTITUTION candidate,0.736,0.239,3946,2643,0.67,1.07,0,0,0.189
@@ -19,7 +19,7 @@ A03,Fishing,context,0.795,0.351,938,,,,0,0,
 B05_06,Coal & crude extraction,context,0.829,0.357,57237,,,,0,0,
 B09,Mining support,context,0.75,0.354,3122,,,,0,0,
 C21,Pharmaceuticals,context,0.738,0.325,1495,,,,0,0,
-C26,"Computer, electronic & optical",AVOID (surge basket),0.694,0.174,234,591,2.53,1.85,0,0,
+C26,"Computer, electronic & optical",AVOID (surge basket),0.694,0.174,234,1026,4.39,1.26,0,0,
 C29,Motor vehicles & parts,"AVOID (kit assembly, low VA)",0.688,0.203,1530,9252,6.05,2.55,9,3,
 D,Electricity & gas,context,0.79,0.275,9468,,,,0,0,
 E,Water & waste,context,0.828,0.316,1397,,,,0,0,
