@@ -78,11 +78,9 @@ PhD student, so the EUR 100 rate should apply. Two things to note:
 1. Payment is handled entirely inside Elsevier's own payment flow at submission — I cannot and
    will not enter payment details on your behalf; you'll need to do this step yourself when you
    submit.
-2. The guide also states: **"Special Issue submissions... will be considered on a case-by-case
-   basis"** for a fee exemption. If you want to ask for a waiver given this is a special-issue
-   submission, the guide says to contact `submissionstart@elsevier.com` for a voucher code
-   *before* submitting — I have not sent that email; let me know if you'd like me to draft it for
-   your review and send once you approve.
+2. **Resolved 2026-10-01:** waiver requested via `submissionstart@elsevier.com`. Elsevier's
+   response confirmed the standard EUR 100 PhD-student rate — no further special-issue discount
+   available. Pay EUR 100 at submission.
 
 ## Figure resolution — fixed and regenerated (2026-10-01)
 
@@ -127,7 +125,7 @@ other numeric claim changed.
 | Requirement | Status |
 |---|---|
 | Peer review model: single anonymized (author names visible to referees) | Matches — manuscript is not blinded, unlike the JCE package |
-| Submission fee EUR 125 / EUR 100 (PhD student) | **Open — user must pay at submission; special-issue waiver possible on request** |
+| Submission fee EUR 125 / EUR 100 (PhD student) | Resolved — waiver requested, Elsevier confirmed standard EUR 100 PhD rate applies, no further discount; pay at submission |
 | Abstract ≤ 250 words | Pass (~150 words) |
 | Keywords 1–7 | Pass (5) |
 | LaTeX source required, PDF alone not acceptable | Pass — `source/` bundle verified to compile standalone |
