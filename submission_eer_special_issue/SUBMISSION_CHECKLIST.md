@@ -14,7 +14,21 @@ is not being pursued further. This is a fresh submission.
 
 **Guide for Authors checked against the live page 2026-09-29 (user supplied the full text
 directly, since automated fetch attempts were Cloudflare-blocked this session).** The compliance
-table below reflects the actual guide, not an assumption.
+table below reflects the actual guide. **Update 2026-10-02 — the live portal overrides two
+things the general guide implied:**
+
+1. **This submission is double-blind, not single-anonymized.** The general EER Guide for
+   Authors says single-anonymized (author names visible to referees), but the live "Attach
+   Files" step for this special issue explicitly warned: *"Manuscript WITHOUT Author
+   Identifiers: please ensure the Manuscript file has no information that could allow reviewers
+   to identify any of the authors."* The user confirmed this directly against the live portal.
+   A blinded manuscript was built accordingly (see below) — the special issue runs a stricter
+   policy than the parent journal's default.
+2. **The Manuscript file item type only accepts Word (.docx) — no LaTeX, no PDF.** The general
+   guide's "Your Paper Your Way" / LaTeX-source language does not apply to this item type on
+   this portal; the user confirmed directly: *"Manuscript file must be Word, no other option."*
+   The `source/` LaTeX bundle built earlier in this package is kept for reference only and is
+   **not** what gets uploaded as the Manuscript file.
 
 ## Why this journal, and why now
 
@@ -35,27 +49,36 @@ citing Aiyar et al. (2023, IMF SDN 2023/001) and Alfaro & Chor (2023, NBER WP 31
 co-authored by guest editor Davin Chor and genuinely on-topic). No numeric claim, table, or
 estimate changed.
 
-## Files to upload
+## Files to upload (corrected 2026-10-02 against the live portal's actual item types)
 
-| Item type | File |
-|---|---|
-| Manuscript source (LaTeX) | `source/corridor.tex` + `source/corridor.bib` + the 5 `source/*.png` figures — **required**, see below |
-| Manuscript (reference PDF, for your own checking — not the source-file requirement) | `manuscript.pdf` |
-| Cover letter | `cover_letter.docx` (addressed to the four named guest editors, ties the paper to the special issue's call) |
-| Title page | `title_page.docx` (name, affiliation, ORCID, COI, funding, CRediT) |
-| Highlights | `highlights.docx` — filename contains "highlights" as required, 5 bullets each ≤85 characters |
-| Declaration of interest | `declaration_of_interest.docx` (also complete the portal's own declarations tool — the guide requires both) |
+| Portal item type | File | Notes |
+|---|---|---|
+| Manuscript file | `manuscript_blind.docx` | **Blinded.** No author name/affiliation in the body; file properties (`dc:creator`, `lastModifiedBy`) scrubbed via Word's Document Inspector — verified empty. Content fidelity spot-checked (table values, Greek-letter math) against the LaTeX source after conversion. |
+| Cover page | `title_page.docx` | The portal's dropdown calls this "cover page," not "title page" — same file, same content (name, affiliation, ORCID, COI, funding, CRediT): this is where the identity the manuscript omits belongs. |
+| Declaration of interest | `declaration_of_interest.docx` | Unchanged from before. |
+| Highlights | `highlights.docx` | Filename contains "highlights" as required, 5 bullets each ≤85 characters. |
+| *(cover letter — check if a separate upload slot exists)* | `cover_letter.docx` | The user's dropdown listing (declaration of interest / cover page / highlights) didn't mention a separate cover-letter item; it may be entered as portal text instead. Have this file ready either way. |
 
-## Why the LaTeX source is included this time (unlike the JIE/INTECO/JCE packages)
+**Not uploaded, kept for reference only:** `manuscript.pdf` (non-blind — superseded, this
+journal requires blind) and `source/` (the LaTeX bundle — superseded, this portal's Manuscript
+item only accepts Word, confirmed live, contrary to the general guide's LaTeX-source language).
 
-Those three journals all accept a PDF at new submission ("Your Paper Your Way"). **EER's guide
-states plainly: "A PDF is not an acceptable source file"** and separately, under LaTeX
-submission, "You will be asked to provide all relevant editable source files upon submission."
-`source/` is a verified-standalone bundle: `corridor.tex` compiles clean on its own (Tectonic,
-0 undefined refs) with `\graphicspath` pointed at the local folder instead of the repo's
-`scripts/R/.../\_outputs/` paths, and the 5 referenced figures copied alongside it. Upload the
-whole `source/` folder's contents as the manuscript's editable files; the portal converts them
-to a single PDF for the peer-review process itself.
+## How the blind Word manuscript was built (2026-10-02)
+
+No automated LaTeX-to-Word toolchain in this environment worked reliably on this document
+(pandoc and LibreOffice aren't installed; MiKTeX's `tex4ht`/`make4ht` hung indefinitely burning
+CPU on this document regardless of a hyperref workaround). The reliable path turned out to be
+Microsoft Word's own built-in PDF-reflow: the user opened the blinded `corridor_eer_blind.pdf`
+(built from `Manuscript/corridor_eer_blind.tex` — author block emptied, Declaration of
+Competing Interest replaced with "Withheld for blind review; see the separate cover page," and
+the CRediT statement removed) directly from inside Word, let Word convert it, then **File → Save
+As → .docx**. Two things were checked and fixed before trusting the result:
+
+1. **Body-text identity leaks:** none found (checked by extracting and reading `word/document.xml`).
+2. **File-properties identity leak:** Word auto-stamps `dc:creator` / `cp:lastModifiedBy` with the
+   signed-in account's name on Save As, regardless of what's blinded in the body. Caught via
+   `docProps/core.xml`, fixed via Word's Document Inspector ("Check for Issues → Inspect Document"
+   → remove "Document Properties and Personal Information"), re-verified empty afterward.
 
 ## Metadata to enter manually
 
@@ -124,12 +147,13 @@ other numeric claim changed.
 
 | Requirement | Status |
 |---|---|
-| Peer review model: single anonymized (author names visible to referees) | Matches — manuscript is not blinded, unlike the JCE package |
+| Peer review model | **Double-blind**, per the live portal (overrides the general guide's single-anon language) — `manuscript_blind.docx` has no identifying body text or file-properties metadata, verified |
+| Manuscript file format | Word (.docx), per the live portal (overrides the general guide's LaTeX-source language) — `manuscript_blind.docx` |
 | Submission fee EUR 125 / EUR 100 (PhD student) | Resolved — waiver requested, Elsevier confirmed standard EUR 100 PhD rate applies, no further discount; pay at submission |
 | Abstract ≤ 250 words | Pass (~150 words) |
 | Keywords 1–7 | Pass (5) |
-| LaTeX source required, PDF alone not acceptable | Pass — `source/` bundle verified to compile standalone |
-| Title page: full author name, affiliation, full postal address, corresponding-author email | Pass (Graduate School of Business, Nazarbayev University; full building/street address; ORCID) |
+| *(superseded — see "Update 2026-10-02" above)* ~~LaTeX source required, PDF alone not acceptable~~ | The live portal's Manuscript item wants Word only; `source/` kept for reference, not uploaded |
+| Cover page: full author name, affiliation, full postal address, corresponding-author email | Pass (Graduate School of Business, Nazarbayev University; full building/street address; ORCID) — `title_page.docx`, uploaded under the portal's "cover page" item type |
 | Highlights: separate file, filename contains "highlights", 3–5 bullets ≤85 chars | Pass (reused from the JCE package, already verified compliant) |
 | Declaration of competing interest: manuscript + separate document + portal declarations tool | Manuscript + document done; **portal declarations tool must be completed live at submission** |
 | Data statement / Option B research-data guidance | Pass (existing replication-package approach) |
