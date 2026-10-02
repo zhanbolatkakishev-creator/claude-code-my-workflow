@@ -4,7 +4,7 @@
 in Kazakhstan, 2022–2025"
 **Author:** Zhanbolat Kakishev, Graduate School of Business, Nazarbayev University · zhanbolat.kakishev@nu.edu.kz
 **Journal:** *European Economic Review*, special issue "Global Trade Fragmentation and Regional Trade Alliances" · **Manuscript ID:** `[FILL]`
-**Mendeley Data DOI:** `[FILL — assigned on dataset creation, activated on publication]`
+**Mendeley Data DOI:** 10.17632/zk2csn8wf6.1 (reserved 2026-10-02; dataset in moderation, not yet publicly live)
 **Date:** `[FILL — upload date]`
 
 ---

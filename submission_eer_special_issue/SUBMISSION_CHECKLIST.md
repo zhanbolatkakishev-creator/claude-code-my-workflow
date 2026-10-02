@@ -164,6 +164,24 @@ other numeric claim changed.
 | Reference style at submission (any consistent style) | Pass (natbib author-year; will be reformatted at Elsevier's proof stage, not before) |
 | Special-issue designation field | `VSI: Global Trade` — enter at the portal's special-issue step |
 
+## Mendeley Data deposit — done 2026-10-02
+
+Deposited to Mendeley Data: DOI **10.17632/zk2csn8wf6.1**, reserved and citable, currently in
+Mendeley's moderation queue (~2 business days, not yet publicly live). `replication_package/`
+(`DEPOSIT.md`, `data_editor_note.md`) updated with the real DOI and EER as the target journal
+(both previously referenced the stale JIE target). The master `corridor.tex` and the blinded
+`corridor_eer_blind.tex` Data Availability sections now cite this DOI instead of the vague "in
+the replication package" wording.
+
+**Known gap, left as-is:** `manuscript_blind.docx` — already uploaded to the portal before the
+DOI existed — still has the old vague wording (not wrong, just less specific). Not worth
+redoing the LaTeX→PDF→Word conversion pipeline to patch one sentence mid-submission; fix at a
+revision stage if asked, where re-uploading files is normal anyway.
+
+**Declined:** EER's free SSRN preprint-posting offer. SSRN preprints carry the real author
+name; posting one while this submission is under double-blind review would let a referee
+de-anonymize the manuscript with a simple search. Can revisit after the blind-review stage ends.
+
 ## Open items only you can settle
 
 1. **Submission fee payment / waiver request** — see above.
@@ -172,5 +190,7 @@ other numeric claim changed.
    cannot referee their own special issue), or scholars working on post-Soviet trade and
    sanctions already cited elsewhere in the paper (Chupilkin, Javorcik, Plekhanov).
 3. **Data-identifier claim** (carried over from every prior package): vendor permission to
-   publish bare deal identifiers has not been confirmed with S&P, PitchBook, or Preqin.
+   publish bare deal identifiers has not been confirmed with S&P, PitchBook, or Preqin —
+   moot for the current Mendeley deposit (that file was never included), but still relevant if
+   a future version adds it.
 4. **No rush**: the deadline is 31 March 2027.
