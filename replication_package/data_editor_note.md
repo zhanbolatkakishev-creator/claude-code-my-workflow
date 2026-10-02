@@ -2,8 +2,8 @@
 
 **Manuscript:** "Corridor, Not Factory: Trade Reorientation and the Missing Investment Response
 in Kazakhstan, 2022–2025"
-**Author:** Zhanbolat Kakishev, Nazarbayev University · zhanbolat.kakishev@nu.edu.kz
-**Journal:** *Journal of International Economics* · **Manuscript ID:** `[FILL]`
+**Author:** Zhanbolat Kakishev, Graduate School of Business, Nazarbayev University · zhanbolat.kakishev@nu.edu.kz
+**Journal:** *European Economic Review*, special issue "Global Trade Fragmentation and Regional Trade Alliances" · **Manuscript ID:** `[FILL]`
 **Mendeley Data DOI:** `[FILL — assigned on dataset creation, activated on publication]`
 **Date:** `[FILL — upload date]`
 

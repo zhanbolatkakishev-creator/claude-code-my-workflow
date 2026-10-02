@@ -1,7 +1,8 @@
 # DCAS Compliance Checklist — "Corridor, Not Factory"
 
 Against the [AEA Data and Code Availability Standard](https://datacodestandard.org/) and
-Mendeley Data deposit expectations (the repository the JIE Guide for Authors specifies).
+Mendeley Data deposit expectations (the repository fitting the EER Guide for Authors' Option B
+research-data guidance).
 `PASS` = met; `FAIL` = must fix before deposit; `[FILL]` = author action, non-blocking for the
 skeleton.
 
