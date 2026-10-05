@@ -24,7 +24,7 @@ cat("months:", as.character(range(ag$tt)), " (2024 dropped: KZ stopped monthly r
 cat("inbound = mirWC (West EU-27/UK/US/JP/KR/CH/NO + China mirrored exports to KZ)\n\n")
 
 ## structural break on the monthly aggregate series -> BREAK DATE(S) + 95% CI
-## JIE round-1 review, Referee B Concern 4: the homoskedastic sup-F/CI is uncorrected on a
+## the homoskedastic sup-F/CI is uncorrected on a
 ## series described throughout as highly persistent. Report the standard (homoskedastic)
 ## break date + CI alongside an HAC-corrected (Newey-West) version of both, so the reform-
 ## confound "precedes the June referendum" argument states which interval it relies on.

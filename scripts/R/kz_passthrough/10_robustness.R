@@ -45,7 +45,7 @@ csurge <- p[surge == TRUE & exposed == FALSE, unique(hs6)]
 cat(sprintf("\n  %d civilian HS6 fall in the surge basket; their share of post-2022 gross flow to RU: %.1f%%\n",
             length(csurge),
             100 * p[post == 1 & hs6 %in% csurge, sum(expRU_usd)] / p[post == 1, sum(expRU_usd)]))
-## JIE round-1 review, Referee B minor #5: disclose which civilian lines receive the
+## disclose which civilian lines receive the
 ## placebo's fake treatment, and flag any overlap with the (genuinely treated) surge basket.
 cat(sprintf("\n  placebo fake-treatment ('big', top pre-2022 quartile) assigned to: %s\n",
             paste(sort(big_hs6), collapse = ", ")))
@@ -74,7 +74,7 @@ if (dir.exists(nbdir) && length(list.files(nbdir, "\\.json$"))) {
   ex <- rd[cmdCode %in% sb & flow == "exp" & partnerCode == 643,
            .(expRU_m = sum(v, na.rm = TRUE)/1e6), by = .(ctry, yr)][order(ctry, yr)]
   cat("\nExports to Russia, surge-basket HS6, $m:\n"); print(dcast(ex, yr ~ ctry, value.var = "expRU_m"))
-  ## JIE round-1 review, Referee B Concern 4: report an HAC (Newey-West) variant alongside the
+  ## report an HAC (Newey-West) variant alongside the
   ## homoskedastic sup-F for each neighbour series too, with an explicit small-sample caveat --
   ## these are 8-year annual series, so the HAC bandwidth choice is itself fragile, unlike the
   ## ~70-observation monthly series in 06m_monthly_profile.R where the correction is decisive.

@@ -177,7 +177,7 @@ cat("    READ: even holding the trend fixed and only moving the break off 2022, 
 cat("    almost never reproduces a 29-line basket -- the 2022 alignment, not a pre-existing\n")
 cat("    trend, is what the selection picks up.\n\n")
 
-## JIE round-1 review, Referee B minor #7: block (a)'s free permutation destroys each HS6's
+## block (a)'s free permutation destroys each HS6's
 ## autocorrelation, so its gamma null is likely too WIDE (conservative in the authors' favour).
 ## Compute the trend-preserving analogue: cyclic-shift the panel (as above), re-apply the
 ## selection rule, and re-estimate gamma on whatever the rule then selects.
@@ -199,7 +199,7 @@ cat("    relative to (a)'s free permutation; this does not overturn (a)'s conclu
 cat("    magnitude is not separable from the post-outcome selection.\n\n")
 
 ## ---------------------------------------------------------------- (h) priority-list RI
-## JIE round-1 review, Referee B minor #2: no randomisation inference was run for the
+## no randomisation inference was run for the
 ## externally compiled priority-list ("exposed") gamma, which the manuscript otherwise treats
 ## as a selection-free robustness check. Draw random 50-line baskets from the full candidate
 ## universe and compare the observed exposed-basket gamma to that null.

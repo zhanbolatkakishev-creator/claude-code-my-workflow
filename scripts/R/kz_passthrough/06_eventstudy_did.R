@@ -32,9 +32,9 @@ p <- merge(p, gg[, .(hs6, surge, inWC_ratio, expRU_ratio)], by = "hs6", all.x = 
 p[is.na(surge), surge := FALSE]
 ## exposed_only = the priority-list (CHPL) lines NOT in the data-driven surge basket -- a
 ## selection-free residual set used to test whether the priority-list DiD is independent
-## corroboration or just the same lines (JIE round-1 review, Referee B Concern 2).
+## corroboration or just the same lines.
 p[, exposed_only := exposed == TRUE & surge == FALSE]
-## JIE round-2 review, Referee B N1: the exposed_only DiD must NOT be run against the full
+## the exposed_only DiD must NOT be run against the full
 ## panel, because that control group would still contain the 29 surge-basket lines (the most
 ## heavily treated units, +11.6x). The clean comparison is the 26 residual lines against the
 ## "purged" civilian control (exposed==FALSE & surge==FALSE) already used as the placebo
@@ -46,7 +46,7 @@ save_out(gg, "surge_basket_stats")
 cat("surge-basket HS6 (West+China rule):", sum(gg$surge), "of", nrow(gg),
     "| dual-use among surge:", p[surge == TRUE, uniqueN(hs6[exposed == TRUE])],
     "| exposed_only (priority-list, non-surge) HS6:", p[, uniqueN(hs6[exposed_only == TRUE])], "\n")
-cat("exposed_only CLEAN sample (JIE R2 Referee B N1): treated =",
+cat("exposed_only CLEAN sample: treated =",
     p_resid[exposed_only == TRUE, uniqueN(hs6)], "| purged civilian control =",
     p_resid[exposed_only == FALSE, uniqueN(hs6)], "| total clusters =", p_resid[, uniqueN(hs6)],
     "| rows (N) =", nrow(p_resid), "\n")
@@ -65,7 +65,7 @@ cat(" inbound measure: mirWC_usd = West (EU-27/UK/US/JP/KR/CH/NO) + China mirror
 OUTC <- c("expRU_usd", "mirWC_usd", "mirW_usd", "impW_usd", "mirror_gap_wc")
 tv_labels <- c(surge = "(data-driven surge basket, West+China rule)",
                exposed = "(dual-use CHPL list — pre-specified robustness)",
-               exposed_only = "(priority list MINUS surge basket -- independence check, JIE round-1 Referee B C2)")
+               exposed_only = "(priority list MINUS surge basket -- independence check)")
 for (tv in c("surge", "exposed", "exposed_only")) {
   dtv <- if (tv == "exposed_only") p_resid else p
   cat("\n########", tv, tv_labels[[tv]], "########\n")
@@ -80,7 +80,7 @@ for (tv in c("surge", "exposed", "exposed_only")) {
 }
 
 ## ---- independence check: wild-cluster bootstrap p for exposed_only, same protocol as surge --
-## JIE round-2 review, Referee B N1: run on p_resid (clean control), not the full panel.
+## run on p_resid (clean control), not the full panel.
 if (FREQ == "A") {
   cat("\n-- exposed_only (priority list minus surge basket, CLEAN control): wild cluster bootstrap p --\n")
   wcb_tv <- function(dt, yv, tv, B = 1999) {
@@ -107,7 +107,7 @@ for (yv in c("mirWC_usd", "expRU_usd")) {
 }
 
 ## ---- pre-trend joint test + event study, exposed_only on its OWN headline outcome -------
-## JIE round-3 review, Referee B M2: gamma=1.94 on expRU_usd (the corrected N1 fix) is now
+## gamma=1.94 on expRU_usd (the corrected N1 fix) is now
 ## quoted in the abstract, but only the (null) inbound leg had an event study/pre-trend test.
 ## Adding the outbound one here, on the same clean p_resid sample.
 if (FREQ == "A") {
@@ -119,7 +119,7 @@ if (FREQ == "A") {
                                      w_resid$stat, w_resid$p, nrow(p_resid), p_resid[, uniqueN(hs6)]))
 }
 
-## ---- 2018 individual coefficient (JIE round-1 Referee B minor #3): the selection rule uses
+## ---- 2018 individual coefficient: the selection rule uses
 ## the 2019-2021 mean as its denominator, so 2018 is the one pre-period year outside the
 ## selection window and the most informative single placebo-year check.
 cat("\n-- 2018 individual event-study coefficient (outside the 2019-2021 selection window) --\n")
@@ -168,7 +168,7 @@ if (FREQ == "A") {
 }
 
 ## ---- selection-free level check: annual expRU for the priority list and its residual ----
-## (JIE round-1 Referee B C3: is "roughly tenfold" a fact about the surge basket's selection
+## (is "roughly tenfold" a fact about the surge basket's selection
 ## rule, or does a product set NOT selected on Kazakh outcomes show a comparable ratio?)
 if (FREQ == "A") {
   lvl <- function(flag_col) {

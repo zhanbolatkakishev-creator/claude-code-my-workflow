@@ -67,7 +67,7 @@ cat(sprintf("\n-- weight ratio (kg out / kg in), matched cells: median %.3f, p25
 ## ---- R&R Essential 1(b): the aggregate kg ratio tracks the value flow-through, so it is
 ## uninformative about transformation whenever flow-through is partial. The Comtrade extract
 ## carries value + net weight but NOT physical quantity/units, so the per-physical-unit
-## statistic the referee asks for (netWgt/qty in vs out) cannot be formed here. Fallback
+## statistic needed (netWgt/qty in vs out) cannot be formed here. Fallback
 ## (editor-offered): restrict to NEAR-PURE-TRANSIT cells where value flow-through ~ 1, where
 ## the aggregate weight ratio IS interpretable.
 post[, vft := expRU_usd / mirWC_usd]                       # cell-level value flow-through

@@ -207,3 +207,14 @@ de-anonymize the manuscript with a simple search. Can revisit after the blind-re
    moot for the current Mendeley deposit (that file was never included), but still relevant if
    a future version adds it.
 4. **No rush**: the deadline is 31 March 2027.
+
+## Text revision of the Word manuscript (2026-10-05)
+
+`manuscript_blind.docx` was edited directly (the Word file is the submission; `Manuscript/corridor.tex` has not been re-synced).
+
+- Neutral framing: no sanctions or circumvention language in the body; the legal/regulatory constraint is stated as a cost wedge on entry, with no position on any shipment. The only remaining "sanctions" string is a cited paper's title.
+- Claims narrowed to what the evidence supports: "no detectable change in deal-making" (80% power bound), institutions "not supported as binding", market access "open by construction".
+- Fixes: matched-window flow-through (about one-ninth), placebo row label, Donut row removed, Table 2 notes, deal-ID availability statement (identifiers on request), DOI withheld, Section 11 reduced to labelled conjecture, 2026 manufacturing paragraph hedged.
+- Added: ex ante prediction and regulatory-exposure paragraphs (Section 3), assembled-dollar row in Table D.1, sample-construction and data-gap notes (Appendices A, B), four verified references.
+- Supporting files (cover letter, highlights, declarations) aligned.
+- Replication package (README, DCAS checklist, code comments) cleaned of review-process wording; the Mendeley deposit needs a new version to carry it.

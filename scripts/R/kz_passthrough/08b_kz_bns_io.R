@@ -115,7 +115,7 @@ cat("  -> section 5.2 uses m = 6-14%: freight/insurance + a WHOLESALE trade marg
 cat("     above the transport-only floor and well below the full margin (which carries the\n")
 cat("     retail leg the corridor never performs).\n")
 
-## JIE round-1 review, Referee B Concern 7: a data-derived anchor for m, rather than only the
+## a data-derived anchor for m, rather than only the
 ## transport-only floor and full trade+transport ceiling. The resources table's "trade_m"
 ## column is the trade-margin component net of transport (trans_m); it is NOT separately split
 ## into wholesale vs. retail in this table, so it is reported as an upper-bound anchor for the

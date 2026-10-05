@@ -24,7 +24,7 @@ p07 <- readRDS(file.path(DIR_OUT, "rq2a_cell_measures.rds")); setDT(p07)
 
 ## ---- incremental flows (reorientation-attributable), $m ----------------------
 base_yr <- 2018:2021; post_yr <- 2022:2025
-## JIE round-1 review, Referee B Concern 5: the 2025 mirWC_usd figure is Western-only (China
+## the 2025 mirWC_usd figure is Western-only (China
 ## has not yet reported), so mixing it into a West+China increment against a West+China
 ## baseline produces a spurious negative 2025 contribution. West/outbound are reported for
 ## the full window and are unaffected; the West+China ("mirWC") increment is restricted to
