@@ -325,6 +325,57 @@ report N and the clustering dimension in every table note; author-date (Harvard)
 at revision (`elsarticle`/`model5-names`), any consistent style accepted at initial submission
 under Your Paper Your Way.
 
+### European Economic Review (EER)
+
+**Short name:** `EER`
+
+**Focus.** One of the oldest general-interest economics journals, "a primary publication for
+theoretical and empirical research in all areas of economics"; selects articles with "high
+relevance and impact in a wide range of topics", "original in motivation or modelling and
+capable of replication" (journal's own aims and scope). Special issues run through guest
+editors who recommend decisions to the journal editor. A trade-fragmentation special issue
+("Global Trade Fragmentation and Regional Trade Alliances", guest editors in international
+trade/macro) reads for sanctions, geopolitical (mis)alignment, supply-chain reconfiguration,
+regional trade agreements and firm-level responses. Does **not** publish descriptive
+single-country notes with no wider lesson or policy advocacy without an analytical spine.
+
+**Bar.** General-interest field journal, selective; editors may reject without external review
+(expedited-review policy, non-refundable fee). A paper clears the desk if (a) the question matters
+to economists beyond one country, (b) the evidence is credible and honestly bounded, and (c) the
+result is replicable. A special-issue paper additionally needs to speak to the issue's theme.
+Acceptance in the low teens.
+
+**Domain-referee adjustments.**
+- Contribution 30 → 35 (why should a general economist care about this case?)
+- Lit positioning 25 → 22
+- Substance 20 → 20
+- External validity 15 → 15 (the case-to-general-lesson link is load-bearing)
+- Fit 10 → 8 (special-issue theme match is strong; do not over-weight)
+
+**Methods-referee adjustments.**
+- Identification 35 → 38 (credible, transparent, with limits acknowledged; a null needs a power statement)
+- External validity / generalisation 15 → 15
+- Replication 5 → 8 (restricted-data handling must be documented; code must reproduce every exhibit)
+- If paper type is `descriptive` or `theory+empirics`: Mechanism / framework discrimination 20 → 25
+
+**Typical concerns.**
+- "Why should a reader outside Eurasia care? What is the general lesson, and how far does it travel?"
+- "The surge basket is selected on the outcome, and the permutation test says its magnitude is not separable from selection. What is the identified object?"
+- "A null investment response from four post-shock years of deal data: what could the test have detected, and what else was happening?"
+- "The value-capture headline rests on an assumed 6-14% margin; how much of it is calibration rather than estimate?"
+- "The three-gate framework is an organising device, not a model: does the case discriminate between the gates?"
+
+**Referee-pool weights.**
+- CREDIBILITY: 0.22
+- MEASUREMENT: 0.18
+- STRUCTURAL: 0.17
+- THEORY: 0.15
+- POLICY: 0.14
+- SKEPTIC: 0.14
+
+**Table format override.** Significance stars permitted; SE in parentheses; report N and the
+clustering dimension per specification; any consistent reference style at submission.
+
 ---
 
 ## Political Science (Top-3)
