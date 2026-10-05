@@ -80,6 +80,19 @@ As → .docx**. Two things were checked and fixed before trusting the result:
    `docProps/core.xml`, fixed via Word's Document Inspector ("Check for Issues → Inspect Document"
    → remove "Document Properties and Personal Information"), re-verified empty afterward.
 
+## Word manuscript repaired 2026-10-05 (tables, equations, footnote)
+
+Word's own PDF-to-Word conversion kept the prose and figures but damaged the layout:
+scrambled tables, garbled equations, a footnote split into the body text, paragraphs cut at
+old page ends, and hyphens/spaces lost at old line breaks. Rebuilt from the LaTeX source
+(toolkit in `scripts/docx_repair/`) and verified by exporting through Word and viewing the
+pages: all 9 tables are now native Word tables with correct numbers; both equations are
+native Word math with the underbrace labels in the right places (equation 1's labels had been
+swapped); footnote 1 is a real footnote; the split paragraphs are rejoined; lost hyphens and
+spaces restored. A word-level comparison of Word's rendered text against the LaTeX PDF found no
+other missing or garbled content. Still true: no author text anywhere (body, footnotes,
+footers), file properties blank, no em dashes, Mendeley DOI present. 47 pages in Word.
+
 ## Metadata to enter manually
 
 - **Title:** Corridor, Not Factory: Trade Reorientation and the Missing Investment Response in Kazakhstan, 2022-2025
