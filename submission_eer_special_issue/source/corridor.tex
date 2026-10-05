@@ -6,7 +6,7 @@
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{graphicx}
-\graphicspath{{./}}
+\graphicspath{{../scripts/R/kz_passthrough/_outputs/}{../scripts/R/kz_valueadd/_outputs/}}
 \usepackage[hidelinks]{hyperref}
 \usepackage[authoryear]{natbib}
 \usepackage{setspace}
@@ -42,10 +42,7 @@ retains, and ask whether it induced investment. Exports to Russia in 29 product 
 roughly tenfold from May 2022; since the difference-in-differences is not separable from its
 own selection rule, identification rests on break dates, levels, and a neighbour comparison.
 Propagating a wholesale-and-freight margin (6--14\%) through the input--output table implies
-domestic value added of 5--11 cents per rerouted dollar, against three-quarters for a produced
-dollar. Across three deal databases we find no investment response. We read the null through
-three gates (market access, irreversibility, and capital-market institutions) and show
-the market-access gate is open and the least capital-constrained investor did not build.
+domestic value added of 5--11 cents per rerouted dollar (up to about 27 cents at the highest margin the data can support), against three-quarters for a produced dollar. Across three deal databases we find no detectable change in deal-making and can rule out increases of about 80\% or more. We read the null through three gates (market access, irreversibility, and capital-market institutions): the market-access gate is open by construction, and the state investment corporation, the least capital-constrained investor, did not build either.
 Kazakhstan is a corridor, not a factory.
 
 \medskip
@@ -58,13 +55,8 @@ institutional voids; Kazakhstan.
 
 \section{Introduction}
 
-When demand for a country's tradeable output rises sharply and persistently, the textbook
-expectation is that supply follows: firms expand, new entrants appear, and, if the country
-was importing the good, some of the demand is met domestically. This logic underlies a large
-part of development economics, from infant-industry and import-substitution arguments to
-modern work on global-value-chain entry and the investment effects of trade shocks. Its
-premise is that a demand signal, once clear enough and durable enough, is acted on by
-investment.
+When demand for a country's tradeable output rises sharply and persistently, the standard expectation is that supply follows: firms expand, new entrants appear, and, if the country
+was importing the good, some of the demand is met domestically. This logic underlies a large part of development economics, from infant-industry and import-substitution arguments to modern work on global-value-chain entry and the investment effects of trade shocks. Its premise is that a demand signal, once clear enough and durable enough, is acted on by investment. The question here is when a transit economy inside a customs union with the destination market should expect that to happen, since the good can reach that market without being made at home.
 
 After February 2022 Kazakhstan received an unusually clean version of such a signal, one case
 of the broader post-2022 reallocation of trade
@@ -74,14 +66,13 @@ trade flows through third countries. \citet{chupilkin2026roundabout} document th
 pattern: a sharp fall in EU exports to Russia alongside a matching rise in EU exports to
 Armenia, Kazakhstan and the Kyrgyz Republic, with product-level and mirror-statistics evidence
 of a corresponding rise in those countries' exports to Russia;
-\citet{chupilkin2025intermediated} quantify the substitution. A policy literature documents
-the same reallocation \citep{simola2023bofit,kse2024exportcontrols,wisniewska2025osw}.
+\citet{chupilkin2025intermediated} quantify the substitution. 
 For Kazakhstan the reorientation is concentrated in a well-defined set of
 technology-intensive products and is large: at the monthly level, exports to Russia in these
 lines rose roughly tenfold (3.5$\times$ on a selection-free, externally compiled priority list
 not chosen on this outcome; Section~\ref{sec:shock}). The routes, the demand and the products are all observable in the
 trade data. We treat this as a case study (a large, sector-specific demand
-shock) and ask whether it induced the domestic investment response the textbook predicts.
+shock) and ask whether it induced the domestic investment response that standard logic predicts.
 
 We proceed in three steps.
 
@@ -112,7 +103,7 @@ overlap between the lines it fake-treats and the surge basket.
 
 \emph{Second, we measure what Kazakhstan retains.} On the incremental flow to Russia (about
 \$479m over 2022--2025), the unit-value and weight evidence does not sharply distinguish the
-re-export flow from ordinary Kazakh trade. Propagating a wholesale-and-freight margin
+onward flow from ordinary Kazakh trade. Propagating a wholesale-and-freight margin
 (6--14\%, a band we choose rather than estimate) through the input--output table (OECD ICIO)
 implies domestic value added of about \textbf{5--11 cents} per dollar rerouted, against roughly
 three-quarters for a dollar of domestic manufacturing output. Because the input--output step
@@ -121,16 +112,13 @@ of a produced dollar for any margin below a fifth (Section~\ref{sec:capture}). C
 on the incremental flow is well under 1\% of customs revenue, and the gross reoriented flow is
 0.2--0.3\% of GDP a year.
 
-\emph{Third, we ask whether the shock induced investment.} We find no response the data can
-detect. We assemble deal-level data on mergers, acquisitions, and private-equity and venture
+\emph{Third, we ask whether the shock induced investment.} We find no change the data can detect, and can rule out an increase in deal-making of about 80\% or more. We assemble deal-level data on mergers, acquisitions, and private-equity and venture
 transactions in Kazakhstan for 2015--2025 from three commercial databases (Capital~IQ,
 PitchBook, Preqin), together with the aggregate investment activity of Kazakhstan's state
 investment corporation as reported in \citet{qicaifcifc2026pe}. Deal-making in manufacturing of tradeable goods,
 transport and logistics, and distribution runs at essentially its pre-2022 rate, if anything
 lower after 2022; with four post-2022 years the test rules out a large response, not a modest
-step-up, and the null is in any case over-determined: the January 2022 unrest, the
-cross-border compliance and reputational exposure that transactions of this kind carry, and
-the nationalisation wave would each depress entry. Reported deal value
+step-up, and the null is in any case over-determined: the January 2022 unrest, the cross-border regulatory exposure that transactions in these product areas carry, and the nationalisation wave would each depress entry. Reported deal value
 rises, but is concentrated in ownership transfers of existing or
 distressed assets (two of the largest are nationalisations), while greenfield and
 new-capacity transactions show no post-2022 increase.
@@ -139,17 +127,13 @@ We interpret the non-response with a framework in which the supply response is t
 three gates: \emph{irreversibility} (does anyone build for a shock this uncertain and
 policy-contingent, given the option to serve the demand through trade?), \emph{market access}
 (is domestic transformation required to reach the final market?), and \emph{institutions} (can
-the projects that clear the first two be financed?). For Kazakhstan the market-access gate is
-plainly open (a customs union with the destination makes trade a close substitute for
+the projects that clear the first two be financed?). For Kazakhstan the market-access gate is open by construction (a customs union with the destination makes trade a close substitute for
 production). That is close to sufficient for a null only jointly with a small transformation
 margin, not on its own (Section~\ref{sec:framework}). It also means Kazakhstan forgoes
-the technology transfer a rules-of-origin regime would have forced \citep{desouza2024diffusion}. The case
-is also inconsistent with capital-market institutions as the binding constraint for this particular null:
-the state investment corporation, which faces neither an external-finance nor an exit
-constraint, did not build for the reallocation either. Whether the irreversibility gate
+the technology transfer a rules-of-origin regime would have forced \citep{desouza2024diffusion}. The case also does not support capital-market institutions as the binding constraint for this particular null: the state investment corporation faces neither an external-finance nor an exit constraint, though its mandate differs from a private investor's, and it did not build for the reallocation either. Whether the irreversibility gate
 \emph{independently} binds we cannot settle here: a within-country comparison (an assembly
-response to the durable passenger-vehicle demand shock, none to the re-export shock) is
-suggestive but confounded, and because the re-export flow in fact persisted through 2025, a
+response to the durable passenger-vehicle demand shock, none to the onward-trade shock) is
+suggestive but confounded, and because the onward flow in fact persisted through 2025, a
 2022 entrant faced uncertainty about its duration rather than an observed short shock. The
 institutional gate does explain a separate fact: why the adjacent durable opportunities the
 shock reveals go unfinanced by private capital.
@@ -161,8 +145,7 @@ literature that establishes the fact and scale of the reallocation to what the i
 retains from it, and to 2025. It also connects to \citet{bowncrowley2007}'s finding that
 import-restricting trade policy deflects a foreign country's exports into third markets: the
 present case takes that deflected flow as its starting point and asks what the receiving
-economy does with it. It shows that a large,
-sector-specific tradeable-demand shock produced no detectable investment response, a fact
+economy does with it. It also relates to work on connector economies in the US--China tariff reallocation \citep{fajgelbaum2024reallocations,freund2024supplychains} and to the tariff-jumping and rules-of-origin literature \citep{blonigen2002tariffjumping,conconi2018rulesoforigin}, which asks when a border measure pulls production, and not only trade, into a third country; here the customs union with the destination removes that pull. It shows that a large, sector-specific tradeable-demand shock produced no detectable change in deal-making, a fact
 relevant to when trade shocks induce a domestic supply response and when they do not
 \citep{juhasz2018temporary,bloom2016trade,juhaszlanerodrik2024,gopinathneiman2014}.
 
@@ -178,14 +161,12 @@ membership in the customs union is what keeps the market-access gate open, and t
 of the regional arrangement, jointly with a small transformation margin, is what the framework
 treats as close to sufficient for the null, rather than the shock's size alone.
 Section~\ref{sec:why} sets out the limits: the case establishes an open market-access gate,
-finds evidence inconsistent with the institutional gate as the binding constraint for this
-null, and leaves the irreversibility gate undetermined. The decomposition is an organising
+finds that the evidence does not support the institutional gate as the binding constraint for this null, and leaves the irreversibility gate undetermined. The decomposition is an organising
 device, and we do not estimate it.
 
 (iii) Methodologically,
 it combines public trade data, an input--output table and multi-source commercial deal data
-into a replicable measure of what a transit economy captures, cross-checking the deal counts
-across databases.
+into a replicable measure of what a transit economy captures, reporting deal counts by source.
 
 The rest of the paper is organised as follows. Section~\ref{sec:setting} describes the
 setting; Section~\ref{sec:framework} sets out the framework; Section~\ref{sec:data} the data,
@@ -209,8 +190,7 @@ imports away from China and toward within-union partners, though the estimated m
 \citep{isakova2016tariffs}. Kazakhstan is also the land bridge between China and Russia and,
 via the Trans-Caspian corridor, between China and Europe, though as a landlocked economy its
 overland logistics costs are high and, more binding still, unpredictable
-\citep{arvis2010landlocked}. These features make it a natural transit route for goods
-re-exported without transformation: because it shares a customs union with the destination,
+\citep{arvis2010landlocked}. These features make it a natural transit route for goods that move onward without transformation: because it shares a customs union with the destination,
 serving the final market from Kazakhstan requires no domestic processing.
 
 The land route has also become more valuable for reasons unconnected to any single trading
@@ -234,8 +214,7 @@ comparable reform.
 
 Three further shocks bear specifically on the \emph{investment} null and cannot be differenced
 away: the January 2022 unrest and state of emergency, in the first month of
-the post-period; the cross-border compliance and reputational exposure that transactions of
-this kind carry, which deters exactly the foreign acquirers who might have answered the shock;
+the post-period; the cross-border regulatory exposure that transactions in these product areas carry, which raises the cost of entry for exactly the foreign acquirers who might have answered the shock;
 and the 2022--2025 wave of nationalisations, which both crowds the state investment pipeline and
 signals ownership risk to private entrants. We return to these where they matter, in
 Sections~\ref{sec:investment} and~\ref{sec:why}. They make the investment null
@@ -369,35 +348,15 @@ institutions) is argued for Kazakhstan on its own terms in Sections~\ref{sec:sho
 \ref{sec:why}, rather than derived from \eqref{eq:gates}. Those sections show that for
 Kazakhstan the market-access gate is open and, jointly with the sector's low transformation
 margin, close to sufficient for $R \approx 0$ (subject to the alternative reading noted above);
-that the state investment corporation, which faces neither an external-finance nor an exit
-constraint, did not build for the reallocation either, which is inconsistent with capital-market
-institutions
-as the binding constraint for this null; and that whether the irreversibility gate
+that the state investment corporation, which faces neither an external-finance nor an exit constraint, did not build for the reallocation either, so the case does not support capital-market institutions as the binding constraint for this null (its mandate may differ from a private investor's); and that whether the irreversibility gate
 independently binds cannot be settled. Section~\ref{sec:moderators} and Section~\ref{sec:where}
 show that the institutional gate does explain a separate fact: the durable adjacent
 opportunities the shock reveals go unfinanced.
 
-\paragraph{A mediation restatement.} The same structure can be put in mediation terms; we do
-so as an interpretive device, not as a model we estimate, since the data below have no
-firm-level panel linking the trade response to the investment response. Let the demand shock $X$ bear on
-the investment response $Y$ through a direct path $X \to Y$ and an indirect path
-$X \to M \to Y$, where the mediator $M$ is the volume of re-export activity the shock
-generates. The shock raises $M$; higher $M$ substitutes for domestic capacity, so it works
-against $Y$. When the market-access gate is open ($h = 1$, no transformation required), trade
-is a close substitute and nearly all of the shock is carried by $M$: the channel that would
-raise $Y$ is barely opened, and the net effect on investment is close to nil. When the gate is
-closed ($h < 1$), $M$ absorbs less of the shock and part of $X$ bears on $Y$ directly, with
-that residual governed by the irreversibility parameters ($\rho$, $\sigma$, $I$): whether the
-un-absorbed demand is large and durable enough to clear \eqref{eq:build}. Kazakhstan is the
-polar case: $h = 1$, and the unit-value evidence of Section~\ref{sec:capture}, though it does
-not identify the margin, is consistent with a re-export price no higher than the delivered
-cost of the input, so little is left for the direct path even before the irreversibility gate
-is applied.
-
 \section{Data}\label{sec:data}
 
 \paragraph{Trade.} UN Comtrade, HS 6-digit. Annual 2018--2025 for magnitudes; monthly
-(authenticated API) for break timing and the event study. Kazakhstan suspended monthly
+(authenticated API) for break timing; the event study in Section~\ref{sec:did} is annual. Kazakhstan suspended monthly
 reporting to Comtrade after February 2024 and resumed in January 2025, so the monthly series
 runs 2019m1--2024m2 and 2025; the 2024 gap is covered by the annual data and by mirror flows.
 We use Kazakhstan's reported exports to Russia (complete) and, for the inbound side, a
@@ -438,14 +397,12 @@ to 68 products, 2023 reference year).
 
 \paragraph{Deal data.} Deal-level records of mergers, acquisitions, private-equity buyouts and
 growth transactions, and venture rounds involving Kazakhstan-domiciled targets, 2015--2025.
-The extract combines Capital~IQ, PitchBook and Preqin ($N \approx 500$ after
-de-duplication), each record carrying its native source deal identifier, classified to
+The extract combines Capital~IQ, PitchBook and Preqin ($N = 493$ after de-duplication), each record carrying its native source deal identifier, classified to
 sectors and flagged for greenfield versus ownership transfer.
 The exact query specification for the three databases (geography filter, deal types, date
 range, industry taxonomy, extraction date) is in Appendix~\ref{app:deals}, and
 Table~\ref{tab:dealsource} reports each one's coverage. All are commercial but widely
-available under academic licence, and the replication package lists the deal identifiers, so
-the extract is reconstructible. QIC investment activity is
+available under academic licence, and the query specification is in the replication package, so the extract is reconstructible by a licence holder; the native deal identifiers are available to verified licence holders on request. QIC investment activity is
 taken from \citet{qicaifcifc2026pe}, which reports it in aggregate (about 98 investment
 records, roughly \$2.2bn, 2015--2025), by sector and year, and names a handful of individual
 investments in its case studies; no project-level QIC register is public, and the paper uses
@@ -482,38 +439,34 @@ comparator to the surge basket's "roughly tenfold" rise.}
 West + China $\to$ KZ (mirror) & 394 & 427 & 483 & 470 & \textbf{837} & 1{,}373 & 2{,}360 & 363$^{\dagger}$ \\
 \quad \emph{of which Western}   & 162 & 162 & 168 & 184 & \textbf{337} & 444 & 419 & 363 \\
 Kazakhstan $\to$ Russia        &  17 &  12 &   7 &   8 & \textbf{128} & 145 & 119 & 133 \\
-\emph{Priority list, overlapping (50 HS6)} & 82 & 89 & 59 & 61 & \textbf{306} & 293 & 229 & 187 \\
+\emph{Priority list (50 HS6, incl.\ 24 surge-basket lines)} & 82 & 89 & 59 & 61 & \textbf{306} & 293 & 229 & 187 \\
 \bottomrule
 \end{tabular}
 
 \vspace{2pt}
 \footnotesize $^{\dagger}$ 2025 West + China is the Western component only; China has not yet
 reported. Priority-list pre-2022 mean \$72.7m, post-2022 mean \$253.7m, ratio 3.5$\times$,
-against the surge basket's 11.6$\times$ (Section~\ref{sec:shock}).
+against the surge basket's 11.6$\times$ (computed on unrounded values; the rounded entries above give about 11.9$\times$; Section~\ref{sec:shock}).
 \end{table}
 
 \subsection{Timing and the event study}
 
 Monthly, the outbound series (Kazakhstan's exports to Russia) breaks sharply in 2022m5
 (Bai--Perron \citep{baiperron1998}, 95\% CI 2022m4--2022m6; sup-$F$ \citep{andrews1993} of 561 under a homoskedastic covariance, against
-critical values in the low tens), following the March-2022 sanctions with a short lag and
-preceding every political-calendar date. Because the series is persistent, a homoskedastic
+critical values in the low tens), following the disruption of direct trade with Russia's principal partners with a short lag and preceding every domestic political-calendar date. Because the series is persistent, a homoskedastic
 covariance can overstate the sup-$F$ and understate the confidence interval; under a
 Newey--West \citep{neweywest1987} correction the sup-$F$ falls to 326 but the 95\% CI is unchanged (2022m4--2022m6),
 so the timing argument does not depend on the choice of covariance estimator. The inbound
 series (West + China) breaks in the same
 month (95\% CI 2022m4--2022m6, HAC sup-$F$ 15.5 against 24.1 homoskedastic, CI unchanged), with
-a second, smaller break in late 2023 as trade-monitoring
-measures tightened, and the Western component alone breaks in 2022m5 more sharply (95\% CI
+a second, smaller break in late 2023 as partner-country transit-monitoring measures took effect, and the Western component alone breaks in 2022m5 more sharply (95\% CI
 widens by one month to 2022m3--2022m6 under the HAC correction). On the
 \emph{annual} panel the outbound and Western-inbound breaks are again dated to 2022. The
 West + China inbound break is not significant, because the large pre-existing China flow swamps
 the 2022 movement at annual frequency; the reorientation is therefore best seen
 in the outbound series and the Western inbound.
 
-The sup-$F$ is computed without a HAC correction and the series is highly persistent, so we
-read it as evidence of a break and its \emph{date}, not as calibrated inference on the
-break's size. The event study and the difference-in-differences carry the quantitative
+Because the series is highly persistent, we read the sup-$F$ as evidence of a break and its \emph{date}, not as calibrated inference on the break's size. The event study and the difference-in-differences carry the quantitative
 weight. Figure~\ref{fig:monthly} plots the monthly series. Figure~\ref{fig:es} is a
 difference-in-differences event study at the HS6$\times$year level
 (surge basket vs.\ control lines, reference year 2021, 95\% confidence intervals clustered by
@@ -648,11 +601,11 @@ basket is selected on the
 inbound (West + China) and outbound flows; the priority list (50 codes) is externally compiled.
 Row 1 (surge basket) and row 2 (priority list) are estimated against the full 75-line panel;
 row 3 (residual list) is estimated against the 46-line purged sample described above, so its
-control pool differs from rows 1--2. No stars are reported in row 1: the surge-basket
+control pool differs from rows 1--2. No stars are reported in row 1 of Panel A: the surge-basket
 coefficient's magnitude is not separable from the sample selection (Panel C), including for
 the KZ-reported-imports column, whose apparent significance should be read against Panel C's
 randomisation-inference null for that basket rather than taken at face value. The residual
-row's star reflects the wild-cluster bootstrap $p$, the reliable statistic at 46 clusters.}
+row's star reflects the wild-cluster bootstrap $p$, the reliable statistic at 46 clusters. Stars in Panel B are cluster-robust and carry the same selection caveat for the surge basket. Panel C reports randomisation inference for exports to Russia only. The placebo is estimated on the inbound (West + China) outcome.}
 \label{tab:did}
 \footnotesize
 \setlength{\tabcolsep}{5pt}
@@ -665,7 +618,7 @@ Treated set & Russia & (W+China) & (Western) & imports \\
 Surge basket (29 HS6)                 & 2.44 (0.96) & 2.10 (1.06) & 1.73 (0.98) & 1.88 (0.63) \\
 Priority list, external (50 HS6) & 2.88 (0.74)$^{***}$ & 2.12 (0.71)$^{**}$ & 1.93 (0.67)$^{**}$ & 2.94 (0.53)$^{***}$ \\
 \quad\emph{of which, 26 lines, purged civilian control} & 1.94 (0.90)$^{\dagger}$ & 1.12 (0.83) & n/a & n/a \\
-Placebo (largest civilian lines)      & n/a & $-0.95$ (0.25)$^{**}$ & n/a & n/a \\
+Placebo (largest civilian lines; inbound West + China outcome) & n/a & $-0.95$ (0.25)$^{**}$ & n/a & n/a \\
 \midrule
 \multicolumn{5}{@{}l}{\emph{Panel B. Poisson (PPML) DiD in levels, $e^{\beta}$ (multiplicative)}} \\
 Surge basket (29 HS6)                 & $3.5\times^{*}$ & $2.4\times^{***}$ & n/a & n/a \\
@@ -705,8 +658,7 @@ smaller than the surge basket's on the same test, and the monthly surge-basket o
 is much sharper still. Second, the outbound
 break is dated 2022m5, before the June referendum and the November election. Third, and most
 directly: Armenia's surge-basket exports to Russia rose from \$7--15m per year to \$71m in
-2022 and \$93m in 2023, and the Kyrgyz Republic's from \$1--7m to \$12m and \$30m, on the same
-timing, neither country having a ``New Kazakhstan'' reform. The direction is also the right one: the
+2022 and \$93m in 2023, on the same timing as Kazakhstan. The Kyrgyz Republic's series is smaller and noisier (from \$1--7m to \$12m and \$30m, elevated from 2022 on rather than a dated break; Appendix~\ref{app:breaks}). Neither country had a ``New Kazakhstan'' reform. The direction is also the right one: the
 goods come in from Western reporters and move onward to Russia, not the reverse.
 
 \section{What Kazakhstan retains}\label{sec:capture}
@@ -721,15 +673,10 @@ reorientation drove. The \$479m increment is measured against a flat counterfact
 counterfactual near zero by 2024 and raise the increment to about \$521m, widening every
 downstream figure by roughly a tenth. Set against the incremental \emph{Western} inbound of
 about \$887m, the flow-through is roughly one-half; set against the incremental West + China
-inbound of about \$3.2bn, it is one-sixth.\footnote{Three flow-through ratios appear in this
+inbound of about \$3.2bn over 2022--2024 (China has not reported 2025), the flow-through on the matched three-year window is about one-ninth (\$359m of incremental exports over the same three years).\footnote{Three flow-through ratios appear in this
 section, on different samples and bases: the \emph{incremental} ratio against the Western
 inbound ($\approx 0.54$, on aggregate 2022--2025 minus baseline) and against West + China
-($\approx 0.15$, ``one-sixth''); the latter is computed on 2022--2024 only, since the 2025
-West + China figure in Table~\ref{tab:magnitudes} is Western-only (China not yet reported) and
-mixing it into a West + China increment would understate it by construction; the
-2022--2025 mixed-basis figure gives the same ratio to two decimal places. The
-\emph{matched-cell} aggregate ratio
-($\approx 0.11$, sum of re-export value over sum of inbound value across the 112 matched
+($\approx 0.11$, ``about one-ninth''), with numerator and denominator both taken over 2022--2024, the years for which China reports (incremental exports of \$359m $=$ \$392m $-$ 3 $\times$ \$11m, against an incremental inbound of about \$3.24bn $=$ \$4.57bn $-$ 3 $\times$ \$443.5m). Pairing the four-year export increment (\$479m) with the three-year inbound increment would give $\approx 0.15$, which mixes windows and is not used. The \emph{matched-cell} aggregate ratio (also $\approx 0.11$, but a different construction: sum of re-export value over sum of inbound value across the 112 matched
 HS6$\times$period cells) used in the weight-ratio discussion below is a third, separate
 construction.} The inbound leg is the more weakly identified of
 the two (its DiD coefficient loses significance under size$\times$year controls and after
@@ -737,8 +684,7 @@ multiple-testing adjustment, Section~\ref{sec:did}), so the flow-through ratio s
 as indicative, not precise. The remaining \$887m${}-{}$\$479m${}={}$\$408m of
 the Western increment decomposes into only about \$41m of onward exports to destinations other
 than Russia (Kazakhstan's surge-basket exports to the rest of the world barely move) and about
-\$367m of domestic absorption, inventory and the c.i.f./mirror measurement gap, so the
-flow-through gap is not hidden re-export through third countries. The Western basis is the
+\$367m of domestic absorption, inventory and the c.i.f./mirror measurement gap, so the flow-through gap is not onward trade to third countries. The Western basis is the
 relevant one for the reorientation, and we use it here.
 
 The unit-value evidence is consistent with a corridor and does not identify a retained margin
@@ -825,7 +771,7 @@ table's trade-margin component alone (net of transport) is 48\% for machinery an
 almost the whole 49\% ceiling, which confirms transport is a small share of the full margin for
 this category but does not, on its own, pin a wholesale-only share: the table does not separate
 wholesale from retail, so it cannot independently validate a band meant to exclude the retail
-leg. We use \textbf{6--14\%} and treat it as a calibration, not an estimate, because no
+leg. Concretely, the band combines a freight-and-insurance component of about 5--6\% (the c.i.f./f.o.b.\ factor of about 1.06) with a wholesale distributive margin of 1 to 8 points that we assume, on the premise that both accrue to Kazakh-resident firms; the ends of the band are therefore set by assumption, not by a source that separates wholesale from retail. We use \textbf{6--14\%} and treat it as a calibration, not an estimate, because no
 line-by-line margin, and no wholesale/retail split, is identified in our data. Since
 $\bar v^{TT} \approx \bar v^{M}$ the input--output
 step does no work, so the headline is a direct function of $m$ and we carry it as a band. (We
@@ -842,7 +788,7 @@ Domestic value added per dollar rerouted is then $m\,\bar v^{TT} \approx$ \textb
 midpoint about \textbf{8\%}, against \textbf{76\%} per dollar of domestic manufacturing
 output, so a rerouted dollar creates on the order of a tenth as much domestic value as a
 produced one. Of the \$479m in incremental exports to Russia after 2022, Kazakhstan retains
-roughly \textbf{\$23--53m} as domestic value added.
+roughly \textbf{\$23--53m} as domestic value added. At the highest margin the data can support ($m = 0.34$, the censored matched-cell margin discussed above) the same arithmetic gives about 27 cents per rerouted dollar, or roughly \$128m, about a third of a produced dollar (Table~\ref{tab:appd}). On the priority-list basis the incremental exports are larger ($4 \times (253.7 - 72.7) = 724$ in \$m), and the retained value scales with them: about \$34--80m at 5--11 cents.
 
 Because the propagation step is close to the identity, the headline is a one-for-one function
 of $m$, and the reader can substitute a different margin directly (Appendix~\ref{app:io},
@@ -880,11 +826,10 @@ Kazakhstan retains at most about a quarter of what a producing economy captures.
 The reorientation-attributable flow (incremental exports to Russia over the pre-2022
 baseline) is about \$479m cumulatively over 2022--2025 (\$107--134m per year). Customs duty on
 it, at an EAEU common external tariff of 4--8\% on the share formally cleared in Kazakhstan, is
-on the order of \textbf{\$22m over four years} (about \$5m per year); net import VAT is close
+on the order of \textbf{\$22m over four years} (about \$5m per year, an effective rate of about 4.6\% on the \$479m increment, inside the 4--8\% schedule range because part of the flow is not formally cleared in Kazakhstan); net import VAT is close
 to zero because the onward supply to Russia is intra-union and zero-rated. Kazakhstan's annual
 customs revenue is of the order of \$4--5bn, so the reorientation adds well under 1\%. At the
-macro level the gross reoriented flow, about \$0.6bn a year with the inbound and onward legs
-combined, is 0.2--0.3\% of GDP; the 2022 current-account surplus, the reserve accumulation of
+macro level the gross reoriented flow, taken as the Western inbound and the onward exports to Russia in these lines together (about \$0.5--0.6bn a year; Table~\ref{tab:magnitudes}), is 0.2--0.3\% of GDP (we use GDP as the denominator; because part of the value added accrues to non-residents, the share of gross national income would be slightly larger); the 2022 current-account surplus, the reserve accumulation of
 2023--2025 and the rise in services value added are an order of magnitude too large to be
 driven by it.
 
@@ -917,7 +862,7 @@ response any greenfield or capacity-expansion deal, in any of the three database
 to a surge-basket HS6 \emph{or} to its parent electrical-machinery, components or
 instrument-manufacturing class. On that rule the count is zero before and after, and the
 informative statistic is the sector-level rate test above, which rules out a step-up of about
-a doubling or more.
+about 80\% or more.
 
 \begin{figure}[t]
 \centering
@@ -932,8 +877,7 @@ UN Comtrade; Capital~IQ/PitchBook/Preqin.}
 \label{fig:mismatch}
 \end{figure}
 
-The result holds across the three databases. Table~\ref{tab:dealsource} reports deal counts
-for the same Kazakhstan universe from each source; coverage differs in level (the
+Table~\ref{tab:dealsource} attributes the deal counts for the Kazakhstan universe to the source databases that report them; coverage differs in level (the
 transaction-oriented Capital~IQ extract records more mid-market M\&A, the venture-heavy
 PitchBook more small early-stage rounds, Preqin fewer of either), but none shows more than a
 flat rate in manufacturing or logistics deal-making (5.1 to 5.2, 2.0 to 1.5, and 0.4 to 0.5
@@ -944,7 +888,7 @@ after 2022 (5.1 versus 5.2 per year).
 
 \begin{table}[t]
 \centering
-\caption{Deal counts for the Kazakhstan universe, by source and period. Rates are per year
+\caption{Deal counts for the Kazakhstan universe, attributed to source and period (each of the 493 records is attributed to one source: 261 Capital~IQ, 199 PitchBook, 33 Preqin; the columns are not independent replications). Rates are per year
 over a 7-year pre-window (2015--21) and a 4-year post-window (2022--25). The consolidated
 non-duplicate universe is $N = 493$ transactions; the manufacturing, transport and
 distribution subset is $N = 82$ (53 pre, 29 post).}
@@ -971,7 +915,7 @@ are no transactions in the reorientation's product lines.
 Kazakhstan is adding vehicle assembly (Chinese marques, KIA, \v{S}koda) and some appliance
 capacity, but this predates and is largely independent of the reorientation, is kit assembly
 with low domestic value added, and serves the domestic and Eurasian consumer market rather
-than the re-export flow to Russia. The state investment corporation's disclosed
+than the onward flow to Russia. The state investment corporation's disclosed
 post-2022 pipeline is domestic food, energy and infrastructure, not corridor processing
 \citep{qicaifcifc2026pe}. The one
 investment signal that is reorientation-linked, a 2025 consolidation of cross-border
@@ -982,8 +926,7 @@ a producing one.
 
 \eqref{eq:build}'s threshold is on a sum, not a product, so no single term of \eqref{eq:gates}
 is dispositive on its own; what follows states, for Kazakhstan, what each argument in
-Sections~\ref{sec:shock}--\ref{sec:why} establishes on its own terms. The market-access gate
-is open: under the Eurasian Economic Union the good moves to Russia with no transformation and
+Sections~\ref{sec:shock}--\ref{sec:why} establishes on its own terms. The market-access gate is open by construction: under the Eurasian Economic Union the good moves to Russia with no transformation and
 no border, so $V_T$ is large. Two pieces of evidence are suggestive, not dispositive
 (Section~\ref{sec:framework}), that a domestic plant's transformation margin sits below the
 thin re-export markup ($\mu_P \lesssim \mu_T$): the sector's $0.69$ value-added multiplier,
@@ -992,13 +935,11 @@ outcome the paper is trying to explain and so risks circularity as evidence for 
 comparison. If that comparison holds, building is dominated in \eqref{eq:build} before the
 option value is added; if it does not, the null is equally consistent with Kazakhstan simply
 lacking a comparative advantage in the sector, customs union or not
-(Section~\ref{sec:framework}). The re-export flow is not distinguishable in price or weight
+(Section~\ref{sec:framework}). The onward flow is not distinguishable in price or weight
 from ordinary Kazakh trade (Section~\ref{sec:capture}). An open market-access gate is close to
 sufficient for $R \approx 0$ only jointly with that margin condition, not on its own, which
 limits what the case can say about the other two gates: we observe a single configuration,
-with no gate clearly favourable and the three not separately identified. What we can add is a
-state-fund pipeline that is inconsistent with the institutional gate as the binding constraint
-for this null (the least
+with no gate clearly favourable and the three not separately identified. What we can add is a state-fund pipeline that does not support the institutional gate as the binding constraint for this null (the least
 capital-constrained investor in the economy did not build), and a
 durable-versus-uncertain shock comparison that is suggestive of an adverse
 irreversibility gate but confounded. Neither identifies a gate cleanly, and we set out the
@@ -1048,22 +989,18 @@ shock does not; it is not an experiment on any single gate.
 
 A 2022 entrant faced an uncertain shock, not an observed transitory one. The flow to Russia
 peaked in September 2022 and fell by more than a third over the second half of 2023, from
-about \$15m per month in 2023-H1 to about \$9m in 2023-H2, as trade-monitoring measures
-tightened (the EU's eleventh sanctions package, Council Regulation (EU) 2023/1214 of 23 June
-2023, introduced a transit-monitoring provision). But that within-year decline is a correction
+about \$15m per month in 2023-H1 to about \$9m in 2023-H2, as partner-country transit-monitoring measures took effect in mid-2023. But that within-year decline is a correction
 from the September-2022 spike to a plateau, and not a decay path: on the \emph{annual} series
 exports to Russia in these lines run \$128m, \$145m, \$119m and \$133m across 2022--2025,
 roughly ten times the pre-2022 baseline, with no downward trend and 2025 above 2024
 (Table~\ref{tab:magnitudes}; with monthly reporting suspended after February 2024 and resumed
 only in 2025, the sub-annual path across the 2024 transition is not observed). \emph{Ex post} the flow
 persisted; what a 2022 entrant faced was high \emph{uncertainty} about its duration. The flow
-is policy-contingent (successive sanctions packages, monitoring provisions, compliance
-exposure) and its duration was unknowable. In the framework's terms this is a high-$\sigma$
+is policy-contingent (changing partner-country trade rules and monitoring, and regulatory exposure) and its duration was unknowable. In the framework's terms this is a high-$\sigma$
 configuration, which raises $\Omega$ and delivers the same null as a low-$\rho$ one; we do not
 claim the realised persistence was low.
 
-The state fund's pipeline
-is inconsistent with the institutional gate for the \emph{shock-specific} null, but there is one place in
+The state fund's pipeline does not support the institutional gate as binding for the \emph{shock-specific} null, but there is one place in
 the case where a single gate varies while the others hold, and it points to institutions: the
 durable adjacent opportunities of Section~\ref{sec:where}, for which the irreversibility gate
 is plausibly open (warehousing and transport support, with a domestic value-added multiplier
@@ -1197,7 +1134,7 @@ order the candidates, not to rate them (Figure~\ref{fig:priority}).
 
 Two groups stand out. The \textbf{logistics platform} (warehousing and transport support, and
 wholesale-trade infrastructure) has among the highest domestic value-added multipliers in the
-economy (0.82) and is the corridor's binding constraint, given the high and unpredictable
+economy (0.82) and is plausibly a constraint on the corridor, given the high and unpredictable
 overland logistics costs a landlocked transit economy faces \citep{arvis2010landlocked};
 investment here creates
 domestic value and holds it whether or not the Russia flow persists. \textbf{Import substitution} in
@@ -1218,8 +1155,7 @@ import value. n/a: not applicable (platform sectors are not import-competing) or
 computed. Surge-basket HS6 are netted out of the electronics and machinery chapters. The
 substitution rows are the four top-ranked candidates on a combined score (value-added
 multiplier, import-substitution gap, import growth, deal base) out of $N = 13$ ranked
-tradeable sectors; two platform and two ``Avoid'' rows are shown alongside, so 8 of the 13
-appear here and the full ranking is in the replication output.}
+tradeable sectors; two platform and two ``Avoid'' rows are shown alongside, so 8 of the 13 appear here and the full ranking is in the replication output. Output for the wholesale and retail row is the whole trade sector. Differences of 0.01--0.03 in the multiplier across rows are within the noise of the ICIO block, so the score only orders candidates.}
 \label{tab:priority}
 \small
 \begin{tabular}{@{}p{1.5cm}p{5.4cm}rrrr@{}}
@@ -1229,7 +1165,7 @@ appear here and the full ranking is in the replication output.}
 \midrule
 \multirow{2}{1.5cm}{Platform}
  & Warehousing \& transport support & 0.82 & 6{,}800 & n/a & n/a \\
- & Wholesale \& retail trade infrastr. & 0.82 & 81{,}000 & n/a & n/a \\[2pt]
+ & Wholesale \& retail trade (whole sector) & 0.82 & 81{,}000 & n/a & n/a \\[2pt]
 \multirow{4}{1.5cm}{Substi\-tution}
  & Electrical equipment & 0.81 & 1{,}150 & 5.9 & 1.37 \\
  & Machinery \& equipment n.e.c. & 0.80 & 1{,}160 & 8.1 & 1.25 \\
@@ -1245,8 +1181,7 @@ appear here and the full ranking is in the replication output.}
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{sector_priority_fig.png}
-\caption{Where investment buys the most domestic value added: domestic value-added multiplier
-against import-substitution headroom (imports 2023 / domestic output, log scale), bubble size
+\caption{Domestic value added per dollar of output (the multiplier) against import-substitution headroom (imports 2023 / domestic output, log scale), bubble size
 = domestic output. The surge-basket products (computer/electronic/optical) sit at the bottom.}
 \label{fig:priority}
 \end{figure}
@@ -1260,14 +1195,10 @@ about capital-market institutions, taken up in a companion paper.
 \section{Policy implications}\label{sec:policy}
 
 The framework of Section~\ref{sec:framework} is also a menu of levers. A demand shock of this
-kind industrialises a transit economy only if at least one of three things holds: the
-market-access gate is closed to a pure re-export, the irreversibility gate is opened, or the
-institutional gate is opened. Each is taken in turn below for Kazakhstan, followed by what its
-position on the China--Europe land route adds and what its principal supplier could do. The
-discussion is normative and forward-looking, separate from the paper's positive results, and
-rests on the framework, not on new estimation.
+kind industrialises a transit economy only if at least one of three things holds: the market-access gate is closed to a pure onward shipment, the irreversibility gate is opened, or the
+institutional gate is opened. What the evidence supports is narrow: a flow that moves through a customs union captures little domestic value, and the reorientation did not by itself build industrial capacity. Everything below is conjecture that follows from the framework, not a finding, and it rests on one country and one shock. Each lever is taken in turn for Kazakhstan, followed by a short note on the corridor position.
 
-\subsection{Kazakhstan: raising the investment response}
+\subsection{Conjectured levers for Kazakhstan}
 
 \emph{Market access.} The customs union makes trade a near-perfect substitute for production,
 which is close to sufficient for a null only jointly with a small transformation margin, not
@@ -1308,30 +1239,20 @@ corporation from lead direct investor to anchor limited partner and co-investor 
 independent managers, with larger syndicated tickets and a credible public-market exit route:
 a public listing draws under a tenth of surveyed exit preferences today, against the trade
 sales, buybacks and secondary sales that together dominate \citep{qicaifcifc2026pe}, and
-building the domestic private-equity exit market alongside it means widening that route.
+building the domestic private-equity exit market alongside it means widening that route. The report is co-published by institutions with an interest in the outcome, so it is not an independent source for these preferences.
 
 Across all three levers the first call on investment is the logistics platform itself
 (warehousing, transport support and Trans-Caspian capacity): as Section~\ref{sec:where} shows,
 it carries the highest domestic value-added multiplier of the candidate sectors and creates
 value that holds whether or not any particular flow persists.
 
-\subsection{Corridor leverage in the current geography}
+\subsection{Corridor position}
 
-Kazakhstan's bargaining position on these questions is stronger than the value-capture numbers
-alone suggest. The closure of the northern land corridor and the 2023--2025 disruption of the
+Kazakhstan's bargaining position on these questions may be stronger than the value-capture numbers alone suggest. The closure of the northern land corridor and the 2023--2025 disruption of the
 main maritime routes, described in Section~\ref{sec:setting}, leave the shortest China--Europe
 land path that avoids both Russia and the maritime chokepoints running through Kazakhstan and
-across the Caspian. Kazakhstan is close to an unavoidable node on that route, a structural
-bargaining chip with China, which wants route diversification and resilience, and with the
+across the Caspian. Kazakhstan is close to a necessary node on that route, which could serve as a bargaining chip with China, which wants route diversification and resilience, and with the
 European Union, which wants a land option that does not run through Russia.
-
-The long-run strategy, in the framework's terms, is to use corridor access, capacity and
-reliability guarantees as the lever the customs union otherwise removes: to bundle throughput
-and priority-handling commitments with requirements or incentives for co-located processing,
-local content, joint-venture assembly, and standards and technology transfer, converting
-transit rent into value-added capacity rather than collecting fees for pure pass-through. It
-is the same recommendation as the market-access lever above, reached from the geography rather
-than from the customs-union rule.
 
 The value here is in the option, not the transit fee. The Trans-Caspian route
 carried on the order of $2$--$3$ million tonnes in 2023--2024 and is targeted at roughly
@@ -1345,35 +1266,14 @@ The leverage is bounded. Transit demand is contestable: a southern route through
 T\"urkiye and competing Caspian nodes in Azerbaijan and Georgia would capture part of any
 rent. Caspian ferry and port throughput and the rail break-of-gauge cap how much traffic the
 route can actually take. It also lasts only as long as the chokepoint disruptions persist and
-China's route diversification remains incomplete.
-
-\subsection{China: lowering barriers to greater Kazakh value capture}
-
-Because China supplies about two-thirds of the inbound flow, some of the levers sit on the
-Chinese side. These are hypotheses the paper cannot test, offered as directions rather than
-findings. Value-added-tax rebate and export-processing rules, major instruments of Chinese
-industrial policy whose rates vary sharply by product and demonstrably shift export
-composition \citep{gourdon2022vat}, currently favour finished-goods export over component
-export plus assembly in Kazakhstan, tilting firms toward shipping the completed article rather
-than locating a stage of production on the route. Approval friction
-for mid-sized outward-investment joint ventures in Central Asia raises the fixed cost of the
-kind of plant that would add domestic value. Mutual recognition of standards and certification
-would let a Kazakhstan-assembled good qualify for both the Chinese and the Eurasian market
-without a second conformity process. Coordination of bonded-processing zones under the
-Trans-Caspian and Belt-and-Road frameworks would give co-located assembly the same customs
-treatment as pure transit.
-
-None of these levers substitutes for the others: the market-access and corridor-leverage
-levers are the most powerful and the hardest to pull, and the institutional lever is a
-precondition for private capital to act once those two have been pulled.
+China's route diversification remains incomplete. Some levers would also sit on the supplier side, but the Chinese component of the inbound flow pre-dates the reorientation, so we do not develop them here.
 
 \section{Discussion}\label{sec:discussion}
 
 Kazakhstan's trade with Russia and with the West in these products moved by an order of
 magnitude after 2022. The domestic economic content of that movement is small: value added
 about a tenth of the manufacturing equivalent, customs duty under one per cent of revenue, a
-fraction of one per cent of GDP, and no detectable investment response. The country is
-functioning as a corridor, not a site of production.
+fraction of one per cent of GDP, and no detectable change in deal-making. For this flow the country is functioning as a corridor, not a site of production.
 
 The result bears on a general question: when does a trade shock industrialise a country, and
 when does it merely pass through? Production is a more plausible response the more that the
@@ -1381,18 +1281,12 @@ demand cannot be met by trade alone (a closed market-access gate), the more that
 durable and certain enough, and the technology cheap enough to sink, that building beats
 waiting (an open irreversibility gate), and the more that the capital market can fund the
 projects that pass (an open institutional gate); we treat these as three considerations that
-raise the odds of a supply response, not as conditions we derive to be jointly necessary. The
-Kazakhstan case pins down the first
-condition and half of the third: the customs union makes trade a close substitute
-for production, so the shock is absorbed into the trade channel, and the state investment
-corporation, which does not face the capital-market constraint, did not build either, which
-is inconsistent with the institutional gate as the binding constraint for this null (though its mandate
-and its cross-border-compliance exposure cloud the comparison). Whether the irreversibility
-gate \emph{independently} binds the case cannot say: because the re-export flow in fact
+raise the odds of a supply response, not as conditions we derive to be jointly necessary. In Kazakhstan the customs union makes trade a close substitute for production, so the shock is absorbed into the trade channel; and the state investment corporation, which does not face the capital-market constraint, did not build either, so the case does not support the institutional gate as the binding constraint for this null (its mandate and regulatory exposure differ from a private investor's, which clouds the comparison). Whether the irreversibility
+gate \emph{independently} binds, the case cannot say: because the onward flow in fact
 persisted through 2025, the null cannot be read as a response to an observed transitory shock;
 what a 2022 entrant faced was uncertainty about the shock's duration, and the
 durable-versus-uncertain comparison moves more than one gate at a time. The
-institutional gate explains the missed alternative: the adjacent durable opportunities the
+institutional gate is the more natural reading of the missed alternative: the adjacent durable opportunities the
 shock reveals, in logistics and machinery, are left to slow, directed
 state capital and go unfunded by private capital even though their irreversibility gate is
 open. Armenia and T\"urkiye show the same 2022 surge (the Kyrgyz Republic and Georgia are
@@ -1410,31 +1304,11 @@ this: the goods pass through without a domestic firm ever entering the supply ch
 is no linkage to learn from. That is where the long-run cost of being a corridor sits, and it
 is not captured by the value-added arithmetic.
 
-\paragraph{A contemporaneous manufacturing expansion, and why it is not a counterexample.}
-Over the same window Kazakhstan's aggregate manufacturing sector did grow: for January--July
-2026 it accounted for about 47\% of industrial output against 46\% for mining (the second
-year manufacturing has run ahead), with manufacturing up about 9\% year on year while mining
-fell about 4\% and crude-oil output about 9\% \citep{qazstat2026industry}. Read against this
-paper, the expansion is consistent with the framework. Part of the crossover is the denominator: mining
-and oil contracted, so a rising manufacturing \emph{share} overstates the real divergence. The
-growth is concentrated in passenger vehicles and assembly (machinery output up about 22\%, on
-full-cycle plants with roughly 190{,}000 units of announced capacity) and in domestic-demand
-import substitution (fabricated metals, chemicals, pharmaceuticals), and not in the re-export
-lines of this study, where no capacity was added. The mechanism, too, is the one the
-framework names: minimum local-content shares written into subsoil-user contracts, a shift to
-mandatory procurement from domestic producers by large firms and state agencies, off-take
-contracts underwriting demand, and directed state and development finance behind new plants
-\citep{kzgov2026domprod,eaeu2014treaty}. That is a deliberately \emph{closed} market-access
-gate plus directed institutions, exactly the configuration under which the framework predicts a
-supply response. Where Kazakhstan required domestic content or supplied the demand itself,
-investment followed; where the good could move onward untransformed inside the customs union,
-it did not.
+\paragraph{A contemporaneous manufacturing expansion.} Official industrial statistics for January--July 2026 show aggregate manufacturing growing faster than mining \citep{qazstat2026industry}. We do not read this as evidence of a supply response to the reorientation. The growth is concentrated in vehicle assembly and in domestic-demand import substitution, not in the lines studied here, and vehicle kit assembly is a low-multiplier use of capital (the ``Avoid'' rows of Table~\ref{tab:priority}). We note it as the configuration in which the framework would expect capacity (domestic-content rules, procurement and directed finance), without testing it.
 
 \paragraph{Limitations.} Four limitations are central. First, the case observes a single
 configuration, in which the three gates are not separately identified. It can still identify
-the market-access gate as open and find evidence inconsistent with the capital-market
-institutional gate as the
-binding constraint for the shock-specific null; what it cannot establish is that
+the market-access gate as open and find that the evidence does not support the capital-market institutional gate as the binding constraint for the shock-specific null; what it cannot establish is that
 irreversibility independently binds. The durable-versus-uncertain shock comparison and the
 state-fund pipeline are suggestive corroboration, not clean experiments, and the cross-country
 panel that would separate the irreversibility and institutional gates requires
@@ -1444,8 +1318,7 @@ trade margin we choose rather than estimate (Section~\ref{sec:capture}); the
 ``corridor, not factory'' reading (a rerouted dollar worth about a tenth of a produced one)
 holds for a margin up to about an eighth, weakening to ``about a fifth'' at a margin near a
 fifth. Third, the investment null is
-\emph{over}-determined, since the January 2022 unrest, the cross-border compliance exposure
-noted in Section~\ref{sec:setting}, and the nationalisation wave would each depress entry, so
+\emph{over}-determined, since the January 2022 unrest, the cross-border regulatory exposure noted in Section~\ref{sec:setting}, and the nationalisation wave would each depress entry, so
 we bound its magnitude (Section~\ref{sec:investment}) rather than attribute it to the trade
 shock alone. Fourth, the deal databases capture \emph{transacted} investment (M\&A and private
 financing rounds) and under-cover pure greenfield capacity that is built without an external
@@ -1514,8 +1387,9 @@ Date range as above.
 De-duplication is on target name, announced date ($\pm$30 days) and deal type. Sector
 classification is harmonised to ISIC rev.~4 divisions from each database's native taxonomy via
 a documented crosswalk. The three extracts, the crosswalk, and the reconciliation script are
-in the replication package, which pins each source's extraction date and its earliest year of
-reasonably complete Kazakhstan coverage.
+in the replication package, which pins each source's extraction date and its earliest year of reasonably complete Kazakhstan coverage.
+
+\paragraph{Sample construction.} De-duplication yields 493 records, attributed to the source that retains each record: 261 Capital~IQ, 199 PitchBook and 33 Preqin. Records are grouped into seven analysis buckets: manufacturing of tradeables (47), transport and logistics (19), trade and distribution (16), extractive (84), finance (78), digital (111) and other (138). The rate test of Section~\ref{sec:investment} uses the first three buckets (82 records: 53 in 2015--2021 and 29 in 2022--2025; 57 from Capital~IQ, 20 from PitchBook, 5 from Preqin). Within those 82, 19 are flagged as greenfield or new-capacity transactions (13 before 2022 and 6 after); the remainder are ownership transfers, financing rounds and grants.
 
 \section{Product-set construction}\label{app:products}
 \emph{For online publication.}
@@ -1530,6 +1404,8 @@ computed after adding \$10{,}000 to numerator and denominator, and with post-per
 \$0.2m (inbound) and \$0.1m (outbound). Twenty-nine lines qualify; 24 are on the priority list
 and 5 are control lines that also surged. Of the 75 candidates, 55 clear the outbound doubling
 and 41 the inbound one; requiring both is the binding screen.
+
+\paragraph{Data gaps.} Three gaps bear on the trade data. Kazakhstan's monthly reports to Comtrade are missing from March to December 2024, which the annual data and partner-reported flows cover. China's 2024 figures are preliminary and its 2025 figures are not yet reported, so West + China comparisons that pair an increment with a baseline use 2022--2024 and the 2025 West + China total is Western-only (Table~\ref{tab:magnitudes}). Belarus stopped reporting to Comtrade in 2022 and is omitted from the neighbour comparison (Appendix~\ref{app:breaks}).
 
 \begin{table}[htbp]
 \centering
@@ -1553,8 +1429,7 @@ Control & 090111, 170490, 190590, 210390, 210690, 220300, 330300, 330499, 340111
 \end{tabular}
 
 \vspace{2pt}
-\footnotesize Priority list: EU/US/UK/JP List of Common High Priority Items, version of
-February 2024. Tier labels are the publisher's; we carry them unchanged.
+\footnotesize Priority list: the List of Common High Priority Items published by a group of trading partners (EU, US, UK, Japan), version of February 2024, used here only as an externally compiled product classification; no inference is drawn about any shipment. Tier labels are the publisher's; we carry them unchanged.
 \end{table}
 
 \section{Difference-in-differences robustness}\label{app:did}
@@ -1582,14 +1457,14 @@ Baseline (HS6 + year FE)                              & 2.44 & 0.96 & 0.013 \\
 \quad Holm-adjusted across 4 surge-basket outcomes     &      &      & 0.039 \\
 $+$ size-decile $\times$ year FE                       & 2.29 &      & 0.003 \\
 Drop 2022 entirely                                    & 2.71 & 1.05 & 0.012 \\
-Donut (drop 2022, treatment year $=$ 2023)             & 2.71 & 1.05 & 0.012 \\
+
 Poisson (PPML) in levels, $e^{\beta}$                  & 3.5$\times$ &      & 0.020 \\
 Priority list (50 HS6, externally compiled)             & 2.88 & 0.74 & $<0.001$ \\
 \quad of which, 26 lines, vs.\ purged civilian control ($N=368$) & 1.94 & 0.90 & 0.037 \\
 \quad\quad wild-cluster bootstrap $p$ (B $=$ 1999)      &      &      & 0.035 \\
 \quad\quad pre-trend joint Wald ($F$, 3 and 45 DoF)     & 0.75 &      & 0.528 \\
 2018 event-study coefficient (outside selection window) & 0.19 & 0.90 & 0.835 \\
-Placebo (largest civilian lines)                       & $-0.95$ & 0.25 & 0.001 \\
+Placebo (largest civilian lines; inbound West + China outcome) & $-0.95$ & 0.25 & 0.001 \\
 \midrule
 \multicolumn{4}{@{}l}{\emph{Leave-one-HS2-out jackknife}} \\
 Drop HS 39 (1 line)                                   & 2.51 & 0.98 & 0.013 \\
@@ -1659,12 +1534,14 @@ $m$ & 0.06 & 0.10 & 0.14 & 0.19 \\
 \midrule
 VA per rerouted \$ & 0.047 & 0.079 & 0.110 & 0.150 \\
 Ratio to a produced \$ & 0.062 & 0.103 & 0.144 & 0.196 \\
+Ratio to an assembled \$ (multiplier 0.69) & 0.068 & 0.114 & 0.159 & 0.217 \\
 Retained, \$m (of \$479m) & 23 & 38 & 53 & 72 \\
 \midrule
 $m$ & 0.25 & 0.32 & 0.34 & 0.49 \\
 \midrule
 VA per rerouted \$ & 0.197 & 0.252 & 0.268 & 0.386 \\
 Ratio to a produced \$ & 0.258 & 0.330 & 0.350 & 0.505 \\
+Ratio to an assembled \$ (multiplier 0.69) & 0.286 & 0.365 & 0.388 & 0.559 \\
 Retained, \$m (of \$479m) & 94 & 121 & 128 & 185 \\
 \bottomrule
 \end{tabular}
@@ -1674,7 +1551,7 @@ Retained, \$m (of \$479m) & 94 & 121 & 128 & 185 \\
 $0.06$--$0.14$; censored matched-cell gross margin $0.34$; full trade-and-transport margin
 $0.49$. The ``corridor, not factory'' reading (a rerouted dollar $\approx$ a tenth of a
 produced one) holds for $m$ up to about $0.12$; it weakens to ``about a fifth'' at $m\approx
-0.19$, ``about a third'' at $m\approx 0.32$, and about a half at $m\approx 0.49$.
+0.19$, ``about a third'' at $m\approx 0.32$, and about a half at $m\approx 0.49$. The assembled-dollar row replaces the manufacturing multiplier with the 0.69 multiplier of motor-vehicle kit assembly and electronics (Table~\ref{tab:priority}), the comparator for localising the same goods.
 \end{table}
 
 We do not fully reconcile the censored matched-cell gross margin ($0.34$) with the $6$--$14\%$
@@ -1760,8 +1637,7 @@ unchanged.
 \emph{For online publication.}
 
 \medskip
-Two public-record searches are referenced in Sections~\ref{sec:investment}
-and~\ref{sec:moderators} as lower-fidelity substitutes for a purchased greenfield-investment
+Two public-record searches are referenced in Sections~\ref{sec:why} and~\ref{sec:moderators} as lower-fidelity substitutes for a purchased greenfield-investment
 register (fDi Markets or Orbis Cross-Border Investment), which is unavailable to this project.
 Both used the same method: general web search and news aggregation for named capacity
 announcements (plant openings, assembly lines, production-capacity expansions) in the stated
@@ -1772,7 +1648,7 @@ in Section~\ref{sec:investment}, which drew on more extensive public reporting s
 that sector.
 
 \begin{itemize}
-\item \textbf{Kazakhstan components search} (Section~\ref{sec:investment}): window
+\item \textbf{Kazakhstan components search} (Section~\ref{sec:why}): window
 2022--2025; sectors electrical machinery, components, and instruments (the surge-basket
 adjacent categories); search conducted 2026-09 using general web search for named
 new-capacity announcements. Result: no named new-capacity project found; general reporting on
@@ -1805,9 +1681,7 @@ The trade analysis uses public data: UN Comtrade (HS6 annual and monthly), World
 Development Indicators, the OECD Inter-Country Input--Output tables (2023 edition), and the
 Kazakhstan Bureau of National Statistics symmetric input--output and resources tables. The
 deal-level data are licensed from Capital~IQ, PitchBook and Preqin and cannot be
-redistributed, but the full query specification (Appendix~\ref{app:deals}) and the native
-source deal identifiers are in the replication package, so the extract is reconstructible by a
-licence holder. State-fund investment aggregates are from the published QIC/AIFC/IFC report.
+redistributed, but the full query specification (Appendix~\ref{app:deals}) is in the replication package, so the extract is reconstructible by a licence holder; the native source deal identifiers are available to verified licence holders on request. State-fund investment aggregates are from the published QIC/AIFC/IFC report.
 Code and query specifications are deposited at Mendeley Data,
 \href{https://doi.org/10.17632/zk2csn8wf6.1}{doi:10.17632/zk2csn8wf6.1}.
 
@@ -1824,9 +1698,13 @@ curation, Writing -- original draft, Writing -- review \& editing, Visualization
 
 % abbrvnat: author-date natbib style, compile-safe everywhere, consistent with \citep/\citet.
 % Elsevier "Your Paper Your Way" accepts any consistent reference style at initial submission.
-% At revision, switch to the JIE/Elsevier style: \bibliographystyle{model5-names} with the
+% At acceptance, switch to the Elsevier style: \bibliographystyle{model5-names} with the
 % elsarticle package (or elsarticle-harv), which are not in this local TeX bundle.
 \bibliographystyle{abbrvnat}
 \bibliography{corridor}
 
 \end{document}
+
+\paragraph{Ex ante prediction for this flow.} Applied to Kazakhstan before 2022, the framework gives a definite prediction. The shock was uncertain in size and duration and partly contingent on the trade rules of partner jurisdictions (high $\sigma$), so $\Omega$ is large. The market-access gate was open: the destination is a customs-union partner, so serving it requires no domestic transformation and $V_T$ is large. And because the destination is itself a union member with an established production base, the natural site for any new capacity serving that market is the destination, not the transit economy. The framework therefore predicts a response in trade and little capacity built in Kazakhstan, which is what Sections~\ref{sec:shock} to~\ref{sec:investment} find.
+
+\paragraph{Regulatory exposure.} One further consideration is not a gate of the framework but a cost wedge on entry. Firms and investors dealing in technology-intensive products face the trade-compliance rules of the jurisdictions their goods or capital touch, which raises the cost of both margins and weighs most on foreign partners who might otherwise bring capital or know-how. We do not model this wedge, and we take no position on the nature or legality of any particular shipment: the analysis is of aggregates by product line, not of firms or transactions. We treat the wedge as one reason the investment null is over-determined (Section~\ref{sec:setting}).
